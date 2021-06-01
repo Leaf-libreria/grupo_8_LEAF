@@ -29,7 +29,7 @@
 
 # LEAF Librería
 
-![LEAF_Grupo_8](./design/LEAF-TRANSPARENTE-LOGO(1).png)
+![LEAF_Grupo_8](./design/LEAF-TRANSPARENTE-LOGO.jpg)
 
 ## ***¿Quiénes somos?:***
 
