@@ -1,12 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="shortcut icon" href="/images/leafPestania.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+    <title>Libreria LEAF</title>
 </head>
-<body>
-    Home
+
+<body class="index">
+    <!-- encabezado -->
+    <header>
+        <!-- seccion superior del header -->
+        <nav class="header1">
+            <!-- redes sociales -->
+            <ul class="redes">
+                <li>Seguinos</li>
+                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+            <!-- mi cuenta -->
+            <div class="login">
+                <i class="fas fa-user"></i>
+                <p>Mi cuenta</p>
+                <form>
+                    <select>
+                        <option selected></option>
+                        <option value="1"><a href="">Ingresar</a></option>
+                        <option value="2"><a href="">Registrate</a></option>
+                    </select>
+                </form>
+            </div>
+        </nav>
+        <!-- seccion inferior del header -->
+        <nav class="header2">
+            <img src="/images/logo-leaf.png" alt="logo de Leaf">
+            <!-- categorias -->
+            <ul class="categorias">
+                <li><a href="">Libros</a></li>
+                <li><a href="">Ebooks</a></li>
+                <li>
+                    <form>
+                        <select>
+                            <option selected>Géneros</option>
+                            <option value="1"><a href="">Romance</a></option>
+                            <option value="2"><a href="">Misterio</a></option>
+                            <option value="2"><a href="">Terror</a></option>
+                        </select>
+                    </form>
+                </li>
+            </ul>
+            <!-- buscador -->
+            <div class="buscador">
+                <form>
+                    <select>
+                        <option selected>Libros</option>
+                        <option value="2"><a href="">Ebooks</a></option>
+                    </select>
+                    <input type="text" placeholder="Buscar..."><i class="fas fa-search"></i>
+                </form>
+            </div>
+            <!-- carrito -->
+            <button class="carrito"><a href=""><i class="fas fa-shopping-cart"></i></a>
+                <p>0</p>
+            </button>
+        </nav>
+    </header>
+
+    <!-- pie de pagina -->
+    <footer>
+        <img src="/images/logo-leaf.png" alt="">
+        <!-- footer seccion arriba -->
+        <div class="footer-arriba">
+            <!-- redes sociales -->
+            <ul class="redes">
+                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+            <p>Seguinos y enterate de todas las novedades</p>
+        </div>
+        <!-- footer seccion media -->
+        <div class="footer-medio">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Categorias</a></li>
+                <li><a href="">Libros</a></li>
+                <li><a href="">Ebooks</a></li>
+                <li><a href="">Como comprar</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Preguntas frecuentes</a></li>
+                <li><a href="">Quienes somos</a></li>
+                <li><a href="">Trabaja con nosotros</a></li>
+                <li><a href="">Locales</a></li>
+                <li><a href="">Politicas</a></li>
+            </ul>
+        </div>
+        <!-- footer seccion baja -->
+        <div class="footer-abajo">
+            <!-- medios de pago -->
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <!-- imagen de libreria -->
+            <img src="/images/footer-img.jpg" alt="">
+            <!-- email -->
+            <a href="mailto:ventas@leaf.com"> <i class="far fa-envelope"></i>ventas@leaf.com
+            </a>
+        </div>
+        <!-- terminos y condiciones -->
+        <div class="terminos">
+            <p>Aviso de privacidad|Terminos y condiciones</p>
+            <p>Los precios publicados en esta tienda están sujetos a cambios sin previo aviso y solo son aplicables para
+                ventas en línea.</p>
+            <p>Algunos títulos están sujetos a disponibilidad.</p>
+        </div>
+    </footer>
 </body>
+
 </html>
