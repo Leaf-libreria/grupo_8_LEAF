@@ -12,37 +12,61 @@
     <header></header>
     <main>
         <!-- productos agregados -->
-        <article>
-            <img src="/sprint2/public/" alt="">
-            <h3>Sombra del viento</h3>
-            <!-- cantidad -->
-            <div class="cantidad">
-                <p>0</p>
-            </div>
-            <!-- precio -->
-            <div class="precio">
-                <i class="fas fa-dollar-sign"></i>
-                <p class="precio">1800</p>
-            </div>
-            <!-- cancelar -->
-            <i class="fas fa-times"></i>
-        </article>
+        <section>
+            <article>
+                <img src="/sprint2/public/" alt="">
+                <h3>Sombra del viento</h3>
+                <!-- cantidad -->
+                <div class="cantidad">
+                    <p>0</p>
+                </div>
+                <!-- precio -->
+                <div class="precio">
+                    <i class="fas fa-dollar-sign"></i>
+                    <p class="precio">1800</p>
+                </div>
+                <!-- cancelar -->
+                <i class="fas fa-times"></i>
+            </article>
 
-        <article>
-            <img src="" alt="">
-            <h3>titulo</h3>
-            <!-- cantidad -->
-            <div class="cantidad">
-                <p>0</p>
+            <article>
+                <img src="" alt="">
+                <h3>titulo</h3>
+                <!-- cantidad -->
+                <div class="cantidad">
+                    <p>0</p>
+                </div>
+                <!-- precio -->
+                <div class="precio">
+                    <i class="fas fa-dollar-sign"></i>
+                    <p class="precio">1800</p>
+                </div>
+                <!-- cancelar -->
+                <i class="fas fa-times"></i>
+            </article>
+        </section>
+        <!-- subtotal -->
+        <section class="subtotal">
+            <h4>Subtotal</h4>
+            <i class="fas fa-dollar-sign"></i>
+            <p class="precio"></p>
+        </section>
+        <!-- medios de envio -->
+        <section>
+            <p>Medios de envio</p>
+            <div class="tipos-envios">
+                <input type="checkbox"><label for="">A domicilio</label>
+                <input type="checkbox"><label for="">Retirar en correo</label>
+                <input type="checkbox"><label for="">Retirar en sucursal</label>
             </div>
-            <!-- precio -->
-            <div class="precio">
-                <i class="fas fa-dollar-sign"></i>
-                <p class="precio">1800</p>
-            </div>
-            <!-- cancelar -->
-            <i class="fas fa-times"></i>
-        </article>
+            <form action="">
+            <input type="text" placeholder="Codigo postal" required><button type="submit">Calcular</button>
+            <p>Nuestro local - Cerca tuyo</p>
+        </form>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.0545801345875!2d-57.955298185041876!3d-34.90507978101214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64ed54de7d5%3A0xc3856874a0847fc5!2sLibrer%C3%ADa%20Nacional!5e0!3m2!1sen!2sar!4v1624386836220!5m2!1sen!2sar"
+                width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
     </main>
     <footer></footer>
 </body>
