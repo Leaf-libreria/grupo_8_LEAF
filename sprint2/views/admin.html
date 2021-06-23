@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga de Producto | LEAF</title>
+
+    <link href="https://cdnjs.cloudﬂare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="/images/leafPestania.ico" /> <!--para el icono de pestaña-->
+
+</head>
+<body class="admin">
+    <header></header>
+    <main>
+        <h1>Carga o edición de productos</h1>
+        <section class="formulario"> 
+            <!--FORMULARIO--> 
+        <form action="" method="">
+            <div class="titulo">
+            <label form="título del libro">Título del libro<i class="fas fa-asterisk"></i></label> <!--título del campo con asterisco-->
+            <input name="título del libro" type="text" placeholder="Escriba el nombre aquí"><!--campo a completar--> 
+        </div>
+            <div class="id">
+            <label form="ID">ID del producto<i class="fas fa-asterisk"></i></label>
+            <input type="number" placeholder="Ingrese números"><!--type=único valor que recibe el campo-->
+        </div>
+        <div class="isbn">
+            <label form="isbn">ISBN<i class="fas fa-asterisk"></i></label>
+            <input type="number" placeholder="10 ó 13 Dígitos">
+            <button><i class="fas fa-question-circle"></i></button> <!--botón de ayuda-->
+        </div>
+<div class="stock">
+    <label form="stock">Stock<i class="fas fa-asterisk"></i></label>
+    <input type="number" placeholder="Ingrese números">
+</div>
+<div class="formato">
+    <label form="formato">Formato<i class="fas fa-asterisk"></i></label>
+    <select><!--pestaña desplegable-->
+        <option value="1">Libro</option>
+        <option value="2">Ebook</option>
+    </select>
+</div>
+<div class="Autor">
+<label form="autor">Autor/Autora<i class="fas fa-asterisk"></i></label>
+<select>
+    <option value="1">Kerri Mariscalco</option>
+    <option value="2">Ariana Godoy</option>
+    <option value="3">Adam Silvera</option>
+    <option value="4">John Grisham</option>
+    <option value="5">Jonh Katzenbach</option>
+    <option value="6">H. G. Wells</option>
+    <option value="7">Markus Zusak</option>
+    <option value="8">Florencia Bonelli</option>
+    <option value="9">Carlos Ruiz Zafón</option>
+    <option value="10">Jojo Moyes</option>
+    <option value="11">Otro<input type="text" placeholder="Nombre y apellido del autor"></option>
+</select>
+</div>
+<div class="editorial">
+    <label form="editorial">Editorial<i class="fas fa-asterisk"></i></label>
+<select>
+    <option value="1">Wattpad</option>
+    <option value="2">Suma</option>
+    <option value="3">DeBolsillo</option>
+    <option value="4">Booket</option>
+    <option value="5">Ediciones B</option>
+    <option value="6">Otro<input type="text" placeholder="Escriba aquí"></option>
+</select> 
+</div>
+<div class="genero">
+    <label form="genero">Género<i class="fas fa-asterisk"></i></label>
+   <select>
+    <option value="1">Romance</option>
+    <option value="2">Terror</option>
+    <option value="3">Misterio</option>
+    <option value="4">Otro<input type="text" placeholder="Escriba aquí"></option>
+</select>
+</div>
+<div class="precio">
+    <label form="precio">Precio $<i class="fas fa-asterisk"></i></label>
+    <input type="number" placeholder="Sólo números sin simbolos">
+</div>
+<div class="paginas">
+    <label form="paginas">Páginas<i class="fas fa-asterisk"></i></label>
+    <input type="number" placeholder="Ingrese números">
+</div>
+<div class="imagen">
+    <label form="imagen">Imagen de portada<i class="fas fa-asterisk"></i></label>
+    <input type="url" placeholder="Ingrese link de portada">
+    <button><i class="fas fa-question-circle"></i></button><!--botón de ayuda-->
+</div>
+<div class="sinopsis">
+    <label form="sinopsis">Sinopsis<i class="fas fa-asterisk"></i></label>
+    <input type="text" placeholder="Sinopsis del libro">
+</div>
+<div class="obligatorio"><i class="fas fa-asterisk"></i>
+<p>Todos los campos son obligatorios</p></div>
+        </section>  
+            <div class="botones">
+            <button>Cancelar</button>
+            <button>Guardar</button>
+        </div>
+            </form>
+    </div>          
+    </main>
+    
+</body>
+</html>
