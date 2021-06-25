@@ -1,0 +1,23 @@
+.btn-secondary{
+    color:var(--color-bordo);
+    background-color:transparent;
+    border:none;
+}
+.btn-check:focus+.btn-secondary, .btn-secondary:focus {
+    color:var(--color-bordo) ;
+    background-color: transparent;
+    border-color: none;
+    box-shadow: 0 0 0 0.15rem var(--color-bordo);
+}
+.btn-secondary:hover {
+    color:var(--color-bordo);
+    background-color:transparent;
+    border:none;
+}
+
+.btn{
+    padding: 0;
+}
+.dropdown-toggle::after{
+    margin: 0;
+}

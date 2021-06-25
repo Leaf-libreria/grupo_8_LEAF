@@ -7,12 +7,12 @@ header{
     color: var(--color-bordo);
 }
 
-header .header1 .redes{
+header .header1 {
     display: none;
 }
-header .header1 .login p, header .header1 .login form{
+/* header .header1 .login p, header .header1 .login form{
     display:none;
-}
+} */
 /*seccion inferior del header*/
 
 header .header2 img{
@@ -27,14 +27,6 @@ header .header2 .buscador select, header .header2 .buscador input, header .heade
     display: none;
 }
 
-header .header1{
-    display: flex;
-}
-
-header .header1 .login{
-   display: inline-block; 
-}/*para mover login*/
-
 header .header2 .categorias li, form{
     display: inline-block;
 }
@@ -44,7 +36,7 @@ header .header2{
    justify-content: flex-end;
 }
 
-index .header2 .contenedorLogo{
+header .header2 .contenedorLogo{
     justify-content: flex-start;
 }
 
