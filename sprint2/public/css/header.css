@@ -2,7 +2,8 @@
 
 /*seccion superior del header*/
 header{
-    /*display: flex;*/
+    width: 100%;
+    display: flex;
     background-color: var(--color-amarillo);
     color: var(--color-bordo);
 }
@@ -10,12 +11,15 @@ header{
 header .header1 {
     display: none;
 }
-/* header .header1 .login p, header .header1 .login form{
-    display:none;
-} */
+
 /*seccion inferior del header*/
 
-header .header2 img{
+header .header2{
+    display:flex;
+   align-items: center;
+}
+
+header .header2 .contenedorLogo img{
     width: 25%;
 }
 
@@ -27,55 +31,76 @@ header .header2 .buscador select, header .header2 .buscador input, header .heade
     display: none;
 }
 
-header .header2 .categorias li, form{
+/*header .header2 .categorias li, form{
     display: inline-block;
-}
+}*/
 
 header .header2{
     display: flex;
    justify-content: flex-end;
+   
 }
 
 header .header2 .contenedorLogo{
     justify-content: flex-start;
+    margin-left:3.5%;
+}
+.header2 .buscador i, .header2 .carrito{
+    margin: 8px;
+    padding: 2px 4px;
+}
+.header2 .buscador i{
+    order: 0; 
 }
 
-.index .header2 .buscador i{
-    order: 0;
-}
-
-.index .header2 .carrito{
+.header2 .carrito{
     order: 1;
+    border: none;
+    background-color: transparent;
 }
 
-.index .header2 .burger-menu{
+.header2 .carrito i{
+    color: var(--color-bordo)
+}
+
+.header2 .burger-menu{
     order: 3;
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    border-radius: 8%;
+    margin: 8px;
+    padding: 0 4px;
 }
 
  /*-------RESPONSIVE-----   */
 
  /*Tablet*/
-@media (min-widht:361px){
+@media (min-width:361px){
 /*Seccion superior del header*/
+header{
+    display: block;
+}
 header .header1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--color-bordo);
     color: var(--color-amarillo);
-    display: flex;
 }
-
-header .header1 .redes li{
-    display: inline-block;
+header .header1 .redes{
+    display: flex;
 }
 
 header .header1 .redes a{
     color: var(--color-amarillo);
 }
 
-header .header1 .login i,p, form{
-    display: inline-block;
-}
+header .header1 .login button{
+    display:flex; 
+color: var(--color-amarillo);
+} 
 }
 
 /*Desktop*/
-@media (min-widht:769px){
+@media (min-width:769px){
 }
