@@ -1,0 +1,89 @@
+ /*Mobile*/
+
+/*seccion superior del header*/
+header{
+    /*display: flex;*/
+    background-color: var(--color-amarillo);
+    color: var(--color-bordo);
+}
+
+header .header1 .redes{
+    display: none;
+}
+header .header1 .login p, header .header1 .login form{
+    display:none;
+}
+/*seccion inferior del header*/
+
+header .header2 img{
+    width: 25%;
+}
+
+header .header2 .categorias{
+    display: none;
+}
+
+header .header2 .buscador select, header .header2 .buscador input, header .header2 .carrito p{
+    display: none;
+}
+
+header .header1{
+    display: flex;
+}
+
+header .header1 .login{
+   display: inline-block; 
+}/*para mover login*/
+
+header .header2 .categorias li, form{
+    display: inline-block;
+}
+
+header .header2{
+    display: flex;
+   justify-content: flex-end;
+}
+
+index .header2 .contenedorLogo{
+    justify-content: flex-start;
+}
+
+.index .header2 .buscador i{
+    order: 0;
+}
+
+.index .header2 .carrito{
+    order: 1;
+}
+
+.index .header2 .burger-menu{
+    order: 3;
+}
+
+ /*-------RESPONSIVE-----   */
+
+ /*Tablet*/
+@media (min-widht:361px){
+/*Seccion superior del header*/
+header .header1{
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    display: flex;
+}
+
+header .header1 .redes li{
+    display: inline-block;
+}
+
+header .header1 .redes a{
+    color: var(--color-amarillo);
+}
+
+header .header1 .login i,p, form{
+    display: inline-block;
+}
+}
+
+/*Desktop*/
+@media (min-widht:769px){
+}
