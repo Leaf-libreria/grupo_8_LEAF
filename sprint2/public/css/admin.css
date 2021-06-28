@@ -1,0 +1,80 @@
+/*HEADER*/
+
+/*MAIN*/
+.admin .administrador h1{
+    font-family: var(--letra-titulo);
+    font-size: 20px;
+    color: var(--color-bordo);
+    margin: 22px;
+}
+.admin .administrador form{
+   width: 100vh;
+margin: auto 16%;
+}
+
+.admin .administrador label{
+    color: var(--color-bordo);
+    font-weight: 600;
+    font-style: oblique;
+    font-size: 18px;
+    margin: 5px auto;
+    display: block;
+}
+admin .administrador select{
+    color: var(--color-bordo);
+}
+
+.admin .administrador .otroAutor, .admin .administrador .otraEditorial, .admin .administrador .otroGenero{
+    margin-top: 15px;
+}
+.admin .administrador .formato select option, .admin .administrador .autor select option, .admin .administrador .editorial select option, .admin .administrador .genero select option{
+    background-color: rgba(240, 219, 114, 0.692);
+    color: var(--color-bordo);  
+    font-family: var(--letra-titulo);
+}
+
+.admin .administrador input, .admin .administrador select, .admin .administrador textarea{
+    background-color: rgba(240, 219, 114, 0.692)
+}
+
+.admin .administrador .btn-info{
+    background-color: var(--color-bordo);
+    border: none;
+    font-size: 12px;
+    color: var(--color-amarillo);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.admin .administrador p{
+    color: red;
+    font-size: 14px;
+    margin-bottom: 2%;
+}
+
+.admin .administrador .botones .btn-cancelar, .btn-guardar{
+    font-family: var(--letra-titulo);
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+}
+
+.admin .administrador .botones .btn-cancelar{
+    background-color: var(--color-amarillo);
+    color: var(--color-bordo);
+    margin-right: 11px;
+}
+
+.admin .administrador .botones .btn-guardar{
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+}
+
+
+
+
+
+
+

@@ -10,41 +10,42 @@
 
     <link rel="shortcut icon" href="/images/leafPestania.ico" /> <!--para el icono de pestaña-->
 
+    <link rel="stylesheet" href="/css/styles.css">
+    
 </head>
 <body class="admin">
     <header></header>
-    <main>
+    <main class="administrador">
         <h1>Carga o edición de productos</h1>
-        <section class="formulario"> 
-            <!--FORMULARIO--> 
-        <form action="" method="">
-            <div class="titulo">
-            <label form="título del libro">Título del libro<i class="fas fa-asterisk"></i></label> <!--título del campo con asterisco-->
-            <input name="título del libro" type="text" placeholder="Escriba el nombre aquí"><!--campo a completar--> 
-        </div>
-            <div class="id">
-            <label form="ID">ID del producto<i class="fas fa-asterisk"></i></label>
-            <input type="number" placeholder="Ingrese números"><!--type=único valor que recibe el campo-->
-        </div>
-        <div class="isbn">
-            <label form="isbn">ISBN<i class="fas fa-asterisk"></i></label>
-            <input type="number" placeholder="10 ó 13 Dígitos">
-            <button><i class="fas fa-question-circle"></i></button> <!--botón de ayuda-->
-        </div>
-<div class="stock">
-    <label form="stock">Stock<i class="fas fa-asterisk"></i></label>
-    <input type="number" placeholder="Ingrese números">
-</div>
-<div class="formato">
-    <label form="formato">Formato<i class="fas fa-asterisk"></i></label>
-    <select><!--pestaña desplegable-->
-        <option value="1">Libro</option>
-        <option value="2">Ebook</option>
-    </select>
-</div>
-<div class="Autor">
-<label form="autor">Autor/Autora<i class="fas fa-asterisk"></i></label>
-<select>
+        <!--FORMULARIO-->
+  <form action="" method="POST" class="formulario">
+      <div class="titulo">
+          <label for="titulo">Título del libro:</label>
+          <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" required>
+      </div>
+      <div class="id">
+          <label for="id" >ID del producto:</label>
+          <input type="text" name="id" id="id" class="control" placeholder="Escriba aquí" required>
+      </div>
+      <div class="isbn">
+      <label for="isbn">ISBN:</label>
+      <input type="number" name="isbn" id="isbn" class="control" placeholder="10 ó 13 Dígitos" required>
+      <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button><!--botón de ayuda-->
+    </div>
+    <div class="stock">
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números" required>
+    </div>
+    <div class="formato">
+        <label for="formato">Formato:</label>
+        <select name="formato" id="formato">
+            <option value="libro">Libro</option>
+            <option value="ebook">Ebook</option>
+        </select>
+    </div>
+    <div class="autor">
+        <label for="autor">Autor/Autora:</label>
+        <select name="autor" id="autor">
     <option value="1">Kerri Mariscalco</option>
     <option value="2">Ariana Godoy</option>
     <option value="3">Adam Silvera</option>
@@ -55,55 +56,62 @@
     <option value="8">Florencia Bonelli</option>
     <option value="9">Carlos Ruiz Zafón</option>
     <option value="10">Jojo Moyes</option>
-    <option value="11">Otro<input type="text" placeholder="Nombre y apellido del autor"></option>
+    <option value="11">Otro</option>    
 </select>
-</div>
+    <div class="otroAutor">
+        <input type="text" name="autor" id="autor" placeholder="Otro. Nombre y apellido del autor" class="control"></div>
+    </div>
 <div class="editorial">
-    <label form="editorial">Editorial<i class="fas fa-asterisk"></i></label>
-<select>
-    <option value="1">Wattpad</option>
-    <option value="2">Suma</option>
-    <option value="3">DeBolsillo</option>
-    <option value="4">Booket</option>
-    <option value="5">Ediciones B</option>
-    <option value="6">Otro<input type="text" placeholder="Escriba aquí"></option>
-</select> 
+    <label for="editorial">Editorial:</label>
+    <select name="editorial" id="editorial">
+        <option value="1">Wattpad</option>
+        <option value="2">Suma</option>
+        <option value="3">DeBolsillo</option>
+        <option value="4">Booket</option>
+        <option value="5">Ediciones B</option>
+        <option value="6">Otro</option> 
+    </select>
+    <div class="otraEditorial"><input type="text" name="editorial" id="editorial" placeholder="Otro. Ej: Planeta" class="control"></div>
 </div>
 <div class="genero">
-    <label form="genero">Género<i class="fas fa-asterisk"></i></label>
-   <select>
-    <option value="1">Romance</option>
+    <label for="genero">Género</label>
+    <select name="genero" id="genero">
+        <option value="1">Romance</option>
     <option value="2">Terror</option>
     <option value="3">Misterio</option>
-    <option value="4">Otro<input type="text" placeholder="Escriba aquí"></option>
-</select>
+    <option value="4">Otro</option>
+    </select>
+    <div class="otroGenero">
+        <input type="text" name="genero id="genero placeholder="Otro. Ej: Fantasía" class="control" required>
+    </div>
 </div>
 <div class="precio">
-    <label form="precio">Precio $<i class="fas fa-asterisk"></i></label>
-    <input type="number" placeholder="Sólo números sin simbolos">
+    <label for="precio">Precio $:</label>
+    <input type="number" name="precio" id="precio" class="control" placeholder="Ingrese sólo números" required>
 </div>
 <div class="paginas">
-    <label form="paginas">Páginas<i class="fas fa-asterisk"></i></label>
-    <input type="number" placeholder="Ingrese números">
+    <label for="paginas">Páginas:</label>
+    <input type="number" name="paginas" id="paginas" class="control" placeholder="Sólo números" required>
 </div>
-<div class="imagen">
-    <label form="imagen">Imagen de portada<i class="fas fa-asterisk"></i></label>
-    <input type="url" placeholder="Ingrese link de portada">
-    <button><i class="fas fa-question-circle"></i></button><!--botón de ayuda-->
+<div class="portada">
+    <label for="portada">Imagen de portada:</label>
+    <input type="url" name="portada" id="portada" class="control" placeholder="Ingrese link de portada">
+    <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button><!--botón de ayuda-->
 </div>
 <div class="sinopsis">
-    <label form="sinopsis">Sinopsis<i class="fas fa-asterisk"></i></label>
-    <input type="text" placeholder="Sinopsis del libro">
+    <p>
+        <label for="sinopsis">Sinopsis:</label>
+    </p>
+    <textarea name="sinopsis" id="sinopsis" cols="30" rows="10" placeholder="Sinopsis del libro" required></textarea>
 </div>
-<div class="obligatorio"><i class="fas fa-asterisk"></i>
-<p>Todos los campos son obligatorios</p></div>
-        </section>  
-            <div class="botones">
-            <button>Cancelar</button>
-            <button>Guardar</button>
-        </div>
-            </form>
-    </div>          
+<p>*Todos los campos son obligatorios</p>
+<div class="botones">
+    <button type="reset" class="btn-cancelar">Cancelar</button>
+
+    <button type="submit" class="btn-guardar">Guardar</button>
+</div>
+  </form>
+  
     </main>
     
 </body>
