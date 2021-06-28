@@ -1,48 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Carrito de compras</title>
 </head>
 
-<body>
+<body class="productCart">
     <header></header>
     <main>
+        <h1>carrito</h1>
         <!-- productos agregados -->
-        <section>
-            <article>
-                <img src="/sprint2/public/" alt="">
-                <h3>Sombra del viento</h3>
-                <!-- cantidad -->
-                <div class="cantidad">
-                    <p>0</p>
+        <section class="productos">
+
+            <article class="productos-agregados">
+                <img src="/images/sombra-del-viento.jpg" alt="">
+                <div class="contenido">
+                    <h3>La sobra del viento</h3>
+                    <!-- cancelar -->
+                    <div class="eliminar">
+                        <i class="fas fa-times" size:5px></i>
+                    </div>
+                    <!-- cantidad -->
+                    <div class="cantidad">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>cant.</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <!-- precio -->
+                    <div class="precio">
+                        <i class="fas fa-dollar-sign"></i>
+                        <p class="precio">1300</p>
+                    </div>
                 </div>
-                <!-- precio -->
-                <div class="precio">
-                    <i class="fas fa-dollar-sign"></i>
-                    <p class="precio">1800</p>
-                </div>
-                <!-- cancelar -->
-                <i class="fas fa-times"></i>
             </article>
 
-            <article>
-                <img src="" alt="">
-                <h3>titulo</h3>
-                <!-- cantidad -->
-                <div class="cantidad">
-                    <p>0</p>
+            <article class="productos-agregados">
+                <img src="/images/la-tia-cosima.jpg" alt="">
+                <div class="contenido">
+                    <h3>La tia cosima</h3>
+                    <!-- cancelar -->
+                    <div class="eliminar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <!-- cantidad -->
+                    <div class="cantidad">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>cant</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option selected>4</option>
+                            <option value="1">5</option>
+                        </select>
+                    </div>
+                    <!-- precio -->
+                    <div class="precio">
+                        <i class="fas fa-dollar-sign"></i>
+                        <p class="precio">1800</p>
+                    </div>
                 </div>
-                <!-- precio -->
-                <div class="precio">
-                    <i class="fas fa-dollar-sign"></i>
-                    <p class="precio">1800</p>
-                </div>
-                <!-- cancelar -->
-                <i class="fas fa-times"></i>
             </article>
         </section>
         <!-- subtotal -->
@@ -59,13 +85,30 @@
                 <input type="checkbox"><label for="">Retirar en correo</label>
                 <input type="checkbox"><label for="">Retirar en sucursal</label>
             </div>
-            <form action="">
-            <input type="text" placeholder="Codigo postal" required><button type="submit">Calcular</button>
-            <p>Nuestro local - Cerca tuyo</p>
-        </form>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.0545801345875!2d-57.955298185041876!3d-34.90507978101214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64ed54de7d5%3A0xc3856874a0847fc5!2sLibrer%C3%ADa%20Nacional!5e0!3m2!1sen!2sar!4v1624386836220!5m2!1sen!2sar"
-                width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div>
+                <p>$500</p><button type="submit">Calcular</button>
+                <!-- ubicacion de sucursal -->
+                <div class="nuestra-sucursal">
+                    <p>Nuestro local - Cerca tuyo</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.0545801345875!2d-57.955298185041876!3d-34.90507978101214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64ed54de7d5%3A0xc3856874a0847fc5!2sLibrer%C3%ADa%20Nacional!5e0!3m2!1sen!2sar!4v1624386836220!5m2!1sen!2sar"
+                        width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <p>libreria Leaf, calle falsa 123, Buenos Aires</p>
+                    <p>Horario de atencion: Lunes a Viernes de 9 a 20 hs</p>
+                </div>
+        </section>
+        <table class="total">
+            <tr>
+                <td>TOTAL:</td>
+            </tr>
+            <tr>
+                <td>$3.500</td>
+                <td>pagalo hasta en 6 cuotas sin interes</td>
+            </tr>
+        </table>
+        <section class="realizar-compra">
+            <button>iniciar compra</button>
+            <a href="">ver mas productos</a>
         </section>
     </main>
     <footer></footer>
