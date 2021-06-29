@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carga de Producto | LEAF</title>
 
-    <link href="https://cdnjs.cloudﬂare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"rel="stylesheet"/>
+    <link href="https://cdnjs.cloudﬂare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="/images/leafPestania.ico" /> <!--para el icono de pestaña-->
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css"> <!--Estilos-->
     
 </head>
 <body class="admin">
@@ -27,24 +27,30 @@
           <label for="id" >ID del producto:</label>
           <input type="text" name="id" id="id" class="control" placeholder="Escriba aquí" required>
       </div>
-      <div class="isbn">
+    </section>
+    <section class="isbn">
       <label for="isbn">ISBN:</label>
+      <div class="isbn-btn">
       <input type="number" name="isbn" id="isbn" class="control" placeholder="10 ó 13 Dígitos" required>
-      <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button><!--botón de ayuda-->
+      <!--botón de ayuda-->
+      <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button> 
     </div>
+</section>
     <div class="stock">
         <label for="stock">Stock:</label>
         <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números" required>
     </div>
-    <div class="formato">
-        <label for="formato">Formato:</label>
-        <select name="formato" id="formato">
-            <option value="libro">Libro</option>
-            <option value="ebook">Ebook</option>
-        </select>
-    </div>
-    <div class="autor">
+   <section class="formato">
+       <label for="formato">Formato:</label>
+       <!--Desplegable-->
+       <select name="formato" id="formato">
+        <option value="libro">Libro</option>
+        <option value="ebook">Ebook</option>
+    </select>   
+   </section>
+   <section class="autor">
         <label for="autor">Autor/Autora:</label>
+        <!--Desplegable-->
         <select name="autor" id="autor">
     <option value="1">Kerri Mariscalco</option>
     <option value="2">Ariana Godoy</option>
@@ -59,10 +65,13 @@
     <option value="11">Otro</option>    
 </select>
     <div class="otroAutor">
-        <input type="text" name="autor" id="autor" placeholder="Otro. Nombre y apellido del autor" class="control"></div>
+        <!--campo para ingresar opción otro-->
+        <input type="text" name="autor" id="otroAutor" placeholder="Otro. Nombre y apellido del autor" class="control">
     </div>
-<div class="editorial">
+    </section>
+<section class="editorial">
     <label for="editorial">Editorial:</label>
+    <!--Desplegable-->
     <select name="editorial" id="editorial">
         <option value="1">Wattpad</option>
         <option value="2">Suma</option>
@@ -71,20 +80,25 @@
         <option value="5">Ediciones B</option>
         <option value="6">Otro</option> 
     </select>
-    <div class="otraEditorial"><input type="text" name="editorial" id="editorial" placeholder="Otro. Ej: Planeta" class="control"></div>
-</div>
-<div class="genero">
+    <div class="otraEditorial">
+        <!--campo para ingresar opción otro-->
+        <input type="text" name="editorial" id="OtraEditorial" placeholder="Otro. Ej: Planeta" class="control">
+    </div>
+</section>
+<section class="genero">
     <label for="genero">Género</label>
+    <!--Desplegable-->
     <select name="genero" id="genero">
         <option value="1">Romance</option>
-    <option value="2">Terror</option>
-    <option value="3">Misterio</option>
-    <option value="4">Otro</option>
+        <option value="2">Terror</option>
+        <option value="3">Misterio</option>
+        <option value="4">Otro</option>
     </select>
     <div class="otroGenero">
-        <input type="text" name="genero id="genero placeholder="Otro. Ej: Fantasía" class="control" required>
+        <!--campo para ingresar opción otro-->
+        <input type="text" name="genero" id="otroGenero" placeholder="Otro. Ej: Fantasía" class="control" required>
     </div>
-</div>
+</section>
 <div class="precio">
     <label for="precio">Precio $:</label>
     <input type="number" name="precio" id="precio" class="control" placeholder="Ingrese sólo números" required>
@@ -93,25 +107,27 @@
     <label for="paginas">Páginas:</label>
     <input type="number" name="paginas" id="paginas" class="control" placeholder="Sólo números" required>
 </div>
-<div class="portada">
+<section class="portada">
     <label for="portada">Imagen de portada:</label>
+    <div class="portada-btn">
     <input type="url" name="portada" id="portada" class="control" placeholder="Ingrese link de portada">
-    <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button><!--botón de ayuda-->
+    <!--botón de ayuda-->
+    <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button>
 </div>
+</section>
 <div class="sinopsis">
-    <p>
-        <label for="sinopsis">Sinopsis:</label>
-    </p>
-    <textarea name="sinopsis" id="sinopsis" cols="30" rows="10" placeholder="Sinopsis del libro" required></textarea>
+     <label for="sinopsis">Sinopsis:</label>
+     <textarea name="sinopsis" id="sinopsis" cols="30" rows="10" placeholder="Sinopsis del libro" required>
+    </textarea>
 </div>
 <p>*Todos los campos son obligatorios</p>
-<div class="botones">
+<!--BOTONES-->
+<section class="botones">
     <button type="reset" class="btn-cancelar">Cancelar</button>
 
     <button type="submit" class="btn-guardar">Guardar</button>
-</div>
-  </form>
-  
+</section>
+  </form>  
     </main>
     
 </body>

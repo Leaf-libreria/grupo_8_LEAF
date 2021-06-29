@@ -8,18 +8,43 @@
     margin: 22px;
 }
 .admin .administrador form{
-   width: 100vh;
-margin: auto 16%;
+    box-sizing: border-box;
+   width: 100%;
+   max-width: 600px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.admin .administrador label{
+.admin .administrador form input, .admin .administrador form textarea, .admin .administrador form select{
+    max-width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+  }
+
+.admin .administrador form label{
     color: var(--color-bordo);
     font-weight: 600;
     font-style: oblique;
     font-size: 18px;
     margin: 5px auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+      align-items: flex-start;
 }
+
+.admin .administrador form .portada-btn, .admin .administrador .isbn-btn{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;/*Corrijo el direction:column del form*/
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+}
+
 admin .administrador select{
     color: var(--color-bordo);
 }
@@ -27,6 +52,7 @@ admin .administrador select{
 .admin .administrador .otroAutor, .admin .administrador .otraEditorial, .admin .administrador .otroGenero{
     margin-top: 15px;
 }
+
 .admin .administrador .formato select option, .admin .administrador .autor select option, .admin .administrador .editorial select option, .admin .administrador .genero select option{
     background-color: rgba(240, 219, 114, 0.692);
     color: var(--color-bordo);  
@@ -64,17 +90,10 @@ admin .administrador select{
 .admin .administrador .botones .btn-cancelar{
     background-color: var(--color-amarillo);
     color: var(--color-bordo);
-    margin-right: 11px;
+   margin-right: 11px;
 }
 
 .admin .administrador .botones .btn-guardar{
     background-color: var(--color-bordo);
     color: var(--color-amarillo);
 }
-
-
-
-
-
-
-
