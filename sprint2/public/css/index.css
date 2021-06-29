@@ -1,4 +1,15 @@
-.index .mainIndex article img{
-    width:100%;
+.index {
+    width: 100%;
+}
 
+.index .mainIndex article img, .index .publicidades img, footer img{
+    width:100%;
+}
+
+.index h3{
+    background-color: aqua;
+}
+
+.index footer header{
+    flex-wrap: wrap;
 }

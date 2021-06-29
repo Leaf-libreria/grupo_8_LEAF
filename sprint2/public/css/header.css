@@ -16,7 +16,8 @@ header .header1 {
 
 header .header2{
     display:flex;
-   align-items: center;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 header .header2 .contenedorLogo img{
@@ -31,15 +32,6 @@ header .header2 .buscador select, header .header2 .buscador input, header .heade
     display: none;
 }
 
-/*header .header2 .categorias li, form{
-    display: inline-block;
-}*/
-
-header .header2{
-    display: flex;
-   justify-content: flex-end;
-   
-}
 
 header .header2 .contenedorLogo{
     justify-content: flex-start;
@@ -89,18 +81,106 @@ header .header1{
 }
 header .header1 .redes{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
 }
 
 header .header1 .redes a{
     color: var(--color-amarillo);
+    margin-left: 10px;
+    font-size: 30px;
 }
 
-header .header1 .login button{
+header .header1 .redes p, header .header1 .login button p{
+    font-weight: 700;
+    align-self: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+header .header1 .login{
+    margin-right: 20px;
+}
+
+header .header1 .login button p{
+    margin: 0 10px;
+}
+
+header .header1 .login button{  
     display:flex; 
-color: var(--color-amarillo);
-} 
+    color: var(--color-amarillo);
+    font-size: 20px;
+    align-items: center;
+}
+
+/* HEADER2 */
+header .header2 .contenedorLogo img{
+    width: 50px;
+}
+header .header2 .categorias{
+    display: flex;
+    margin-top: 16px;
+    margin-right: 15px;
+}
+header .header2 .categorias li a, header .header2 .categorias li form{
+    color: var(--color-bordo);
+    font-size: 20px;
+    font-weight: 800;
+    margin-right: 20px;
+}
+header .header2 .categorias li form select{
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    color: var(--color-bordo);
+}
+
+header .header2 .buscador form{
+    display: flex;
+    align-items: center;
+}
+header .header2 .buscador select, header .header2 .buscador i{
+    border: none;
+    background-color: var(--color-bordo);
+    padding: none;
+    color: var(--color-amarillo);
+    font-size: 20px;
+}
+.header2 .buscador i{
+    margin: 0;
+    padding: 4px;
+}
+header .header2 .carrito i{
+    padding: 3px;
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    font-size: 20px;
+}
+header .header2 .carrito{
+    display: flex;
+    align-items: center;
+}
+header .header2 .carrito p{
+    background-color: gray;
+    color: var(--color-amarillo);
+    font-size: 17.9px;
+    margin-top: 15.5px;
+    padding: 0 4px;
+}
+header .header2 .buscador select, header .header2 .buscador input, header .header2 .carrito p{
+    display: initial;
+}
+header .header2 {
+    flex-direction: row;
+    justify-content: space-between;
+}
+header .header2 .login, .header2 .burger-menu{
+    display: none;
+}
 }
 
 /*Desktop*/
 @media (min-width:769px){
+    
 }
