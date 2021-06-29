@@ -22,7 +22,9 @@
         <nav class="header1">
             <!-- redes sociales -->
             <ul class="redes">
-                <li><p>Seguinos</p></li>
+                <li>
+                    <p>Seguinos</p>
+                </li>
                 <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
                 <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
                 <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
@@ -32,7 +34,8 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i> <p>Mi cuenta</p> 
+                        <i class="fas fa-user"></i>
+                        <p>Mi cuenta</p>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">Ingresar</a></li>
@@ -105,32 +108,37 @@
         <!-- CARROUSEL -->
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="/images/banner1.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="/images/banner-envio.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="/images/banner-redes.png" class="d-block w-100" alt="...">
-              </div>
+                <div class="carousel-item active">
+                    <img src="/images/banner1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/banner-envio.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/banner-redes.png" class="d-block w-100" alt="...">
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="display: none;" >
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev" style="display: none;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="display: none;" >
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next" style="display: none;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
-          </div>
+        </div>
 
-<!-- seccion de mas vendidos -->
+        <!-- seccion de mas vendidos -->
         <section class="masVendidos">
             <h2>mas vendidos</h2>
             <a href="">ver todos los libros</a>
@@ -270,8 +278,8 @@
 
     <!-- pie de pagina -->
     <footer>
-        <header class="cabecera-footer">
-            <img src="/images/logo-leaf.png" alt="">
+        <div class="cabecera-footer">
+            <img src="/images/logo-leaf-remaster.png" alt="">
             <!-- footer seccion arriba -->
             <div class="footer-arriba">
                 <!-- redes sociales -->
@@ -282,7 +290,7 @@
                 </ul>
                 <p>Seguinos y enterate de todas las novedades</p>
             </div>
-        </header>
+        </div>
 
         <!-- footer seccion media -->
         <div class="footer-medio">
@@ -300,14 +308,15 @@
                 <li><a href="">Politicas</a></li>
             </ul>
         </div>
-       <!-- proponemos poner un desplegable para version movil -->
+
         <!-- footer seccion baja -->
-        <!-- la seccion baja se iria en la version movil -->
         <div class="footer-abajo">
             <!-- medios de pago -->
-            <i class="fab fa-cc-visa"></i>
-            <i class="fab fa-cc-mastercard"></i>
-            <i class="fab fa-cc-paypal"></i>
+            <div class="tarjetas">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
             <!-- imagen de libreria -->
             <img src="/images/leafFooter.png" alt="">
             <!-- email -->
@@ -316,7 +325,7 @@
         </div>
         <!-- terminos y condiciones -->
         <div class="terminos">
-            <p>Aviso de privacidad|Terminos y condiciones</p>
+            <p>Aviso de privacidad | Terminos y condiciones</p>
             <p>Los precios publicados en esta tienda están sujetos a cambios sin previo aviso y solo son aplicables para
                 ventas en línea.</p>
             <p>Algunos títulos están sujetos a disponibilidad.</p>
