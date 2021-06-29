@@ -11,6 +11,7 @@
   padding: 1em;
 }
 
+
 /*productos agregados*/
 .productCart .productos .productos-agregados {
   display: flex;
@@ -25,15 +26,7 @@ justify-content: space-between;
 
 flex-wrap: wrap;
 }
-/*eliminar*/
-.productCart .productos  .contenido .eliminar{
-margin-right:3em;
 
-}
-.productCart .productos  .contenido .eliminar i{
-    color: var(--color-amarillo);
-  
-}
 /* imagenes de libros */
 .productCart .productos .productos-agregados img {
   width: 5em;
@@ -45,4 +38,42 @@ margin-right:3em;
   font-size: 1em;
   padding: 0.5em;
   margin: 0em 0.3em;
+}
+
+/*eliminar*/
+.productCart .productos  .contenido .eliminar{
+padding: 0 1.5em;
+
+}
+.productCart .productos  .contenido .eliminar i{
+    color: var(--color-amarillo);
+    font-size: 35px;
+}
+
+/*seleccionar cantidad*/
+.productCart .productos  .contenido .cantidad{
+  padding: 0.8em;
+}
+/*precio*/
+.productCart .productos  .contenido  .precio{
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+
+}
+/*subtotal*/
+.productCart .subtotal{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.productCart .subtotal h4{
+ margin-left: 0.8;
+ font-size: 20px;
+}
+.productCart .subtotal p{
+  font-size: 17px;
+  font-weight: 600;
+ 
 }
