@@ -3,7 +3,25 @@
 :root{
     --letra-titulo: Open Sans;
     --letra-cuerpo: KoHo;
-    --color-bordo:#4a0d0b;
-    --color-amarillo: #f0db72;
+    --color-bordo:#63120f;
+    --color-amarillo: #f0db72c9;
     --color-blanco: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--letra-cuerpo);
+}
+
+li{
+    list-style: none;
+}
+
+a{
+text-decoration: none;
 }
