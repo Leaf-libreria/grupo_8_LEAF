@@ -11,7 +11,64 @@
 </head>
 
 <body class="productCart">
-    <header></header>
+    <!-- encabezado -->
+    <header>
+        <!-- seccion superior del header -->
+        <nav class="header1">
+            <!-- redes sociales -->
+            <ul class="redes">
+                <li>Seguinos</li>
+                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+            <!-- mi cuenta -->
+            <div class="login">
+                <i class="fas fa-user"></i>
+                <p>Mi cuenta</p>
+                <form>
+                    <select>
+                        <option selected></option>
+                        <option value="1"><a href="">Ingresar</a></option>
+                        <option value="2"><a href="">Registrate</a></option>
+                    </select>
+                </form>
+            </div>
+        </nav>
+        <!-- seccion inferior del header -->
+        <nav class="header2">
+            <img src="/images/logo-leaf.png" alt="logo de Leaf">
+            <!-- categorias -->
+            <ul class="categorias">
+                <li><a href="">Libros</a></li>
+                <li><a href="">Ebooks</a></li>
+                <li>
+                    <form>
+                        <select>
+                            <option selected>Géneros</option>
+                            <option value="1"><a href="">Romance</a></option>
+                            <option value="2"><a href="">Misterio</a></option>
+                            <option value="2"><a href="">Terror</a></option>
+                        </select>
+                    </form>
+                </li>
+            </ul>
+            <!-- buscador -->
+            <div class="buscador">
+                <form>
+                    <select>
+                        <option selected>Libros</option>
+                        <option value="2"><a href="">Ebooks</a></option>
+                    </select>
+                    <input type="text" placeholder="Buscar..."><i class="fas fa-search"></i>
+                </form>
+            </div>
+            <!-- carrito -->
+            <button class="carrito"><a href=""><i class="fas fa-shopping-cart"></i></a>
+                <p>0</p>
+            </button>
+        </nav>
+    </header>
     <main>
         <h1>carrito</h1>
         <!-- productos agregados -->
@@ -27,7 +84,7 @@
                     </div>
                     <!-- cantidad -->
                     <div class="cantidad">
-                        <select >
+                        <select>
                             <option selected>cant.</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -54,14 +111,7 @@
                     </div>
                     <!-- cantidad -->
                     <div class="cantidad">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>cant</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option selected>4</option>
-                            <option value="1">5</option>
-                        </select>
+                        <input type="number" name="cantidad" id="cantidad" placeholder="Cant.">
                     </div>
                     <!-- precio -->
                     <div class="precio">
@@ -74,45 +124,107 @@
         <!-- subtotal -->
         <section class="subtotal">
             <h4>Subtotal</h4>
-          <div> <i class="fas fa-dollar-sign"></i>
-            <p class="precio">3.100</p>
-        </div> 
+            <div> <i class="fas fa-dollar-sign"></i>
+                <p class="precio">3.100</p>
+            </div>
         </section>
         <!-- medios de envio -->
         <section class="envios">
-            <p>Medios de envio</p>
-            <div class="tipos-envios">
-                <input type="checkbox"><label for="">A domicilio</label>
-                <input type="checkbox"><label for="">Retirar en correo</label>
-                <input type="checkbox"><label for="">Retirar en sucursal</label>
-            </div>
+            <h3>Medios de envio</h3>
+            <form action="" method="POST">
+                <div class="tipos-envios">
+                    <div>
+                        <input type="radio" name="tipo-envio" value="a-domicilio" id="a-domicilio">
+                        <label for="a-domicilio">A domicilio</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tipo-envio" value="correo" id="correo">
+                        <label for="correo">Retirar en correo</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tipo-envio" value="domicilio-vendedor" id="domicilio-vendedor">
+                        <label for="domicilio-vendedor">Retirar en sucursal</label>
+                    </div>
+                </div>
+            </form>
             <div>
-                <p>$500</p><button type="submit">Calcular</button>
+                <!-- aqui devolveria el precio del tipo de envio seleccionado -->
+                <div class="localidad">
+                    <form action="">
+                        <label for="domicilio">Ingresa tu localidad</label>
+                        <input type="text" id="domicilio" placeholder="Localidad">
+                        <button type="submit">Calcular</button>
+                    </form>
+                </div>
                 <!-- ubicacion de sucursal -->
                 <div class="nuestra-sucursal">
                     <p>Nuestro local - Cerca tuyo</p>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.0545801345875!2d-57.955298185041876!3d-34.90507978101214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64ed54de7d5%3A0xc3856874a0847fc5!2sLibrer%C3%ADa%20Nacional!5e0!3m2!1sen!2sar!4v1624386836220!5m2!1sen!2sar"
-                        width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <a href="https://goo.gl/maps/wCdnhn2ouabxhtEB8">ver mapa</a>
                     <p>libreria Leaf, calle falsa 123, Buenos Aires</p>
                     <p>Horario de atencion: Lunes a Viernes de 9 a 20 hs</p>
                 </div>
         </section>
-        <table class="total">
-            <tr>
-                <td>TOTAL:</td>
-            </tr>
-            <tr>
-                <td>$3.500</td>
-                <td>pagalo hasta en 6 cuotas sin interes</td>
-            </tr>
-        </table>
+        <div class="total">
+            <div>
+                <h4>TOTAL:</h4>
+                <span>$3.500</span>
+            </div>
+            <p>pagalo hasta en 6 cuotas sin interes</p>
+        </div>
         <section class="realizar-compra">
             <button>iniciar compra</button>
             <a href="">ver mas productos</a>
         </section>
     </main>
-    <footer></footer>
+    <!-- pie de pagina -->
+    <footer>
+        <img src="/images/logo-leaf.png" alt="">
+        <!-- footer seccion arriba -->
+        <div class="footer-arriba">
+            <!-- redes sociales -->
+            <ul class="redes">
+                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+            <p>Seguinos y enterate de todas las novedades</p>
+        </div>
+        <!-- footer seccion media -->
+        <div class="footer-medio">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Categorias</a></li>
+                <li><a href="">Libros</a></li>
+                <li><a href="">Ebooks</a></li>
+                <li><a href="">Como comprar</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Preguntas frecuentes</a></li>
+                <li><a href="">Quienes somos</a></li>
+                <li><a href="">Trabaja con nosotros</a></li>
+                <li><a href="">Locales</a></li>
+                <li><a href="">Politicas</a></li>
+            </ul>
+        </div>
+        <!-- footer seccion baja -->
+        <div class="footer-abajo">
+            <!-- medios de pago -->
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <!-- imagen de libreria -->
+            <img src="/images/leafFooter.png" alt="">
+            <!-- email -->
+            <a href="mailto:ventas@leaf.com"> <i class="far fa-envelope"></i>ventas@leaf.com
+            </a>
+        </div>
+        <!-- terminos y condiciones -->
+        <div class="terminos">
+            <p>Aviso de privacidad|Terminos y condiciones</p>
+            <p>Los precios publicados en esta tienda están sujetos a cambios sin previo aviso y solo son aplicables para
+                ventas en línea.</p>
+            <p>Algunos títulos están sujetos a disponibilidad.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
