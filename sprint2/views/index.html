@@ -42,12 +42,6 @@
                         <li><a class="dropdown-item" href="#">Registrate</a></li>
                     </ul>
                 </div>
-                <!-- <p>Mi cuenta</p>
-                    <select>
-                        <option selected></option>
-                        <option value="1"><a href="">Ingresar</a></option>
-                        <option value="2"><a href="">Registrate</a></option>
-                    </select> -->
             </div>
         </nav>
         <!-- seccion inferior del header -->
@@ -140,11 +134,11 @@
 
         <!-- seccion de mas vendidos -->
         <section class="masVendidos">
-            <h2>mas vendidos</h2>
-            <a href="">ver todos los libros</a>
-
-            <button><i><i class="fas fa-chevron-left"></i></i></i></button>
-
+            <div class="cabecera">
+                <h2>Más vendidos</h2>
+                <a href="">Ver más</a>
+            </div>
+            
             <article class="elManuscrito">
                 <img src="/images/el-manuscrito.png" alt="img el manuscrito">
                 <div class="detalle">
@@ -180,25 +174,20 @@
                     <p>$2400</p>
                 </div>
             </article>
-            <button><i><i class="fas fa-chevron-right"></i></i></i></button>
         </section>
 
         <section class="novedades">
-
-            <h2>novedades</h2>
-            <a href="">ver todos los libros</a>
-
-            <article>
+<div class="cabecera">
+    <h2>novedades</h2>
+    <a href="">ver más</a>
+</div>
+                <article>
                 <a href=""><img src="/images/la-tia-cosima.jpg" alt=""></a>
             </article>
-
-            <button><i><i class="fas fa-chevron-left"></i></i></i></button>
 
             <article>
                 <a href=""><img src="/images/al-final-mueren-los-dos.png" alt=""></a>
             </article>
-
-            <button><i><i class="fas fa-chevron-right"></i></i></i></button>
 
             <article>
                 <a href=""><img src="/images/yo-antes-de-ti.jpg" alt=""></a>
@@ -206,18 +195,23 @@
         </section>
 
         <section class="recomendados">
-            <h2>recomendados</h2>
-            <a href="">ver recomendados</a>
-
+            <div class="cabecera">
+                <h2>recomendados</h2>
+                <a href="">ver más</a>
+            </div>
+            
             <article class="laSombraDelViento">
                 <h3>la sombra del viento</h3>
                 <p>primer libro de la saga del Cementerio de los libros olvidados y un superventas mundial</p>
-                <span>$1400</span>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
+                <div>$1400</div>
+                <div class="estrella">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+               
                 <img src="/images/sombra-del-viento.jpg" alt="img la sombra del viento">
             </article>
 
@@ -225,30 +219,34 @@
                 <h3>a la caza de houdini</h3>
                 <p>la tercer entrega en la saga juvenil histórica escrita por la autora estadounidense, Kerri
                     Maniscalco</p>
-                <span>$1300</span>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
+                    <div>$1300</div>
+                    <div class="estrella">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
                 <img src="/images/a-la-caza-de-houdini.png" alt="img a la caza de houdini">
             </article>
 
             <article class="aTravesDeMiVentana">
                 <h3>a traves de mi ventana</h3>
                 <p>¡Llega al fin la novela juvenil que está triunfando en Wattpad!</p>
-                <span>$1200</span>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+                <div>$1200</div>
+                <div class="estrella">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
                 <img src="/images/a-traves-de-mi-ventana.jpg" alt="img a traves de mi ventana">
             </article>
         </section>
 
         <section class="publicidades">
-            <img class="promo1" src="/images/promo1.png" alt="">
+            <img class="promo1" src="/images/promo1.png" alt="promo1">
             <img class="promo2" src="/images/promo2.png" alt="">
             <img class="promo3" src="/images/promo3.jpg" alt="">
             <img class="promo4" src="/images/promo4.png" alt="">
