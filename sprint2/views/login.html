@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,42 +9,37 @@
     <link rel="shortcut icon" href="/images/leafPestania.ico" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <title>Login LEAF</title>
+    <title>Login-LEAF</title>
 </head>
-<body>
-    <img src="" alt="imagen de constado más redes">
 
-
-
+<body class="body">
     <header>
-        <img src="/images/logo-leaf.png" alt="logo de Leaf">
-
-    <p>¿Aún no tienes cuenta?</p>
-    <a href="">REGISTRATE</a>  <!-- Usar text transform uppercase en css -->
+        <img src="/images/logo-leaf-remaster.png" alt="Logo de leaf">
+        <a href="">registrate</a>
     </header>
 
     <main>
+        <form action="">
+            <button><i class="fas fa-chevron-left"></i>Volver</button>
+            <h2>Ingresa a tu cuenta</h2>
 
-        <a href=""><i class="fas fa-chevron-left"></i>Volver</a>
+                <div class="ingresar"><input type="email" name="email" id="email" placeholder="Correo electronico"></div>
+                <!-- Posibles errores -->
+                <span>*Este correo no es válido*</span>
+            
+                <div class="password"><input type="password" name="password" id="password" placeholder="Contraseña"></div>
+                <!-- Posibles errores -->
+                <span>¿Olvidaste tu contraseña?</span> <br>
+                <span>*La contraseña es incorrecta*</span> <br>
+        
 
-        <h2>Ingresa a tu cuenta</h2>
-        <input type="text" placeholder="Correo electrónico">
+            <button type="submit">Iniciar sesión</button>
 
-        <input type="text" placeholder="Contraseña">
-
-        <p>¿Olvidaste tu contraseña?</p>
-
-        <!-- Posibles errores -->
-
-        <p>*Este correo no es válido*</p>
-
-        <p>*La contraseña es incorrecta*</p>
-
-        <button  type="submit">Iniciar sesión</button>
-
+        </form>
 
     </main>
 </body>
+
 </html>
