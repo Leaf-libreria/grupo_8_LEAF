@@ -1,5 +1,5 @@
 .productCart {
-  background-color: whitesmoke;
+  background-color: white;
 }
 /* titulo */
 .productCart h1 {
@@ -7,29 +7,29 @@
   font-size: 1.5em;
   text-align: center;
   text-transform: capitalize;
-  background-color: white;
   padding: 1em;
+  
 }
-
-
 /*productos agregados*/
 .productCart .productos .productos-agregados {
   display: flex;
-  background-color: white;
   width: 100%;
-  margin-bottom: 1em;
+  margin-top: 1em;
+ border-top:1px solid rgb(184, 183, 183)  ;
+
 }
 /*contenido*/
 .productCart  .productos .productos-agregados .contenido{
 display:flex;
 justify-content: space-between;
-
+margin: 0.5em 0;
 flex-wrap: wrap;
 }
 
 /* imagenes de libros */
 .productCart .productos .productos-agregados img {
   width: 5em;
+  margin: 0.5em 0;
 }
 
 /*titulos de libros*/
@@ -54,6 +54,10 @@ padding: 0 1.5em;
 .productCart .productos  .contenido .cantidad{
   padding: 0.8em;
 }
+.productCart .productos  .contenido .cantidad select{
+  border-color: var(--color-amarillo);
+
+}
 /*precio*/
 .productCart .productos  .contenido  .precio{
   display: flex;
@@ -65,15 +69,32 @@ padding: 0 1.5em;
 .productCart .subtotal{
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
 }
 
 .productCart .subtotal h4{
  margin-left: 0.8;
  font-size: 20px;
 }
-.productCart .subtotal p{
+
+.productCart .subtotal div{
+  display: flex;
+  align-items: center;
+  margin-right:0.5em ;
   font-size: 17px;
+  
+}
+.productCart .subtotal i{
+ margin: 0 0.5em;
+}
+
+.productCart .subtotal p{
   font-weight: 600;
- 
+}
+
+/*seccion de envios*/
+.productCart .envios{
+ margin: 1em 0;
+  background-color: var(--color-amarillo);
 }
