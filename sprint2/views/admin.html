@@ -16,7 +16,7 @@
 <body class="admin">
     <header></header>
     <main class="administrador">
-        <h1>Carga o edición de productos</h1>
+        <h2>Carga o edición de productos</h2>
         <!--FORMULARIO-->
   <form action="" method="POST" class="formulario">
       <div class="titulo">
@@ -41,28 +41,28 @@
         <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números" required>
     </div>
    <section class="formato">
-       <label for="formato">Formato:</label>
-       <!--Desplegable-->
+       <label for="formato">Formato:</label> 
        <select name="formato" id="formato">
-        <option value="libro">Libro</option>
-        <option value="ebook">Ebook</option>
-    </select>   
-   </section>
+           <option value="" hidden selected>Seleccione el formato</option>
+           <option value="libro">Libro</option>
+           <option value="ebook">Ebook</option>
+       </select>
+         </section>
    <section class="autor">
         <label for="autor">Autor/Autora:</label>
         <!--Desplegable-->
         <select name="autor" id="autor">
-    <option value="1">Kerri Mariscalco</option>
-    <option value="2">Ariana Godoy</option>
-    <option value="3">Adam Silvera</option>
-    <option value="4">John Grisham</option>
-    <option value="5">Jonh Katzenbach</option>
-    <option value="6">H. G. Wells</option>
-    <option value="7">Markus Zusak</option>
-    <option value="8">Florencia Bonelli</option>
-    <option value="9">Carlos Ruiz Zafón</option>
-    <option value="10">Jojo Moyes</option>
-    <option value="11">Otro</option>    
+    <option value="kerri-mariscalco">Kerri Mariscalco</option>
+    <option value="ariana-godoy">Ariana Godoy</option>
+    <option value="adam-silvera">Adam Silvera</option>
+    <option value="john-grisham">John Grisham</option>
+    <option value="jonh-katzenbach">Jonh Katzenbach</option>
+    <option value="h-g-wells">H. G. Wells</option>
+    <option value="markus-zusak">Markus Zusak</option>
+    <option value="florencia-bonelli">Florencia Bonelli</option>
+    <option value="carlos-ruis-zafon">Carlos Ruiz Zafón</option>
+    <option value="jojo-moyes">Jojo Moyes</option>
+    <option value="otro">Otro</option>    
 </select>
     <div class="otroAutor">
         <!--campo para ingresar opción otro-->
@@ -73,12 +73,12 @@
     <label for="editorial">Editorial:</label>
     <!--Desplegable-->
     <select name="editorial" id="editorial">
-        <option value="1">Wattpad</option>
-        <option value="2">Suma</option>
-        <option value="3">DeBolsillo</option>
-        <option value="4">Booket</option>
-        <option value="5">Ediciones B</option>
-        <option value="6">Otro</option> 
+        <option value="wattpad">Wattpad</option>
+        <option value="suma">Suma</option>
+        <option value="deBolsillo">DeBolsillo</option>
+        <option value="booket">Booket</option>
+        <option value="edicionesB">Ediciones B</option>
+        <option value="otro">Otro</option> 
     </select>
     <div class="otraEditorial">
         <!--campo para ingresar opción otro-->
@@ -89,10 +89,10 @@
     <label for="genero">Género</label>
     <!--Desplegable-->
     <select name="genero" id="genero">
-        <option value="1">Romance</option>
-        <option value="2">Terror</option>
-        <option value="3">Misterio</option>
-        <option value="4">Otro</option>
+        <option value="romance">Romance</option>
+        <option value="terror">Terror</option>
+        <option value="misterio">Misterio</option>
+        <option value="otro">Otro</option>
     </select>
     <div class="otroGenero">
         <!--campo para ingresar opción otro-->
