@@ -165,8 +165,17 @@ justify-content: space-between;
 }
 .productCart .realizar-compra a{
   color: gray;
+  display: block;
+
+  margin-top: 10px;
+margin-bottom: 30px; 
+}
+.productCart .realizar-compra a:hover{
+  color: var(--color-bordo);
+  font-size: 18px;
 }
 .productCart .realizar-compra button:hover{
+  font-size: 18px;
 background-color: var(--color-amarillo);
 border-color: var(--color-bordo);
 }
@@ -187,9 +196,6 @@ border-color: var(--color-bordo);
   margin: 0;
 }
 /*contenido*/
-.productCart .productos .productos-agregados .contenido {
-
-}
 /* imagenes de libros */
 .productCart .productos .productos-agregados img {
   width: 200px;
@@ -210,4 +216,114 @@ border-color: var(--color-bordo);
   padding: 0;
   font-size: 60px;
 }
+/*seleccionar cantidad*/
+.productCart .productos .contenido .cantidad {
+  padding: 30px;
+  align-self: center;
+}
+
+.productCart .productos .contenido .cantidad input {
+  width: 100px;
+}
+/*precio*/
+.productCart .productos .contenido .precio {
+font-size:25px ;
+}
+/*subtotal*/
+.productCart .subtotal{
+  border-bottom: none;
+}
+.productCart .subtotal h4 {
+  margin-left: 0;
+  font-size: 30px;
+
+}
+.productCart .subtotal p {
+  margin: 0;
+  font-size: 25px;
+}
+/*seccion de envios*/
+.productCart .envios {
+  background-color: var(--color-bordo);
+color: var(--color-amarillo);
+}
+.productCart .envios h3 {
+  font-size: 20px;
+}
+.productCart .envios .tipos-envios {
+  font-size: 16px;
+  padding-left: 20px;
+}
+/*localidad*/
+.productCart .envios .localidad {
+  padding-left: 10px;
+  font-size: 20px;
+}
+.productCart .envios .localidad label {
+  padding-right: 20px;
+}
+/*local*/
+.productCart .envios .nuestra-sucursal {
+ font-size: 20px;
+ margin-top: 20px;
+ border-top: 1px solid gray;
+}
+.productCart .envios .nuestra-sucursal a {
+  font-size: 18px;
+
+}
+.productCart .envios .nuestra-sucursal p {
+width: 70%;
+padding-top: 0;
+padding-bottom: 0;
+margin-bottom: 0;
+  font-size: 15px;
+}
+/*seccion del total*/
+
+  .productCart .total h4{
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .productCart .total span{
+ font-size: 25px;
+  }
+  .productCart .total p{
+    font-size: 20px;
+    text-align: right;
+  }
+  /*button*/
+.productCart .realizar-compra button{
+  border: 2px solid var(--color-bordo);
+  padding: 20px 0;
+  font-size: 20px;
+ }
+ .productCart .realizar-compra a{
+  font-size: 25px;
+  margin-top: 20px;
+margin-bottom: 60px; 
+}
+ .productCart .realizar-compra button:hover{
+  font-size: 25px;
+ background-color: var(--color-bordo);
+ border-color: var(--color-amarillo);
+ color: var(--color-amarillo);
+ }
+ .productCart .realizar-compra a:hover{
+  font-size: 28px;
+}
+}
+
+/*desktop*/
+@media (min-width:769px){
+  .productCart main{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .productCart .realizar-compra button{
+    width: 30%;
+    border-radius: 5px;
+   }
 }
