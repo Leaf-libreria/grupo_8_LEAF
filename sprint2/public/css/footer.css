@@ -59,6 +59,7 @@ footer .footer-abajo .tarjetas {
 /*imagen de footer*/
 footer .footer-abajo img {
   padding: 20px;
+  width: 100%;
 }
 /*email de contacto*/
 footer .footer-abajo a {
