@@ -43,7 +43,7 @@
   padding: 0 1.5em;
 }
 .productCart .productos .contenido .eliminar i {
-  color: var(--color-amarillo);
+  color:gray;
   font-size: 35px;
 }
 
@@ -165,5 +165,49 @@ justify-content: space-between;
 }
 .productCart .realizar-compra a{
   color: gray;
- 
+}
+.productCart .realizar-compra button:hover{
+background-color: var(--color-amarillo);
+border-color: var(--color-bordo);
+}
+
+/*-----RESPONSIVE-----*/
+
+/*Tablet*/
+@media (min-width:361px){
+  /* titulo */
+.productCart h1 {
+ font-size: 30px;
+}
+/*productos agregados*/
+.productCart .productos .productos-agregados {
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding:20px;
+  margin: 0;
+}
+/*contenido*/
+.productCart .productos .productos-agregados .contenido {
+
+}
+/* imagenes de libros */
+.productCart .productos .productos-agregados img {
+  width: 200px;
+  margin: 10px 0;
+}
+/*titulos de libros*/
+.productCart .productos .productos-agregados .contenido h3 {
+  width: 50%;
+  font-size: 30px;
+  text-align: start;
+}
+/*eliminar*/
+.productCart .productos .contenido .eliminar {
+  width: 40%;
+  text-align: end;
+}
+.productCart .productos .contenido .eliminar i{
+  padding: 0;
+  font-size: 60px;
+}
 }
