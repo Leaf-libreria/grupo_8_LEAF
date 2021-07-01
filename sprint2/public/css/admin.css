@@ -1,4 +1,26 @@
 /*HEADER*/
+/*Header2*/
+.admin .header2 .noMovil{
+  display: none;
+}
+/*----RESPONSIVE----*/
+/*TABLET y DESKTOP*/
+/*Header1*/
+@media (min-width: 361px){
+  /*header sección inferior*/
+  .admin .admin-header{
+    background-color: transparent;
+  }
+  /*Header1*/
+  .admin .header1 .noResponsive{
+    display: none;
+  } 
+/*Header2*/
+  .admin .header2 .noResponsive{
+    display: none;
+  } 
+
+}
 
 /*MAIN*/
 /*Titulo*/
@@ -145,7 +167,6 @@ textarea {
 
 /*DESKTOP*/
 @media (min-width: 769px) {
-
     /*Titulo*/
   .admin .administrador h2 {
     font-size: 22px;

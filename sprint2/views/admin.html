@@ -1,20 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carga de Producto | LEAF</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/logo-leaf-remaster.png" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
 
-    <link href="https://cdnjs.cloudﬂare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <title>Carga de producto | LEAF</title>
+  </head>
 
-    <link rel="shortcut icon" href="/images/leafPestania.ico" /> <!--para el icono de pestaña-->
-
-   <link rel="stylesheet" href="/css/styles.css"> <!--Estilos-->
-    
-</head>
-<body class="admin">
-    <header></header>
+  <body class="admin">
+    <!-- encabezado -->
+    <header class="admin-header">
+      <!-- seccion superior del header -->
+      <nav class="header1">
+        <!-- redes sociales -->
+        <ul class="redes">
+          <li>
+            <p class="noResponsive">Seguinos</p>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-facebook-square"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-instagram-square"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-twitter-square"></i></a>
+          </li>
+        </ul>
+        <!-- mi cuenta -->
+        <div class="login">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+              <p>Mi cuenta</p>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- seccion inferior del header -->
+      <nav class="header2">
+        <div class="contenedorLogo">
+          <img
+            class="logo"
+            src="/images/logo-leaf-remaster.png"
+            alt="logo de Leaf"
+          />
+        </div>
+        <!-- categorias -->
+        <ul class="categorias noResponsive">
+          <li><a class="noResponsive" href="">Libros</a></li>
+          <li><a class="noResponsive" href="">Ebooks</a></li>
+          <li>
+            <form>
+              <select>
+                <option selected>Géneros</option>
+                <option value="1"><a href="">Romance</a></option>
+                <option value="2"><a href="">Misterio</a></option>
+                <option value="2"><a href="">Terror</a></option>
+              </select>
+            </form>
+          </li>
+        </ul>
+        <div class="burger-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <!-- buscador -->
+        <div class="buscador noMovil">
+          <form>
+            <select>
+              <option selected>Libros</option>
+              <option value="2"><a href="">Ebooks</a></option>
+            </select>
+            <input type="text" placeholder="Buscar..." /><i
+              class="fas fa-search"
+            ></i>
+          </form>
+        </div>
+        <!-- carrito -->
+        <button class="carrito noMovil">
+          <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+          <p>0</p>
+        </button>
+        <!-- mi cuenta -->
+        <div class="login">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <main class="administrador">
         <h2>Carga o edición de productos</h2>
         <!--FORMULARIO-->
