@@ -1,340 +1,449 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/leafPestania.ico" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/logo-leaf-remaster.png" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
 
     <title>Libreria LEAF</title>
-</head>
+  </head>
 
-<body class="index">
+  <body class="index">
     <!-- encabezado -->
     <header>
-        <!-- seccion superior del header -->
-        <nav class="header1">
-            <!-- redes sociales -->
-            <ul class="redes">
-                <li>
-                    <p>Seguinos</p>
-                </li>
-                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
-                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-            <!-- mi cuenta -->
-            <div class="login">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                        <p>Mi cuenta</p>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Ingresar</a></li>
-                        <li><a class="dropdown-item" href="#">Registrate</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- seccion inferior del header -->
-        <nav class="header2">
-            <div class="contenedorLogo">
-                <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf">
-            </div>
-            <!-- categorias -->
-            <ul class="categorias">
-                <li><a href="">Libros</a></li>
-                <li><a href="">Ebooks</a></li>
-                <li>
-                    <form>
-                        <select>
-                            <option selected>Géneros</option>
-                            <option value="1"><a href="">Romance</a></option>
-                            <option value="2"><a href="">Misterio</a></option>
-                            <option value="2"><a href="">Terror</a></option>
-                        </select>
-                    </form>
-                </li>
-            </ul>
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <!-- buscador -->
-            <div class="buscador">
-                <form>
-                    <select>
-                        <option selected>Libros</option>
-                        <option value="2"><a href="">Ebooks</a></option>
-                    </select>
-                    <input type="text" placeholder="Buscar..."><i class="fas fa-search"></i>
-                </form>
-            </div>
-            <!-- carrito -->
-            <button class="carrito"><a href=""><i class="fas fa-shopping-cart"></i></a>
-                <p>0</p>
+      <!-- seccion superior del header -->
+      <nav class="header1">
+        <!-- redes sociales -->
+        <ul class="redes">
+          <li>
+            <p>Seguinos</p>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-facebook-square"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-instagram-square"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-twitter-square"></i></a>
+          </li>
+        </ul>
+        <!-- mi cuenta -->
+        <div class="login">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+              <p>Mi cuenta</p>
             </button>
-            <!-- mi cuenta -->
-            <div class="login">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Ingresar</a></li>
-                        <li><a class="dropdown-item" href="#">Registrate</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- seccion inferior del header -->
+      <nav class="header2">
+        <div class="contenedorLogo">
+          <img
+            class="logo"
+            src="/images/logo-leaf-remaster.png"
+            alt="logo de Leaf"
+          />
+        </div>
+        <!-- categorias -->
+        <ul class="categorias">
+          <li><a href="">Libros</a></li>
+          <li><a href="">Ebooks</a></li>
+          <li>
+            <form>
+              <select>
+                <option selected>Géneros</option>
+                <option value="1"><a href="">Romance</a></option>
+                <option value="2"><a href="">Misterio</a></option>
+                <option value="2"><a href="">Terror</a></option>
+              </select>
+            </form>
+          </li>
+        </ul>
+        <div class="burger-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <!-- buscador -->
+        <div class="buscador">
+          <form>
+            <select>
+              <option selected>Libros</option>
+              <option value="2"><a href="">Ebooks</a></option>
+            </select>
+            <input type="text" placeholder="Buscar..." /><i
+              class="fas fa-search"
+            ></i>
+          </form>
+        </div>
+        <!-- carrito -->
+        <button class="carrito">
+          <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+          <p>0</p>
+        </button>
+        <!-- mi cuenta -->
+        <div class="login">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main class="mainIndex">
+      <!-- CARROUSEL -->
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/banner1.png" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="/images/banner-envio.png"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="/images/banner-redes.png"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+          style="display: none"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+          style="display: none"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
-        <!-- CARROUSEL -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+      <!-- seccion de mas vendidos -->
+      <section class="masVendidos">
+        <div class="cabecera">
+          <h2>Más vendidos</h2>
+          <a href="">Ver más</a>
+        </div>
+        <div class="articles-masVendidos">
+          <article class="elManuscrito">
+            <a href="/productDetail"
+              ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
+            /></a>
+            <div class="detalle">
+              <h3>el manuscrito</h3>
+              <h4>John Grisham</h4>
+              <p>$1500</p>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/images/banner1.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/banner-envio.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/banner-redes.png" class="d-block w-100" alt="...">
-                </div>
+          </article>
+
+          <article class="elPsicoanalista">
+            <img
+              src="/images/el-psicoanalista.jpg"
+              alt="img el psicoanalista"
+            />
+            <div class="detalle">
+              <h3>el psicoanalista</h3>
+              <h4>John Katzenbach</h4>
+              <p>$2100</p>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev" style="display: none;">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next" style="display: none;">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+          </article>
+
+          <article class="laLadronaDeLibros">
+            <img
+              src="/images/la-ladrona-de-libros.jpg"
+              alt="img la ladrona de libros"
+            />
+            <div class="detalle">
+              <h3>la ladrona de libros</h3>
+              <h4>Markus Zusak</h4>
+              <p>$1900</p>
+            </div>
+          </article>
+
+          <article class="laGuerraDeLosMundos">
+            <img
+              src="/images/la-guerra-de-los-mundos.jpg"
+              alt="img la guerra de los mundos"
+            />
+            <div class="detalle">
+              <h3>la guerra de los mundos</h3>
+              <h4>H. G. Wells</h4>
+              <p>$2400</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="novedades">
+        <div class="cabecera">
+          <h2>novedades</h2>
+          <a href="">ver más</a>
+        </div>
+        <div class="articles-novedades">
+          <article>
+            <a href=""><img src="/images/la-tia-cosima.jpg" alt="" /></a>
+          </article>
+
+          <article>
+            <a href=""
+              ><img src="/images/al-final-mueren-los-dos.png" alt=""
+            /></a>
+          </article>
+
+          <article id="yoAntesDeTi">
+            <a href=""><img src="/images/yo-antes-de-ti.jpg" alt="" /></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="recomendados">
+        <div class="cabecera">
+          <h2>recomendados</h2>
+          <a href="">ver más</a>
         </div>
 
-        <!-- seccion de mas vendidos -->
-        <section class="masVendidos">
-            <div class="cabecera">
-                <h2>Más vendidos</h2>
-                <a href="">Ver más</a>
+        <div class="articles-recomendados">
+          <article class="librosRecomendados">
+            <h3>la sombra del viento</h3>
+            <p>
+              primer libro de la saga del Cementerio de los libros olvidados y
+              un superventas mundial
+            </p>
+            <div>$1400</div>
+            <div class="estrella">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
             </div>
-            
-            <article class="elManuscrito">
-                <img src="/images/el-manuscrito.png" alt="img el manuscrito">
-                <div class="detalle">
-                    <h3>el manuscrito</h3>
-                    <h4>John Grisham</h4>
-                    <p>$1500</p>
-                </div>
-            </article>
 
-            <article class="elPsicoanalista">
-                <img src="/images/el-psicoanalista.jpg" alt="img el psicoanalista">
-                <div class="detalle">
-                    <h3>el psicoanalista</h3>
-                    <h4>John Katzenbach</h4>
-                    <p>$2100</p>
-                </div>
-            </article>
+            <img
+              src="/images/sombra-del-viento.jpg"
+              alt="img la sombra del viento"
+            />
+          </article>
 
-            <article class="laLadronaDeLibros">
-                <img src="/images/la-ladrona-de-libros.jpg" alt="img la ladrona de libros">
-                <div class="detalle">
-                    <h3>la ladrona de libros</h3>
-                    <h4>Markus Zusak</h4>
-                    <p>$1900</p>
-                </div>
-            </article>
-
-            <article class="laGuerraDeLosMundos">
-                <img src="/images/la-guerra-de-los-mundos.jpg" alt="img la guerra de los mundos">
-                <div class="detalle">
-                    <h3>la guerra de los mundos</h3>
-                    <h4>H. G. Wells</h4>
-                    <p>$2400</p>
-                </div>
-            </article>
-        </section>
-
-        <section class="novedades">
-<div class="cabecera">
-    <h2>novedades</h2>
-    <a href="">ver más</a>
-</div>
-                <article>
-                <a href=""><img src="/images/la-tia-cosima.jpg" alt=""></a>
-            </article>
-
-            <article>
-                <a href=""><img src="/images/al-final-mueren-los-dos.png" alt=""></a>
-            </article>
-
-            <article>
-                <a href=""><img src="/images/yo-antes-de-ti.jpg" alt=""></a>
-            </article>
-        </section>
-
-        <section class="recomendados">
-            <div class="cabecera">
-                <h2>recomendados</h2>
-                <a href="">ver más</a>
+          <article class="librosRecomendados noneadoPorGil">
+            <h3>a la caza de houdini</h3>
+            <p>
+              la tercer entrega en la saga juvenil histórica escrita por la
+              autora estadounidense, Kerri Maniscalco
+            </p>
+            <div>$1300</div>
+            <div class="estrella">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
             </div>
-            
-            <article class="laSombraDelViento">
-                <h3>la sombra del viento</h3>
-                <p>primer libro de la saga del Cementerio de los libros olvidados y un superventas mundial</p>
-                <div>$1400</div>
-                <div class="estrella">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-               
-                <img src="/images/sombra-del-viento.jpg" alt="img la sombra del viento">
-            </article>
+            <img
+              src="/images/a-la-caza-de-houdini.png"
+              alt="img a la caza de houdini"
+            />
+          </article>
 
-            <article class="aLaCazaDeHoudini">
-                <h3>a la caza de houdini</h3>
-                <p>la tercer entrega en la saga juvenil histórica escrita por la autora estadounidense, Kerri
-                    Maniscalco</p>
-                    <div>$1300</div>
-                    <div class="estrella">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                <img src="/images/a-la-caza-de-houdini.png" alt="img a la caza de houdini">
-            </article>
+          <article class="librosRecomendados">
+            <h3>a traves de mi ventana</h3>
+            <p>
+              ¡Llega al fin la novela juvenil que está triunfando en Wattpad!
+            </p>
+            <div>$1200</div>
+            <div class="estrella">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <img
+              src="/images/a-traves-de-mi-ventana.jpg"
+              alt="img a traves de mi ventana"
+            />
+          </article>
+        </div>
+      </section>
 
-            <article class="aTravesDeMiVentana">
-                <h3>a traves de mi ventana</h3>
-                <p>¡Llega al fin la novela juvenil que está triunfando en Wattpad!</p>
-                <div>$1200</div>
-                <div class="estrella">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <img src="/images/a-traves-de-mi-ventana.jpg" alt="img a traves de mi ventana">
-            </article>
-        </section>
+      <section class="publicidades">
+        <img class="promo1" src="/images/promo1.png" alt="promo1" />
+        <div class="publicidad-abajo">
+        <img class="promo2" src="/images/promo2.png" alt="" />
+        <img class="promo3" src="/images/promo3.jpg" alt="" />
+        <img class="promo4" src="/images/promo4.png" alt="" />
+    </div>
+      </section>
 
-        <section class="publicidades">
-            <img class="promo1" src="/images/promo1.png" alt="promo1">
-            <img class="promo2" src="/images/promo2.png" alt="">
-            <img class="promo3" src="/images/promo3.jpg" alt="">
-            <img class="promo4" src="/images/promo4.png" alt="">
-        </section>
-
-        <section class="iconos">
-            <h3>en leaf te ofrecemos</h3>
-            <article class="envios">
-                <i class="fas fa-truck"></i>
-                <p>compra online y <strong> envios a domicilio </strong></p>
-            </article>
-            <article class="tarjetas">
-                <i class="far fa-credit-card"></i>
-                <p>pagos fáciles y seguros con <strong>tarjetas de credito</strong></p>
-            </article>
-            <article class="cambios">
-                <i class="fas fa-book"></i>
-                <p>simples y rápidos <strong>cambio de libros</strong></p>
-            </article>
-            <article class="precios">
-                <i class="fas fa-dollar-sign"></i>
-                <p>los mejores <strong> precios y ofertas</strong></p>
-            </article>
-        </section>
+      <section class="iconos">
+        <h3>en leaf te ofrecemos</h3>
+        <article class="envios">
+          <i class="fas fa-truck"></i>
+          <p>compra online y <strong> envios a domicilio </strong></p>
+        </article>
+        <article class="tarjetas">
+          <i class="far fa-credit-card"></i>
+          <p>
+            pagos fáciles y seguros con <strong>tarjetas de credito</strong>
+          </p>
+        </article>
+        <article class="cambios">
+          <i class="fas fa-book"></i>
+          <p>simples y rápidos <strong>cambio de libros</strong></p>
+        </article>
+        <article class="precios">
+          <i class="fas fa-dollar-sign"></i>
+          <p>los mejores <strong> precios y ofertas</strong></p>
+        </article>
+      </section>
     </main>
-
 
     <!-- pie de pagina -->
     <footer>
-        <div class="cabecera-footer">
-            <img src="/images/logo-leaf-remaster.png" alt="">
-            <!-- footer seccion arriba -->
-            <div class="footer-arriba">
-                <!-- redes sociales -->
-                <ul class="redes">
-                    <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
-                    <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
-                </ul>
-                <p>Seguinos y enterate de todas las novedades</p>
-            </div>
+      <div class="cabecera-footer">
+        <img src="/images/logo-leaf-remaster.png" alt="" />
+        <!-- footer seccion arriba -->
+        <div class="footer-arriba">
+          <!-- redes sociales -->
+          <ul class="redes">
+            <li>
+              <a href=""><i class="fab fa-facebook-square"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fab fa-instagram-square"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fab fa-twitter-square"></i></a>
+            </li>
+          </ul>
+          <p>Seguinos y enterate de todas las novedades</p>
         </div>
+      </div>
 
-        <!-- footer seccion media -->
-        <div class="footer-medio">
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Categorias</a></li>
-                <li><a href="">Libros</a></li>
-                <li><a href="">Ebooks</a></li>
-                <li><a href="">Como comprar</a></li>
-                <li><a href="">Contacto</a></li>
-                <li><a href="">Preguntas frecuentes</a></li>
-                <li><a href="">Quienes somos</a></li>
-                <li><a href="">Trabaja con nosotros</a></li>
-                <li><a href="">Locales</a></li>
-                <li><a href="">Politicas</a></li>
-            </ul>
-        </div>
+      <!-- footer seccion media -->
+      <div class="footer-medio">
+        <ul>
+          <li><a href="">Inicio</a></li>
+          <li><a href="">Como comprar</a></li>
+          <li><a href="">Contacto</a></li>
+          <li><a href="">Preguntas frecuentes</a></li>
+          <li><a href="">Quienes somos</a></li>
+          <li><a href="">Trabaja con nosotros</a></li>
+          <li><a href="">Locales</a></li>
+          <li><a href="">Politicas</a></li>
+        </ul>
+      </div>
 
-        <!-- footer seccion baja -->
-        <div class="footer-abajo">
-            <!-- medios de pago -->
-            <div class="tarjetas">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-paypal"></i>
-            </div>
-            <!-- imagen de libreria -->
-            <img src="/images/leafFooter.png" alt="">
-            <!-- email -->
-            <a href="mailto:ventas@leaf.com"> <i class="far fa-envelope"></i>ventas@leaf.com
-            </a>
+      <!-- footer seccion baja -->
+      <div class="footer-abajo">
+        <!-- medios de pago -->
+        <div class="tarjetas">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
         </div>
-        <!-- terminos y condiciones -->
-        <div class="terminos">
-            <p>Aviso de privacidad | Terminos y condiciones</p>
-            <p>Los precios publicados en esta tienda están sujetos a cambios sin previo aviso y solo son aplicables para
-                ventas en línea.</p>
-            <p>Algunos títulos están sujetos a disponibilidad.</p>
-        </div>
+        <!-- imagen de libreria -->
+        <img src="/images/leafFooter.png" alt="" />
+        <!-- email -->
+        <a href="mailto:ventas@leaf.com">
+          <i class="far fa-envelope"></i>ventas@leaf.com
+        </a>
+      </div>
+      <!-- terminos y condiciones -->
+      <div class="terminos">
+        <p>Aviso de privacidad | Terminos y condiciones</p>
+        <p>
+          Los precios publicados en esta tienda están sujetos a cambios sin
+          previo aviso y solo son aplicables para ventas en línea.
+        </p>
+        <p>Algunos títulos están sujetos a disponibilidad.</p>
+      </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

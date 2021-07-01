@@ -1,127 +1,217 @@
-.index .mainIndex{
-    width: 100%;
-    text-transform: capitalize;
+.index .mainIndex {
+  width: 100%;
+  text-transform: capitalize;
 }
 /*Sección más vendidos*/
-.index .mainIndex .cabecera{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 800;
-    margin: 30px 10px 5px 10px;
+.index .mainIndex .cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 30px 10px 5px 10px;
 }
 
-.index .mainIndex .cabecera h2{
-    margin-bottom: 0;
+.index .mainIndex .cabecera h2 {
+  margin-bottom: 0;
 }
 
-.index .mainIndex .cabecera a{
-    background-color: var(--color-amarillo);
-    padding:0 5px;
-    color: var(--color-bordo);
-    border: solid 1px gray;
-    font-size: 14px;
-    border-radius: 5px;
+.index .mainIndex .cabecera a {
+  background-color: var(--color-amarillo);
+  padding: 0 5px;
+  color: var(--color-bordo);
+  border: solid 1px gray;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
-.index .mainIndex article img{
-    width: 90%;
-    margin: 0 5%;
-    padding: 30px;
+.index .mainIndex article img {
+  width: 90%;
+  margin: 0 5%;
+  padding: 30px;
 }
 
-.index .mainIndex article .detalle{
-    text-align: center;
-    line-height: 10px;
-    margin-top: 10px;
+.index .mainIndex article .detalle {
+  text-align: center;
+  line-height: 10px;
+  margin-top: 10px;
 }
 
-.index .mainIndex article .detalle h4{
-font-size: 20px;
+.index .mainIndex article .detalle h4 {
+  font-size: 20px;
 }
 
-.index .mainIndex article .detalle p{
-    font-weight: bold;
+.index .mainIndex article .detalle p {
+  font-weight: bold;
 }
 /*Fondo para los articulos*/
-.index .mainIndex .elManuscrito img{
-    background-color: lightblue;
+.index .mainIndex .elManuscrito img {
+  background-color: lightblue;
 }
 
-.index .mainIndex .elPsicoanalista img{
-    background-color: lightgray;
+.index .mainIndex .elPsicoanalista img {
+  background-color: lightgray;
 }
 
-.index .mainIndex .laLadronaDeLibros img{
-    background-color: lightsalmon;
+.index .mainIndex .laLadronaDeLibros img {
+  background-color: lightsalmon;
 }
 
-.index .mainIndex .laGuerraDeLosMundos img{
-    background-color: lightgoldenrodyellow;
+.index .mainIndex .laGuerraDeLosMundos img {
+  background-color: lightgoldenrodyellow;
 }
 
-.index .mainIndex .novedades{
-    background-color: rgba(255, 160, 122, 0.329);
+/* sección de novedades */
+
+.index .mainIndex .novedades {
+  background-color: rgba(255, 160, 122, 0.329);
 }
 
 /*Sección recomendados*/
 
-.index .mainIndex .recomendados article{
-    height: 350px;
-    margin: 20px 20px 160px 20px;
-    background-color: var(--color-amarillo);
-    text-align: center;
+.index .mainIndex .recomendados .librosRecomendados {
+  height: 350px;
+  margin: 40px 20px 180px 20px;
+  background-color: var(--color-amarillo);
+  text-align: center;
 }
 
-.index .mainIndex .recomendados article img{
-    width: 80%;
-    padding: 5px;
-    margin: 0 10%;
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+.index .mainIndex .recomendados .librosRecomendados img {
+  width: 80%;
+  height: 330px;
+  padding: 5px;
+  margin: 0 10%;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 /*Estilo de titulos de recomendados*/
-.index .mainIndex .recomendados h3{
-    padding-top: 10px;
-} 
-
-.index .mainIndex .recomendados p{
-    font-size: 14px;
-    line-height: 20px;
+.index .mainIndex .recomendados h3 {
+  padding-top: 10px;
 }
 
-.index .mainIndex .recomendados div{
-    font-weight: bold;
+.index .mainIndex .recomendados p {
+  font-size: 14px;
+  line-height: 20px;
 }
 
-.index .mainIndex .recomendados .aLaCazaDeHoudini img{
-    height: 320px;
+.index .mainIndex .recomendados div {
+  font-weight: bold;
 }
 
-.index .mainIndex .recomendados .estrella{
-    padding-bottom: 5px;
+.index .mainIndex .recomendados .aLaCazaDeHoudini img {
+  height: 320px;
+}
+
+.index .mainIndex .recomendados .estrella {
+  padding-bottom: 5px;
 }
 
 /*Publicidades*/
 
-.index .mainIndex .publicidades img{
-    width: 100%;
-    padding:30px;
-    background-color: whitesmoke;
+.index .mainIndex .publicidades img {
+  width: 100%;
+  padding: 30px;
+  background-color: whitesmoke;
 }
 
-.index .mainIndex .iconos{
-    text-align:center;
+.index .mainIndex .iconos {
+  text-align: center;
 }
 
-.index .mainIndex .iconos h3{
-    font-weight: 600;
-    color: gray;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+.index .mainIndex .iconos h3 {
+  font-weight: 600;
+  color: gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
-.index .mainIndex .iconos i{
+.index .mainIndex .iconos i {
+  font-size: 40px;
+  color: gray;
+}
+
+@media (min-width: 361px) {
+  /* Seccion mas vendidos */
+  .index .mainIndex .cabecera {
+    margin: 50px 10px 20px;
+  }
+  .index .mainIndex .cabecera h2 {
     font-size: 40px;
-    color: gray;
+    font-weight: 600;
+  }
+
+  .index .mainIndex .cabecera a {
+    font-size: 20px;
+  }
+
+  .index .mainIndex .articles-masVendidos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .index .mainIndex article img {
+    width: 200px;
+  }
+
+  .index .mainIndex .laGuerraDeLosMundos {
+    display: none;
+  }
+
+  /* sección de novedades */
+
+  .index .mainIndex .novedades {
+    padding-bottom: 30px;
+  }
+
+  .index .mainIndex .articles-novedades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .index .mainIndex .novedades img {
+    width: 320px;
+    height: 450px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+
+  .index .mainIndex .articles-novedades #yoAntesDeTi {
+    display: none;
+  }
+
+  .index .mainIndex .articles-recomendados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .index .mainIndex .articles-recomendados .librosRecomendados {
+    margin: 0;
+    width: calc(50% - 40px);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .index .noneadoPorGil {
+    display: none;
+  }
+
+  .index .publicidades {
+    margin-top: 180px;
+  }
+
+  .index .publicidad-abajo{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .index .mainIndex .publicidades img {
+    padding: 0px;
+  }
+  .index .mainIndex .publicidades .publicidad-abajo img{
+width:30%;
+  }
+}
+
+@media (min-width: 769px) {
 }
