@@ -38,8 +38,14 @@
   color: var(--color-amarillo);
   padding: 6px;
   border: solid 1px gray;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 0 30px;
+  font-weight: 600;
+}
+
+.detail .producto .comprar:hover{
+  background-color: var(--color-amarillo);
+  color: var(--color-bordo);
 }
 
 .detail .producto .sinopsis {
