@@ -36,7 +36,7 @@
 .detail .producto .comprar {
   background-color: var(--color-bordo);
   color: var(--color-amarillo);
-  padding: 2px 2px 4px 2px;
+  padding: 6px;
   border: solid 1px gray;
   border-radius: 15px;
   margin: 0 30px;
