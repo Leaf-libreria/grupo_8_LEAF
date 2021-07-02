@@ -174,7 +174,7 @@
     height: 450px;
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
   }
-
+  /*articulo noneado*/
   .index .mainIndex .articles-novedades #yoAntesDeTi {
     display: none;
   }
@@ -192,15 +192,15 @@
     margin-right: 0.5rem;
   }
 
-  .index .noneadoPorGil {
+  .index .noneado {
     display: none;
   }
-
+  /* seccion de publicidades */
   .index .publicidades {
     margin-top: 180px;
   }
 
-  .index .publicidad-abajo{
+  .index .publicidad-abajo {
     display: flex;
     justify-content: space-between;
   }
@@ -208,10 +208,74 @@
   .index .mainIndex .publicidades img {
     padding: 0px;
   }
-  .index .mainIndex .publicidades .publicidad-abajo img{
-width:30%;
+  .index .mainIndex .publicidades .publicidad-abajo img {
+    width: 30%;
+    height: 250px;
   }
 }
 
 @media (min-width: 769px) {
+  /*carousel*/
+  .index .carousel img {
+    height: 400px;
+  }
+  /* Seccion mas vendidos */
+  .index .mainIndex .laGuerraDeLosMundos {
+    display: initial;
+  }
+  .index .mainIndex .cabecera h2 {
+    margin: 0;
+    justify-content: space-between;
+  }
+  .index .mainIndex .detalle h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  /* boton de ver mas */
+  .index .mainIndex .cabecera a {
+    font-size: 26px;
+  }
+  .index .mainIndex .articles-novedades #yoAntesDeTi {
+    display: initial;
+    margin-right: 20px;
+  }
+  .index .mainIndex .novedades img {
+    width: 280px;
+    height: 400px;
+  }
+  /* seccion de recomendados */
+  .index .noneado {
+    display: initial;
+  }
+  /* articulos recomendados */
+  .index .mainIndex .recomendados .librosRecomendados {
+    width: 25%;
+    margin-bottom: 30px;
+  }
+  /* seccion de publicidades */
+  .index .publicidades {
+    margin-top: 250px;
+  }
+  .index .mainIndex .publicidades img {
+    padding: 30px;
+  }
+  .index .mainIndex .publicidades .publicidad-abajo img {
+    width: 33%;
+    height: 300px;
+  }
+  /* leaf te ofrece */
+  .index .mainIndex .iconos h3 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .index .mainIndex .iconos .articulo-iconos {
+    display: flex;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .index .mainIndex .iconos .articulo-iconos i {
+    font-size: 50px;
+  }
 }
