@@ -1,9 +1,13 @@
 @import url('general.css');
 @import url('header.css');
-
+@import url('footer.css');
 @import url('index.css');
 @import url('login.css');
 @import url('register.css');
 @import url('productCart.css');
 @import url('productDetail.css');
+<<<<<<< HEAD
 @import url('admin.css');
+=======
+@import url('bootstrap.css');
+>>>>>>> c8229dc1c6d53b36dbfa2c9fe5e742f4df79b1c7

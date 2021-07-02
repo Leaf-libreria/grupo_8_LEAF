@@ -2,20 +2,25 @@
 
 /*seccion superior del header*/
 header{
-    /*display: flex;*/
+    width: 100%;
+    display: flex;
     background-color: var(--color-amarillo);
     color: var(--color-bordo);
 }
 
-header .header1 .redes{
+header .header1 {
     display: none;
 }
-header .header1 .login p, header .header1 .login form{
-    display:none;
-}
+
 /*seccion inferior del header*/
 
-header .header2 img{
+header .header2{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+header .header2 .contenedorLogo img{
     width: 25%;
 }
 
@@ -27,63 +32,155 @@ header .header2 .buscador select, header .header2 .buscador input, header .heade
     display: none;
 }
 
-header .header1{
-    display: flex;
-}
 
-header .header1 .login{
-   display: inline-block; 
-}/*para mover login*/
-
-header .header2 .categorias li, form{
-    display: inline-block;
-}
-
-header .header2{
-    display: flex;
-   justify-content: flex-end;
-}
-
-index .header2 .contenedorLogo{
+header .header2 .contenedorLogo{
     justify-content: flex-start;
+    margin-left:3.5%;
+}
+.header2 .buscador i, .header2 .carrito{
+    margin: 8px;
+    padding: 2px 4px;
+}
+.header2 .buscador i{
+    order: 0; 
 }
 
-.index .header2 .buscador i{
-    order: 0;
-}
-
-.index .header2 .carrito{
+.header2 .carrito{
     order: 1;
+    border: none;
+    background-color: transparent;
 }
 
-.index .header2 .burger-menu{
+.header2 .carrito i{
+    color: var(--color-bordo)
+}
+
+.header2 .burger-menu{
     order: 3;
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    border-radius: 8%;
+    margin: 8px;
+    padding: 0 4px;
 }
 
  /*-------RESPONSIVE-----   */
 
  /*Tablet*/
-@media (min-widht:361px){
+@media (min-width:361px){
 /*Seccion superior del header*/
+header{
+    display: block;
+}
 header .header1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--color-bordo);
     color: var(--color-amarillo);
-    display: flex;
 }
-
-header .header1 .redes li{
-    display: inline-block;
+header .header1 .redes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
 }
 
 header .header1 .redes a{
     color: var(--color-amarillo);
+    margin-left: 10px;
+    font-size: 30px;
 }
 
-header .header1 .login i,p, form{
-    display: inline-block;
+header .header1 .redes p, header .header1 .login button p{
+    font-weight: 700;
+    align-self: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+header .header1 .login{
+    margin-right: 20px;
+}
+
+header .header1 .login button p{
+    margin: 0 10px;
+}
+
+header .header1 .login button{  
+    display:flex; 
+    color: var(--color-amarillo);
+    font-size: 20px;
+    align-items: center;
+}
+
+/* HEADER2 */
+header .header2 .contenedorLogo img{
+    width: 50px;
+}
+header .header2 .categorias{
+    display: flex;
+    margin-top: 16px;
+    margin-right: 15px;
+}
+header .header2 .categorias li a, header .header2 .categorias li form{
+    color: var(--color-bordo);
+    font-size: 20px;
+    font-weight: 800;
+    margin-right: 20px;
+}
+header .header2 .categorias li form select{
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    color: var(--color-bordo);
+}
+
+header .header2 .buscador form{
+    display: flex;
+    align-items: center;
+}
+header .header2 .buscador select, header .header2 .buscador i{
+    border: none;
+    background-color: var(--color-bordo);
+    padding: none;
+    color: var(--color-amarillo);
+    font-size: 20px;
+}
+.header2 .buscador i{
+    margin: 0;
+    padding: 4px;
+}
+header .header2 .carrito i{
+    padding: 3px;
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    font-size: 20px;
+}
+header .header2 .carrito{
+    display: flex;
+    align-items: center;
+}
+header .header2 .carrito p{
+    background-color: gray;
+    color: var(--color-amarillo);
+    font-size: 17.9px;
+    margin-top: 15.5px;
+    padding: 0 4px;
+}
+header .header2 .buscador select, header .header2 .buscador input, header .header2 .carrito p{
+    display: initial;
+}
+header .header2 {
+    flex-direction: row;
+    justify-content: space-between;
+}
+header .header2 .login, .header2 .burger-menu{
+    display: none;
 }
 }
 
 /*Desktop*/
-@media (min-widht:769px){
+@media (min-width:769px){
+    
 }
