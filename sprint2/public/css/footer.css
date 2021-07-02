@@ -32,8 +32,10 @@ footer .cabecera-footer .footer-arriba p {
 }
 footer .cabecera-footer .redes i {
   font-size: 30px;
+
   color: var(--color-amarillo);
 }
+
 /*parte media del pie de pagina*/
 
 /*menu*/
@@ -79,7 +81,21 @@ footer .terminos {
   font-size: 12px;
   text-align: center;
 }
-
+/* hover */
+footer .cabecera-footer .redes i:hover {
+  color: rgb(0, 102, 255);
+}
+footer .cabecera-footer i.fa-instagram-square:hover {
+  color: rgb(192, 73, 172);
+}
+footer .footer-medio ul li a:hover {
+  text-decoration: underline;
+}
+footer .footer-abajo a:hover {
+  background-color: var(--color-amarillo);
+  color: black;
+  font-weight: 600;
+}
 /*responsive para tablet*/
 @media (min-width: 361px) {
   /*pie de pagina*/
@@ -157,5 +173,10 @@ footer .terminos {
   footer .footer-abajo a i {
     margin-bottom: 20px;
     margin-right: 80px;
+  }
+  /* hover email*/
+  footer .footer-abajo a:hover {
+    background-color: transparent;
+    font-weight: 800;
   }
 }
