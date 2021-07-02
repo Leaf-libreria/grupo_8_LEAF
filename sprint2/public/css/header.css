@@ -32,7 +32,6 @@ header .header2 .buscador select, header .header2 .buscador input, header .heade
     display: none;
 }
 
-
 header .header2 .contenedorLogo{
     justify-content: flex-start;
     margin-left:3.5%;
@@ -41,9 +40,7 @@ header .header2 .contenedorLogo{
     margin: 8px;
     padding: 2px 4px;
 }
-.header2 .buscador i{
-    order: 0; 
-}
+
 
 .header2 .carrito{
     order: 1;
@@ -63,6 +60,19 @@ header .header2 .contenedorLogo{
     margin: 8px;
     padding: 0 4px;
 }
+/* hover */
+.header2 .carrito i:hover{
+    font-size: 20px;
+ }
+ .header2 .buscador i:hover{
+     font-size: 20px;
+ }
+ .header2 .login button:hover{
+     font-size: 20px;
+ }
+ .header2 .buscador i{
+     order: 0; 
+ }
 
  /*-------RESPONSIVE-----   */
 
@@ -90,8 +100,11 @@ header .header1 .redes a{
     color: var(--color-amarillo);
     margin-left: 10px;
     font-size: 30px;
+    
 }
-
+header .header1 .redes a:hover{
+    font-size: 34px;
+}
 header .header1 .redes p, header .header1 .login button p{
     font-weight: 700;
     align-self: center;
@@ -101,6 +114,12 @@ header .header1 .redes p, header .header1 .login button p{
 
 header .header1 .login{
     margin-right: 20px;
+}
+/* hover */
+header .header1 .login:hover{
+    border: 1px solid var(--color-amarillo);
+    padding: 10px;
+    border-radius:5px ;
 }
 
 header .header1 .login button p{
@@ -177,6 +196,13 @@ header .header2 {
 }
 header .header2 .login, .header2 .burger-menu{
     display: none;
+}
+/* hover */
+header .header2 .categorias li a:hover, header .header2 .categorias select:hover{
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    padding: 5px;
+    border-radius: 5px;
 }
 }
 
