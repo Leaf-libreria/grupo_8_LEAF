@@ -24,7 +24,11 @@
   font-size: 14px;
   border-radius: 5px;
 }
-
+/* hover de ver mas */
+.index .mainIndex .cabecera a:hover {
+  background-color: var(--color-bordo);
+  color: var(--color-amarillo);
+}
 .index .mainIndex article img {
   width: 90%;
   margin: 0 5%;
@@ -235,6 +239,7 @@
   .index .mainIndex .cabecera a {
     font-size: 26px;
   }
+
   .index .mainIndex .articles-novedades #yoAntesDeTi {
     display: initial;
     margin-right: 20px;

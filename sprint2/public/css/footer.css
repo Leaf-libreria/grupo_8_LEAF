@@ -32,6 +32,7 @@ footer .cabecera-footer .footer-arriba p {
 }
 footer .cabecera-footer .redes i {
   font-size: 30px;
+
   color: var(--color-amarillo);
 }
 
@@ -81,17 +82,20 @@ footer .terminos {
   text-align: center;
 }
 /* hover */
-footer .cabecera-footer .redes i:hover{
-  font-size: 35px;
- }
- footer .footer-medio ul li a:hover{
-   text-decoration: underline;
- }
- footer .footer-abajo a:hover{
-   background-color: var(--color-amarillo);
-   color: black;
-   font-weight: 600;
- }
+footer .cabecera-footer .redes i:hover {
+  color: rgb(0, 102, 255);
+}
+footer .cabecera-footer i.fa-instagram-square:hover {
+  color: rgb(192, 73, 172);
+}
+footer .footer-medio ul li a:hover {
+  text-decoration: underline;
+}
+footer .footer-abajo a:hover {
+  background-color: var(--color-amarillo);
+  color: black;
+  font-weight: 600;
+}
 /*responsive para tablet*/
 @media (min-width: 361px) {
   /*pie de pagina*/
@@ -170,9 +174,9 @@ footer .cabecera-footer .redes i:hover{
     margin-bottom: 20px;
     margin-right: 80px;
   }
-  /* hover */
- footer .footer-abajo a:hover{
-   background-color: transparent;
-   font-weight: 800;
- }
+  /* hover email*/
+  footer .footer-abajo a:hover {
+    background-color: transparent;
+    font-weight: 800;
+  }
 }
