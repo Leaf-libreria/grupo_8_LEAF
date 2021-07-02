@@ -22,13 +22,13 @@
 
   <body class="index">
     <!-- encabezado -->
-    <header>
+    <header  id="contenedorLogo">
       <!-- seccion superior del header -->
       <nav class="header1">
         <!-- redes sociales -->
         <ul class="redes">
           <li>
-            <p>Seguinos</p>
+            <p >Seguinos</p>
           </li>
           <li>
             <a href=""><i class="fab fa-facebook-square"></i></a>
@@ -63,11 +63,11 @@
       <!-- seccion inferior del header -->
       <nav class="header2">
         <div class="contenedorLogo">
-          <img
+        <a href="/"> <img
             class="logo"
             src="/images/logo-leaf-remaster.png"
             alt="logo de Leaf"
-          />
+          /></a> 
         </div>
         <!-- categorias -->
         <ul class="categorias">
@@ -250,7 +250,7 @@
           </article>
         </div>
       </section>
-
+<!-- seccion de novedades -->
       <section class="novedades">
         <div class="cabecera">
           <h2>novedades</h2>
@@ -301,7 +301,7 @@
             />
           </article>
 
-          <article class="librosRecomendados noneadoPorGil">
+          <article class="librosRecomendados noneado">
             <h3>a la caza de houdini</h3>
             <p>
               la tercer entrega en la saga juvenil histórica escrita por la
@@ -353,6 +353,7 @@
 
       <section class="iconos">
         <h3>en leaf te ofrecemos</h3>
+        <div class="articulo-iconos">
         <article class="envios">
           <i class="fas fa-truck"></i>
           <p>compra online y <strong> envios a domicilio </strong></p>
@@ -371,13 +372,14 @@
           <i class="fas fa-dollar-sign"></i>
           <p>los mejores <strong> precios y ofertas</strong></p>
         </article>
+      </div>
       </section>
     </main>
 
     <!-- pie de pagina -->
     <footer>
       <div class="cabecera-footer">
-        <img src="/images/logo-leaf-remaster.png" alt="" />
+       <a href="#contenedorLogo"> <img src="/images/logo-leaf-remaster.png" alt="" /></a>
         <!-- footer seccion arriba -->
         <div class="footer-arriba">
           <!-- redes sociales -->
