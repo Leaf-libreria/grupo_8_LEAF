@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/logo-leaf-remaster.png" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <title>Carga de producto | LEAF</title>
+  </head>
+
+  <body class="admin">
+    <!-- encabezado -->
+    <header class="admin-header">
+      <!-- seccion superior del header -->
+      <nav class="header1">
+        <!-- redes sociales -->
+        <ul class="redes">
+          <li>
+            <p class="noResponsive">Seguinos</p>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-facebook-square"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-instagram-square"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fab fa-twitter-square"></i></a>
+          </li>
+        </ul>
+        <!-- mi cuenta -->
+        <div class="login">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+              <p>Mi cuenta</p>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- seccion inferior del header -->
+      <nav class="header2">
+        <div class="contenedorLogo">
+          <a href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
+        </div>
+        <!-- categorias -->
+        <ul class="categorias noResponsive">
+          <li><a class="noResponsive" href="">Libros</a></li>
+          <li><a class="noResponsive" href="">Ebooks</a></li>
+          <li>
+            <form>
+              <select>
+                <option selected>Géneros</option>
+                <option value="1"><a href="">Romance</a></option>
+                <option value="2"><a href="">Misterio</a></option>
+                <option value="2"><a href="">Terror</a></option>
+              </select>
+            </form>
+          </li>
+        </ul>
+        <div class="burger-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <!-- buscador -->
+        <div class="buscador noMovil">
+          <form>
+            <select>
+              <option selected>Libros</option>
+              <option value="2"><a href="">Ebooks</a></option>
+            </select>
+            <input type="text" placeholder="Buscar..." /><i
+              class="fas fa-search"
+            ></i>
+          </form>
+        </div>
+        <!-- carrito -->
+        <button class="carrito noMovil">
+          <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+          <p>0</p>
+        </button>
+        <!-- mi cuenta -->
+        <div class="login">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="administrador">
+        <h2>Carga o edición de productos</h2>
+        <!--FORMULARIO-->
+  <form action="" method="POST" class="formulario">
+      <div class="titulo">
+          <label for="titulo">Título del libro:</label>
+          <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" required>
+      </div>
+      <div class="id">
+          <label for="id" >ID del producto:</label>
+          <input type="text" name="id" id="id" class="control" placeholder="Escriba aquí" required>
+      </div>
+    </section>
+    <section class="isbn">
+      <label for="isbn">ISBN:</label>
+      <div class="isbn-btn">
+      <input type="number" name="isbn" id="isbn" class="control" placeholder="10 ó 13 Dígitos" required>
+      <!--botón de ayuda-->
+      <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button> 
+    </div> 
+</section>
+    <div class="stock">
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números" required>
+    </div>
+   <section class="formato">
+       <label for="formato">Formato:</label> 
+       <select name="formato" id="formato">
+           <option value="" hidden selected>Seleccione el formato</option>
+           <option value="libro">Libro</option>
+           <option value="ebook">Ebook</option>
+       </select>
+         </section>
+   <section class="autor">
+        <label for="autor">Autor/Autora:</label>
+        <!--Desplegable-->
+        <select name="autor" id="autor">
+    <option value="kerri-mariscalco">Kerri Mariscalco</option>
+    <option value="ariana-godoy">Ariana Godoy</option>
+    <option value="adam-silvera">Adam Silvera</option>
+    <option value="john-grisham">John Grisham</option>
+    <option value="jonh-katzenbach">Jonh Katzenbach</option>
+    <option value="h-g-wells">H. G. Wells</option>
+    <option value="markus-zusak">Markus Zusak</option>
+    <option value="florencia-bonelli">Florencia Bonelli</option>
+    <option value="carlos-ruis-zafon">Carlos Ruiz Zafón</option>
+    <option value="jojo-moyes">Jojo Moyes</option>
+    <option value="otro">Otro</option>    
+</select>
+    <div class="otroAutor">
+        <!--campo para ingresar opción otro-->
+        <input type="text" name="autor" id="otroAutor" placeholder="Otro. Nombre y apellido del autor" class="control">
+    </div>
+    </section>
+<section class="editorial">
+    <label for="editorial">Editorial:</label>
+    <!--Desplegable-->
+    <select name="editorial" id="editorial">
+        <option value="wattpad">Wattpad</option>
+        <option value="suma">Suma</option>
+        <option value="deBolsillo">DeBolsillo</option>
+        <option value="booket">Booket</option>
+        <option value="edicionesB">Ediciones B</option>
+        <option value="otro">Otro</option> 
+    </select>
+    <div class="otraEditorial">
+        <!--campo para ingresar opción otro-->
+        <input type="text" name="editorial" id="OtraEditorial" placeholder="Otro. Ej: Planeta" class="control">
+    </div>
+</section>
+<section class="genero">
+    <label for="genero">Género</label>
+    <!--Desplegable-->
+    <select name="genero" id="genero">
+        <option value="romance">Romance</option>
+        <option value="terror">Terror</option>
+        <option value="misterio">Misterio</option>
+        <option value="otro">Otro</option>
+    </select>
+    <div class="otroGenero">
+        <!--campo para ingresar opción otro-->
+        <input type="text" name="genero" id="otroGenero" placeholder="Otro. Ej: Fantasía" class="control" required>
+    </div>
+</section>
+<div class="precio">
+    <label for="precio">Precio $:</label>
+    <input type="number" name="precio" id="precio" class="control" placeholder="Ingrese sólo números" required>
+</div>
+<div class="paginas">
+    <label for="paginas">Páginas:</label>
+    <input type="number" name="paginas" id="paginas" class="control" placeholder="Sólo números" required>
+</div>
+<section class="portada">
+    <label for="portada">Imagen de portada:</label>
+    <div class="portada-btn">
+    <input type="url" name="portada" id="portada" class="control" placeholder="Ingrese link de portada">
+
+    <!--botón de ayuda-->
+    <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button>
+</div>
+</section>
+<div class="sinopsis">
+     <label for="sinopsis">Sinopsis:</label>
+     <textarea name="sinopsis" id="sinopsis" cols="20" rows="10" placeholder="Sinopsis del libro" required>
+    </textarea>
+</div>
+<p>*Todos los campos son obligatorios</p>
+<!--BOTONES-->
+<section class="botones">
+    <button type="reset" class="btn-cancelar">Cancelar</button>
+
+    <button type="submit" class="btn-guardar">Guardar</button>
+</section>
+  </form>  
+    </main>
+    
+</body>
+</html>
