@@ -1,12 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
+    <link rel="shortcut icon" href="/images/leafPestania.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Registro-LEAF</title>
 </head>
-<body>
-    
+
+<body class="body-register">
+    <!-- Imagen de costado = tablet/desktop -->
+    <section class="contenido-gral-register">
+        <div class="imgcostado-register" style="width: 18rem;">
+            <img src="/images/logo-leaf-remaster.png" class="card-img-top" alt="Logo de leaf">
+            <div class="card-body">
+                <h4 class="card-title">¡Más de 200.000 títulos!</h4>
+                    <p class="card-text">Ahora podes comprar tus libros por Internet desde la comodidad de tu casa u
+                        oficina a través de nuestra <a href="/">Tienda Virtual</a></p>
+            </div>
+            <!-- REDES SOCIALES -->
+            <ul class="redes-register">
+                <li>
+                    <h5>Seguinos en redes sociales</h5>
+                </li>
+                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="conclase-register">
+            <section class="header-register">
+                <a href="/"><img src="/images/logo-leaf-remaster.png" alt="Logo de leaf"></a>
+
+                <div class="ya-cuenta"><a href="/login">¿Ya tienes una cuenta?</a></div>
+
+                <div class="inic-sesion"><a href="/login">iniciar sesión</a></div>
+            </section>
+
+            <main class="main-register">
+                <form action="" method="GET" enctype="multipart/form-data">
+                    <a href="/"><i class="fas fa-angle-double-left"></i> Home</a>
+                    <h2>Registrate en LEAF</h2>
+
+                    <div class="registro-correo"> <label for="registro-correo">Correo electrónico</label><input type="email" name="email" id="email"
+                            placeholder="nombre@correo.com">
+                    </div>
+                    <!-- Posible error -->
+                    <span></span> 
+
+                    <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="nombre" id="nombre"
+                            placeholder="Nombre(s)">
+                    </div>
+
+                    <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="apellido" name="apellido" id="apellido"
+                            placeholder="Apellido(s)">
+                    </div>
+
+                    <div class="num-doc"> <label for="num-doc">Número de documento</label> <input type="num-doc" name="num-doc" id="num-doc"
+                            placeholder="Número de documento">
+                    </div>
+
+                    <div class="telefono"> <label for="telefono">Teléfono </label> <input type="telefono" name="telefono" id="telefono"
+                            placeholder="Teléfono">
+                    </div>
+
+                    <div class="registro-password"> <label for="registro-password">Ingresar contraseña</label> <input type="password" name="password"
+                            id="password" placeholder="Contraseña">
+                    </div>
+
+                    <div class="confirm-password"> <label for="confirm-password">Confirmar contraseña</label> <input type="confirm-password"
+                            name="Confirmar contraseña" id="Confirm password" placeholder="Confirmar contraseña">
+                    </div>
+
+                    <!-- Posible error -->
+                    <span></span>
+
+                    <div class="datos">
+                        <p>Al registrarme en nuestro sistema, le informamos que los datos personales de su propiedad
+                            serán
+                            tratados, almacenados, usados y procesados en nuestra base de datos, cuya finalidad es
+                            gestionar
+                            el
+                            envío por nuestras partes de bienes y/o servicios y hacerle partícipe de nuestros eventos
+                            promocionales. LEAF garantiza el ejercicio de los derechos de acceso, rectificación,
+                            cancelación
+                            y
+                            oposición de los datos facilitados. Si desea consultar o eliminar sus datos, puede hacerlo
+                            mediante
+                            comunicación escrita dirigida al correo electrónico <a href="mailto:servicioalcliente@leaf.com"></a>servicioalcliente@leaf.com </p>
+                    </div>
+
+                    <div class="politicas-register"><input type="checkbox" name="politicas" value="politicas"
+                            id="politicas"><label for="politicas">Acepto las políticas de privacidad y manejo de
+                                datos</label>
+                    </div>
+
+                    <div class="ya-cuenta"><a href="/login">¿Ya tienes una cuenta?</a></div> <br>
+
+                    <div class="submit-reg"><a href="">Registrarme</a></div>
+                </form>
+            </main>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

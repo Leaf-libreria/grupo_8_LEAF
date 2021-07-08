@@ -1,0 +1,239 @@
+/* Version mobile */
+
+.detail .seleccion {
+  width: 50%;
+  margin: 15px auto 10px;
+}
+
+.detail .seleccion h4 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+}
+.detail .seleccion img {
+  width: 180px;
+  padding: 20px;
+  background-color: lightblue;
+}
+
+.detail .producto {
+  text-align: center;
+}
+
+.detail .producto h4 {
+  font-weight: 600;
+}
+
+.detail .producto p {
+  font-weight: 600;
+}
+
+.detail .producto i {
+  font-size: 25px;
+  margin: 0 30px;
+}
+
+.detail .producto .comprar {
+  background-color: var(--color-bordo);
+  color: var(--color-amarillo);
+  padding: 6px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  margin: 0 30px;
+  font-weight: 600;
+}
+
+.detail .producto .comprar:hover{
+  background-color: var(--color-amarillo);
+  color: var(--color-bordo);
+}
+
+.detail .producto .sinopsis {
+  text-align: center;
+  margin: 30px auto 15px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 10px 0;
+  width: 80%;
+}
+
+.detail .infoad {
+  text-align: center;
+}
+
+.detail .iconoInfo {
+  display: flex;
+  flex-wrap: wrap;
+}
+.detail .iconoInfo div {
+  text-align: center;
+  width: 50%;
+}
+
+.detail .iconoInfo p {
+  margin: 0;
+}
+
+.detail .iconoInfo i {
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.detail .ademas {
+  margin: 30px 10px 10px 10px;
+  border-top: 1px solid gray;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.detail .elPsicoanalista {
+  text-align: center;
+  margin: 30px;
+}
+
+.detail .elPsicoanalista img {
+  width: 50%;
+  padding: 15px;
+  background-color: lightgoldenrodyellow;
+}
+
+.detail .elPsicoanalista p {
+  font-weight: 600;
+}
+
+.detail .laLadronaDeLibros {
+  text-align: center;
+  margin: 30px;
+}
+
+.detail .laLadronaDeLibros img {
+  width: 50%;
+  padding: 15px;
+  background-color: lightsalmon;
+}
+
+.detail .laLadronaDeLibros p {
+  font-weight: 600;
+}
+
+.detail .laGuerraDeLosMundos {
+  text-align: center;
+  margin: 30px;
+}
+
+.detail .laGuerraDeLosMundos img {
+  width: 50%;
+  padding: 15px;
+  background-color: lightgrey;
+}
+
+.detail .laGuerraDeLosMundos p {
+  font-weight: 600;
+}
+
+/* Version tablet */
+
+@media (min-width: 361px) {
+  .detail .seleccionProducto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .detail .seleccion {
+    margin:10px 0 0 0;
+    width:40%;
+  }
+
+  .detail .seleccion img {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .detail .producto .sinopsis {
+    border-bottom: none;
+    width: 100%;
+  }
+  .detail .producto {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: start;
+    width: 50%;
+    margin: 10px 0 0 0;
+  }
+
+  .detail .productoAbajo{
+      display: flex;
+      align-items:flex-start;
+      justify-content: space-around;
+      margin: 40px 0 0 0;
+  }
+
+  .detail .productoAbajo p{
+      font-size: 20px;
+      font-weight: 600px;
+  }
+
+  .detail .infoad {
+    border-top: solid 1px gray;
+    text-align: center;
+    margin: 30px 30px 10px 30px;
+    padding-top: 10px;
+  }
+  .detail .iconoInfo {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .detail .ademas {
+    margin: 30px 30px;
+  }
+
+  .detail .otros {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+
+  .detail .otros article {
+    margin: 0;
+  }
+
+  .detail .otros h3 {
+    font-size: 20px;
+  }
+
+  .detail .laGuerraDeLosMundos img {
+    width: 150px;
+    height: 210px;
+  }
+
+  .detail .laLadronaDeLibros img {
+    width: 150px;
+    height: 210px;
+  }
+
+  .detail .elPsicoanalista img {
+    width: 150px;
+    height: 210px;
+  }
+}
+
+
+@media (min-width: 769px) {
+    .detail .seleccion h4 {
+        text-align:left;
+        font-size: 35px;
+      }
+
+      .detail .producto .sinopsis {
+        border-bottom: none;
+        width: 100%;
+        font-size: 20px;
+      }
+
+      .detail .producto {
+          flex-direction: column;
+          align-items: flex-start;
+}
+}
