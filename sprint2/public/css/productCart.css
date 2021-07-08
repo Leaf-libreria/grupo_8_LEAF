@@ -1,6 +1,12 @@
 .productCart {
   background-color: white;
 }
+/* contenedor general */
+.productCart .contenedor-carrito{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* titulo */
 .productCart h1 {
   font-family: var(--letra-titulo);
@@ -181,6 +187,7 @@
 
 /*Tablet*/
 @media (min-width: 361px) {
+
   /* titulo */
   .productCart h1 {
     font-size: 30px;
@@ -308,7 +315,8 @@
 
 /*desktop*/
 @media (min-width: 769px) {
-  .productCart main {
+  /* contenedor general */
+  .productCart .contenedor-carrito{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
