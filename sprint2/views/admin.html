@@ -120,9 +120,10 @@
         </div>
       </nav>
     </header>
-    <main class="administrador">
+    <main>
         <h2>Carga o edición de productos</h2>
         <!--FORMULARIO-->
+        <div class="administrador">
   <form action="" method="POST" class="formulario">
       <div class="titulo">
           <label for="titulo">Título del libro:</label>
@@ -137,8 +138,16 @@
       <label for="isbn">ISBN:</label>
       <div class="isbn-btn">
       <input type="number" name="isbn" id="isbn" class="control" placeholder="10 ó 13 Dígitos" required>
-      <!--botón de ayuda-->
-      <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button> 
+      <!--botón de ayuda, próx agregar js (bootstrap)-->
+      <button class="btn btn-primary btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fas fa-question-circle"></i>
+      </button>
+    </p> <!--Sección que colapsa con la info-->
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        Código normalizado internacional para libros. Hasta 2006 tenían 10 dígitos. Desde 2007, tienen 13 dígitos.
+      </div>
+    </div> 
     </div> 
 </section>
     <div class="stock">
@@ -213,13 +222,22 @@
     <input type="number" name="paginas" id="paginas" class="control" placeholder="Sólo números" required>
 </div>
 <section class="portada">
-    <label for="portada">Imagen de portada:</label>
-    <div class="portada-btn">
-    <input type="url" name="portada" id="portada" class="control" placeholder="Ingrese link de portada">
+  <label for="portada">Imagen de portada:</label>
+  <div class="portada-btn">
+  <input type="url" name="portada" id="portada" class="control" placeholder="Ingrese link">
 
-    <!--botón de ayuda-->
-    <button type="button" class="btn-info"><i class="fas fa-question-circle"></i></button>
-</div>
+  <!--botón de ayuda, próx agregar js (bootstrap)-->
+  <button class="btn btn-primary btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fas fa-question-circle"></i>
+  </button>
+</p> <!--Sección que colapsa con la info-->
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <h5>Puedes obtener la imagen así:</h5>
+    <img src="/images/help-cover.jpg" alt="help-cover">
+  </div>
+</div> 
+</div> 
 </section>
 <div class="sinopsis">
      <label for="sinopsis">Sinopsis:</label>
@@ -234,6 +252,7 @@
     <button type="submit" class="btn-guardar">Guardar</button>
 </section>
   </form>  
+</div>
     </main>
     
 </body>

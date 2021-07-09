@@ -7,14 +7,25 @@
 /*TABLET y DESKTOP*/
 /*Header1*/
 @media (min-width: 361px){
+  /*header sección superior*/
+    /*Header1*/
+    .admin .header1 .noResponsive{
+      display: none;
+    } 
+  .admin .header1 .redes a:hover {
+    font-size: 34px;
+  }
+
+  .admin .header1 .login:hover {
+    border: 1px solid var(--color-amarillo);
+    padding: 10px;
+    border-radius: 5px;
+  }
   /*header sección inferior*/
   .admin .admin-header{
     background-color: transparent;
   }
-  /*Header1*/
-  .admin .header1 .noResponsive{
-    display: none;
-  } 
+
 /*Header2*/
   .admin .header2 .noResponsive{
     display: none;
@@ -23,8 +34,9 @@
 }
 
 /*MAIN*/
+/*--------Mobile y Tablet-----------*/
 /*Titulo*/
-.admin .administrador h2 {
+.admin h2 {
   text-align: center;
   font-family: var(--letra-titulo);
   font-size: 20px;
@@ -34,7 +46,10 @@
 /*-----FORMULARIO-----*/
 .admin .administrador .formulario {
   background-color: rgba(245, 245, 245, 0.575);
-  width: 100%;
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,23 +70,19 @@
 
 .admin .administrador .formulario .isbn,
 .portada {
-  margin-left: 20px;
-}
-
-.admin .administrador .formulario .isbn-btn,
-.portada-btn {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  position: relative;
 }
 
 /*BOTONES DE AYUDA*/
 .admin .administrador .formulario .btn-info {
+  position: absolute;
+  top: 68px;
   background-color: var(--color-bordo);
   border: none;
   font-size: 12px;
   color: var(--color-amarillo);
-  padding: 3px;
+  padding: 2px 3px;
+  text-align: center;
   border-radius: 5px;
   margin-left: 5px;
 }
@@ -94,8 +105,13 @@ textarea {
   background-color: rgba(240, 219, 114, 0.692);
   color: var(--color-bordo);
   font-family: var(--letra-titulo);
-  font-size: 14px;
+  font-size: 16px;
   border: solid 1px var(--color-bordo);
+}
+
+.admin .administrador .formulario input,
+select{
+  height: 40px;
 }
 
 .admin .administrador .formulario input:focus {
@@ -155,33 +171,39 @@ textarea {
 }
 
 /*----RESPONSIVE----*/
-/*TABLET*/
 /*Formulario*/
+/*Tablet*/
 @media (min-width: 361px) {
-  .admin .administrador .formulario {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
+  .admin .administrador .formulario input,
+    select,
+    textarea{
+  width: 60vw;
 }
-
 /*DESKTOP*/
 @media (min-width: 769px) {
     /*Titulo*/
-  .admin .administrador h2 {
+  .admin h2 {
     font-size: 22px;
   }
   
 /*Formulario*/
+.admin .administrador .formulario {
+  max-width: none;
+}
   /*ETIQUETAS DE LOS CAMPOS*/
   .admin .administrador .formulario label {
     font-size: 20px;
   }
-
-  /*Inputs y text area*/
-  .admin .administrador .formulario input,
-  select,
-  textarea {
-    font-size: 16px;
+  
+    /*Inputs y text area*/
+    .admin .administrador .formulario input,
+    select,
+    textarea {
+      width: 50vw;
+      font-size: 18px;
+    }
+       .admin .administrador .formulario .btn-info {
+        right: 15px;
+    }
   }
 }
