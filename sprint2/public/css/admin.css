@@ -68,8 +68,7 @@
 
 /*BLOQUE (section) BOTONES DE AYUDA*/
 
-.admin .administrador .formulario .isbn,
-.portada {
+.admin .administrador .formulario .isbn, .admin .administrador .formulario .portada {
   position: relative;
 }
 
@@ -98,9 +97,7 @@
   font-weight: 400;
 }
 
-.admin .administrador .formulario input,
-select,
-textarea {
+.admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea {
   width: 95%;
   background-color: rgba(240, 219, 114, 0.692);
   color: var(--color-bordo);
@@ -109,8 +106,7 @@ textarea {
   border: solid 1px var(--color-bordo);
 }
 
-.admin .administrador .formulario input,
-select{
+.admin .administrador .formulario input, .admin .administrador .formulario select{
   height: 40px;
 }
 
@@ -126,9 +122,7 @@ select{
   box-shadow: 0px 0px 12px rgb(37, 37, 37);
 }
 
-.admin .administrador .formulario .otroAutor,
-.otraEditorial,
-.otroGenero {
+.admin .administrador .formulario .otroAutor, .admin .administrador .formulario .otraEditorial, .admin .administrador .formulario .otroGenero {
   margin-top: 10px;
 }
 
@@ -144,8 +138,7 @@ select{
 }
 
 /*BOTONES GUARDAR Y CANCELAR*/
-.admin .administrador .formulario .botones .btn-cancelar,
-.btn-guardar {
+.admin .administrador .formulario .botones .btn-cancelar, .admin .administrador .formulario .botones .btn-guardar {
   font-family: var(--letra-titulo);
   text-align: center;
   padding: 5px 10px;
@@ -174,9 +167,7 @@ select{
 /*Formulario*/
 /*Tablet*/
 @media (min-width: 361px) {
-  .admin .administrador .formulario input,
-    select,
-    textarea{
+  .admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea{
   width: 60vw;
 }
 /*DESKTOP*/
@@ -196,9 +187,7 @@ select{
   }
   
     /*Inputs y text area*/
-    .admin .administrador .formulario input,
-    select,
-    textarea {
+    .admin .administrador .formulario input, .admin .administrador .formulario select, .admin .administrador .formulario textarea {
       width: 50vw;
       font-size: 18px;
     }
