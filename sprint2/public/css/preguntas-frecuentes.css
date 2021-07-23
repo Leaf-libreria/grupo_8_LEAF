@@ -1,0 +1,39 @@
+/* preguntas frecuentes */
+.preguntas-frecuentes #accordionExample {
+  margin: 4%;
+}
+
+.preguntas-frecuentes #titulo {
+  font-weight: 400;
+  font-size: 40px;
+  margin-top: 100px;
+  margin-left: 60px;
+  text-decoration: underline 2px var(--color-bordo);
+}
+.preguntas-frecuentes .preguntas-frecuentes {
+  margin: 4%;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* boton de acordeon */
+.preguntas-frecuentes .accordion-button {
+  border: solid 1px #f3b50a7e;
+  font-weight: 400;
+}
+.preguntas-frecuentes .accordion-button:hover {
+  background-color: var(--color-amarillo);
+  font-weight: 600;
+}
+
+.preguntas-frecuentes .accordion-body {
+  border: 1px solid var(--color-bordo);
+  border-top: none;
+}
+
+.accordion-button:not(.collapsed) {
+  font-size: 18px;
+  color: var(--color-bordo);
+  background-color: var(--color-amarillo);
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
