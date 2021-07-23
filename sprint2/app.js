@@ -13,5 +13,6 @@ app.get('/productDetail', (req,res) => res.sendFile(path.join(__dirname, 'views'
 app.get('/admin', (req,res) => res.sendFile(path.join(__dirname, 'views', 'admin.html')));
 
 app.get('/preguntasFrecuentes', (req,res) => res.sendFile(path.join(__dirname, 'views', 'preguntasFrecuentes.html')));
+app.get('/payForm', (req,res) => res.sendFile(path.join(__dirname, 'views', 'payForm.html')));
 
 app.listen(port, () => console.log( `server running in http://localhost:${port}` ));

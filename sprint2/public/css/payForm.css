@@ -1,0 +1,116 @@
+/* Main */
+/* Titulo */
+.payForm-title {
+  text-align: left;
+  font-family: var(--letra-titulo);
+  font-size: 22px;
+  color: #000;
+  margin: 22px;
+}
+
+/* Contenedor del formulario y aside */
+.payForm-container {
+  background-color: rgba(245, 245, 245, 0.575);
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4%;
+}
+/* Formulario */
+/* Subtítulos */
+.payForm-subtitle {
+  font-family: var(--letra-titulo);
+  font-size: 20px;
+  color: #000;
+  margin-top: 5%;
+}
+/* contenedor a login y registrate */
+.payForm-btn-cuenta {
+  display: flex;
+}
+
+/* a login y registrate */
+.payForm-cuenta--a {
+  justify-content: space-between;
+  width: 50%;
+  color: var(--color-amarillo);
+  border-radius: 8px;
+  background-color: var(--color-bordo);
+  margin-right: 10px;
+  text-align: center;
+}
+
+.payForm-cuenta--a:hover {
+  background-color: var(--color-amarillo);
+  color: var(--color-bordo);
+  font-size: 18px;
+}
+
+/*Inputs y select*/
+.payForm-input,
+.payForm-select {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(240, 219, 114, 0.692);
+  color: var(--color-bordo);
+  font-family: var(--letra-titulo);
+  font-size: 18px;
+  border: solid 1px var(--color-bordo);
+  margin-bottom: 12px;
+}
+
+.payForm-input::placeholder {
+  color: var(--color-bordo);
+  font-family: var(--letra-titulo);
+  font-weight: 400;
+}
+
+.payForm-input:focus {
+  box-shadow: 0px 0px 12px rgb(37, 37, 37);
+}
+
+.payForm-select:focus {
+  box-shadow: 0px 0px 12px rgb(37, 37, 37);
+}
+
+/* Contenedor label e input radio */
+.payForm-radio--aside{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3%;
+}
+/* Labels */
+.payForm-label{
+    width: 90%;
+  font-family: var(--letra-titulo);
+  font-size: 18px;
+  color: var(--color-bordo);
+}
+
+/*input radio*/
+.payForm-input--aside{
+    width: 10%;
+}
+
+/* Botón finalizar compra */
+.payForm-btn{
+    width: 96%;
+    color: var(--color-amarillo);
+    font-size: 18px;
+    font-weight: 600;
+  border-radius: 8px;
+  background-color: var(--color-bordo);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+.payForm-btn:hover{
+    background-color: var(--color-amarillo);
+  color: var(--color-bordo);
+  font-size: 20px;
+    font-weight: 800;
+}

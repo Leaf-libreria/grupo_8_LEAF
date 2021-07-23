@@ -86,6 +86,10 @@
   margin-left: 5px;
 }
 
+.admin .administrador .formulario .card-admin{
+  width: 30vh;
+  }
+
 .admin .administrador .formulario .btn-info:hover {
   box-shadow: 0px 0px 10px rgb(37, 37, 37);
 }
@@ -130,6 +134,7 @@
   resize: none; /*Fija tamaño de textarea*/
 }
 
+
 /*AVISO CAMPOS OBLIGATORIOS*/
 .admin .administrador p {
   color: red;
@@ -169,7 +174,13 @@
 @media (min-width: 361px) {
   .admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea{
   width: 60vw;
-}
+  }
+  /*BOTONES DE AYUDA*/
+  .admin .administrador .formulario .card-admin{
+    width: 40vh;
+    }
+  }
+ 
 /*DESKTOP*/
 @media (min-width: 769px) {
     /*Titulo*/
@@ -194,5 +205,8 @@
        .admin .administrador .formulario .btn-info {
         right: 15px;
     }
+    /*BOTONES DE AYUDA*/
+    .admin .administrador .formulario .card-admin{
+      width: 60vh;
+      }
   }
-}
