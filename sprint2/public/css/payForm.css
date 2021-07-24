@@ -1,5 +1,5 @@
-/* Main */
-/* Titulo */
+/* MAIN */
+/* Titulo (h1)*/
 .payForm-title {
   text-align: left;
   font-family: var(--letra-titulo);
@@ -12,19 +12,28 @@
 .payForm-container {
   background-color: rgba(245, 245, 245, 0.575);
   width: 90%;
-  max-width: 600px;
+  /* max-width: 600px; */
   margin-left: auto;
   margin-right: auto;
   padding: 4%;
 }
 /* Formulario */
-/* Subtítulos */
+/* Subtítulos (h2)*/
 .payForm-subtitle {
   font-family: var(--letra-titulo);
   font-size: 20px;
   color: #000;
   margin-top: 5%;
 }
+
+/* contenedor cuenta, facturación, envio */
+.payForm-cuenta,
+.payForm-facturacion,
+.payForm-envio {
+  padding-bottom: 8%;
+  border-bottom: solid 1px grey;
+}
+
 /* contenedor a login y registrate */
 .payForm-btn-cuenta {
   display: flex;
@@ -44,7 +53,7 @@
 .payForm-cuenta--a:hover {
   background-color: var(--color-amarillo);
   color: var(--color-bordo);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /*Inputs y select*/
@@ -56,7 +65,7 @@
   background-color: rgba(240, 219, 114, 0.692);
   color: var(--color-bordo);
   font-family: var(--letra-titulo);
-  font-size: 18px;
+  font-size: 16px;
   border: solid 1px var(--color-bordo);
   margin-bottom: 12px;
 }
@@ -76,31 +85,31 @@
 }
 
 /* Contenedor label e input radio */
-.payForm-radio--aside{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 3%;
+.payForm-radio--aside {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 3%;
 }
 /* Labels */
-.payForm-label{
-    width: 90%;
+.payForm-label {
+  width: 90%;
   font-family: var(--letra-titulo);
   font-size: 18px;
   color: var(--color-bordo);
 }
 
 /*input radio*/
-.payForm-input--aside{
-    width: 10%;
+.payForm-input--aside {
+  width: 10%;
 }
 
 /* Botón finalizar compra */
-.payForm-btn{
-    width: 96%;
-    color: var(--color-amarillo);
-    font-size: 18px;
-    font-weight: 600;
+.payForm-btn {
+  width: 96%;
+  color: var(--color-amarillo);
+  font-size: 18px;
+  font-weight: 600;
   border-radius: 8px;
   background-color: var(--color-bordo);
   margin-left: auto;
@@ -108,9 +117,160 @@
   margin-bottom: 25px;
 }
 
-.payForm-btn:hover{
-    background-color: var(--color-amarillo);
+.payForm-btn:hover {
+  background-color: var(--color-amarillo);
   color: var(--color-bordo);
   font-size: 20px;
-    font-weight: 800;
+  font-weight: 800;
+}
+
+/* (a) seguir comprando */
+.payForm-btn--a{
+  width: 96%;
+  color: grey;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: solid 0.5px;
+  background-color: #f0db726e;;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+.payForm-btn--a:hover{
+  font-size: 20px;
+  color: grey;
+}
+/* Contenedor botones seguir finalizar compra, comprando*/
+.payForm-contenedor-botones{
+  margin-bottom: 4%;
+}
+
+/* ASIDE */
+/* contenedor card */
+.payForm-description--card {
+  border: solid 1px var(--color-bordo);
+  line-height: 1rem;
+}
+
+/* Título principal del aside (h4) */
+.payForm-card-title--h4 {
+  text-align: left;
+  font-family: var(--letra-titulo);
+  font-size: 20px;
+  color: #000;
+  margin: 10px;
+}
+
+/* imagen libro */
+.payForm-img--mobile {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+/* Títulos de la tarjeta (h5)*/
+.payForm-card--title-h5{
+  font-family: var(--letra-titulo);
+  font-size: 20px;
+  color: #000;
+  padding-top: 5%;
+}
+
+/* Subtítulos de la tarjeta (h6)*/
+.payForm-card--subtitle {
+  font-size: 18px;
+  padding-top: 5%;
+}
+
+/* Contenedor calc-compra, calc-envio, subtotal*/
+.payForm-calc-compra,
+.payForm-calc-envio,
+.payForm-subtotal {
+  border-bottom: solid 1px grey;
+}
+
+/*sección que debía ir en línea*/
+.payForm-card--space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* aside card body (p) */
+.payForm-card--p {
+  padding-top: 5%;
+}
+
+/*----RESPONSIVE----*/
+/*Tablet*/
+@media (min-width: 361px){
+  /* MAIN */
+/* Titulo (h1)*/
+.payForm-title{
+ font-size: 24px;
+}
+
+/* Formulario */
+/* Subtítulos (h2)*/
+.payForm-subtitle{
+font-size: 22px;
+}
+/* contenedor cuenta, facturación, envio */
+.payForm-cuenta,
+.payForm-facturacion,
+.payForm-envio {
+  padding-bottom: 5%;
+}
+/* a login y registrate */
+.payForm-cuenta--a {
+font-size: 18px;
+}
+
+.payForm-cuenta--a:hover{
+  font-size: 20px;
+}
+
+/*Inputs y select*/
+.payForm-input,
+.payForm-select{
+  height: 6vh;
+}
+
+/*input radio*/
+.payForm-input--aside {
+  width: 3vh;
+}
+
+/* ASIDE */
+/* Título principal del aside (h4) y Títulos de la tarjeta (h5) */
+.payForm-card-title--h4, .payForm-card--title-h5{
+  font-size: 22px;
+}
+/* Subtítulos de la tarjeta (h6)*/
+.payForm-card--subtitle {
+  font-size: 20px;
+}
+/* aside card body (p) */
+.payForm-card--p {
+  font-size: 18px;
+}
+}
+
+/*DESKTOP*/
+@media (min-width: 769px){
+ /* MAIN */
+
+  /* Contenedor del formulario y aside */
+  .payForm-container{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    column-gap: 20px;
+    padding: 2%;
+  }
+  /* Formulario */
+/* Subtítulos (h2)*/
+.payForm-subtitle {
+    margin-top: 0.5%;
+}
 }
