@@ -78,7 +78,7 @@ footer .footer-abajo a i {
 /*terminos y condiciones*/
 footer .terminos {
   margin-top: 20px;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
 }
 /* hover */
@@ -95,6 +95,21 @@ footer .footer-abajo a:hover {
   background-color: var(--color-amarillo);
   color: black;
   font-weight: 600;
+}
+/* -----Desarrolladores----- */
+/* - - */
+.desarrolladores a{
+  font-weight: 800;
+  color: black;
+}
+
+/* -----modal----- */
+/* estilos del modal */
+#modal-body{
+  padding: 20px;
+}
+.btn-modal a{
+  color: black;
 }
 /*responsive para tablet*/
 @media (min-width: 361px) {

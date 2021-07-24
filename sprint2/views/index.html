@@ -349,14 +349,74 @@
     </div>
     <!-- terminos y condiciones -->
     <div class="terminos">
-      <p>Aviso de privacidad | Terminos y condiciones</p>
+      <ul>
+        <!-- boton de modal -->
+        <!-- esta hecho para agregarlo al navbar o footer -->
+        <li class="nav-item btn-modal">
+          <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#politica-privacidad"
+            href="#">Aviso de privacidad | </a>
+        </li>
+      </ul>
       <p>
         Los precios publicados en esta tienda están sujetos a cambios sin
         previo aviso y solo son aplicables para ventas en línea.
       </p>
       <p>Algunos títulos están sujetos a disponibilidad.</p>
+      <p class="copy-right desarrolladores">&copy 2021 LIBRERIA LEAF. Todos los derechos reservados | Desarrollado por
+        <a href="https://github.com/LorenaCoheneBaez">Lorena Cohene Báez</a> / <a
+          href="https://github.com/Eliana995">Eliana Andrada</a>/ <a href="https://github.com/ScuderiFernando">Fernando
+          Scuderi</a> / <a href="https://github.com/AntonelaEspinola">Antonela Espinola</a></p>
     </div>
   </footer>
+  <!-- -----modal----- -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="politica-privacidad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Aviso de privacidad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="modal-body">
+          <p>En LEAF estamos comprometidos a respetar y garantizar su privacidad.</p>
+          <p>Nuestro sitio utiliza "cookies" para mantener un registro de los ítems que usted suma al carrito, para
+            recordar información al pasar de página en página sin necesidad de volver a solicitársela, para recolectar
+            detalles acerca de sus preferencias y las de otros clientes, para reconocer qué áreas del sitio debemos
+            desarrollar más y qué otras no son de acceso frecuente.</p>
+          <p>Toda esta información, junto con los e-mails de sugerencias recibidos sirven para modificar el sitio de
+            manera que sea más amigable o productivo para nuestros clientes.</p>
+          <p>Cuando le solicitamos sus datos personales, lo hacemos para poder procesar, despachar y avisarle acerca del
+            estado de su orden. El número de teléfono lo solicitamos para el caso que un representante de servicio al
+            cliente tenga la necesidad de contactarse con usted y no pueda lograrlo por medio del e-mail.</p>
+          <p>La información acerca de su tarjeta de crédito no queda registrada en nuestras bases de datos, utilizamos
+            el sistema de Pago Seguro de PayU para compras con tarjetas internacionales y MercadoPago para compras con
+            tarjetas locales como nexo con las controladoras de tarjeta de crédito. De esta manera no conocemos los
+            datos de la tarjeta ingresada en línea, únicamente recibimos un número de autorización o rechazo de la
+            operación.</p>
+          <p>Cuando se suscribe para recibir novedades por e-mail, únicamente consideramos su dirección de e-mail para
+            ese tema, no enviamos publicidad no solicitada y no compartimos ni entregamos nuestras bases de datos a
+            terceras partes bajo ningún motivo.</p>
+          <p>Cuando usted se registra como cliente e informa su clave personal, ésta permanece totalmente encriptada y
+            si usted la pierde o no la recuerda, nosotros no podemos acceder a recuperarla, únicamente podemos asignarle
+            una nueva. De esta forma queda garantizada la privacidad de la misma.</p>
+          <p>Es necesario aclarar que cuando usted clickea sobre un link o un aviso publicitario que lo conecta con
+            otros sitios web, usted está sujeto a las políticas de dicho sitio. No nos hacemos responsables por las
+            acciones de estas terceras partes y por ello recomendamos lea detenidamente la política de privacidad del
+            sitio accedido.</p>
+          <p>Estamos comprometidos a brindar el mejor servicio en línea posible, verifique periódicamente si hubo algún
+            cambio en esta página, pues el uso del sitio cuspide.com implica el conocimiento y aceptación de nuestra
+            política de privacidad.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
     crossorigin="anonymous"></script>
