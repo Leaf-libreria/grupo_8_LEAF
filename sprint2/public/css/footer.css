@@ -45,6 +45,7 @@ footer .footer-medio ul {
 }
 footer .footer-medio ul li a {
   color: var(--color-amarillo);
+  padding: 0;
 }
 /* footer de abajo */
 footer .footer-abajo {
@@ -75,12 +76,25 @@ footer .footer-abajo a {
 footer .footer-abajo a i {
   margin: 5px 15px 0 80px;
 }
-/*terminos y condiciones*/
+/*terminos y condiciones footer abajo*/
 footer .terminos {
   margin-top: 20px;
   font-size: 14px;
   text-align: center;
 }
+footer .terminos .terminos-ul{
+  padding-left: 0%;
+}
+footer .terminos-li{
+  display: inline;
+  margin-right: 0;
+}
+footer .terminos .terminos-li a{
+  display: inline;
+  padding: 0;
+  color: var(--color-amarillo);
+}
+
 /* hover */
 footer .cabecera-footer .redes i:hover {
   color: rgb(0, 102, 255);
@@ -193,5 +207,9 @@ footer .footer-abajo a:hover {
   footer .footer-abajo a:hover {
     background-color: transparent;
     font-weight: 800;
+  }
+/* terminos y condiciones */
+  footer .terminos .terminos-li a{
+    color: var(--color-bordo);
   }
 }
