@@ -200,7 +200,7 @@
       <section class="masVendidos">
         <div class="cabecera">
           <h2>Más vendidos</h2>
-          <a href="">Ver más</a>
+          <a href="/masVendidos">Ver más</a>
         </div>
         <div class="articles-masVendidos">
           <article class="elManuscrito">
@@ -255,7 +255,7 @@
       <section class="novedades">
         <div class="cabecera">
           <h2>novedades</h2>
-          <a href="">ver más</a>
+          <a href="/novedades">ver más</a>
         </div>
         <div class="articles-novedades">
           <article>
@@ -277,7 +277,7 @@
       <section class="recomendados">
         <div class="cabecera">
           <h2>recomendados</h2>
-          <a href="">ver más</a>
+          <a href="/recomendados">ver más</a>
         </div>
 
         <div class="articles-recomendados">
@@ -429,7 +429,17 @@
               >Trabaja con nosotros</a
             >
           </li>
-          <li><a href="">Locales</a></li>
+          <!-- Locales -->
+          <li class="nav-item btn-modal">
+            <a
+              class="active"
+              aria-current="page"
+              data-bs-toggle="modal"
+              data-bs-target="#locales"
+              href="#"
+              >Locales</a
+            >
+          </li>
           <li><a href="">Politicas</a></li>
         </ul>
       </div>
@@ -724,6 +734,65 @@ Luego de agregar los libros deseados en el carrito de compras podrás, accediend
         </div>
       </div>
     </div>
+
+    <!-- Locales-->
+    <div
+      class="modal fade"
+      id="locales"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Nuestros locales
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="modal-body">
+            <div class=localesModal>
+            <h5>
+              Sucursal Alto Palermo - Av. Santa Fe 3253
+            </h5>
+            <a href="https://www.google.com/maps/place/Alto+Palermo+Shopping/@-34.588321,-58.410757,15z/data=!4m5!3m4!1s0x0:0xc7a941fe0d021ba0!8m2!3d-34.588321!4d-58.410757">¿Cómo llego?</a>
+            <img src="/images/local-palermo.png" width=100% height=150px alt="">
+          </div>
+          <div class=localesModal>
+            <h5>
+              Sucursal Shopping Abasto - Av. Corrientes 3247
+            </h5>
+            <a href="https://www.google.com/maps/place/Abasto+Shopping/@-34.6031443,-58.4130297,17z/data=!3m1!4b1!4m5!3m4!1s0x95bcca8c854bd13f:0xfc0cf5c054da4aa1!8m2!3d-34.6031487!4d-58.410841">¿Cómo llego?</a>
+            <img src="/images/local-abasto.png" width=100% height=150px alt="">
+          </div>
+          <div class=localesModal>
+            <h5>
+              Sucursal Alto Avellaneda - Gral. Güemes 897
+            </h5>
+            <a href="https://www.google.com/maps/place/Alto+Avellaneda+Shopping/@-34.6752756,-58.3695765,17z/data=!3m1!4b1!4m5!3m4!1s0x95a33334248ec25d:0x438c219aee66c1bb!8m2!3d-34.67528!4d-58.3673878">¿Cómo llego?</a>
+            <img src="/images/local-avellaneda.png" width=100% height=150px alt="">
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
