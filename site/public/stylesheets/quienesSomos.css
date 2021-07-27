@@ -1,0 +1,46 @@
+/* VERSIÓN MOBILE */
+.index-quienes .main-quienes img{
+    display: none;
+}
+
+.index-quienes .main-quienes h2{
+    font-weight: 400;
+    font-size: 35px;
+    margin-top: 25px;
+    margin-left: 30px;
+    text-decoration: underline 2px var(--color-bordo);
+}
+
+.index-quienes .main-quienes h4{
+    font-weight: 400;
+    font-size: 25px;
+    margin-top: 15px;
+    margin-left: 50px;
+    text-decoration: underline 2px var(--color-bordo);
+}
+
+.index-quienes .main-quienes .cuerpo-quienes p{
+    font-size: 18px;
+}
+
+ 
+/* VERSIÓN TABLET */
+@media (min-width: 361px){
+    .index-quienes .main-quienes img{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        height: 650px;
+        width: 90%;
+        /* width: 45%;
+        height: 55%; */
+        margin: 15px;
+    }
+    .main-quienes{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /*  flex-direction: column;
+        justify-content: end; 
+        width: 60%; */
+    }
+}

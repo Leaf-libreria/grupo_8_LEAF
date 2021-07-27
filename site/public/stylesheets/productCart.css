@@ -1,0 +1,328 @@
+.productCart {
+  background-color: white;
+}
+/* contenedor general */
+.productCart .contenedor-carrito{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* titulo */
+.productCart h1 {
+  font-family: var(--letra-titulo);
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 1em;
+}
+/*productos agregados*/
+.productCart .productos .productos-agregados {
+  display: flex;
+  width: 100%;
+  margin-top: 1em;
+  border-top: 1px solid rgb(184, 183, 183);
+}
+/*contenido*/
+.productCart .productos .productos-agregados .contenido {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0;
+  flex-wrap: wrap;
+}
+
+/* imagenes de libros */
+.productCart .productos .productos-agregados img {
+  width: 5em;
+  margin: 0.5em 0;
+}
+
+/*titulos de libros*/
+.productCart .productos .productos-agregados .contenido h3 {
+  width: 50%;
+  font-size: 1em;
+  padding: 0.5em;
+  margin: 0em 0.3em;
+}
+
+/*eliminar*/
+.productCart .productos .contenido .eliminar {
+  padding: 0 1.5em;
+}
+.productCart .productos .contenido .eliminar i {
+  color: gray;
+  font-size: 35px;
+}
+
+/*seleccionar cantidad*/
+.productCart .productos .contenido .cantidad {
+  padding: 0.8em;
+}
+
+.productCart .productos .contenido .cantidad input {
+  border-color: var(--color-amarillo);
+  width: 3.5em;
+  margin-top: 1em;
+}
+/*precio*/
+.productCart .productos .contenido .precio {
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+}
+/*subtotal*/
+.productCart .subtotal {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+}
+
+.productCart .subtotal h4 {
+  margin-left: 0.8;
+  font-size: 20px;
+}
+
+.productCart .subtotal div {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5em;
+  font-size: 17px;
+}
+.productCart .subtotal i {
+  margin: 0 0.5em;
+}
+
+.productCart .subtotal p {
+  font-weight: 600;
+}
+
+/*seccion de envios*/
+.productCart .envios {
+  margin: 1em 0;
+  background-color: var(--color-amarillo);
+  padding: 10px;
+}
+.productCart .envios h3 {
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.productCart .envios .tipos-envios {
+  font-size: 14px;
+}
+.productCart .envios .tipos-envios div {
+  padding-top: 2px;
+}
+/*localidad*/
+.productCart .envios .localidad {
+  padding: 10px 0;
+}
+.productCart .envios .localidad label {
+  font-weight: 500;
+}
+/*local*/
+.productCart .envios .nuestra-sucursal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.productCart .envios .nuestra-sucursal a {
+  font-size: 12px;
+}
+.productCart .envios .nuestra-sucursal p {
+  text-transform: capitalize;
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+/*seccion del total*/
+.productCart .total div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+}
+.productCart .total h4 {
+  font-size: 20px;
+}
+.productCart .total span {
+  font-weight: 600;
+  font-size: 17px;
+}
+.productCart .total p {
+  padding-left: 30px;
+  color: rgb(90, 88, 88);
+}
+/*botones de compra*/
+.productCart .realizar-compra {
+  text-align: center;
+}
+/*button*/
+.productCart .realizar-compra button {
+  width: 100%;
+  border: 2px solid var(--color-amarillo);
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 30px;
+}
+.productCart .realizar-compra a {
+  color: gray;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.productCart .realizar-compra a:hover {
+  color: var(--color-bordo);
+}
+.productCart .realizar-compra button:hover {
+  background-color: var(--color-amarillo);
+  border-color: var(--color-bordo);
+}
+
+/*-----RESPONSIVE-----*/
+
+/*Tablet*/
+@media (min-width: 361px) {
+
+  /* titulo */
+  .productCart h1 {
+    font-size: 30px;
+  }
+  /*productos agregados*/
+  .productCart .productos .productos-agregados {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 20px;
+    margin: 0;
+  }
+  /*contenido*/
+  /* imagenes de libros */
+  .productCart .productos .productos-agregados img {
+    width: 200px;
+    margin: 10px 0;
+  }
+  /*titulos de libros*/
+  .productCart .productos .productos-agregados .contenido h3 {
+    width: 50%;
+    font-size: 30px;
+    text-align: start;
+  }
+  /*eliminar*/
+  .productCart .productos .contenido .eliminar {
+    width: 40%;
+    text-align: end;
+  }
+  .productCart .productos .contenido .eliminar i {
+    padding: 0;
+    font-size: 60px;
+  }
+  /*seleccionar cantidad*/
+  .productCart .productos .contenido .cantidad {
+    padding: 30px;
+    align-self: center;
+  }
+
+  .productCart .productos .contenido .cantidad input {
+    width: 100px;
+  }
+  /*precio*/
+  .productCart .productos .contenido .precio {
+    font-size: 25px;
+  }
+  /*subtotal*/
+  .productCart .subtotal {
+    border-bottom: none;
+  }
+  .productCart .subtotal h4 {
+    margin-left: 0;
+    font-size: 30px;
+  }
+  .productCart .subtotal p {
+    margin: 0;
+    font-size: 25px;
+  }
+  /*seccion de envios*/
+  .productCart .envios {
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+  }
+  .productCart .envios h3 {
+    font-size: 20px;
+  }
+  .productCart .envios .tipos-envios {
+    font-size: 16px;
+    padding-left: 20px;
+  }
+  /*localidad*/
+  .productCart .envios .localidad {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .productCart .envios .localidad label {
+    padding-right: 20px;
+  }
+  /*local*/
+  .productCart .envios .nuestra-sucursal {
+    font-size: 20px;
+    margin-top: 20px;
+    border-top: 1px solid gray;
+  }
+  .productCart .envios .nuestra-sucursal a {
+    font-size: 18px;
+  }
+  .productCart .envios .nuestra-sucursal p {
+    width: 70%;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+  }
+  /*seccion del total*/
+
+  .productCart .total h4 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .productCart .total span {
+    font-size: 25px;
+  }
+  .productCart .total p {
+    font-size: 20px;
+    text-align: right;
+  }
+  /*button*/
+  .productCart .realizar-compra button {
+    border: 2px solid var(--color-bordo);
+    padding: 20px 0;
+    font-size: 20px;
+  }
+  .productCart .realizar-compra a {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+  .productCart .realizar-compra button:hover {
+    background-color: var(--color-bordo);
+    border-color: var(--color-amarillo);
+    color: var(--color-amarillo);
+  }
+}
+
+/*desktop*/
+@media (min-width: 769px) {
+  /* contenedor general */
+  .productCart .contenedor-carrito{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .productCart .realizar-compra button {
+    width: 30%;
+    border-radius: 5px;
+  }
+}
