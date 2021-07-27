@@ -1,0 +1,220 @@
+/* VERSIÓN MOBILE */
+.body-login {
+    width: 100%;
+}
+.body-login .contenido-gral .header-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* IMAGEN COSTADO */
+.body-login .contenido-gral .imgcostado{
+    display: none;
+}
+
+.body-login .redes-login li{
+    display: none;
+}
+
+/* SECCION DERECHA */
+.body-login .contenido-gral .header-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.body-login .conclase img{
+    width: 70px;
+    margin: 15px;
+}
+/* Aun no tienes cuenta */
+.body-login .header-login .no-cuenta{
+    display: none;
+}
+/* registrate */
+.body-login .header-login .registro-login{
+    text-transform: uppercase;
+    font-weight: 600;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 3px;
+    margin-right: 15px;
+    margin-top: 25px;
+}
+
+.body-login .header-login .registro-login a{
+    color: black;
+}
+/* MAIN */
+.body-login .main-login a{
+    display: block;
+    margin-top: 30px;
+}
+.body-login .main-login{
+    width: 90%;
+    margin: 0 5%;
+}
+.body-login .main-login h2{
+    margin-top: 15px;
+}
+/* INPUT */
+.body-login .main-login input{
+    border: none;
+    width: 100%;
+}
+.body-login .main-login input:focus{
+    box-shadow: 0px 0px 10px rgb(37, 37, 37);
+}
+.body-login .ingresar, .password{
+    border: 1px solid gray;
+    border-radius: 5px;
+    line-height: 20px;
+    padding-top: 5px ;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.body-login .main-login h2{
+    font-weight: bold;
+}
+.body-login .main-login a{
+    color: black;
+}
+.body-login .main-login .olvidar{
+    display: block;
+    margin-top: 15px;
+}
+.body-login .main-login .submit{
+    margin-top: 30px;
+}
+.body-login .main-login .submit a{
+    background-color: var(--color-amarillo);
+    padding: 12px;
+    color: var(--color-bordo);
+    border: solid 1px var(--color-amarillo);
+    font-size: 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.body-login .main-login .submit a:hover{
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+}
+
+/* VERSIÓN TABLET */
+@media (min-width: 361px){
+    .body-login .contenido-gral{
+        display: flex;
+        height: 100%;
+    }
+
+    .body-login .contenido-gral .imgcostado{
+        background-image: url('/images/logincostado-Negro\ y\ Blanco\ Texto\ Vertical\ Señalador.png');
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        height: 830px;
+        width: 50%;
+    }
+    /* LOGO */
+    .body-login .imgcostado img{
+        width: 150px;
+        margin-top: 40%;
+        margin-left: 24%;
+        margin-bottom: 10%;
+    }
+
+    .body-login .imgcostado h4{
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .body-login .imgcostado p{
+        text-align: center;
+        font-size: 20px;
+    }
+     
+    .body-login .redes-login li{
+        display: inline;
+        margin-left: 40px;
+        font-size: 30px;
+    }
+    .body-login .redes-login li a{
+        color: var(--color-bordo);
+    }
+
+    /* SECCION DERECHA */
+
+    .body-login .conclase{
+        width: 65%;
+    }
+
+    .body-login .conclase .header-login .no-cuenta{
+        display: initial;
+        margin: 20px 0 0 70px;
+    }
+    .body-login .conclase .header-login{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    /* MAIN */
+    .body-login .main-login a{
+        font-size: 25px;
+    }
+    .body-login .main-login h2{
+        font-size: 35px;
+        margin-top: 40px;
+        text-align: center;
+    }
+    .body-login .ingresar, .password{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 40px;
+        padding-top: 15px ;
+        padding-left: 15px;
+        padding-bottom: 10px;
+    }
+    .body-login .main-login .olvidar a{
+        font-size: 18px;
+    }
+
+    .body-login .main-login .submit a{
+        background-color: var(--color-bordo);
+        padding: 12px;
+        color: var(--color-amarillo);
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .body-login .main-login .submit a:hover{
+        background-color: var(--color-amarillo);
+        color: var(--color-bordo);
+        font-size: 28px;
+    }
+}
+
+/* VERSIÓN DESKTOP */
+@media (min-width: 761px){
+    .body-login .contenido-gral{
+        width: 100%;
+    }
+    .body-login .contenido-gral .imgcostado{
+        height: 900px;
+        width: 50%;
+    }
+    /* SECCION DERECHA */
+    .body-login .conclase{
+        width: 70%;
+    }
+    /* REDES */
+}
