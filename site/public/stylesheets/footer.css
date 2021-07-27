@@ -125,6 +125,13 @@ footer .footer-abajo a:hover {
 .btn-modal a{
   color: black;
 }
+
+.localesModal {
+  margin-bottom: 50px;
+}
+.localesModal:hover{
+  box-shadow: 10px 5px 5px gray;
+}
 /* modal de contactanos */
 /* boton de modal */
 #my-form-button{

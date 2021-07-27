@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/images/logo-leaf-remaster.png" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/styles.css" />
-
-    <title>Carga de producto | LEAF</title>
-  </head>
+  <!-- ----head ----->
+<%-include('../partials/head') %> 
+<!-- ----head---- -->
 
   <body class="admin">
     <!-- encabezado -->
@@ -54,8 +38,8 @@
               <p>Mi cuenta</p>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
-              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+              <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
             </ul>
           </div>
         </div>
@@ -63,7 +47,7 @@
       <!-- seccion inferior del header -->
       <nav class="header2">
         <div class="contenedorLogo">
-          <a href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
+          <a href="/"> <img class="logo" src="../images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
         </div>
         <!-- categorias -->
         <ul class="categorias noResponsive">
@@ -97,7 +81,7 @@
         </div>
         <!-- carrito -->
         <button class="carrito noMovil">
-          <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+          <a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a>
           <p>0</p>
         </button>
         <!-- mi cuenta -->
@@ -113,8 +97,8 @@
               <i class="fas fa-user"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
-              <li><a class="dropdown-item" href="/register">Registrate</a></li>
+              <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
             </ul>
           </div>
         </div>
@@ -254,6 +238,8 @@
   </form>  
 </div>
     </main>
-    
+    <!-- ----scripts ----->
+ <%-include('../partials/scripts') %> 
+ <!-- ----scripts---- -->
 </body>
 </html>

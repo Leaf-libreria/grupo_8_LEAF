@@ -1,110 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="/images/logo-leaf-remaster.png" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-            crossorigin="anonymous" />
-        <link rel="stylesheet" href="/css/styles.css" />
-
-        <title>Libreria LEAF</title>
-    </head>
+  <!-- ----head ----->
+  <%-include('./partials/head') %> 
+  <!-- ----head---- -->
 
 <body class="preguntas-frecuentes">
     <!-- encabezado -->
-    <header id="contenedorLogo">
-        <!-- seccion superior del header -->
-        <nav class="header1">
-            <!-- redes sociales -->
-            <ul class="redes">
-                <li>
-                    <p>Seguinos</p>
-                </li>
-                <li>
-                    <a href=""><i class="fab fa-facebook-square"></i></a>
-                </li>
-                <li>
-                    <a href=""><i class="fab fa-instagram-square"></i></a>
-                </li>
-                <li>
-                    <a href=""><i class="fab fa-twitter-square"></i></a>
-                </li>
-            </ul>
-            <!-- mi cuenta -->
-            <div class="login">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                        <p>Mi cuenta</p>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/login">Ingresar</a></li>
-                        <li><a class="dropdown-item" href="/register">Registrate</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- seccion inferior del header -->
-        <nav class="header2">
-            <div class="contenedorLogo">
-                <a href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
-            </div>
-            <!-- categorias -->
-            <ul class="categorias">
-                <li><a href="">Libros</a></li>
-                <li><a href="">Ebooks</a></li>
-                <li>
-                    <form>
-                        <select>
-                            <option selected>Géneros</option>
-                            <option value="1"><a href="">Romance</a></option>
-                            <option value="2"><a href="">Misterio</a></option>
-                            <option value="2"><a href="">Terror</a></option>
-                        </select>
-                    </form>
-                </li>
-            </ul>
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <!-- buscador -->
-            <div class="buscador">
-                <form>
-                    <select>
-                        <option selected>Libros</option>
-                        <option value="2"><a href="">Ebooks</a></option>
-                    </select>
-                    <input type="text" placeholder="Buscar..." /><i class="fas fa-search"></i>
-                </form>
-            </div>
-            <!-- carrito -->
-            <button class="carrito">
-                <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
-                <p>0</p>
-            </button>
-            <!-- mi cuenta -->
-            <div class="login">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/login">Ingresar</a></li>
-                        <li><a class="dropdown-item" href="/register">Registrate</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+   <!-- ----header ----->
+  <%-include('./partials/header') %> 
+  <!-- ----header---- -->
 
 
     <!-- preguntas -->
@@ -290,77 +195,13 @@
     </main>
 
     <!-- pie de pagina -->
-    <footer>
-        <div class="cabecera-footer">
-            <a href="#contenedorLogo"> <img src="/images/logo-leaf-remaster.png" alt="" /></a>
-            <!-- footer seccion arriba -->
-            <div class="footer-arriba">
-                <!-- redes sociales -->
-                <ul class="redes">
-                    <li>
-                        <a href=""><i class="fab fa-facebook-square"></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fab fa-instagram-square"></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fab fa-twitter-square"></i></a>
-                    </li>
-                </ul>
-                <p>Seguinos y enterate de todas las novedades</p>
-            </div>
-        </div>
+   <!-- ----footer ----->
+<%-include('./partials/footer') %> 
+<!-- ----footer---- -->
 
-        <!-- footer seccion media -->
-        <div class="footer-medio">
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Como comprar</a></li>
-                <li><a href="">Contacto</a></li>
-                <li><a href="/preguntasFrecuentes">Preguntas frecuentes</a></li>
-                <li><a href="">Quienes somos</a></li>
-                <li><a href="">Trabaja con nosotros</a></li>
-                <li><a href="">Locales</a></li>
-                <li><a href="">Politicas</a></li>
-            </ul>
-        </div>
-
-        <!-- footer seccion baja -->
-        <div class="footer-abajo">
-            <!-- medios de pago -->
-            <div class="tarjetas">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-paypal"></i>
-            </div>
-            <!-- imagen de libreria -->
-            <img src="/images/leafFooter.png" alt="" />
-            <!-- email -->
-            <a href="mailto:ventas@leaf.com">
-                <i class="far fa-envelope"></i>ventas@leaf.com
-            </a>
-        </div>
-        <!-- terminos y condiciones -->
-        <div class="terminos">
-            <p>Aviso de privacidad | Terminos y condiciones</p>
-            <p>
-                Los precios publicados en esta tienda están sujetos a cambios sin
-                previo aviso y solo son aplicables para ventas en línea.
-            </p>
-            <p>Algunos títulos están sujetos a disponibilidad.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
-        crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
-        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
-        crossorigin="anonymous"></script> -->
-</body>
+  <!-- ----scripts ----->
+<%-include('./partials/scripts') %> 
+<!-- ----scripts---- -->
 </body>
 
 </html>
