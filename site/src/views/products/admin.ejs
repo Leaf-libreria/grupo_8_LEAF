@@ -14,14 +14,15 @@
     <h2>Lista de productos</h2>
     
     <div class=contenedorNovedades>
+      <% productos.forEach(producto=>{ %> 
     <article class="libro">
         <a href="/products/detalle"
-          ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
+          ><img src="/images/<%= producto.portada %>  " alt="LEAF | Portada del libro"
         /></a>
         <div class="detalle">
-          <h3>el manuscrito</h3>
-          <h4>John Grisham</h4>
-          <p>$1500</p>
+          <h3> <%= producto.titulo %>  </h3>
+          <h4> <%= producto.autor %>  </h4>
+          <p>$ <%= producto.precio %>  </p>
         </div>
         <!-- Botones para administrador -->
         <div class="container">
@@ -34,132 +35,7 @@
         </div> 
         </div>
       </article>
-
-      <article class="libro">
-        <a href="/products/detalle"
-          ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
-        /></a>
-        <div class="detalle">
-          <h3>el manuscrito</h3>
-          <h4>John Grisham</h4>
-          <p>$1500</p>
-        </div>
-        <!-- Botones para administrador -->
-        <div class="container">
-            <div class="row align-items-start">   
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">BORRAR</button>
-                <a href="/products/editar" type="button" class="btn btn-warning">EDITAR</a>
-                <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
-              </div>
-            </div> 
-            </div>
-      </article>
-
-      <article class="libro">
-        <a href="/products/detalle"
-          ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
-        /></a>
-        <div class="detalle">
-          <h3>el manuscrito</h3>
-          <h4>John Grisham</h4>
-          <p>$1500</p>
-        </div>
-        <!-- Botones para administrador -->
-        <div class="container">
-            <div class="row align-items-start">   
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">BORRAR</button>
-                <a href="/products/editar" type="button" class="btn btn-warning">EDITAR</a>
-                <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
-              </div>
-            </div> 
-            </div>
-      </article>
-
-      <article class="libro">
-        <a href="/products/detalle"
-          ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
-        /></a>
-        <div class="detalle">
-          <h3>el manuscrito</h3>
-          <h4>John Grisham</h4>
-          <p>$1500</p>
-        </div>
-        <!-- Botones para administrador -->
-        <div class="container">
-            <div class="row align-items-start">   
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">BORRAR</button>
-                <a href="/products/editar" type="button" class="btn btn-warning">EDITAR</a>
-                <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
-              </div>
-            </div> 
-            </div>
-      </article>
-
-      <article class="libro">
-        <a href="/products/detalle"
-          ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
-        /></a>
-        <div class="detalle">
-          <h3>el manuscrito</h3>
-          <h4>John Grisham</h4>
-          <p>$1500</p>
-        </div>
-        <!-- Botones para administrador -->
-        <div class="container">
-            <div class="row align-items-start">   
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">BORRAR</button>
-                <a href="/products/editar" type="button" class="btn btn-warning">EDITAR</a>
-                <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
-              </div>
-            </div> 
-            </div>
-      </article>
-
-      <article class="libro">
-        <a href="/products/detalle"
-          ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
-        /></a>
-        <div class="detalle">
-          <h3>el manuscrito</h3>
-          <h4>John Grisham</h4>
-          <p>$1500</p>
-        </div>
-        <!-- Botones para administrador -->
-        <div class="container">
-            <div class="row align-items-start">   
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">BORRAR</button>
-                <a href="/products/editar" type="button" class="btn btn-warning">EDITAR</a>
-                <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
-              </div>
-            </div> 
-            </div>
-      </article>
-
-      <article class="libro">
-        <a href="/products/detalle"
-          ><img src="/images/el-manuscrito.png" alt="img el manuscrito"
-        /></a>
-        <div class="detalle">
-          <h3>el manuscrito</h3>
-          <h4>John Grisham</h4>
-          <p>$1500</p>
-        </div>
-        <!-- Botones para administrador -->
-        <div class="container">
-            <div class="row align-items-start">   
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">BORRAR</button>
-                <a href="/products/editar" type="button" class="btn btn-warning">EDITAR</a>
-                <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
-              </div>
-            </div> 
-            </div>
-      </article>
+      <% }) %>
     </div>
 </main>
 
