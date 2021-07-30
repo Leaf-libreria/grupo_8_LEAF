@@ -57,14 +57,16 @@
   background-color: lightgray;
 }
 
-.index .mainIndex .laLadronaDeLibros img {
+.index .mainIndex .romance img {
   background-color: lightsalmon;
 }
 
 .index .mainIndex .laGuerraDeLosMundos img {
   background-color: lightgoldenrodyellow;
 }
-
+.index .mainIndex .librosPapel img {
+  background-color: lightgoldenrodyellow;
+}
 /* sección de novedades */
 
 .index .mainIndex .novedades {

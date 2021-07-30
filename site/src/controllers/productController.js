@@ -1,7 +1,19 @@
+const fs = require('fs');
+const path = require('path');
+const productos = require('../data/product_db');
+
 module.exports = {
+    libros: (req,res) => {
+        return res.render("./products/libros",
+        {title: 'LEAF | Libros',
+        productos,
+        papel : productos.filter(producto => producto.formato === "Libro"),})
+
+    },
+
     verMas: (req,res) => {
-        return res.render("verMas",
-        {title: 'LEAF | Libros'})
+        return res.render("verMas",{title: 'LEAF | Libros',
+        productos})
 
     },
 

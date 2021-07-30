@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-const {verMas, detail, administrador, carrito, pago, agregarProducto, editarProducto} = require("../controllers/productController")
+const {verMas, detail, administrador, carrito, pago, agregarProducto, editarProducto, libros} = require("../controllers/productController")
 
-
+router.get('/libros', libros);
 router.get('/', verMas);
 router.get("/detalle", detail);
 router.get("/administrador", administrador);
