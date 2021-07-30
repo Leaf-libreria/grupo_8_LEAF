@@ -1,0 +1,239 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--color-bordo);
+  color: var(--color-amarillo);
+}
+/*imagen*/
+footer .cabecera-footer img {
+  width: 80px;
+  height: 80px;
+  justify-self: center;
+  background-color: white;
+  margin: 20px;
+}
+/*inicio del pie de pagina*/
+footer .cabecera-footer {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+/*redes*/
+footer .cabecera-footer .redes {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 40px 10px 0px;
+}
+footer .cabecera-footer .footer-arriba p {
+  margin: 0;
+  margin: 0px 20px;
+  line-height: 20px;
+  text-align: center;
+}
+footer .cabecera-footer .redes i {
+  font-size: 30px;
+
+  color: var(--color-amarillo);
+}
+
+/*parte media del pie de pagina*/
+
+/*menu*/
+footer .footer-medio ul {
+  margin-top: 20px;
+  font-size: 18px;
+}
+footer .footer-medio ul li a {
+  color: var(--color-amarillo);
+  padding: 0;
+}
+/* footer de abajo */
+footer .footer-abajo {
+  border-top: 1px solid gray;
+  padding-top: 20px;
+}
+/*medios de pago*/
+footer .footer-abajo .tarjetas {
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+}
+
+/*imagen de footer*/
+footer .footer-abajo img {
+  padding: 20px;
+  width: 100%;
+}
+/*email de contacto*/
+footer .footer-abajo a {
+  border: 1px solid gray;
+  color: white;
+  display: flex;
+  align-items: stretch;
+  padding: 10px 0;
+  text-align: center;
+}
+footer .footer-abajo a i {
+  margin: 5px 15px 0 80px;
+}
+/*terminos y condiciones footer abajo*/
+footer .terminos {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+footer .terminos .terminos-ul{
+  padding-left: 0%;
+}
+footer .terminos-li{
+  display: inline;
+  margin-right: 0;
+}
+footer .terminos .terminos-li a{
+  display: inline;
+  padding: 0;
+  color: var(--color-amarillo);
+}
+
+/* hover */
+footer .cabecera-footer .redes i:hover {
+  color: rgb(0, 102, 255);
+}
+footer .cabecera-footer i.fa-instagram-square:hover {
+  color: rgb(192, 73, 172);
+}
+footer .footer-medio ul li a:hover {
+  text-decoration: underline;
+}
+footer .footer-abajo a:hover {
+  background-color: var(--color-amarillo);
+  color: black;
+  font-weight: 600;
+}
+/* -----Desarrolladores----- */
+/* - - */
+.desarrolladores a{
+  font-weight: 800;
+  color: black;
+}
+
+/* -----modal----- */
+/* estilos del modal */
+#modal-body{
+  padding: 20px;
+}
+.btn-modal a{
+  color: black;
+}
+
+.localesModal {
+  margin-bottom: 50px;
+}
+.localesModal:hover{
+  box-shadow: 10px 5px 5px gray;
+}
+/* modal de contactanos */
+/* boton de modal */
+#my-form-button{
+  background-color: var(--color-amarillo);
+  color: var(--color-bordo);
+  padding: 10px 30px;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contacto-title{
+  text-align: center;
+  font-weight: 600;
+  font-size: 28px;
+}
+/*responsive para tablet*/
+@media (min-width: 361px) {
+  /*pie de pagina*/
+  footer {
+    background-color: var(--color-amarillo);
+    color: var(--color-bordo);
+    justify-content: center;
+  }
+  /*footer arriba*/
+  footer .cabecera-footer .footer-arriba {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  /*imagen*/
+  footer .cabecera-footer img {
+    background-color: transparent;
+  }
+  /*redes*/
+  footer .cabecera-footer .redes {
+    margin: 40px 10px 40px 0px;
+  }
+  footer .cabecera-footer .redes i {
+    font-size: 40px;
+    margin-right: 20px;
+    color: var(--color-bordo);
+  }
+  footer .cabecera-footer .footer-arriba p {
+    font-size: 30px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+  /*parte media del pie de pagina*/
+
+  /*menu*/
+  footer .footer-medio ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 50px;
+  }
+  footer .footer-medio ul li {
+    margin-left: 10px;
+  }
+  footer .footer-medio ul li a {
+    color: var(--color-bordo);
+  }
+  /* footer de abajo */
+
+  footer .footer-abajo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 30px;
+  }
+  /*medios de pago*/
+  footer .footer-abajo .tarjetas {
+    font-size: 40px;
+  }
+  footer .footer-abajo .tarjetas i {
+    margin: 10px;
+  }
+
+  /*imagen de footer*/
+  footer .footer-abajo img {
+    width: 300px;
+  }
+  /*email de contacto*/
+  footer .footer-abajo a {
+    flex-direction: column;
+    border: none;
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  footer .footer-abajo a i {
+    margin-bottom: 20px;
+    margin-right: 80px;
+  }
+  /* hover email*/
+  footer .footer-abajo a:hover {
+    background-color: transparent;
+    font-weight: 800;
+  }
+/* terminos y condiciones */
+  footer .terminos .terminos-li a{
+    color: var(--color-bordo);
+  }
+}
+
