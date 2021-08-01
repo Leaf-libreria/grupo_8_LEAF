@@ -38,15 +38,17 @@
       </div>
       <!-- categorias -->
       <ul class="categorias">
-        <li><a href="">Libros</a></li>
-        <li><a href="">Ebooks</a></li>
+        <li><a href="/products/libros">Libros</a></li>
+        <li><a href="/products/ebooks">Ebooks</a></li>
         <li>
-          <form>
-            <select>
-              <option selected>Géneros</option>
-              <option value="1"><a href="">Romance</a></option>
-              <option value="2"><a href="">Misterio</a></option>
-              <option value="2"><a href="">Terror</a></option>
+          <form method="POST">
+            <select id="category" name="category">
+              <option selected hidden>Géneros</option>
+              <% generos.forEach(genero => { %>
+                <option value="<%=genero%>"><a href="/products/<%=genero%>"><%=genero%></a></option>
+               <% }) %>
+              
+          
             </select>
           </form>
         </li>
