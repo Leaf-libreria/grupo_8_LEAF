@@ -1,0 +1,39 @@
+.libros-vista{
+    width: 88%;
+    margin: 20px auto;
+}
+.titulo-generos{
+    margin-top: 30px;
+    text-align: center;
+    font-family: var(--letra-titulo);
+}
+.libros-vista img{
+    height: 280px;
+}
+.libros-Romance img{
+    background-color: lightsalmon;
+}
+.libros-Terror img{
+    background-color: rgb(52, 67, 83);
+}
+.libros-Ficcion img, .libros-Ciencia-ficcion img{
+    background-color: lightsteelblue;
+}
+.libros-Historica img{
+    background-color: rgb(212, 148, 137);
+}
+
+.libros-Novela img{
+    background-color: rgb(169, 146, 199);
+}
+
+.libros-Policial img{
+    background-color: rgb(144, 165, 224);
+}
+.libros-Juvenil img{
+    background-color: rgb(142, 219, 119);
+}
+.libros-Misterio img{
+    background-color: rgb(115, 126, 125);
+}
+

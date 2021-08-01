@@ -1,10 +1,10 @@
-<header id="contenedorLogo">
+<header class="admin-header">
     <!-- seccion superior del header -->
     <nav class="header1">
       <!-- redes sociales -->
       <ul class="redes">
         <li>
-          <p>Seguinos</p>
+          <p class="noResponsive">Seguinos</p>
         </li>
         <li>
           <a href=""><i class="fab fa-facebook-square"></i></a>
@@ -19,8 +19,13 @@
       <!-- mi cuenta -->
       <div class="login">
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <i class="fas fa-user"></i>
             <p>Mi cuenta</p>
           </button>
@@ -37,18 +42,16 @@
         <a href="/"> <img class="logo" src="../images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
       </div>
       <!-- categorias -->
-      <ul class="categorias">
-        <li><a href="/products/libros">Libros</a></li>
-        <li><a href="/products/ebooks">Ebooks</a></li>
+      <ul class="categorias noResponsive">
+        <li><a class="noResponsive" href="/products/libros">Libros</a></li>
+        <li><a class="noResponsive" href="/products/ebooks">Ebooks</a></li>
         <li>
-          <form method="POST">
-            <select id="category" name="category">
-              <option selected hidden>Géneros</option>
-              <% generos.forEach(genero => { %>
-                <option value="<%=genero%>"><a href="/products/<%=genero%>"><%=genero%></a></option>
-               <% }) %>
-              
-          
+          <form>
+            <select>
+              <option selected>Géneros</option>
+              <option value="1"><a href="">Romance</a></option>
+              <option value="2"><a href="">Misterio</a></option>
+              <option value="2"><a href="">Terror</a></option>
             </select>
           </form>
         </li>
@@ -57,25 +60,32 @@
         <i class="fas fa-bars"></i>
       </div>
       <!-- buscador -->
-      <div class="buscador">
+      <div class="buscador noMovil">
         <form>
           <select>
             <option selected>Libros</option>
             <option value="2"><a href="">Ebooks</a></option>
           </select>
-          <input type="text" placeholder="Buscar..." /><i class="fas fa-search"></i>
+          <input type="text" placeholder="Buscar..." /><i
+            class="fas fa-search"
+          ></i>
         </form>
       </div>
       <!-- carrito -->
-      <button class="carrito">
+      <button class="carrito noMovil">
         <a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a>
         <p>0</p>
       </button>
       <!-- mi cuenta -->
       <div class="login">
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <i class="fas fa-user"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

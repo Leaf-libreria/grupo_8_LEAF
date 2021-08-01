@@ -66,39 +66,16 @@
   display: block;
 }
 
-/*BLOQUE (section) BOTONES DE AYUDA*/
-
-.admin .administrador .formulario .isbn, .admin .administrador .formulario .portada {
-  position: relative;
-}
-
-/*BOTONES DE AYUDA*/
-.admin .administrador .formulario .btn-info {
-  position: absolute;
-  top: 68px;
-  background-color: var(--color-bordo);
-  border: none;
-  font-size: 12px;
-  color: var(--color-amarillo);
-  padding: 2px 3px;
-  text-align: center;
-  border-radius: 5px;
-  margin-left: 5px;
-}
-
-.admin .administrador .formulario .card-admin{
-  width: 30vh;
-  }
-
-.admin .administrador .formulario .btn-info:hover {
-  box-shadow: 0px 0px 10px rgb(37, 37, 37);
-}
-
 /*Inputs y text area*/
 .admin .administrador .formulario input::placeholder {
   color: var(--color-bordo);
   font-family: var(--letra-titulo);
   font-weight: 400;
+}
+  /* input file */
+.admin .administrador .formulario .file:not(textarea){
+  font-size:8px;
+  font-weight: 600;
 }
 
 .admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea {
@@ -175,10 +152,11 @@
   .admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea{
   width: 60vw;
   }
-  /*BOTONES DE AYUDA*/
-  .admin .administrador .formulario .card-admin{
-    width: 40vh;
-    }
+  /* input file */
+  .admin .administrador .formulario .file:not(textarea){
+    font-size:16px;
+    font-weight: 400;
+  }
   }
  
 /*DESKTOP*/
@@ -196,17 +174,10 @@
   .admin .administrador .formulario label {
     font-size: 20px;
   }
-  
-    /*Inputs y text area*/
+      /*Inputs y text area*/
     .admin .administrador .formulario input, .admin .administrador .formulario select, .admin .administrador .formulario textarea {
       width: 50vw;
       font-size: 18px;
     }
-       .admin .administrador .formulario .btn-info {
-        right: 15px;
-    }
-    /*BOTONES DE AYUDA*/
-    .admin .administrador .formulario .card-admin{
-      width: 60vh;
-      }
+ 
   }

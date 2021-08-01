@@ -1,0 +1,74 @@
+[
+{"provincia":"CABA",
+    "envio": 50
+},
+{"provincia":"Catamarca",
+    "envio": 400
+},
+{"provincia":"Chaco",
+    "envio": 400
+},
+{"provincia":"Chubut",
+    "envio": 500
+},
+{"provincia":"Córdoba",
+    "envio": 420
+},
+{"provincia":"Corrientes",
+    "envio": 380
+},
+{"provincia":"Entre Ríos",
+    "envio": 250
+},
+{"provincia":"La Pampa",
+    "envio": 290
+},
+{"provincia":"La Rioja",
+    "envio": 230
+},
+{"provincia":"Mendoza",
+    "envio": 350
+},
+{"provincia":"Misiones",
+    "envio": 300
+},
+{"provincia":"Neuquén",
+    "envio": 370
+},
+{"provincia":"Río Negro",
+    "envio": 370
+},
+{"provincia":"Salta",
+    "envio": 300
+},
+{"provincia":"San Juan",
+    "envio": 200
+},
+{"provincia":"San Luis",
+    "envio": 220
+},
+{"provincia":"Santa Cruz",
+    "envio": 450
+},
+{"provincia":"Santa Fe",
+    "envio": 200
+},
+{"provincia":"Santiago del Estero",
+    "envio": 250
+},
+{"provincia":"Tierra del Fuego",
+    "envio": 600
+},
+{"provincia":"Tucumán",
+    "envio": 310
+},
+{"provincia":"Buenos Aires",
+    "envio": 100
+},
+{"provincia":"Formosa",
+    "envio": 200
+},
+{"provincia":"Jujuy",
+    "envio": 250
+}
+]
