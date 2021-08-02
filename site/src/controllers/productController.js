@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const productos = require("../data/product_db");
+const costoEnvio=require("../data/envios-costo");
 
 module.exports = {
   libros: (req, res) => {
@@ -44,6 +45,9 @@ module.exports = {
   pago: (req, res) => {
     return res.render("./products/payForm", {
       title: "LEAF | Finaliza tu compra",
-    });
+      productos,
+      costoEnvio,
+      libroComprado: productos.filter((producto) => producto.id === 20),
+    })
   },
 };

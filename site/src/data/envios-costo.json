@@ -2,6 +2,9 @@
 {"provincia":"CABA",
     "envio": 50
 },
+{"provincia":"Buenos Aires",
+    "envio": 100
+},
 {"provincia":"Catamarca",
     "envio": 400
 },
@@ -18,6 +21,12 @@
     "envio": 380
 },
 {"provincia":"Entre Ríos",
+    "envio": 250
+},
+{"provincia":"Formosa",
+    "envio": 200
+},
+{"provincia":"Jujuy",
     "envio": 250
 },
 {"provincia":"La Pampa",
@@ -61,14 +70,5 @@
 },
 {"provincia":"Tucumán",
     "envio": 310
-},
-{"provincia":"Buenos Aires",
-    "envio": 100
-},
-{"provincia":"Formosa",
-    "envio": 200
-},
-{"provincia":"Jujuy",
-    "envio": 250
 }
 ]
