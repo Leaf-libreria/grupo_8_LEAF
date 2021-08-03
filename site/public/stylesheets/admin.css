@@ -1,0 +1,183 @@
+/*HEADER*/
+/*Header2*/
+.admin .header2 .noMovil{
+  display: none;
+}
+/*----RESPONSIVE----*/
+/*TABLET y DESKTOP*/
+/*Header1*/
+@media (min-width: 361px){
+  /*header sección superior*/
+    /*Header1*/
+    .admin .header1 .noResponsive{
+      display: none;
+    } 
+  .admin .header1 .redes a:hover {
+    font-size: 34px;
+  }
+
+  .admin .header1 .login:hover {
+    border: 1px solid var(--color-amarillo);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  /*header sección inferior*/
+  .admin .admin-header{
+    background-color: transparent;
+  }
+
+/*Header2*/
+  .admin .header2 .noResponsive{
+    display: none;
+  } 
+
+}
+
+/*MAIN*/
+/*--------Mobile y Tablet-----------*/
+/*Titulo*/
+.admin h2 {
+  text-align: center;
+  font-family: var(--letra-titulo);
+  font-size: 20px;
+  color: gray;
+  margin: 22px;
+}
+/*-----FORMULARIO-----*/
+.admin .administrador .formulario {
+  background-color: rgba(245, 245, 245, 0.575);
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*ETIQUETAS DE LOS CAMPOS*/
+.admin .administrador .formulario label {
+  color: var(--color-bordo);
+  font-weight: 600;
+  font-style: oblique;
+  font-size: 18px;
+  margin: 15px auto;
+  display: block;
+}
+
+/*Inputs y text area*/
+.admin .administrador .formulario input::placeholder {
+  color: var(--color-bordo);
+  font-family: var(--letra-titulo);
+  font-weight: 400;
+}
+  /* input file */
+.admin .administrador .formulario .file:not(textarea){
+  font-size:8px;
+  font-weight: 600;
+}
+
+.admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea {
+  width: 95%;
+  background-color: rgba(240, 219, 114, 0.692);
+  color: var(--color-bordo);
+  font-family: var(--letra-titulo);
+  font-size: 16px;
+  border: solid 1px var(--color-bordo);
+}
+
+.admin .administrador .formulario input, .admin .administrador .formulario select{
+  height: 40px;
+}
+
+.admin .administrador .formulario input:focus {
+  box-shadow: 0px 0px 12px rgb(37, 37, 37);
+}
+
+.admin .administrador .formulario select:focus {
+  box-shadow: 0px 0px 12px rgb(37, 37, 37);
+}
+
+.admin .administrador .formulario textarea:focus {
+  box-shadow: 0px 0px 12px rgb(37, 37, 37);
+}
+
+.admin .administrador .formulario .otroAutor, .admin .administrador .formulario .otraEditorial, .admin .administrador .formulario .otroGenero {
+  margin-top: 10px;
+}
+
+.admin .administrador .formulario .sinopsis textarea {
+  resize: none; /*Fija tamaño de textarea*/
+}
+
+
+/*AVISO CAMPOS OBLIGATORIOS*/
+.admin .administrador p {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 3%;
+}
+
+/*BOTONES GUARDAR Y CANCELAR*/
+.admin .administrador .formulario .botones .btn-cancelar, .admin .administrador .formulario .botones .btn-guardar {
+  font-family: var(--letra-titulo);
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.admin .administrador .formulario .botones .btn-cancelar {
+  background-color: var(--color-amarillo);
+  color: var(--color-bordo);
+  margin-right: 11px;
+}
+
+.admin .administrador .formulario .botones .btn-guardar {
+  background-color: var(--color-bordo);
+  color: var(--color-amarillo);
+}
+
+.admin .administrador .formulario .botones :hover {
+  box-shadow: 0px 0px 10px rgb(37, 37, 37);
+}
+
+/*----RESPONSIVE----*/
+/*Formulario*/
+/*Tablet*/
+@media (min-width: 361px) {
+  .admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea{
+  width: 60vw;
+  }
+  /* input file */
+  .admin .administrador .formulario .file:not(textarea){
+    font-size:16px;
+    font-weight: 400;
+  }
+  }
+ 
+/*DESKTOP*/
+@media (min-width: 769px) {
+    /*Titulo*/
+  .admin h2 {
+    font-size: 22px;
+  }
+  
+/*Formulario*/
+.admin .administrador .formulario {
+  max-width: none;
+}
+  /*ETIQUETAS DE LOS CAMPOS*/
+  .admin .administrador .formulario label {
+    font-size: 20px;
+  }
+      /*Inputs y text area*/
+    .admin .administrador .formulario input, .admin .administrador .formulario select, .admin .administrador .formulario textarea {
+      width: 50vw;
+      font-size: 18px;
+    }
+ 
+  }
