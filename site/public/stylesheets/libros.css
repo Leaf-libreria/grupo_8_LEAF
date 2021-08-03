@@ -16,7 +16,7 @@
 .libros-Terror img{
     background-color: rgb(52, 67, 83);
 }
-.libros-Ficcion img, .libros-Ciencia-ficcion img{
+.libros-Ficcion img, .libros-Ciencia img{
     background-color: lightsteelblue;
 }
 .libros-Historica img{
