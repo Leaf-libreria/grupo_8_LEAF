@@ -7,7 +7,7 @@ const {verMas, detail, administrador, carrito, pago, agregarProducto, editarProd
 router.get('/ebooks', ebooks);
 router.get('/libros', libros);
 router.get('/', verMas);
-router.get("/detalle", detail);
+router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
 router.get("/agregar", agregarProducto);
 router.get("/editar", editarProducto);

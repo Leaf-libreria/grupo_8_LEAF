@@ -6,6 +6,9 @@ module.exports = {
         { title: "LEAF",
         productos,
         generos,
+        masVendidos : productos.filter(producto => producto.category === "masVendidos"),
+        novedades : productos.filter(producto => producto.category === "novedades"),
+        recomendados : productos.filter(producto => producto.category === "recomendados")
     })
     },
 
