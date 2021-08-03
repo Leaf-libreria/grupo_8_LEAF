@@ -38,17 +38,26 @@
       </div>
       <!-- categorias -->
       <ul class="categorias">
-        <li><a href="">Libros</a></li>
-        <li><a href="">Ebooks</a></li>
+        <li><a href="/products/libros">Libros</a></li>
+        <li><a href="/products/ebooks">Ebooks</a></li>
         <li>
-          <form>
-            <select>
-              <option selected>Géneros</option>
-              <option value="1"><a href="">Romance</a></option>
-              <option value="2"><a href="">Misterio</a></option>
-              <option value="2"><a href="">Terror</a></option>
-            </select>
-          </form>
+          <div class="dropdown ul-generos">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+             Generos
+            </button>
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+              <% generos.forEach(genero => { %>
+              <li><a class="dropdown-item" href="/products/<%=genero%>"><%=genero%></a></li>
+              <% }) %>
+            </ul>
+          </div>
+              
+              
+              <li>  <a href=""> </a></li>
+              
+              
+          
+           
         </li>
       </ul>
       <div class="burger-menu">
@@ -56,12 +65,13 @@
       </div>
       <!-- buscador -->
       <div class="buscador">
-        <form>
+        <form action="/search" method="GET">
           <select>
             <option selected>Libros</option>
             <option value="2"><a href="">Ebooks</a></option>
           </select>
-          <input type="text" placeholder="Buscar..." /><i class="fas fa-search"></i>
+          <input name="search" class="orm-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit" ><i class="fas fa-search"></i></button>
         </form>
       </div>
       <!-- carrito -->
