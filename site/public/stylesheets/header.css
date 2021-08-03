@@ -71,6 +71,13 @@ header .header2 .contenedorLogo {
 .header2 .login button:hover {
   color: rgb(255, 136, 0);
 }
+.ul-generos ul li{
+  text-transform: capitalize;
+}
+.ul-generos button {
+  font-size: 20px;
+  font-weight: 600;
+}
 
 /*-------RESPONSIVE-----   */
 

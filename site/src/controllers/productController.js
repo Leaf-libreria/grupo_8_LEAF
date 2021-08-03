@@ -109,7 +109,7 @@ module.exports = {
     return res.render("./products/generos/ciencia-ficcion",{
       title : "LEAF | Ciencia-ficcion",
       productos,
-      cienciaFiccion : productos.filter((producto) => producto.genero === 'Ciencia-ficcion'),
+      cienciaFiccion : productos.filter((producto) => producto.genero === 'Ciencia ficcion'),
       generos,
     });
   },
@@ -137,4 +137,5 @@ module.exports = {
       generos,
     });
   },
+
 };

@@ -92,7 +92,7 @@
   {
     "id": 6,
     "titulo": "Al final mueren los dos",
-    "autor": "ADAM SILVERA",
+    "autor": "Adam Silvera",
     "precio": 1500,
     "portada": "al-final-mueren-los-dos.png",
     "categoria": "Novedades",
@@ -277,7 +277,7 @@
     "precio": 800,
     "portada": "los-hijos-de-nuestros-hijos.jpg",
     "categoria": "Recomendados",
-    "genero": "Ciencia-ficcion",
+    "genero": "Ciencia ficcion",
     "sinopsis": "Un día de verano como otro cualquiera, se abre una puerta en el vacío y empiezan a salir cientos, miles, millones de personas procedentes de ninguna parte. Dicen que vienen del futuro. Son los hijos de nuestros hijos. Un peligro incontrolable acecha en el futuro, y se hace preciso cortar el puente que los ha traído a través del tiempo. Pero, como suele ocurrir en estos casos, alguien se deja, una puerta abierta... y aquí empiezan los verdaderos problemas de la novela de Clifford D. Simak.",
     "slogan": " Dicen que vienen del futuro. Son los hijos de nuestros hijos.",
     "estrellas": 4,
@@ -345,7 +345,7 @@
   {
     "id": 20,
     "titulo": "El libro negro",
-    "autor": "Angeln David Revilla",
+    "autor": "Angel David Revilla",
     "precio": 1460,
     "portada": "el-libro-negro.jpg",
     "categoria": "Recomendados",
