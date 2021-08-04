@@ -44,6 +44,7 @@ module.exports = {
   editarProducto: (req, res) => {
     return res.render("./products/editProduct", {
       title: "LEAF | Administrador",
+      generos,
     });
   },
   agregarProducto: (req, res) => {
