@@ -9,9 +9,10 @@ module.exports = {
         { title: "LEAF",
         productos,
         generos,
-        masVendidos : productos.filter(producto => producto.category === "masVendidos"),
-        novedades : productos.filter(producto => producto.category === "novedades"),
-        recomendados : productos.filter(producto => producto.category === "recomendados")
+        masVendidos : productos.filter(producto => producto.categoria === "Mas vendidos").splice(0,4),
+        /* con el splice cortamos el array */
+        novedades : productos.filter(producto => producto.categoria === "Novedades").splice(0,3),
+        recomendados : productos.filter(producto => producto.categoria === "Recomendados").splice(0,3)
     })
     },
 

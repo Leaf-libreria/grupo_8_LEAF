@@ -47,30 +47,25 @@
         </div>
 
         <!-- seccion de mas vendidos -->
-        <section class="masVendidos">
-          <div class="cabecera">
-            <h2>Más vendidos</h2>
+    <section class="masVendidos libros-vista">
+      <div class="cabecera">
+        <h2>Más vendidos</h2>
             <a href="/products">Ver más</a>
-            <% masVendidos.forEach(producto => { %>
-              <div class="articles-masVendidos">
-                <article class="libros-<%= producto.genero %> ">
-                  <a href="products/detalle"><img src="/images/<%= producto.portada %>" alt="" /></a>
-                  <div class="detalle">
-                    <h3>
-                      <%= producto.titulo %>
-                    </h3>
-                    <h4>
-                      <% producto.autor %>
-                    </h4>
-                    <p>
-                      <% producto.precio %>
-                    </p>
-                  </div>
-                </article>
-              </div>
-              <% }) %>
-          </div>
-        </section>
+      </div>
+      <div class="articles-masVendidos">
+<% masVendidos.forEach(producto => { %>
+   <article class="libros-<%=producto.genero%>">
+        <a href="/products/detalle"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
+        <div class="detalle">
+          <h3><%=producto.titulo%></h3>
+          <h4><%=producto.autor%></h4>
+          <p>$<%=producto.precio%></p>
+        </div>
+      </article>
+<% }) %>
+      </div>
+    </section>
+
 
 
         <!-- seccion de novedades -->
@@ -80,7 +75,7 @@
             <a href="/products">ver más</a>
           </div>
           <div class="articles-novedades">
-            <% novedades.forEach(producto => { %>
+            <% novedades.forEach(producto=> { %>
               <article>
                 <a href="products/detalle"><img src="/images/<%= producto.portada %>" alt="" /></a>
               </article>
@@ -95,16 +90,16 @@
             <a href="/products">ver más</a>
           </div>
           <div class="articles-recomendados">
-            <% recomendados.forEach(producto => { %>
+            <% recomendados.forEach(producto=> { %>
               <article class="librosRecomendados">
                 <h3>
                   <%= producto.titulo %>
                 </h3>
                 <p>
-                  <%= producto.sinopsis %>
+                  <%= producto.slogan %>
                 </p>
                 <div>
-                  <%= producto.precio %>
+                 $ <%= producto.precio %>
                 </div>
                 <div class="estrella">
                   <i class="fas fa-star"></i>
