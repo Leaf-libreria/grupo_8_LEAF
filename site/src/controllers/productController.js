@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 const fs = require("fs");
 const path = require("path");
 const productos = require("../data/product_db");
 const generos = require('../data/generos_db')
+=======
+
+>>>>>>> b843b75955851806b8221064f7e66ad0438b625f
 
 module.exports = {
   libros: (req, res) => {
