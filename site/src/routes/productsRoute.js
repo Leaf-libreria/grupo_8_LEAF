@@ -59,10 +59,6 @@ router.get("/policial", policial);
 router.get("/novela", novela);
 router.get("/juvenil", juvenil);
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 
 module.exports = router;
 
->>>>>>> b843b75955851806b8221064f7e66ad0438b625f
