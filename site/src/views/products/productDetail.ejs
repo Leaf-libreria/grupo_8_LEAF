@@ -59,47 +59,25 @@
         </div>
       </section>
 
-      <h4 class="ademas">También te recomendamos</h4>
+      <h4 class="ademas">También te recomendamos del genero <%=producto.genero%></h4>
 
       
       <section class="otros">
-        <% romance.forEach(element => { %>
-          <article class=verTambien>
-            <img
-              src="/images/<%= element.imagen %> "
-              alt="<%= element.titulo %> "
-            />
-            <div class="detalle">
-              <h3><%= element.titulo %> </h3>
-              <h4><%= element.autor %> </h4>
-              <p>$ <%= element.precio %> </p>
-            </div>
-          </article>
+        <% recomendados.forEach(producto => { %>
+
+            <article>
+              <img class ="<%= producto.genero%>"
+                src="/images/<%= producto.imagen %> "
+                alt="<%= producto.titulo %> "
+              />
+              <div class="detalle">
+                <h3><%= producto.titulo %> </h3>
+                <h4><%= producto.autor %> </h4>
+                <p>$ <%= producto.precio %> </p>
+              </div>
+            </article>
+            
         <% }) %>
-      
-
-          <!-- <article class="laLadronaDeLibros">
-             <img
-               src="/images/la-ladrona-de-libros.jpg"
-           alt="img la ladrona de libros"
-             />
-           <div class="detalle">
-              <h3>La ladrona de libros</h3>
-              <h4>Markus Zusak</h4>
-               <p>$1900</p>
-            </div>
-           </article> -->
-
-           <!-- <article class="laGuerraDeLosMundos">
-           <img
-             src="/images/la-guerra-de-los-mundos.jpg"
-              alt="img la guerra de los mundos"/>
-           <div class="detalle">
-               <h3>La guerra de los mundos</h3>
-               <h4>H. G. Wells</h4>
-              <p>$2400</p>
-             </div>
-           </article> -->
       </section>
 
 

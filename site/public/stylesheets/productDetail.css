@@ -17,31 +17,31 @@
 }
 
 /* Colores por categoria */
-.detail .seleccion .Romance {
+.detail .Romance {
   background-color: lightsalmon;
 }
-.detail .seleccion .Terror {
+.detail .Terror {
   background-color: lightslategrey;
 }
-.detail .seleccion .Misterio {
+.detail .Misterio {
   background-color: lightskyblue;
 }
-.detail .seleccion .Juvenil {
+.detail .Juvenil {
   background-color: lightgoldenrodyellow;
 }
-.detail .seleccion .Novela {
+.detail .Novela {
   background-color:tomato;
 }
-.detail .seleccion .Ciencia {
+.detail .Ciencia {
   background-color:rebeccapurple;
 }
-.detail .seleccion .Ficcion {
+.detail .Ficcion {
   background-color:olive;
 }
-.detail .seleccion .Policial {
+.detail .Policial {
   background-color:dodgerblue;
 }
-.detail .seleccion .Historica {
+.detail .Historica {
   background-color:firebrick;
 }
 
@@ -119,15 +119,14 @@
   text-align: center;
 }
 
-.detail .verTambien {
+.detail .otros {
   text-align: center;
   margin: 30px;
 }
 
-.detail .verTambien img {
+.detail .otros img {
   height: 150px;
   padding: 15px;
-  background-color: lightgoldenrodyellow;
 }
 
 .detail .verTambien p {

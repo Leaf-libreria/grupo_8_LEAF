@@ -20,13 +20,17 @@ module.exports = {
     detail: (req,res) => {
         let producto = productos.find(producto => producto.id === +req.params.id)
 
-        let romance = productos.filter(producto => producto.genero === "Romance")
+        let genero = producto.genero
+        let idActual = producto.id
+        let recomendados = productos.filter(producto => producto.genero === genero && producto.id != idActual).splice(0,3)
+
+    
 
         
         return res.render("./products/productDetail",{
             title: 'LEAF | Detalle',
             producto,
-            romance,
+            recomendados,
     })
     },
 
