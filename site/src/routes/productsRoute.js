@@ -1,5 +1,18 @@
 var express = require("express");
 var router = express.Router();
+const multer = require("multer");
+const path = require("path")
+
+const storage = multer.diskStorage({
+    destination: (req,file,cb) => {
+        cb(null,"public/images")
+    },
+    filename: (req,file,cb) => {
+        cb(null,file.fieldname + "-" + Date.now() + path.extname(file.originalname))
+    },
+})
+
+
 
 const {
   verMas,
@@ -28,8 +41,9 @@ router.get('/libros', libros);
 router.get('/', verMas);
 router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
+// Carga de productos
 router.get("/agregar", agregarProducto);
-router.get("/editar", editarProducto);
+router.get("/editar/:id", editarProducto);
 router.get("/carrito", carrito);
 router.get("/pago", pago);
 // rutas de generos
@@ -43,4 +57,6 @@ router.get("/policial", policial);
 router.get("/novela", novela);
 router.get("/juvenil", juvenil);
 
+
 module.exports = router;
+

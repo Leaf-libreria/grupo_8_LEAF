@@ -79,7 +79,6 @@
 }
 
 .admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea {
-  width: 95%;
   background-color: rgba(240, 219, 114, 0.692);
   color: var(--color-bordo);
   font-family: var(--letra-titulo);
@@ -90,7 +89,9 @@
 .admin .administrador .formulario input, .admin .administrador .formulario select{
   height: 40px;
 }
-
+.administrador .formulario select{
+  width:30.5vh;
+}
 .admin .administrador .formulario input:focus {
   box-shadow: 0px 0px 12px rgb(37, 37, 37);
 }
