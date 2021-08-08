@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const productos = require("../data/product_db");
+const {productos,guardar} = require("../data/product_db");
 const generos = require('../data/generos_db')
 
 module.exports = {
@@ -39,11 +39,35 @@ module.exports = {
       generos,
     }); //Lista todos los productos
   },
-
   editarProducto: (req, res) => {
     return res.render("./products/editProduct", {
       title: "LEAF | Administrador",
     });
+  },
+
+  actualizarProducto: (req, res) => {
+    const {titulo,id,isbn,stock,formato,categoria,autor,editorial,genero,precio,paginas,critica,portada,sinopsis} =req.body;
+
+    let producto = productos.find(producto => producto.id === req.params.id)
+    let productoEditado = {
+      titulo :req.body.titulo,
+      id: +req.params.id,
+      isbn: req.body.isbn,
+      stock : req.body.stock,
+      formato: req.body.formato,
+      categoria: req.body.categoria,
+      autor: req.body.autor,
+      editorial: req.body.editorial,
+      genero: req.body.genero,
+      precio: req.body.precio,
+      paginas: req.body.paginas,
+      critica: req.body.critica,
+      portada: req.body.portada,
+      sinopsis: req.body.sinopsis,
+    }
+    let productosModificados =productos.map(producto.id === +req.params.id ? productoEditado: producto)
+    guardar(productosModificados)
+    res.redirect('/')
   },
   agregarProducto: (req, res) => {
     return res.render("./products/addProduct", {
