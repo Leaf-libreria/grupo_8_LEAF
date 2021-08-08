@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const {productos,guardar} = require("../data/product_db");
+const costoEnvio=require("../data/envios-costo");
 const generos = require('../data/generos_db')
 
 module.exports = {
@@ -28,8 +29,10 @@ module.exports = {
   },
 
   detail: (req, res) => {
-    return res.render("./products/productDetail", { title: "LEAF | Detalle" },
-    generos,);
+    return res.render("./products/productDetail", {
+      title: "LEAF | Detalle",
+      generos,
+    });
   },
 
   administrador: (req, res) => {
@@ -40,8 +43,12 @@ module.exports = {
     }); //Lista todos los productos
   },
   editarProducto: (req, res) => {
+    let productEdit = productos.find(productEdit => productEdit.id === +req.params.id);
     return res.render("./products/editProduct", {
-      title: "LEAF | Administrador",
+      title:'Editando '+productEdit.titulo,
+      generos,
+      productos,
+      productEdit,//producto editado
     });
   },
 
@@ -77,14 +84,18 @@ module.exports = {
   },
 
   carrito: (req, res) => {
-    return res.render("./products/productCart", { title: "LEAF | Carrito" },
-    generos,
-    );
+    return res.render("./products/productCart", {
+      title: "LEAF | Carrito",
+      generos,
+    });
   },
 
   pago: (req, res) => {
     return res.render("./products/payForm", {
       title: "LEAF | Finaliza tu compra",
+      productos,
+      costoEnvio,
+      libroComprado: productos.filter((producto) => producto.id === 20),
       generos,
     });
   },
