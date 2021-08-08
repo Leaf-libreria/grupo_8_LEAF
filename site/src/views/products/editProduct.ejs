@@ -33,7 +33,7 @@
         <label for="stock">Stock:</label>
         <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números" value="<%= productEdit.stock %>">
     </div>
-   <section class="formato">
+   <section class="categoria">
        <label for="formato">Formato:</label> 
        <select name="formato" id="formato">
            <option value="libro"<%= productEdit.formato==="libro"?'selected':null %>>Libro</option>
@@ -70,7 +70,7 @@
 </div>
 <div class="sinopsis">
   <label for="critica">Crítica:</label>
-  <textarea name="slogan" id="critica" cols="5" rows="2" placeholder="Breve critica" ><%= productEdit.slogan %>
+  <textarea name="slogan" id="critica" cols="20" rows="2" placeholder="Breve critica" ><%= productEdit.slogan %>
   </textarea>
 </div>
 <div class="estrellas">
