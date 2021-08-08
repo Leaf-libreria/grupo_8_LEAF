@@ -29,8 +29,10 @@ module.exports = {
   },
 
   detail: (req, res) => {
-    return res.render("./products/productDetail", { title: "LEAF | Detalle" },
-    generos,);
+    return res.render("./products/productDetail", {
+      title: "LEAF | Detalle",
+      generos,
+    });
   },
 
   administrador: (req, res) => {
@@ -42,9 +44,12 @@ module.exports = {
   },
 
   editarProducto: (req, res) => {
+    let productEdit = productos.find(productEdit => productEdit.id === +req.params.id);
     return res.render("./products/editProduct", {
-      title: "LEAF | Administrador",
+      title:'Editando '+productEdit.titulo,
       generos,
+      productos,
+      productEdit,//producto editado
     });
   },
   agregarProducto: (req, res) => {
@@ -55,9 +60,10 @@ module.exports = {
   },
 
   carrito: (req, res) => {
-    return res.render("./products/productCart", { title: "LEAF | Carrito" },
-    generos,
-    );
+    return res.render("./products/productCart", {
+      title: "LEAF | Carrito",
+      generos,
+    });
   },
 
   pago: (req, res) => {
