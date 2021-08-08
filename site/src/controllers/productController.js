@@ -69,10 +69,10 @@ module.exports = {
       precio: req.body.precio,
       paginas: req.body.paginas,
       critica: req.body.critica,
-      portada: req.body.portada,
+      portada:  req.file ? req.file.filename : producto.portada,
       sinopsis: req.body.sinopsis,
     }
-    let productosModificados =productos.map(producto.id === +req.params.id ? productoEditado: producto)
+    let productosModificados =productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
     guardar(productosModificados)
     res.redirect('/')
   },

@@ -47,7 +47,7 @@ router.get("/administrador", administrador);
 // Carga de productos
 router.get("/agregar", agregarProducto);
 router.get("/editar/:id", editarProducto);
-router.post("/editar/:id", actualizarProducto);
+router.put("/editar/:id", actualizarProducto);
 router.get("/carrito", carrito);
 router.get("/pago", pago);
 // rutas de generos
