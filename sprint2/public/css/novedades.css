@@ -1,0 +1,78 @@
+/* Novedades Mobile */
+
+.novedades main h2{
+    text-align: center;
+    margin-top: 20px ;
+    color: var(--color-amarillo);
+    font-weight: 600;
+    background-color: var(--color-bordo);
+    padding: 10px;
+    border-radius: 7px;
+    margin: 20px 40px;
+}
+
+.novedades .contenedorNovedades{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+
+}
+
+.novedades .contenedorNovedades .libro{
+    display: block;
+    margin: 30px auto;
+    box-shadow: 5px 5px 15px 5px var(--color-amarillo);
+    width:70%;
+}
+
+.novedades .contenedorNovedades .libro:hover{
+    box-shadow: 5px 5px 15px 5px var(--color-bordo);
+}
+
+.novedades .contenedorNovedades .libro img{
+    display: block;
+    width:auto;
+    height: 240px;
+    background-color: var(--color-amarillo);
+    padding: 10px;
+    margin: 15px auto 5px;
+
+    
+}
+
+.novedades .contenedorNovedades .detalle{
+    text-align: center;
+  line-height: 10px;
+  margin-top: 10px;
+  color: var(--color-bordo);
+}
+
+@media (min-width: 361px) {
+
+    .novedades .contenedorNovedades .libro{
+        width:30%;
+        margin: 30px auto;
+    }
+
+    .novedades .contenedorNovedades .libro img{
+        width: 180px;
+        height: 230px;
+        margin: 15px auto 0;
+    }
+}
+
+    @media (min-width: 769px) {
+
+        .novedades .contenedorNovedades .libro{
+            width:28%;
+        }
+    
+        .novedades .contenedorNovedades .libro img{
+            width: 200px;
+            height: 260px;
+        }
+
+
+
+
+}

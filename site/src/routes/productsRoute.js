@@ -37,15 +37,14 @@ const {
 } = require("../controllers/productController");
 
 // /products
-// ruta de ebooks
-router.get("/ebooks", ebooks);
-// ruta de libros formato papel
-router.get("/libros", libros);
-router.get("/", verMas);
-router.get("/detalle", detail);
+router.get('/ebooks', ebooks);
+router.get('/libros', libros);
+router.get('/', verMas);
+router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
 // Carga de productos
 router.get("/agregar", agregarProducto);
+router.post("/agregar", agregarProducto);
 router.get("/editar/:id", editarProducto);
 router.put("/editar/:id", actualizarProducto);
 router.get("/carrito", carrito);

@@ -10,11 +10,44 @@
   font-weight: 600;
   font-size: 25px;
 }
+
 .detail .seleccion img {
   width: 180px;
   padding: 20px;
-  background-color: lightblue;
 }
+
+/* Colores por categoria */
+.detail .seleccion .Romance {
+  background-color: lightsalmon;
+}
+.detail .seleccion .Terror {
+  background-color: lightslategrey;
+}
+.detail .seleccion .Misterio {
+  background-color: lightskyblue;
+}
+.detail .seleccion .Juvenil {
+  background-color: lightgoldenrodyellow;
+}
+.detail .seleccion .Novela {
+  background-color:tomato;
+}
+.detail .seleccion .Ciencia {
+  background-color:rebeccapurple;
+}
+.detail .seleccion .Ficcion {
+  background-color:olive;
+}
+.detail .seleccion .Policial {
+  background-color:dodgerblue;
+}
+.detail .seleccion .Historica {
+  background-color:firebrick;
+}
+
+
+
+
 
 .detail .producto {
   text-align: center;
@@ -86,50 +119,21 @@
   text-align: center;
 }
 
-.detail .elPsicoanalista {
+.detail .verTambien {
   text-align: center;
   margin: 30px;
 }
 
-.detail .elPsicoanalista img {
-  width: 50%;
+.detail .verTambien img {
+  height: 150px;
   padding: 15px;
   background-color: lightgoldenrodyellow;
 }
 
-.detail .elPsicoanalista p {
+.detail .verTambien p {
   font-weight: 600;
 }
 
-.detail .laLadronaDeLibros {
-  text-align: center;
-  margin: 30px;
-}
-
-.detail .laLadronaDeLibros img {
-  width: 50%;
-  padding: 15px;
-  background-color: lightsalmon;
-}
-
-.detail .laLadronaDeLibros p {
-  font-weight: 600;
-}
-
-.detail .laGuerraDeLosMundos {
-  text-align: center;
-  margin: 30px;
-}
-
-.detail .laGuerraDeLosMundos img {
-  width: 50%;
-  padding: 15px;
-  background-color: lightgrey;
-}
-
-.detail .laGuerraDeLosMundos p {
-  font-weight: 600;
-}
 
 /* Version tablet */
 
