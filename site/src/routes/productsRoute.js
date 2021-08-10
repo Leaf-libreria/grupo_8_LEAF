@@ -43,6 +43,7 @@ router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
 // Carga de productos
 router.get("/agregar", agregarProducto);
+router.post("/agregar", agregarProducto);
 router.get("/editar/:id", editarProducto);
 router.get("/carrito", carrito);
 router.get("/pago", pago);

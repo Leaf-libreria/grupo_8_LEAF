@@ -53,6 +53,35 @@ module.exports = {
     });
   },
   agregarProducto: (req, res) => {
+
+    const {id,titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
+
+    let product = {
+      id : (productos[productos.length-1].id +1),
+      titulo,
+      autor,
+      precio,
+      categoria,
+      genero,
+      sinopsis,
+      slogan,
+      estrellas,
+      editorial,
+      isbn,
+      paginas,
+      idioma,
+      formato,
+      portada : 'default-image.png'
+    }
+
+    products.push(product);
+    fs.writeFileSync(productsFilePath, JSON.stringify(products,null,2),'utf-8');
+    return res.redirect('/products');
+
+
+
+
+
     return res.render("./products/addProduct", {
       title: "LEAF | Administrador",
       generos,
