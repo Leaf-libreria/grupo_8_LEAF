@@ -34,6 +34,17 @@ header .header2 .carrito p {
   display: none;
 }
 
+/* buscador */
+.btn-outline-light {
+  color:var(--color-bordo) ;
+  border: none;
+}
+.btn-outline-light:hover {
+  background-color:transparent ;
+}
+.btn-outline-light:focus {
+  color:var(--color-bordo) ;
+}
 header .header2 .contenedorLogo {
   justify-content: flex-start;
   margin-left: 3.5%;

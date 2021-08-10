@@ -52,32 +52,32 @@ module.exports = {
       productEdit,//producto editado
     });
   },
+
   actualizarProducto: (req, res) => {
 
- const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
+   const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
     
-   let producto = productos.find(producto=> producto.id === +req.params.id);
 
-   let productoEditado = {
-     id : +req.params.id,
-     titulo,
-     autor,
-     precio,
-     categoria,
-     genero,
-     sinopsis,
-     slogan,
-     estrellas,
-     editorial,
-     isbn,
-     paginas,
-     idioma,
-     formato,
-     portada : req.file ? req.file.filename : producto.portada
-   }
+   let productoEditado = productos.find(producto=> producto.id === +req.params.id);
+
+     productoEditado.titulo =titulo;
+     productoEditado.autor = autor;
+     productoEditado.precio =+precio;
+     productoEditado.categoria = categoria;
+     productoEditado.genero = genero,
+     productoEditado.sinopsis = sinopsis,
+     productoEditado.slogan = slogan,
+     productoEditado.estrellas =+estrellas,
+     productoEditado.editorial = editorial,
+     productoEditado.isbn = +isbn,
+     productoEditado.paginas = +paginas,
+     productoEditado.idioma = idioma,
+     productoEditado.formato = formato,
+     productoEditado.portada = req.file ? req.file.filename : productoEditado.portada
+   
    let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
 
-    console.log(productosModificados) 
+    guardar(productosModificados)
     return res.redirect('/products/administrador')
   },
   addProducto: (req,res) =>{
