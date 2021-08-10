@@ -28,7 +28,9 @@
         <div class="container">
         <div class="row align-items-start">   
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <button type="button" class="btn btn-danger">BORRAR</button>
+            <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger ">ELIMINAR</button>
+          </form>
             <a href="/products/editar/<%= producto.id %> " type="button" class="btn btn-warning">EDITAR</a>
                 <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
           </div>

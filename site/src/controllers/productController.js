@@ -1,8 +1,9 @@
 const fs = require("fs");
 const path = require("path");
-let { productos } = require("../data/product_db");
+let { productos, guardar } = require("../data/product_db");
 const costoEnvio = require("../data/envios-costo");
-const generos = require('../data/generos_db')
+const generos = require('../data/generos_db');
+
 
 module.exports = {
   libros: (req, res) => {
@@ -23,8 +24,8 @@ module.exports = {
   },
 
   verMas: (req, res) => {
-    return res.render("verMas", { title: "LEAF | Libros", productos },
-      generos);
+    return res.render("verMas", { title: "LEAF | Libros", productos, generos },
+     );
 
   },
 
@@ -41,7 +42,8 @@ module.exports = {
     }); //Lista todos los productos
   },
 
-  editarProducto: (req, res) => {
+   editarProducto: (req, res) => {
+     
     let productEdit = productos.find(productEdit => productEdit.id === +req.params.id);
     return res.render("./products/editProduct", {
       title: 'Editando ' + productEdit.titulo,
@@ -51,36 +53,42 @@ module.exports = {
     });
   },
   actualizarProducto: (req, res) => {
-    const { titulo, isbn, stock, formato, categoria, autor, editorial, genero, precio, paginas, critica, sinopsis,slogan,idioma,estrellas } = req.body;
- 
-    productos.forEach(producto => {
-      if (producto.id === +req.params.id) {
-        producto.id = +req.params.id;
-        producto.titulo = titulo;
-        producto.isbn = +isbn;
-        producto.stock = +stock;
-        producto.formato = formato;
-        producto.categoria = categoria;
-        producto.autor = autor;
-        producto.editorial = editorial;
-        producto.genero = genero;
-        producto.precio = +precio;
-        producto.paginas = +paginas;
-        producto.critica = critica;
-        producto.sinopsis = sinopsis;
-        producto.idioma = idioma;
-        producto.slogan = slogan;
-        producto.estrellas = +estrellas;
-      }
 
+ const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
+    
+   let producto = productos.find(producto=> producto.id === +req.params.id);
+
+   let productoEditado = {
+     id : +req.params.id,
+     titulo,
+     autor,
+     precio,
+     categoria,
+     genero,
+     sinopsis,
+     slogan,
+     estrellas,
+     editorial,
+     isbn,
+     paginas,
+     idioma,
+     formato,
+     portada : req.file ? req.file.filename : producto.portada
+   }
+   let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
+
+    console.log(productosModificados) 
+    return res.redirect('/products/administrador')
+  },
+  addProducto: (req,res) =>{
+    return res.render("./products/addProduct", {
+      title: "LEAF | Administrador",
+      generos,
     });
-    return res.send(productos)
-    // fs.writeFileSync(path.join(__dirname, 'products.json'), JSON.stringify(productos, null, 2), 'utf-8')
-    // return res.redirect('/products/editar/' + req.params.id)
   },
   agregarProducto: (req, res) => {
 
-    const {id,titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
+    const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
 
     let product = {
       id : (productos[productos.length-1].id +1),
@@ -97,22 +105,22 @@ module.exports = {
       paginas,
       idioma,
       formato,
-      portada : 'default-image.png'
+      portada : req.file ? req.files.filename : 'default-image.png',
     }
 
-    products.push(product);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products,null,2),'utf-8');
-    return res.redirect('/products');
+    productos.push(product);
+   guardar(productos)
+    return res.redirect('/products/administrador',);
 
-
-
-
-
-    return res.render("./products/addProduct", {
-      title: "LEAF | Administrador",
-      generos,
-    });
   },
+  borrar: (req,res) => {
+    productos = productos.filter(producto => producto.id !== +req.params.id);
+
+    fs.writeFileSync(path.join( __dirname,'../data/products.json'),JSON.stringify(productos,null,2), "utf-8");
+    return res.redirect("/products/administrador")
+},
+
+
 
   carrito: (req, res) => {
     return res.render("./products/productCart", { title: "LEAF | Carrito" },

@@ -34,6 +34,8 @@ const {
   novela,
   juvenil,
   actualizarProducto,
+  addProducto,
+  borrar,
 } = require("../controllers/productController");
 
 // /products
@@ -43,10 +45,11 @@ router.get('/', verMas);
 router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
 // Carga de productos
-router.get("/agregar", agregarProducto);
+router.get("/agregar", addProducto);
 router.post("/agregar", agregarProducto);
-router.get("/editar/:id", editarProducto);
+ router.get("/editar/:id", editarProducto);
 router.put("/editar/:id", actualizarProducto);
+router.delete("/delete/:id", borrar);
 router.get("/carrito", carrito);
 router.get("/pago", pago);
 // rutas de generos

@@ -13,7 +13,7 @@
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
-  <form action="/agregar" method="POST" class="formulario">
+  <form action="" method="POST" class="formulario">
       <div class="titulo">
           <label for="titulo">Título del libro:</label>
           <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos">
@@ -52,52 +52,19 @@
             </section>
    <section class="autor">
         <label for="autor">Autor/Autora:</label>
-        <!--Desplegable-->
-        <select name="autor" id="autor">
-    <option value="kerri-mariscalco">Kerri Mariscalco</option>
-    <option value="ariana-godoy">Ariana Godoy</option>
-    <option value="adam-silvera">Adam Silvera</option>
-    <option value="john-grisham">John Grisham</option>
-    <option value="jonh-katzenbach">Jonh Katzenbach</option>
-    <option value="h-g-wells">H. G. Wells</option>
-    <option value="markus-zusak">Markus Zusak</option>
-    <option value="florencia-bonelli">Florencia Bonelli</option>
-    <option value="carlos-ruis-zafon">Carlos Ruiz Zafón</option>
-    <option value="jojo-moyes">Jojo Moyes</option>
-    <option value="otro">Otro</option>    
-</select>
     <div class="otroAutor">
-        <!--campo para ingresar opción otro-->
         <input type="text" name="autor" id="otroAutor" placeholder="Otro. Nombre y apellido del autor" class="control">
     </div>
     </section>
 <section class="editorial">
     <label for="editorial">Editorial:</label>
-    <!--Desplegable-->
-    <select name="editorial" id="editorial">
-        <option value="wattpad">Wattpad</option>
-        <option value="suma">Suma</option>
-        <option value="deBolsillo">DeBolsillo</option>
-        <option value="booket">Booket</option>
-        <option value="edicionesB">Ediciones B</option>
-        <option value="otro">Otro</option> 
-    </select>
     <div class="otraEditorial">
-        <!--campo para ingresar opción otro-->
         <input type="text" name="editorial" id="OtraEditorial" placeholder="Otro. Ej: Planeta" class="control">
     </div>
 </section>
 <section class="genero">
     <label for="genero">Género</label>
-    <!--Desplegable-->
-    <select name="genero" id="genero">
-        <option value="romance">Romance</option>
-        <option value="terror">Terror</option>
-        <option value="misterio">Misterio</option>
-        <option value="otro">Otro</option>
-    </select>
     <div class="otroGenero">
-        <!--campo para ingresar opción otro-->
         <input type="text" name="genero" id="otroGenero" placeholder="Otro. Ej: Fantasía" class="control">
     </div>
 </section>
@@ -111,7 +78,7 @@
 </div>
 <div class="critica">
   <label for="critica">Crítica:</label>
-  <input type="text" name="critica" id="critica" class="control" placeholder="Breve critica">
+  <textarea  type="text" name="critica" id="critica" class="control" placeholder="Breve critica"></textarea>
 </div>
 <div class="estrellas">
   <label for="estrellas">Estrellas:</label>
