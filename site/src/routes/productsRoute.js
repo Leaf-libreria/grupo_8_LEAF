@@ -33,6 +33,7 @@ const {
   cienciaFiccion,
   novela,
   juvenil,
+  actualizarProducto,
 } = require("../controllers/productController");
 
 // /products
@@ -45,7 +46,8 @@ router.get("/detalle", detail);
 router.get("/administrador", administrador);
 // Carga de productos
 router.get("/agregar", agregarProducto);
-router.get("/editar", editarProducto);
+router.get("/editar/:id", editarProducto);
+router.put("/editar/:id", actualizarProducto);
 router.get("/carrito", carrito);
 router.get("/pago", pago);
 // rutas de generos

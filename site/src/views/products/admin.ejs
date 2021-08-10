@@ -7,13 +7,13 @@
   <body class="novedades admin">
       <!-- encabezado -->
     <!-- ----header ----->
-   <%-include('../partials/header-admin') %> 
+   <%-include('../partials/header') %> 
    <!-- ----header---- -->
   <main>
 
     <h2>Lista de productos</h2>
     
-    <div class=contenedorNovedades>
+    <div class='contenedorNovedades'>
       <% productos.forEach(producto=>{ %> 
     <article class="libro">
         <a href="/products/detalle"
@@ -29,7 +29,7 @@
         <div class="row align-items-start">   
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-danger">BORRAR</button>
-            <a href="/products/editar" type="button" class="btn btn-warning">EDITAR</a>
+            <a href="/products/editar/<%= producto.id %> " type="button" class="btn btn-warning">EDITAR</a>
                 <a href="/products/agregar" type="button" class="btn btn-success">AGREGAR</a>
           </div>
         </div> 

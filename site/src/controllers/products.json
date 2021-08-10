@@ -1,21 +1,10 @@
 [
   {
     "id": 1,
-    "titulo": "El manuscrito",
-    "autor": "John Grisham",
-    "precio": 1500,
-    "portada": "el-manuscrito.png",
-    "categoria": "Mas vendidos",
-    "genero": "Policial",
-    "sinopsis": "Cuando el huracán Leo se desvía de su curso previsto para dirigirse hacia Camino Island, en la costa de Florida, la mayoría de sus habitantes decide abandonar la isla. Solo un pequeño grupo de irreductibles elige quedarse, entre ellos Bruce Cable, el propietario de la librería Bay Books. Uno de los fallecidos es Nelson Kerr, amigo de Bruce y autor de thrillers. Pero los indicios sugieren que la tormenta no fue la causa de la muerte de Nelson: la víctima recibió numerosos golpes sospechosos en la cabeza. ¿Quién querría matar a Nelson? La policía local está sobrepasada por los efectos del huracán y no se encuentra en condiciones de ocuparse del caso. Bruce empieza a investigar y lo que descubre entre sus páginas es más impactante que cualquiera de los giros de las tramas de Nelson... y mucho más peligroso.",
-    "slogan": "¡Llega la esperadísima novela del maestro de los thrillers policiales y judiciales!",
-    "estrellas": 4,
-    "editorial": "Plaza & Janés",
-    "stock": 100,
-    "isbn": "9789506445584",
-    "paginas": 336,
-    "idioma": "Español",
-    "formato": "E-book"
+    "isbn": null,
+    "stock": null,
+    "precio": null,
+    "paginas": null
   },
   {
     "id": 2,
