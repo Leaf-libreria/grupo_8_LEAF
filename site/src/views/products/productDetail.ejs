@@ -8,103 +8,74 @@
     <!-- encabezado -->
       <!-- ----header ----->
   <%-include('../partials/header') %> 
-  <!-- ----header---- -->
+  <main>
 
-    <!-- Main detalle del producto -->
-    <main>
+    <div class="seleccionProducto">
+  <article class="seleccion">
+    <h4><%= producto.titulo %> </h4>
+    <img class= "<%= producto.genero %>" src="/images/<%= producto.portada %> " alt="<%= producto.titulo %> " />
+  </article>
 
-        <div class="seleccionProducto">
-      <article class="seleccion">
-        <h4><%= producto.titulo %> </h4>
-        <img class= <%= producto.genero %> src="/images/<%= producto.imagen %> " alt="<%= producto.titulo %> " />
-      </article>
-
-      <section class="producto">
-          <div class="productoArriba">
-          <h4>Autor: <%= producto.autor %> </h4>
-          <h5>Editorial: <%= producto.editorial %> </h5>
-          <h5>Stock: <%= producto.stock %> </h5>
-        </div>
-          <div class="productoAbajo">
-              <p>$ <%= producto.precio %> </p>
-              <a class="comprar" href="">Comprar</a>
-              <i class="far fa-heart"></i>
-            </div>
-          <p class="sinopsis"> Sinopsis: <%= producto.sinopsis %> </p>
-      </section>
+  <section class="producto">
+      <div class="productoArriba">
+      <h4>Autor: <%= producto.autor %> </h4>
+      <h5>Editorial: <%= producto.editorial %> </h5>
+      <h5>Stock: <%= producto.stock %> </h5>
     </div>
+      <div class="productoAbajo">
+          <p>$ <%= producto.precio %> </p>
+          <a class="comprar" href="">COMPRAR</a>
+        </div>
+      <p class="sinopsis"> Sinopsis: <%= producto.sinopsis %> </p>
+  </section>
+</div>
 
-      <h4 class="infoad">Información adicional</h4>
-
-      <section class="iconoInfo">
-          <div>
-          <i class="fas fa-barcode"></i>
-          <p>ISBN</p>
-          <p><%= producto.isbn %> </p>
-        </div>
-          <div>
-          <i class="fas fa-book-open"></i>
-          <p>Páginas</p>
-          <p><%= producto.paginas %> </p>
-        </div>
-          <div>
-          <i class="fas fa-globe-americas"></i>
-          <p>Idioma</p>
-          <p>Español</p>
-        </div>
-          <div>
-          <i class="fas fa-boxes"></i>
-          <p>Género</p>
-          <p><%= producto.genero %> </p>
-        </div>
-      </section>
-
-      <h4 class="ademas">También te recomendamos</h4>
+  <h4 class="infoad">Información adicional</h4>
+  <section class="iconoInfo">
+    <div>
+    <i class="fas fa-barcode"></i>
+    <p>ISBN</p>
+    <p><%= producto.isbn %> </p>
+  </div>
+    <div>
+    <i class="fas fa-book-open"></i>
+    <p>Páginas</p>
+    <p><%= producto.paginas %> </p>
+  </div>
+    <div>
+    <i class="fas fa-globe-americas"></i>
+    <p>Idioma</p>
+    <p>Español</p>
+  </div>
+    <div>
+    <i class="fas fa-boxes"></i>
+    <p>Género</p>
+    <p><%= producto.genero %> </p>
+  </div>
+</section>
+<h4 class="ademas">También te recomendamos del genero <%=producto.genero%></h4>
 
       
       <section class="otros">
-        <% romance.forEach(element => { %>
-          <article class=verTambien>
-            <img
-              src="/images/<%= element.imagen %> "
-              alt="<%= element.titulo %> "
-            />
-            <div class="detalle">
-              <h3><%= element.titulo %> </h3>
-              <h4><%= element.autor %> </h4>
-              <p>$ <%= element.precio %> </p>
-            </div>
-          </article>
+        <% recomendados.forEach(producto => { %>
+
+            <article>
+              <a href="/products/detalle/<%=producto.id%>">  <img class ="<%= producto.genero%>"
+                src="/images/<%= producto.portada %> "
+                alt="<%= producto.titulo %> "
+              /></a>
+              <div class="detalle">
+                <h3><%= producto.titulo %> </h3>
+                <h4><%= producto.autor %> </h4>
+                <p>$ <%= producto.precio %> </p>
+              </div>
+            </article>
+            
         <% }) %>
-      
-
-          <!-- <article class="laLadronaDeLibros">
-             <img
-               src="/images/la-ladrona-de-libros.jpg"
-           alt="img la ladrona de libros"
-             />
-           <div class="detalle">
-              <h3>La ladrona de libros</h3>
-              <h4>Markus Zusak</h4>
-               <p>$1900</p>
-            </div>
-           </article> -->
-
-           <!-- <article class="laGuerraDeLosMundos">
-           <img
-             src="/images/la-guerra-de-los-mundos.jpg"
-              alt="img la guerra de los mundos"/>
-           <div class="detalle">
-               <h3>La guerra de los mundos</h3>
-               <h4>H. G. Wells</h4>
-              <p>$2400</p>
-             </div>
-           </article> -->
       </section>
 
 
     </main>
-
 
 
     <!-- pie de pagina -->
