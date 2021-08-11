@@ -26,21 +26,6 @@
           <p>$ <%= producto.precio %> </p>
           <a class="comprar" href="">COMPRAR</a>
         </div>
-<<<<<<< HEAD
-          <div>
-          <i class="fas fa-globe-americas"></i>
-          <p>Idioma</p>
-          <p>Español</p>
-        </div>
-          <div>
-          <i class="fas fa-boxes"></i>
-          <p>Género</p>
-          <p><%= producto.genero %> </p>
-        </div>
-      </section>
-
-      <h4 class="ademas">También te recomendamos del genero <%=producto.genero%></h4>
-=======
       <p class="sinopsis"> Sinopsis: <%= producto.sinopsis %> </p>
   </section>
 </div>
@@ -69,24 +54,16 @@
   </div>
 </section>
 <h4 class="ademas">También te recomendamos del genero <%=producto.genero%></h4>
->>>>>>> c2bbef28f9035965540e484caa85c5eb75701a7f
 
       
       <section class="otros">
         <% recomendados.forEach(producto => { %>
 
             <article>
-<<<<<<< HEAD
-              <img class ="<%= producto.genero%>"
-                src="/images/<%= producto.imagen %> "
-                alt="<%= producto.titulo %> "
-              />
-=======
               <a href="/products/detalle/<%=producto.id%>">  <img class ="<%= producto.genero%>"
                 src="/images/<%= producto.portada %> "
                 alt="<%= producto.titulo %> "
               /></a>
->>>>>>> c2bbef28f9035965540e484caa85c5eb75701a7f
               <div class="detalle">
                 <h3><%= producto.titulo %> </h3>
                 <h4><%= producto.autor %> </h4>
