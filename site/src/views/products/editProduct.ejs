@@ -19,15 +19,16 @@
           <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" value="<%= productEdit.titulo %> ">
       </div>
     </section>
-    <section class="isbn">
+    <div class="container-grid-uno"></div>
+    <div class="isbn">
       <label for="isbn">ISBN:</label>
       <div class="isbn-btn">
-      <input type="number" name="isbn" id="isbn" class="control" placeholder="10 ó 13 Dígitos" value="<%= productEdit.isbn %>">
+      <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos" value="<%= productEdit.isbn %>">
     </div> 
-</section>
+</div>
     <div class="stock">
         <label for="stock">Stock:</label>
-        <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números" value="<%= productEdit.stock %>">
+        <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números" value="<%= productEdit.stock %>">
     </div>
    <section class="categoria">
        <label for="formato">Formato:</label> 
@@ -56,23 +57,26 @@
     <label for="genero">Género</label>
     <input type="text" name="genero" value="<%= productEdit.genero %>">
 </section>
+<div class="container-grid">
 <div class="precio">
     <label for="precio">Precio $:</label>
-    <input type="number" name="precio" id="precio" class="control" placeholder="Ingrese sólo números" value="<%= productEdit.precio %>">
+    <input type="number" name="precio" id="precio" class="con-grid" placeholder="Ingrese sólo números" value="<%= productEdit.precio %>">
 </div>
 <div class="paginas">
     <label for="paginas">Páginas:</label>
-    <input type="number" name="paginas" id="paginas" class="control" placeholder="Sólo números" value="<%= productEdit.paginas %>">
+    <input type="number" name="paginas" id="paginas" class="con-grid" placeholder="Sólo números" value="<%= productEdit.paginas %>">
+</div>
+<div class="estrellas">
+  <label for="estrellas">Estrellas:</label>
+  <input type="text" name="estrellas" id="estrellas" class="con-grid"placeholder="N° de estrellas" value="<%= productEdit.estrellas %>">
+</div>
 </div>
 <div class="sinopsis">
   <label for="critica">Crítica:</label>
   <textarea name="slogan" id="critica" cols="20" rows="2" placeholder="Breve critica" ><%= productEdit.slogan %>
   </textarea>
 </div>
-<div class="estrellas">
-  <label for="estrellas">Estrellas:</label>
-  <input type="text" name="estrellas" id="estrellas" class="control" placeholder="N° de estrellas" value="<%= productEdit.estrellas %>">
-</div>
+
 <div class="portada">
   <label for="portada">Imagen de portada:</label>
   <input  class="file" type="file" name="portada" id="portada" >
