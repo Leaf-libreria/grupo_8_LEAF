@@ -5,17 +5,16 @@
     "autor": "John Grisham",
     "precio": 1500,
     "portada": "el-manuscrito.png",
-    "categoria": "Más vendidos",
+    "categoria": "recomendados",
     "genero": "Policial",
-    "sinopsis": "Cuando el huracán Leo se desvía de su curso previsto para dirigirse hacia Camino Island, en la costa de Florida, la mayoría de sus habitantes decide abandonar la isla. Solo un pequeño grupo de irreductibles elige quedarse, entre ellos Bruce Cable, el propietario de la librería Bay Books. El huracán avanza destrozándolo todo y dejando casas derrumbadas, hoteles y tiendas destruidas, calles inundadas y una docena de muertos. Uno de los fallecidos es Nelson Kerr, amigo de Bruce y autor de thrillers. Pero los indicios sugieren que la tormenta no fue la causa de la muerte de Nelson: la víctima recibió numerosos golpes sospechosos en la cabeza. ¿Quién querría matar a Nelson? La policía local está sobrepasada por los efectos del huracán y no se encuentra en condiciones de ocuparse del caso. Pero Bruce comienza a preguntarse si algunos oscuros personajes de las novelas de su amigo podrían ser más reales que ficticios. Y en algún lugar del ordenador de Nelson está el manuscrito de su nueva novela. ¿Estará allí, en negro sobre blanco, la clave del caso? Bruce empieza a investigar y lo que descubre entre sus páginas es más impactante que cualquiera de los giros de las tramas de Nelson... y mucho más peligroso.",
-    "slogan": "¡Llega la esperadísima novela del maestro de los thrillers policiales y judiciales!",
+    "sinopsis": "Cuando el huracán Leo se desvía de su curso previsto para dirigirse hacia Camino Island, en la costa de Florida, la mayoría de sus habitantes decide abandonar la isla. Solo un pequeño grupo de irreductibles elige quedarse, entre ellos Bruce Cable, el propietario de la librería Bay Books. El huracán avanza destrozándolo todo y dejando casas derrumbadas, hoteles y tiendas destruidas, calles inundadas y una docena de muertos. Uno de los fallecidos es Nelson Kerr, amigo de Bruce y autor de thrillers. Pero los indicios sugieren que la tormenta no fue la causa de la muerte de Nelson: la víctima recibió numerosos golpes sospechosos en la cabeza. ¿Quién querría matar a Nelson? La policía local está sobrepasada por los efectos del huracán y no se encuentra en condiciones de ocuparse del caso. Pero Bruce comienza a preguntarse si algunos oscuros personajes de las novelas de su amigo podrían ser más reales que ficticios. Y en algún lugar del ordenador de Nelson está el manuscrito de su nueva novela. ¿Estará allí, en negro sobre blanco, la clave del caso? Bruce empieza a investigar y lo que descubre entre sus páginas es más impactante que cualquiera de los giros de las tramas de Nelson... y mucho más peligroso.\r\n    \r\n    ",
+    "slogan": "¡Llega la esperadísima novela del maestro de los thrillers policiales y judiciales!\r\n  \r\n  ",
     "estrellas": 4,
     "editorial": "Plaza & Janés",
     "stock": 100,
-    "isbn": "9789506445584",
+    "isbn": 9789506445584,
     "paginas": 336,
-    "idioma": "Español",
-    "formato": "E-book"
+    "formato": "libro"
   },
   {
     "id": 2,
