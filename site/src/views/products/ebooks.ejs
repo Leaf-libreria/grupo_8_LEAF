@@ -22,7 +22,7 @@
       <div class="articles-masVendidos ">
 <% ebooks.forEach(producto => { %>
    <article class="libros-<%=producto.genero%>">
-        <a href="/products/detalle"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
+        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
         <div class="detalle">
           <h3><%=producto.titulo%></h3>
           <h4><%=producto.autor%></h4>

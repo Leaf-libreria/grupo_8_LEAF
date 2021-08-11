@@ -3,6 +3,23 @@
 .detail .seleccion {
   width: 50%;
   margin: 15px auto 10px;
+
+}
+.detail main{
+  margin-top: 30px;
+}
+ .productoArriba{
+  margin: 10px auto;
+}
+
+.detail .producto .comprar {
+  background-color: var(--color-bordo);
+  color: var(--color-amarillo);
+  padding: 6px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  margin: 0 30px;
+  font-weight: 600;
 }
 
 .detail .seleccion h4 {
@@ -15,65 +32,37 @@
   width: 180px;
   padding: 20px;
 }
-
 /* Colores por categoria */
-.detail .seleccion .Romance {
+.detail  .Romance {
   background-color: lightsalmon;
 }
-.detail .seleccion .Terror {
+.detail  .Terror {
   background-color: lightslategrey;
 }
-.detail .seleccion .Misterio {
+.detail  .Misterio {
   background-color: lightskyblue;
 }
-.detail .seleccion .Juvenil {
+.detail  .Juvenil {
   background-color: lightgoldenrodyellow;
 }
-.detail .seleccion .Novela {
+.detail  .Novela {
   background-color:tomato;
 }
-.detail .seleccion .Ciencia {
+.detail  .Ciencia {
   background-color:rebeccapurple;
 }
-.detail .seleccion .Ficcion {
+.detail  .Ficcion {
   background-color:olive;
 }
-.detail .seleccion .Policial {
+.detail  .Policial {
   background-color:dodgerblue;
 }
-.detail .seleccion .Historica {
+.detail  .Historica {
   background-color:firebrick;
 }
 
-
-
-
-
 .detail .producto {
   text-align: center;
-}
-
-.detail .producto h4 {
-  font-weight: 600;
-}
-
-.detail .producto p {
-  font-weight: 600;
-}
-
-.detail .producto i {
-  font-size: 25px;
-  margin: 0 30px;
-}
-
-.detail .producto .comprar {
-  background-color: var(--color-bordo);
-  color: var(--color-amarillo);
-  padding: 6px;
-  border: solid 1px gray;
-  border-radius: 5px;
-  margin: 0 30px;
-  font-weight: 600;
 }
 
 .detail .producto .comprar:hover{
@@ -106,7 +95,6 @@
 .detail .iconoInfo p {
   margin: 0;
 }
-
 .detail .iconoInfo i {
   font-size: 60px;
   margin-top: 20px;
@@ -119,12 +107,13 @@
   text-align: center;
 }
 
-.detail .verTambien {
+.detail .otros {
   text-align: center;
   margin: 30px;
+ 
 }
 
-.detail .verTambien img {
+.detail .otros img {
   height: 150px;
   padding: 15px;
 }
@@ -132,15 +121,13 @@
 .detail .verTambien p {
   font-weight: 600;
 }
-
-
 /* Version tablet */
 
 @media (min-width: 361px) {
   .detail .seleccionProducto {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .detail .seleccion {
@@ -158,85 +145,63 @@
     width: 100%;
   }
   .detail .producto {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: start;
-    width: 50%;
-    margin: 10px 0 0 0;
-  }
-
-  .detail .productoAbajo{
-      display: flex;
-      align-items:flex-start;
-      justify-content: space-around;
-      margin: 40px 0 0 0;
-  }
-
-  .detail .productoAbajo p{
-      font-size: 20px;
-      font-weight: 600px;
-  }
-
-  .detail .infoad {
-    border-top: solid 1px gray;
-    text-align: center;
-    margin: 30px 30px 10px 30px;
-    padding-top: 10px;
-  }
-  .detail .iconoInfo {
     display: flex;
-    flex-wrap: nowrap;
-  }
-
-  .detail .ademas {
-    margin: 30px 30px;
-  }
-
-  .detail .otros {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-  }
-
-  .detail .otros article {
-    margin: 0;
-  }
-
-  .detail .otros h3 {
-    font-size: 20px;
-  }
-
-  .detail .laGuerraDeLosMundos img {
-    width: 150px;
-    height: 210px;
-  }
-
-  .detail .laLadronaDeLibros img {
-    width: 150px;
-    height: 210px;
-  }
-
-  .detail .elPsicoanalista img {
-    width: 150px;
-    height: 210px;
-  }
+    flex-wrap: wrap;
+    justify-content: start;
+  width: 50%;
+  margin: 10px 0 0 0;
 }
 
+.detail .productoAbajo{
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-around;
+    margin: 40px auto 0;
+}
 
+.detail .productoAbajo p{
+    font-size: 20px;
+    font-weight: 600px;
+}
+
+.detail .infoad {
+  border-top: solid 1px gray;
+  text-align: center;
+  margin: 30px 30px 10px 30px;
+  padding-top: 10px;
+}
+.detail .iconoInfo {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.detail .ademas {
+  margin: 30px 30px;}
+.detail .otros h3 {
+  font-size: 20px;
+}
+.detail .otros {
+
+  display: flex;
+  justify-content: space-around;
+
+}
+
+}
 @media (min-width: 769px) {
-    .detail .seleccion h4 {
-        text-align:left;
-        font-size: 35px;
-      }
+  .detail .seleccion h4 {
+      text-align:left;
+      font-size: 35px;
+    }
 
-      .detail .producto .sinopsis {
-        border-bottom: none;
-        width: 100%;
-        font-size: 20px;
-      }
+    .detail .producto .sinopsis {
+      border-bottom: none;
+      width: 100%;
+      font-size: 20px;
+    }
 
-      .detail .producto {
-          flex-direction: column;
-          align-items: flex-start;
+    .detail .producto {
+        flex-direction: column;
+        align-items: flex-start;
 }
 }

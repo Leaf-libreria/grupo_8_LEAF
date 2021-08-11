@@ -8,45 +8,25 @@
     <!-- encabezado -->
       <!-- ----header ----->
   <%-include('../partials/header') %> 
-  <!-- ----header---- -->
+  <main>
 
-    <!-- Main detalle del producto -->
-    <main>
+    <div class="seleccionProducto">
+  <article class="seleccion">
+    <h4><%= producto.titulo %> </h4>
+    <img class= "<%= producto.genero %>" src="/images/<%= producto.portada %> " alt="<%= producto.titulo %> " />
+  </article>
 
-        <div class="seleccionProducto">
-      <article class="seleccion">
-        <h4><%= producto.titulo %> </h4>
-        <img class= <%= producto.genero %> src="/images/<%= producto.imagen %> " alt="<%= producto.titulo %> " />
-      </article>
-
-      <section class="producto">
-          <div class="productoArriba">
-          <h4>Autor: <%= producto.autor %> </h4>
-          <h5>Editorial: <%= producto.editorial %> </h5>
-          <h5>Stock: <%= producto.stock %> </h5>
-        </div>
-          <div class="productoAbajo">
-              <p>$ <%= producto.precio %> </p>
-              <a class="comprar" href="">Comprar</a>
-              <i class="far fa-heart"></i>
-            </div>
-          <p class="sinopsis"> Sinopsis: <%= producto.sinopsis %> </p>
-      </section>
+  <section class="producto">
+      <div class="productoArriba">
+      <h4>Autor: <%= producto.autor %> </h4>
+      <h5>Editorial: <%= producto.editorial %> </h5>
+      <h5>Stock: <%= producto.stock %> </h5>
     </div>
-
-      <h4 class="infoad">Información adicional</h4>
-
-      <section class="iconoInfo">
-          <div>
-          <i class="fas fa-barcode"></i>
-          <p>ISBN</p>
-          <p><%= producto.isbn %> </p>
+      <div class="productoAbajo">
+          <p>$ <%= producto.precio %> </p>
+          <a class="comprar" href="">COMPRAR</a>
         </div>
-          <div>
-          <i class="fas fa-book-open"></i>
-          <p>Páginas</p>
-          <p><%= producto.paginas %> </p>
-        </div>
+<<<<<<< HEAD
           <div>
           <i class="fas fa-globe-americas"></i>
           <p>Idioma</p>
@@ -60,16 +40,53 @@
       </section>
 
       <h4 class="ademas">También te recomendamos del genero <%=producto.genero%></h4>
+=======
+      <p class="sinopsis"> Sinopsis: <%= producto.sinopsis %> </p>
+  </section>
+</div>
+
+  <h4 class="infoad">Información adicional</h4>
+  <section class="iconoInfo">
+    <div>
+    <i class="fas fa-barcode"></i>
+    <p>ISBN</p>
+    <p><%= producto.isbn %> </p>
+  </div>
+    <div>
+    <i class="fas fa-book-open"></i>
+    <p>Páginas</p>
+    <p><%= producto.paginas %> </p>
+  </div>
+    <div>
+    <i class="fas fa-globe-americas"></i>
+    <p>Idioma</p>
+    <p>Español</p>
+  </div>
+    <div>
+    <i class="fas fa-boxes"></i>
+    <p>Género</p>
+    <p><%= producto.genero %> </p>
+  </div>
+</section>
+<h4 class="ademas">También te recomendamos del genero <%=producto.genero%></h4>
+>>>>>>> c2bbef28f9035965540e484caa85c5eb75701a7f
 
       
       <section class="otros">
         <% recomendados.forEach(producto => { %>
 
             <article>
+<<<<<<< HEAD
               <img class ="<%= producto.genero%>"
                 src="/images/<%= producto.imagen %> "
                 alt="<%= producto.titulo %> "
               />
+=======
+              <a href="/products/detalle/<%=producto.id%>">  <img class ="<%= producto.genero%>"
+                src="/images/<%= producto.portada %> "
+                alt="<%= producto.titulo %> "
+              /></a>
+>>>>>>> c2bbef28f9035965540e484caa85c5eb75701a7f
               <div class="detalle">
                 <h3><%= producto.titulo %> </h3>
                 <h4><%= producto.autor %> </h4>
@@ -82,7 +99,6 @@
 
 
     </main>
-
 
 
     <!-- pie de pagina -->
