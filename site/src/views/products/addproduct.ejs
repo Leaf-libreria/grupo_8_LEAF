@@ -18,21 +18,19 @@
           <label for="titulo">Título del libro:</label>
           <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos">
       </div>
-      <div class="id">
-          <label for="id" >ID del producto:</label>
-          <input type="text" name="id" id="id" class="control" placeholder="Escriba aquí">
-      </div>
     </section>
-    <section class="isbn">
+    <div class="container-grid-uno">
+    <div class="isbn">
       <label for="isbn">ISBN:</label>
       <div class="isbn-btn">
-      <input type="number" name="isbn" id="isbn" class="control" placeholder="10 ó 13 Dígitos">
+      <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos">
     </div> 
-</section>
+</div>
     <div class="stock">
         <label for="stock">Stock:</label>
-        <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números">
+        <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números">
     </div>
+</div>
    <section class="formato">
        <label for="formato">Formato:</label> 
        <select name="formato" id="formato">
@@ -53,36 +51,38 @@
    <section class="autor">
         <label for="autor">Autor/Autora:</label>
     <div class="otroAutor">
-        <input type="text" name="autor" id="otroAutor" placeholder="Otro. Nombre y apellido del autor" class="control">
+        <input type="text" name="autor" id="otroAutor" placeholder="Nombre y apellido del autor" class="control">
     </div>
     </section>
 <section class="editorial">
     <label for="editorial">Editorial:</label>
     <div class="otraEditorial">
-        <input type="text" name="editorial" id="OtraEditorial" placeholder="Otro. Ej: Planeta" class="control">
+        <input type="text" name="editorial" id="OtraEditorial" placeholder="Ej: Planeta" class="control">
     </div>
 </section>
 <section class="genero">
     <label for="genero">Género</label>
     <div class="otroGenero">
-        <input type="text" name="genero" id="otroGenero" placeholder="Otro. Ej: Fantasía" class="control">
+        <input type="text" name="genero" id="otroGenero" placeholder="Ej: Fantasía" class="control">
     </div>
 </section>
+<div class="container-grid">
 <div class="precio">
     <label for="precio">Precio $:</label>
-    <input type="number" name="precio" id="precio" class="control" placeholder="Ingrese sólo números">
+    <input type="number" name="precio" id="precio" class="con-grid" placeholder="Sólo números">
 </div>
 <div class="paginas">
     <label for="paginas">Páginas:</label>
-    <input type="number" name="paginas" id="paginas" class="control" placeholder="Sólo números">
-</div>
-<div class="critica">
-  <label for="critica">Crítica:</label>
-  <textarea  type="text" name="critica" id="critica" class="control" placeholder="Breve critica"></textarea>
+    <input type="number" name="paginas" id="paginas" class="con-grid" placeholder="Sólo números">
 </div>
 <div class="estrellas">
-  <label for="estrellas">Estrellas:</label>
-  <input type="text" name="estrellas" id="estrellas" class="control" placeholder="N° de estrellas">
+    <label for="estrellas">Estrellas:</label>
+    <input type="text" name="estrellas" id="estrellas" class="con-grid" placeholder="N° de estrellas">
+  </div>
+</div>
+<div class="sinopsis">
+  <label for="critica">Crítica:</label>
+  <textarea  type="text" name="critica" id="critica"  placeholder="Breve critica"></textarea>
 </div>
 <div class="portada">
   <label for="portada">Imagen de portada:</label>
