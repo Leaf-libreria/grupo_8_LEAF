@@ -2,26 +2,29 @@
 <html lang="es">
 
   <!-- ----head ----->
-  <%-include('../partials/head') %> 
+  <%-include('./partials/head') %> 
   <!-- ----head---- -->
 
 <body class="index">
 
 
   <!-- ----header ----->
-  <%-include('../partials/header') %> 
+  <%-include('./partials/header') %> 
   <!-- ----header---- -->
  
-  <h1><%=title%></h1>
+  
+<h1 class="titulo-generos"><%=title%></h1>
 
   <main class="mainIndex ">
     <!-- seccion de mas vendidos -->
     <section class="masVendidos libros-vista">
       <div class="cabecera">
-        <h2><%=productos.titulo%></h2>
+        <h2>Resultados de la busqueda: <%=search%></h2>
       </div>
       <div class="articles-masVendidos">
-<% papel.forEach(producto => { %>
+        <% if (result.length > 0) { %>
+<% result.forEach(producto => { %>
+   
    <article class="libros-<%=producto.genero%>">
         <a href="/products/detalle"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
         <div class="detalle">
@@ -30,7 +33,15 @@
           <p><%=producto.precio%></p>
         </div>
       </article>
-<% }) %>
+      <% }) %>
+      <% }else  { %>
+        <div class="col-12">
+          h
+          <h2 class="products-title" style="color: tomato;">No hay libros que coincidan con esa búsqueda</h2>        </div>
+    </div>
+</div>
+     <%}%>
+
       </div>
     </section>
    
@@ -63,13 +74,13 @@
   </main>
 
    <!-- ----footer ----->
-   <%-include('../partials/footer') %> 
+   <%-include('./partials/footer') %> 
    <!-- ----footer---- -->
  
      
 
 </body>
    <!-- ----scripts ----->
-   <%-include('../partials/scripts') %> 
+   <%-include('./partials/scripts') %> 
    <!-- ----scripts---- -->
 </html>

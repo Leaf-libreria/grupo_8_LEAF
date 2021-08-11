@@ -5,23 +5,22 @@
   <%-include('../partials/head') %> 
   <!-- ----head---- -->
 
-<body class="index">
+<body class="index ">
 
 
   <!-- ----header ----->
   <%-include('../partials/header') %> 
   <!-- ----header---- -->
  
-  <h1><%=title%></h1>
-
+<h1 class="titulo-generos"><%=title%></h1>
   <main class="mainIndex ">
     <!-- seccion de mas vendidos -->
-    <section class="masVendidos libros-vista">
+    <section class="masVendidos libros-vista ">
       <div class="cabecera">
         <h2><%=productos.titulo%></h2>
       </div>
-      <div class="articles-masVendidos">
-<% papel.forEach(producto => { %>
+      <div class="articles-masVendidos ">
+<% ebooks.forEach(producto => { %>
    <article class="libros-<%=producto.genero%>">
         <a href="/products/detalle"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
         <div class="detalle">

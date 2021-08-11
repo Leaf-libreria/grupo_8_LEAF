@@ -1,17 +1,17 @@
 /*HEADER*/
 /*Header2*/
-.admin .header2 .noMovil{
+.admin .header2 .noMovil {
   display: none;
 }
 /*----RESPONSIVE----*/
 /*TABLET y DESKTOP*/
 /*Header1*/
-@media (min-width: 361px){
+@media (min-width: 361px) {
   /*header sección superior*/
-    /*Header1*/
-    .admin .header1 .noResponsive{
-      display: none;
-    } 
+  /*Header1*/
+  .admin .header1 .noResponsive {
+    display: none;
+  }
   .admin .header1 .redes a:hover {
     font-size: 34px;
   }
@@ -22,15 +22,14 @@
     border-radius: 5px;
   }
   /*header sección inferior*/
-  .admin .admin-header{
+  .admin .admin-header {
     background-color: transparent;
   }
 
-/*Header2*/
-  .admin .header2 .noResponsive{
+  /*Header2*/
+  .admin .header2 .noResponsive {
     display: none;
-  } 
-
+  }
 }
 
 /*MAIN*/
@@ -72,14 +71,15 @@
   font-family: var(--letra-titulo);
   font-weight: 400;
 }
-  /* input file */
-.admin .administrador .formulario .file:not(textarea){
-  font-size:8px;
+/* input file */
+.admin .administrador .formulario .file:not(textarea) {
+  font-size: 8px;
   font-weight: 600;
 }
 
-.admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea {
-  width: 95%;
+.admin .administrador .formulario input,
+.admin .administrador .formulario select,
+.admin .administrador .formulario textarea {
   background-color: rgba(240, 219, 114, 0.692);
   color: var(--color-bordo);
   font-family: var(--letra-titulo);
@@ -87,10 +87,13 @@
   border: solid 1px var(--color-bordo);
 }
 
-.admin .administrador .formulario input, .admin .administrador .formulario select{
+.admin .administrador .formulario input,
+.admin .administrador .formulario select {
   height: 40px;
 }
-
+.administrador .formulario select {
+  width: 30.5vh;
+}
 .admin .administrador .formulario input:focus {
   box-shadow: 0px 0px 12px rgb(37, 37, 37);
 }
@@ -103,14 +106,15 @@
   box-shadow: 0px 0px 12px rgb(37, 37, 37);
 }
 
-.admin .administrador .formulario .otroAutor, .admin .administrador .formulario .otraEditorial, .admin .administrador .formulario .otroGenero {
+.admin .administrador .formulario .otroAutor,
+.admin .administrador .formulario .otraEditorial,
+.admin .administrador .formulario .otroGenero {
   margin-top: 10px;
 }
 
 .admin .administrador .formulario .sinopsis textarea {
   resize: none; /*Fija tamaño de textarea*/
 }
-
 
 /*AVISO CAMPOS OBLIGATORIOS*/
 .admin .administrador p {
@@ -120,7 +124,8 @@
 }
 
 /*BOTONES GUARDAR Y CANCELAR*/
-.admin .administrador .formulario .botones .btn-cancelar, .admin .administrador .formulario .botones .btn-guardar {
+.admin .administrador .formulario .botones .btn-cancelar,
+.admin .administrador .formulario .botones .btn-guardar {
   font-family: var(--letra-titulo);
   text-align: center;
   padding: 5px 10px;
@@ -149,35 +154,66 @@
 /*Formulario*/
 /*Tablet*/
 @media (min-width: 361px) {
-  .admin .administrador .formulario input, .admin .administrador .formulario select,.admin .administrador .formulario textarea{
-  width: 60vw;
+  .admin .administrador .formulario input,
+  .admin .administrador .formulario select,
+  .admin .administrador .formulario textarea {
+    width: 60vw;
   }
   /* input file */
-  .admin .administrador .formulario .file:not(textarea){
-    font-size:16px;
+  .admin .administrador .formulario .file:not(textarea) {
+    font-size: 16px;
     font-weight: 400;
   }
+  /* inputs con grid */
+  .admin .administrador .formulario .container-grid-uno {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    padding: 2%;
   }
- 
+  .admin .administrador .formulario .container-grid-uno .grid{
+    width: 38vh;
+  }
+  .admin .administrador .formulario .container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    padding: 2%;
+  }
+  .admin .administrador .formulario .container-grid .con-grid{
+    width: 25vh;
+  }
+}
+
 /*DESKTOP*/
 @media (min-width: 769px) {
-    /*Titulo*/
+  /*Titulo*/
   .admin h2 {
     font-size: 22px;
   }
-  
-/*Formulario*/
-.admin .administrador .formulario {
-  max-width: none;
-}
+
+  /*Formulario*/
+  .admin .administrador .formulario {
+    max-width: none;
+  }
   /*ETIQUETAS DE LOS CAMPOS*/
   .admin .administrador .formulario label {
     font-size: 20px;
   }
-      /*Inputs y text area*/
-    .admin .administrador .formulario input, .admin .administrador .formulario select, .admin .administrador .formulario textarea {
-      width: 50vw;
-      font-size: 18px;
-    }
- 
+  /*Inputs y text area*/
+  .admin .administrador .formulario input,
+  .admin .administrador .formulario select,
+  .admin .administrador .formulario textarea {
+    width: 50vw;
+    font-size: 18px;
   }
+  /* inputs con grid */
+  
+  .admin .administrador .formulario .container-grid-uno .grid{
+    width: 32vh;
+  }
+  
+  .admin .administrador .formulario .container-grid .con-grid{
+    width: 21vh;
+  }
+}

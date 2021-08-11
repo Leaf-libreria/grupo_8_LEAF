@@ -34,6 +34,17 @@ header .header2 .carrito p {
   display: none;
 }
 
+/* buscador */
+.btn-outline-light {
+  color:var(--color-bordo) ;
+  border: none;
+}
+.btn-outline-light:hover {
+  background-color:transparent ;
+}
+.btn-outline-light:focus {
+  color:var(--color-bordo) ;
+}
 header .header2 .contenedorLogo {
   justify-content: flex-start;
   margin-left: 3.5%;
@@ -70,6 +81,13 @@ header .header2 .contenedorLogo {
 .header2 .buscador i:hover,
 .header2 .login button:hover {
   color: rgb(255, 136, 0);
+}
+.ul-generos ul li{
+  text-transform: capitalize;
+}
+.ul-generos button {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 /*-------RESPONSIVE-----   */
