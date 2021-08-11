@@ -168,8 +168,7 @@
   .admin .administrador .formulario .container-grid-uno {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
-    padding: 2%;
+    column-gap: 20px
   }
   .admin .administrador .formulario .container-grid-uno .grid{
     width: 38vh;
@@ -177,8 +176,7 @@
   .admin .administrador .formulario .container-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-    padding: 2%;
+    column-gap: 20px
   }
   .admin .administrador .formulario .container-grid .con-grid{
     width: 25vh;
