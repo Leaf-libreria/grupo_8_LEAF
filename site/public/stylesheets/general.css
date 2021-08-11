@@ -16,6 +16,8 @@
 
 body{
     font-family: var(--letra-cuerpo);
+  max-width: 1220px;
+    margin: 0 auto;
 }
 
 li{
@@ -25,3 +27,4 @@ li{
 a{
 text-decoration: none;
 }
+

@@ -29,11 +29,23 @@ module.exports = {
 
   },
 
-  detail: (req, res) => {
-    return res.render("./products/productDetail", { title: "LEAF | Detalle" },
-      generos);
-  },
+  detail: (req,res) => {
+    let producto = productos.find(producto => producto.id === +req.params.id)
 
+    let genero = producto.genero
+    let idActual = producto.id
+    let recomendados = productos.filter(producto => producto.genero === genero && producto.id != idActual).splice(0,3)
+
+
+
+    
+    return res.render("./products/productDetail",{
+        title: 'LEAF | Detalle',
+        producto,
+        recomendados,
+        generos
+})
+},
   administrador: (req, res) => {
     return res.render("./products/admin", {
       title: "LEAF | Administrador",
@@ -120,20 +132,22 @@ module.exports = {
     return res.redirect("/products/administrador")
 },
 
-
-
   carrito: (req, res) => {
-    return res.render("./products/productCart", { title: "LEAF | Carrito" },
-      generos,
+    return res.render("./products/productCart", { title: "LEAF | Carrito",  generos,},
+     
     );
   },
 
   pago: (req, res) => {
     return res.render("./products/payForm", {
       title: "LEAF | Finaliza tu compra",
+      productos,
+      costoEnvio,
+      libroComprado: productos.filter((producto) => producto.id === 20),
       generos,
     });
   },
+
   // controladores para generos
   policial: (req, res) => {
     return res.render("./products/generos/policial", {
