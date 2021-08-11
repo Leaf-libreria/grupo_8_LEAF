@@ -57,5 +57,12 @@ module.exports = {
     pago: (req,res) => {
         return res.render("./products/payForm",
         {title: 'LEAF | Finaliza tu compra'})
+    },
+
+    borrar: (req,res) => {
+        productos = productos.filter(producto => producto.id !== +req.params.id);
+
+        fs.writeFileSync(path.join( __dirname,'../data/products.json'),JSON.stringify(productos,null,2), "utf-8");
+        return res.redirect("/")
     }
 }

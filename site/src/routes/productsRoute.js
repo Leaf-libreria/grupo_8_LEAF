@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {verMas, detail, administrador, carrito, pago, agregarProducto, editarProducto, libros} = require("../controllers/productController")
+const {verMas, detail, administrador, carrito, pago, agregarProducto, editarProducto, libros, borrar} = require("../controllers/productController")
 
 router.get('/libros', libros);
 router.get('/', verMas);
@@ -11,5 +11,7 @@ router.get("/agregar", agregarProducto);
 router.get("/editar", editarProducto);
 router.get("/carrito", carrito);
 router.get("/pago", pago);
+
+router.delete("/delete/:id", borrar);
 
 module.exports = router;
