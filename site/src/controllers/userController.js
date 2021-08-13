@@ -8,5 +8,9 @@ module.exports = {
         return res.render("./users/register",
         {title: 'LEAF | Registro'})
     },
+    perfil: (req,res) => {
+        return res.render("./users/perfil",
+        {title: 'LEAF | Mi perfil'})
+    },
 
 }

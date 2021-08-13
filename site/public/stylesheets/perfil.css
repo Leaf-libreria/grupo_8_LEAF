@@ -1,0 +1,55 @@
+.perfil .btn-outline-warning {
+    color: var(--color-bordo);
+    padding: 5px;
+    display: block;
+    margin: 20px auto;
+
+}
+.perfil .registro-correo:hover {
+    box-shadow: 10px 5px 5px gray;
+} 
+.perfil .nombre:hover {
+    box-shadow: 10px 5px 5px gray;
+}
+ .perfil .apellido:hover {
+    box-shadow: 10px 5px 5px gray;
+} 
+.perfil .registro-password:hover {
+    box-shadow: 10px 5px 5px gray;
+}
+.perfil .confirm-password:hover {
+    box-shadow: 10px 5px 5px gray;
+}
+
+.perfil .registro-correo,.perfil .nombre,.perfil .apellido, .perfil .registro-password,.perfil .confirm-password{
+   border: none;
+   width: 60%;
+   margin: 40px auto;
+}
+
+/* boton de editar perfil */
+
+.perfil .editar-perfil{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.perfil .editar-perfil p{
+margin-top: 15%;
+margin-right: 15px;
+}
+
+/* carrito */
+.perfil  a i {
+   font-size: 20px;
+    color: var(--color-bordo);
+}
+.fa-shopping-cart{
+    
+}
+.icono-carrito{
+    margin-left: 30px;
+    padding:2px 5px;
+    border: 1px solid var(--color-bordo);
+    border-radius: 10%;
+}
