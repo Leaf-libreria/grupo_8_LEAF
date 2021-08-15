@@ -12,5 +12,9 @@ module.exports = {
         return res.render("./users/perfil",
         {title: 'LEAF | Mi perfil'})
     },
+    editarPerfil: (req,res) => {
+        return res.render("./users/editPerfil",
+        {title: 'LEAF | Editando perfil'})
+    }
 
 }
