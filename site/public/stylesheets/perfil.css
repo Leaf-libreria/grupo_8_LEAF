@@ -37,6 +37,16 @@
 .perfil .editar-perfil p{
 margin-top: 15%;
 margin-right: 15px;
+color: black;
+}
+.perfil .card-body{
+    margin-top: -10px;
+}
+
+/* imagen */
+.perfil  .imgcostado-register img {
+   
+    margin-bottom: 0%;
 }
 
 /* carrito */
@@ -44,12 +54,15 @@ margin-right: 15px;
    font-size: 20px;
     color: var(--color-bordo);
 }
-.fa-shopping-cart{
-    
-}
+
 .icono-carrito{
     margin-left: 30px;
     padding:2px 5px;
     border: 1px solid var(--color-bordo);
     border-radius: 10%;
+}
+
+/* desplegable */
+.perfil .card-body .dropdown a{
+    font-size: 20px;
 }
