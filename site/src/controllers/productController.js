@@ -67,7 +67,7 @@ module.exports = {
 
   actualizarProducto: (req, res) => {
 
-   const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
+   const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato,stock} = req.body;
     
 
    let productoEditado = productos.find(producto=> producto.id === +req.params.id);
@@ -85,6 +85,7 @@ module.exports = {
      productoEditado.paginas = +paginas,
      productoEditado.idioma = idioma,
      productoEditado.formato = formato,
+     productoEditado.stock = +stock,
      productoEditado.portada = req.file ? req.file.filename : productoEditado.portada
    
    let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
@@ -100,7 +101,7 @@ module.exports = {
   },
   agregarProducto: (req, res) => {
 
-    const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
+    const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato,stock} = req.body;
 
     let product = {
       id : (productos[productos.length-1].id +1),
@@ -117,6 +118,7 @@ module.exports = {
       paginas:+paginas,
       idioma,
       formato,
+      stock:+stock,
       portada : req.file ? req.files.filename : 'default-image.png',
     }
 
