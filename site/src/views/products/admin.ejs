@@ -13,7 +13,7 @@
 
     <h2>Lista de productos</h2>
     <div class="d-grid gap-2">
-      <a href="/products/agregar" class="btn btn-outline-success btn-agregar" type="button">AGREGAR PRODUCTOS</a>
+      <a href="/products/agregar" class="btn btn-outline-success admin-btn-agregar" type="button">AGREGAR PRODUCTOS</a>
     </div>
     
     <div class='contenedorNovedades'>
@@ -32,8 +32,8 @@
         <div class="container">
           <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
           <div class="d-grid gap-2 col-6 mx-auto">
-            <a href="/products/editar/<%= producto.id %> " type="button" class="btn btn-warning">EDITAR</a>
-              <button class="btn btn-danger ">ELIMINAR</button>
+            <a href="/products/editar/<%= producto.id %> " type="button" class="admin-btn-editar btn btn-warning">EDITAR</a>
+              <button class="btn btn-danger admin-btn-eliminar">ELIMINAR</button>
           </form>
           </div>
         </div> 
