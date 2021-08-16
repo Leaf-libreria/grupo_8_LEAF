@@ -374,36 +374,19 @@
   },
   {
     "id": 22,
-    "titulo": "Asedio y tormenta  ",
+    "titulo": "Asedio y tormenta   ",
     "autor": "Leigh Bardugo",
     "precio": 200,
     "categoria": "recomendados",
     "genero": "Fantasía",
-    "sinopsis": " Hay tres cosas de las que Alina jamás podrá escapar.\r\nSu pasado. Su poder. Y su destino.\r\nAlina pronto va a tener que enfrentarse a una terrible verdad. La oscuridad nunca muere.\r\n    \r\n    ",
+    "sinopsis": " Hay tres cosas de las que Alina jamás podrá escapar.\r\nSu pasado. Su poder. Y su destino.\r\nAlina pronto va a tener que enfrentarse a una terrible verdad. La oscuridad nunca muere.\r\n    \r\n    \r\n    ",
     "estrellas": 5,
     "editorial": "Hidra",
     "isbn": 12457896524,
     "paginas": 580,
     "formato": "libro",
-    "stock": 200,
+    "stock": 400,
     "portada": "default-image.png",
-    "slogan": " Llega la esperada continuación de Sombra y hueso.\r\n    "
-  },
-  {
-    "id": 23,
-    "titulo": "Ruina y ascenso",
-    "autor": "Leigh Bardugo",
-    "precio": 2900,
-    "categoria": "novedades",
-    "genero": "Fantasía",
-    "sinopsis": " Bajo tierra, en la red de túneles y cuevas que forman la Catedral Blanca, Alina es a la vez prisionera y objeto de adoración. Está muy débil, y la idea de embarcarse en un nuevo viaje en busca del tercer amplificador, el pájaro de fuego, parece una locura. Pero su poder ha cambiado desde la última batalla, y sus nuevas habilidades podrían aterrorizar incluso a sus propios aliados.\r\nLA CAPITAL HA CAÍDO.\r\nEl Oscuro gobierna Ravka desde su trono de sombras.\r\nAhora el destino de la nación está en manos de una Invocadora del Sol sin poderes, un rastreador caído en desgracia y los últimos vestigios de lo que alguna vez fue un gran ejército de magos.",
-    "slogan": "Ruina y ascenso es el tercer y último libro de la aclamada Trilogía Grisha",
-    "estrellas": 4,
-    "editorial": "Hidra",
-    "isbn": 9788418002519,
-    "paginas": 680,
-    "formato": "ebook",
-    "stock": 120,
-    "portada": "default-image.png"
+    "slogan": " Llega la esperada continuación de Sombra y hueso.\r\n    \r\n    "
   }
 ]

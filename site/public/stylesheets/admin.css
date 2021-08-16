@@ -42,7 +42,15 @@
   color: gray;
   margin: 22px;
 }
-/*-----FORMULARIO-----*/
+/* VISTA ADMINISTRADOR */
+.btn-agregar {
+  font-family: var(--letra-cuerpo);
+  text-align: center;
+  font-weight: 600;
+  border-radius: 7px;
+  margin: 20px 40px;
+}
+/*-----FORMULARIOS AGREGAR Y EDITAR PRODUCTOS (ADMIN)-----*/
 .admin .administrador .formulario {
   background-color: rgba(245, 245, 245, 0.575);
   width: 90%;
@@ -168,17 +176,17 @@
   .admin .administrador .formulario .container-grid-uno {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px
+    column-gap: 20px;
   }
-  .admin .administrador .formulario .container-grid-uno .grid{
+  .admin .administrador .formulario .container-grid-uno .grid {
     width: 38vh;
   }
   .admin .administrador .formulario .container-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px
+    column-gap: 20px;
   }
-  .admin .administrador .formulario .container-grid .con-grid{
+  .admin .administrador .formulario .container-grid .con-grid {
     width: 25vh;
   }
 }
@@ -206,12 +214,12 @@
     font-size: 18px;
   }
   /* inputs con grid */
-  
-  .admin .administrador .formulario .container-grid-uno .grid{
+
+  .admin .administrador .formulario .container-grid-uno .grid {
     width: 32vh;
   }
-  
-  .admin .administrador .formulario .container-grid .con-grid{
+
+  .admin .administrador .formulario .container-grid .con-grid {
     width: 21vh;
   }
 }
