@@ -53,6 +53,16 @@ margin-left: 36px;
 margin-top: 15%;
 margin-right: 15px;
 color: var(--color-bordo);
+color: black;
+}
+.perfil .card-body{
+    margin-top: -10px;
+}
+
+/* imagen */
+.perfil  .imgcostado-register img {
+   
+    margin-bottom: 0%;
 }
 
 /* carrito */
@@ -66,4 +76,9 @@ color: var(--color-bordo);
     padding:2px 5px;
     border: 1px solid var(--color-bordo);
     border-radius: 10%;
+}
+
+/* desplegable */
+.perfil .card-body .dropdown a{
+    font-size: 20px;
 }
