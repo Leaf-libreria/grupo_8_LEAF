@@ -19,18 +19,19 @@
   {
     "id": 2,
     "portada": "el-psicoanalista.jpg",
-    "titulo": " El psicoanalista",
+    "titulo": " El psicoanalista ",
     "autor": "John Katzenbach",
     "precio": 2100,
-    "categoria": "mas-vendidos",
+    "categoria": "recomendados",
     "genero": "Policial",
-    "sinopsis": "    «Feliz aniversario, doctor. Bienvenido al primer día de su muerte.» Así comienza el anónimo que recibe el psicoanalista Frederick Starks, y que le obliga a emplear toda su astucia y rapidez para, en quince días, averiguar quién es el autor de esa amenazadora misiva que promete hacerle la vida imposible. De no conseguir su objetivo, deberá elegir entre suicidarse o ser testigo de cómo, uno tras otro, sus familiares y conocidos mueren por obra de un psicópata decidido a llevar hasta el final su sed de venganza. Dando un inesperado giro a la relación entre médico y paciente, John Katzenbach nos ofrece una novela emblemática del mejor suspense psicológico.\r\n",
-    "slogan": "  Novela que lanzo a la fama a John Katzenbach",
+    "sinopsis": "    «Feliz aniversario, doctor. Bienvenido al primer día de su muerte.» Así comienza el anónimo que recibe el psicoanalista Frederick Starks, y que le obliga a emplear toda su astucia y rapidez para, en quince días, averiguar quién es el autor de esa amenazadora misiva que promete hacerle la vida imposible. De no conseguir su objetivo, deberá elegir entre suicidarse o ser testigo de cómo, uno tras otro, sus familiares y conocidos mueren por obra de un psicópata decidido a llevar hasta el final su sed de venganza. Dando un inesperado giro a la relación entre médico y paciente, John Katzenbach nos ofrece una novela emblemática del mejor suspense psicológico.\r\n\r\n    ",
+    "slogan": "  Novela que lanzo a la fama a John Katzenbach\r\n    ",
     "estrellas": 5,
     "editorial": "B de bolsillo",
     "isbn": 9789876278270,
     "paginas": 528,
-    "formato": "libro"
+    "formato": "libro",
+    "stock": 150
   },
   {
     "id": 3,
