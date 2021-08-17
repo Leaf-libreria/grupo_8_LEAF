@@ -51,7 +51,7 @@ router.get("/administrador", administrador);
 // Carga de productos
 router.get("/agregar", addProducto);
 router.post("/agregar", agregarProducto);
- router.get("/editar/:id", editarProducto);
+router.get("/editar/:id", editarProducto);
 router.put("/editar/:id", actualizarProducto);
 router.delete("/delete/:id", borrar);
 router.get("/carrito", carrito);
