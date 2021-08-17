@@ -389,5 +389,22 @@
     "stock": 400,
     "portada": "default-image.png",
     "slogan": " Llega la esperada continuación de Sombra y hueso.\r\n    \r\n    "
+  },
+  {
+    "id": 23,
+    "titulo": "Ruina y ascenso",
+    "autor": "Leigh Bardugo",
+    "precio": 2000,
+    "categoria": "recomendados",
+    "genero": "Fantasía",
+    "sinopsis": "La capital ha caído.El Oscuro gobierna Ravka desde su trono de sombras.Ahora el destino de la nación está en manos de una Invocadora del Sol sin poderes, un rastreador caído en desgracia y los últimos vestigios de lo que alguna vez fue un gran ejército de magos.",
+    "slogan": "Al fin llega la conclusión de la trilogía Sombra y hueso.",
+    "estrellas": 4,
+    "editorial": "Hidra",
+    "isbn": 9788415709374,
+    "paginas": 580,
+    "formato": "libro",
+    "stock": 200,
+    "portada": "default-image.png"
   }
 ]
