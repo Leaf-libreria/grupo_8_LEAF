@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 
 const {
-  verMas,
+  verMasVendidos,
   detail,
   administrador,
   carrito,
@@ -36,12 +36,16 @@ const {
   actualizarProducto,
   addProducto,
   borrar,
+  verMasNovedades,
+  verMasRecomendados,
 } = require("../controllers/productController");
 
 // /products
 router.get('/ebooks', ebooks);
 router.get('/libros', libros);
-router.get('/', verMas);
+router.get('/masVendidos', verMasVendidos);
+router.get('/masNovedades', verMasNovedades);
+router.get('/masRecomendados', verMasRecomendados);
 router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
 // Carga de productos

@@ -23,10 +23,19 @@ module.exports = {
     });
   },
 
-  verMas: (req, res) => {
-    return res.render("verMas", { title: "LEAF | Libros", productos, generos },
+  verMasVendidos: (req, res) => {
+    return res.render("verMasVendidos", { title: "LEAF | Más vendidos", productos, generos, masVendidos : productos.filter(producto => producto.categoria === "Mas vendidos")},
      );
+  },
 
+  verMasNovedades: (req, res) => {
+    return res.render("verMasNovedades", { title: "LEAF | Más novedades", productos, generos, masNovedades : productos.filter(producto => producto.categoria === "Novedades")},
+     );
+  },
+
+  verMasRecomendados: (req, res) => {
+    return res.render("verMasRecomendados", { title: "LEAF | Más recomendados", productos, generos, masRecomendados : productos.filter(producto => producto.categoria === "Recomendados")},
+     );
   },
 
   detail: (req,res) => {
