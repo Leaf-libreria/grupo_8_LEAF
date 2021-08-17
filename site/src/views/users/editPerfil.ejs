@@ -5,13 +5,13 @@
 <%-include('../partials/head') %> 
 <!-- ----head---- -->
 
-<body class="body-register ">
+<body class="body-register perfil">
     <!-- Imagen de costado = tablet/desktop -->
     <section class="contenido-gral-register">
         <div class="imgcostado-register" style="width: 18rem;">
-            <img src="/images/logo-leaf-remaster.png" class="card-img-top" alt="Logo de leaf">
+            <img src="/images/<%=userEdit.image%>" class="card-img-top" alt="Logo de leaf">
             <div class="card-body">
-                <h4 class="card-title">¡Bienvenido nombre!</h4>
+                <h4 class="card-title">¡Bienvenido <%=userEdit.first_name%>!</h4>
                    
             </div>
             <!-- REDES SOCIALES -->
@@ -25,24 +25,29 @@
             </ul>
         </div>
 
-        <div class="conclase-register">
+        <div class="conclase-register perfil-div">
             <section class="header-register">
                <a href="/products/carrito" class="icono-carrito"><i class="fas fa-shopping-cart "></i></a>
                 <!-- editar perfil -->
-            <div><a href="/"  class="editar-perfil"><p>Home</p></a></div> 
+            <div><a href="/" class="editar-perfil"><p>Home</p></a></div> 
             </section>
 
-            <main class="main-register">
+            <main class="main-register perfil-main">
                 <form action="" method="GET" enctype="multipart/form-data">
                     <a href="/users/perfil"><i class="fas fa-angle-double-left"></i> Atras</a>
-                    <h2>Editando perfil</h2>
+                    <h2  class="bienvenido-perfil">Editando perfil </h2>
 
                     <div class="registro-correo"> <label for="registro-correo">Correo electrónico</label><input type="email" name="email" id="email"
-                            placeholder="nombre@correo.com">
+                            value="<%= userEdit.email %> ">
                     </div>
                     <!-- Posible error -->
                     <span></span> 
 
+                         <!-- NICK -->
+                    <div class="nombre"><label for="nickName">NickName</label><input type="nickName" name="nickName" id="nickName"
+                        placeholder="NickName">
+              
+                    </div> 
                     <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="nombre" id="nombre"
                             placeholder="Nombre(s)">
                     </div>
@@ -51,11 +56,7 @@
                             placeholder="Apellido(s)">
                     </div>
 
-                    <!-- NICK -->
-                    <div class="nombre"><label for="nickName">NickName</label><input type="nickName" name="nickName" id="nickName"
-                        placeholder="NickName">
-              
-                    </div> 
+                   
 
                     <div class="registro-password"> <label for="registro-password">Editar contraseña</label> <input type="password" name="password"
                             id="password" placeholder="Contraseña">
@@ -72,7 +73,7 @@
                  
 
                     <div >
-						<button type="submit" class="buy-now-button">Guardar producto</button>
+						<button type="submit" class="editarPerfil">Guardar</button>
 					</div>
                 </form>
             </main>

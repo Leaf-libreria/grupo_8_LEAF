@@ -1,10 +1,25 @@
-.perfil .btn-outline-warning {
+.perfil .btn-outline-warning, .editarPerfil {
     color: var(--color-bordo);
     padding: 5px;
     display: block;
     margin: 20px auto;
 
 }
+/* contenedor de form */
+.perfil .perfil-div{
+    width: 70%;
+    margin: 0 auto;
+}
+/* enlace para regresar */
+.boton-home{
+margin-left: 36px;
+}
+.perfil h2.bienvenido-perfil{
+    margin-top: 20px;
+}
+
+
+/* contenedores de datos */
 .perfil .registro-correo:hover {
     box-shadow: 10px 5px 5px gray;
 } 
@@ -37,6 +52,7 @@
 .perfil .editar-perfil p{
 margin-top: 15%;
 margin-right: 15px;
+color: var(--color-bordo);
 }
 
 /* carrito */
@@ -44,9 +60,7 @@ margin-right: 15px;
    font-size: 20px;
     color: var(--color-bordo);
 }
-.fa-shopping-cart{
-    
-}
+
 .icono-carrito{
     margin-left: 30px;
     padding:2px 5px;

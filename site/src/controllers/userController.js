@@ -1,3 +1,5 @@
+const users = require('../data/users_db');
+
 module.exports = {
     login: (req,res) => {
         return res.render("./users/login",
@@ -13,8 +15,13 @@ module.exports = {
         {title: 'LEAF | Mi perfil'})
     },
     editarPerfil: (req,res) => {
-        return res.render("./users/editPerfil",
-        {title: 'LEAF | Editando perfil'})
+
+            let userEdit = users.find(user => user.id === +req.params.id);
+            return res.render("./users/editPerfil", {
+              title: 'Editando perfil ' + userEdit.first_name,
+             userEdit
+            });
+        
     }
 
 }
