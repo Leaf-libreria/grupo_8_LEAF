@@ -371,20 +371,5 @@
     "formato": "libro",
     "portada": "default-image.png",
     "slogan": " Sombra y Hueso es una aventura de fantasía, y novela de debut escrita por Leigh Bardugo.\r\n  \r\n  "
-  },
-  {
-    "id": 22,
-    "titulo": "a<X",
-    "autor": "",
-    "precio": 0,
-    "categoria": "",
-    "genero": "",
-    "sinopsis": "    ",
-    "estrellas": 0,
-    "editorial": "",
-    "isbn": 0,
-    "paginas": 0,
-    "formato": "",
-    "portada": "default-image.png"
   }
 ]
