@@ -1,100 +1,144 @@
-.perfil .btn-outline-warning, .editarPerfil {
-    color: var(--color-bordo);
-    padding: 5px;
-    display: block;
-    margin: 20px auto;
-
+.perfil .btn-outline-warning,
+.editarPerfil {
+  color: var(--color-bordo);
+  padding: 5px;
+  display: block;
+  margin: 20px auto;
 }
+
+
 /* contenedor de form */
-.perfil .perfil-div{
-    width: 70%;
-    margin: 0 auto;
+.perfil .perfil-div {
+  width: 70%;
+  margin: 0 auto;
 }
 /* enlace para regresar */
-.boton-home{
-margin-left: 36px;
+.boton-home {
+  margin-left: 36px;
 }
-.perfil h2.bienvenido-perfil{
-    margin-top: 20px;
+.perfil h2.bienvenido-perfil {
+  margin-top: 20px;
 }
-
 
 /* contenedores de datos */
 .perfil .registro-correo:hover {
-    box-shadow: 10px 5px 5px gray;
-} 
-.perfil .nombre:hover {
-    box-shadow: 10px 5px 5px gray;
+  box-shadow: 10px 5px 5px gray;
 }
- .perfil .apellido:hover {
-    box-shadow: 10px 5px 5px gray;
-} 
+.perfil .nombre:hover {
+  box-shadow: 10px 5px 5px gray;
+}
+.perfil .apellido:hover {
+  box-shadow: 10px 5px 5px gray;
+}
 .perfil .registro-password:hover {
-    box-shadow: 10px 5px 5px gray;
+  box-shadow: 10px 5px 5px gray;
 }
 .perfil .confirm-password:hover {
-    box-shadow: 10px 5px 5px gray;
+  box-shadow: 10px 5px 5px gray;
 }
 
-.perfil .registro-correo,.perfil .nombre,.perfil .apellido, .perfil .registro-password,.perfil .confirm-password{
-   border: none;
-   width: 60%;
-   margin: 40px auto;
+.perfil .registro-correo,
+.perfil .nombre,
+.perfil .apellido,
+.perfil .registro-password,
+.perfil .confirm-password {
+  border: none;
+  width: 60%;
+  margin: 40px auto;
+  border: 1px solid rgba(128, 128, 128, 0.5);
 }
 
 /* boton de editar perfil */
 
-.perfil .editar-perfil{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+.perfil .editar-perfil {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
-.perfil .editar-perfil p{
-margin-top: 15%;
-margin-right: 15px;
-color: var(--color-bordo);
-color: black;
+.perfil .editar-perfil p {
+  margin-top: 15%;
+  margin-right: 15px;
+  color: var(--color-bordo);
+  color: black;
 }
-.perfil .card-body{
-    margin-top: -10px;
+.perfil .card-body {
+  margin-top: -10px;
 }
 
+.perfil .editar-perfil:hover{
+   text-decoration: underline var(--color-amarillo);
+}
 /* imagen */
-.perfil  .imgcostado-register img {
-   
-    margin-bottom: 0%;
+.perfil .imgcostado-register img {
+  margin-bottom: 0%;
 }
 
 /* carrito */
-.perfil  a i {
-   font-size: 20px;
-    color: var(--color-bordo);
+.perfil a i {
+  font-size: 20px;
+  color: var(--color-bordo);
 }
 
-.icono-carrito{
-    margin-left: 30px;
-    padding:2px 5px;
-    border: 1px solid var(--color-bordo);
-    border-radius: 10%;
+.icono-carrito {
+  margin-left: 30px;
+  padding: 2px 5px;
+  border: 1px solid var(--color-bordo);
+  border-radius: 10%;
 }
 
 /* desplegable */
-.perfil .card-body .dropdown a{
-    font-size: 20px;
+.perfil .card-body .dropdown a {
+  font-size: 20px;
 }
 
 /* editar imagen */
-#fotoPerfilEditar{
-    text-align: center;
+#fotoPerfilEditar {
+  text-align: center;
 }
-#fotoPerfilEditar label{
-font-family: var(--letra-koho);
+#fotoPerfilEditar label {
+  font-family: var(--letra-koho);
+  font-size: 16px;
+  font-weight: 600;
+}
+#fotoPerfilEditar input {
+  border-radius: 5%;
+  background-color: transparent;
+  font-size: 14px;
+}
+/* cerrar sesion */
+.perfil-main .nav-item a{
 font-size: 16px;
-font-weight: 600;
+text-align: center;
+border: 2px solid var(--color-amarillo);
+width: 20%;
+margin: 0 auto;
+border-radius: 5%;
 }
-#fotoPerfilEditar input{
-   border-radius: 5%;
-   background-color: transparent;
-   font-size: 14px;
-   
+.perfil-main .nav-item a:hover{
+   background-color: var(--color-amarillo);
+   width: 22%;
+   font-size: 18px;
+
     }
+
+    /* lista de favoritos */
+    .favoritos-user{
+        margin-top: 20px;
+       
+    }
+    .favoritos-user a{
+        color: black;
+    }
+    .favoritos-user .dropdown-menu{
+        background-color: transparent;
+        border-color: var(--color-bordo);
+      
+    }
+    .favoritos-user .btn-secondary:focus{
+        box-shadow: none;
+    }
+    .favoritos-user .dropdown-item:hover{
+font-weight: 600;
+background-color: transparent;
+    }
+ 
