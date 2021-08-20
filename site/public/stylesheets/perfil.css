@@ -82,3 +82,19 @@ color: black;
 .perfil .card-body .dropdown a{
     font-size: 20px;
 }
+
+/* editar imagen */
+#fotoPerfilEditar{
+    text-align: center;
+}
+#fotoPerfilEditar label{
+font-family: var(--letra-koho);
+font-size: 16px;
+font-weight: 600;
+}
+#fotoPerfilEditar input{
+   border-radius: 5%;
+   background-color: transparent;
+   font-size: 14px;
+   
+    }

@@ -1,4 +1,8 @@
-[{"id":1,"first_name":"Matti","last_name":"Dumblton","email":"mdumblton0@wikia.com","password":"njYTbaKO","category":"user","image":"user_1.jpg"},
+[{
+    "id":1,
+    "nickname":"Matt",
+    "first_name":"Matti",
+    "last_name":"Dumblton","email":"mdumblton0@wikia.com","password":"njYTbaKO","category":"user","image":"user_1.jpg"},
     {"id":2,"first_name":"Starlene","last_name":"Evans","email":"sevans1@china.com.cn","password":"ipf9qx","category":"user","image":"user_2.jpg"},
     {"id":3,"first_name":"Celisse","last_name":"Rowthorne","email":"crowthorne2@msn.com","password":"c8KoTrn71i7","category":"user","image":"user_3.jpg"},
     {"id":4,"first_name":"Gorden","last_name":"Dizlie","email":"gdizlie3@jimdo.com","password":"BqL429VK1","category":"user","image":"user_4.jpg"},
