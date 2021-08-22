@@ -126,7 +126,7 @@ module.exports = {
       paginas:+paginas,
       idioma,
       formato,
-      portada : req.file ? req.files.filename : 'default-image.png',
+      portada : req.file ? req.file.filename : 'default-image.png',
     }
 
     productos.push(product);

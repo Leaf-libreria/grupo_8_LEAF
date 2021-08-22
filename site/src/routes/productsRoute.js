@@ -12,6 +12,7 @@ const storage = multer.diskStorage({
     },
 })
 
+var upload = multer({storage : storage});
 
 
 const {
@@ -50,9 +51,9 @@ router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
 // Carga de productos
 router.get("/agregar", addProducto);
-router.post("/agregar", agregarProducto);
+router.post("/agregar", upload.single('portada'), agregarProducto);
  router.get("/editar/:id", editarProducto);
-router.put("/editar/:id", actualizarProducto);
+router.put("/editar/:id", upload.single('portada'), actualizarProducto);
 router.delete("/delete/:id", borrar);
 router.get("/carrito", carrito);
 router.get("/pago", pago);
