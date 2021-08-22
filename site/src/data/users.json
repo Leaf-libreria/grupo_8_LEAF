@@ -1,10 +1,93 @@
-[{"id":1,"first_name":"Matti","last_name":"Dumblton","email":"mdumblton0@wikia.com","password":"njYTbaKO","category":"user","image":"user_1.jpg"},
-    {"id":2,"first_name":"Starlene","last_name":"Evans","email":"sevans1@china.com.cn","password":"ipf9qx","category":"user","image":"user_2.jpg"},
-    {"id":3,"first_name":"Celisse","last_name":"Rowthorne","email":"crowthorne2@msn.com","password":"c8KoTrn71i7","category":"user","image":"user_3.jpg"},
-    {"id":4,"first_name":"Gorden","last_name":"Dizlie","email":"gdizlie3@jimdo.com","password":"BqL429VK1","category":"user","image":"user_4.jpg"},
-    {"id":5,"first_name":"Clemmy","last_name":"Rolfs","email":"crolfs4@usnews.com","password":"b5KRRMXvm4","category":"user","image":"user_5.jpg"},
-    {"id":6,"first_name":"Archaimbaud","last_name":"Eberdt","email":"aeberdt5@scribd.com","password":"2Nse5k3W","category":"user","image":"user_6.jpg"},
-    {"id":7,"first_name":"Cecil","last_name":"Mangenot","email":"cmangenot6@uiuc.edu","password":"Y7tQwP00y41","category":"user","image":"user_7.jpg"},
-    {"id":8,"first_name":"Benoite","last_name":"Hayhurst","email":"bhayhurst7@vimeo.com","password":"d5muM7MThcbH","category":"user","image":"user_8.jpg"},
-    {"id":9,"first_name":"Almeta","last_name":"Summerlie","email":"asummerlie8@cbsnews.com","password":"2tEOGmlIHk","category":"user","image":"user_9.jpg"},
-    {"id":10,"first_name":"Dyan","last_name":"Parysowna","email":"dparysowna9@upenn.edu","password":"9QGv0u8D6","category":"user","image":"user_10.jpg"}]
+[
+    {
+        "id": 1,
+        "nickname": "Matt",
+        "first_name": "Matti",
+        "last_name": "Dumblton",
+        "email": "mdumblton0@wikia.com",
+        "password": "njYTbaKO",
+        "category": "user",
+        "image": "user_1.jpg"
+    },
+    {
+        "id": 2,
+        "first_name": "Starlene",
+        "last_name": "Evans",
+        "email": "sevans1@china.com.cn",
+        "password": "ipf9qx",
+        "category": "user",
+        "image": "user_2.jpg"
+    },
+    {
+        "id": 3,
+        "first_name": "Celisse",
+        "last_name": "Rowthorne",
+        "email": "crowthorne2@msn.com",
+        "password": "c8KoTrn71i7",
+        "category": "user",
+        "image": "user_3.jpg"
+    },
+    {
+        "id": 4,
+        "first_name": "Gorden",
+        "last_name": "Dizlie",
+        "email": "gdizlie3@jimdo.com",
+        "password": "BqL429VK1",
+        "category": "user",
+        "image": "user_4.jpg"
+    },
+    {
+        "id": 5,
+        "first_name": "Clemmy",
+        "last_name": "Rolfs",
+        "email": "crolfs4@usnews.com",
+        "password": "b5KRRMXvm4",
+        "category": "user",
+        "image": "user_5.jpg"
+    },
+    {
+        "id": 6,
+        "first_name": "Archaimbaud",
+        "last_name": "Eberdt",
+        "email": "aeberdt5@scribd.com",
+        "password": "2Nse5k3W",
+        "category": "user",
+        "image": "user_6.jpg"
+    },
+    {
+        "id": 7,
+        "first_name": "Cecil",
+        "last_name": "Mangenot",
+        "email": "cmangenot6@uiuc.edu",
+        "password": "Y7tQwP00y41",
+        "category": "user",
+        "image": "user_7.jpg"
+    },
+    {
+        "id": 8,
+        "first_name": "Benoite",
+        "last_name": "Hayhurst",
+        "email": "bhayhurst7@vimeo.com",
+        "password": "d5muM7MThcbH",
+        "category": "user",
+        "image": "user_8.jpg"
+    },
+    {
+        "id": 9,
+        "first_name": "Almeta",
+        "last_name": "Summerlie",
+        "email": "asummerlie8@cbsnews.com",
+        "password": "2tEOGmlIHk",
+        "category": "user",
+        "image": "user_9.jpg"
+    },
+    {
+        "id": 10,
+        "first_name": "Dyan",
+        "last_name": "Parysowna",
+        "email": "dparysowna9@upenn.edu",
+        "password": "9QGv0u8D6",
+        "category": "user",
+        "image": "user_10.jpg"
+    }
+]

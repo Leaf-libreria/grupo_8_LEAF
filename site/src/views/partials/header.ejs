@@ -33,10 +33,16 @@
       </div>
     </nav>
     <!-- seccion inferior del header -->
-    <nav class="header2">
-      <div class="contenedorLogo">
-        <a href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light header2">
+      <div class="container-fluid">
+       
+          <div class="contenedorLogo">
+            <a href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
+          </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- categorias -->
       <ul class="categorias noResponsive">
         <li><a class="noResponsive" href="/products/libros">Libros</a></li>
@@ -54,10 +60,11 @@
           </div>
         </li>
       </ul>
-      <div class="burger-menu">
+   
+      <!-- <div class="burger-menu">
         <i class="fas fa-bars"></i>
       </div>
-      
+       -->
       <!-- buscador -->
       <div class="buscador">
         <form action="/search" method="GET">
@@ -84,5 +91,7 @@
           </ul>
         </div>
       </div>
-  </nav>
+    </div>
+  </div>
+</nav>
   </header>
