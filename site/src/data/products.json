@@ -406,5 +406,22 @@
     "formato": "libro",
     "stock": 200,
     "portada": "portada-1629692644875.jpg"
+  },
+  {
+    "id": 24,
+    "titulo": "Cumbres borrascosas",
+    "autor": "Emily Jane Brontë",
+    "precio": 2500,
+    "categoria": "recomendados",
+    "genero": "Romance",
+    "sinopsis": "La poderosa y hosca figura del atormentado Heathcliff domina \"Cumbres Borrascosas\", novela apasionada y tempestuosa cuya sensibilidad se adelantó a su tiempo. Los brumosos y sombríos páramos de Yorkshire son el singular escenario donde se desarrolla con fuerza arrebatadora esta historia de venganza y odio, de pasiones desatadas y amores desesperados que van más allá de la muerte y que hacen de ella una de las obras más singulares y atractivas de todos los tiempos.",
+    "slogan": "Melancólico relato sobre el amor más allá de la muerte, la rivalidad entre hermanos y la venganza.",
+    "estrellas": 4,
+    "editorial": "Alianza",
+    "isbn": 9788491819431,
+    "paginas": 416,
+    "formato": "libro",
+    "stock": 100,
+    "portada": "portada-1629696615473.jpg"
   }
 ]

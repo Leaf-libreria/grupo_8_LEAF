@@ -13,7 +13,7 @@
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
-  <form action="" method="POST" class="formulario">
+  <form action="" method="POST" class="formulario" enctype="multipart/form-data">
       <div class="titulo">
           <label for="titulo">Título del libro:</label>
           <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.titulo? old.titulo: null%>">

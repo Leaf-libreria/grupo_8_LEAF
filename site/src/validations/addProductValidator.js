@@ -3,9 +3,7 @@ const { body, check } = require("express-validator");
 module.exports = [
   body('titulo')
     .notEmpty()
-    .withMessage('Campo obligatorio')
-    .isAlphanumeric()
-    .withMessage('Sólo se permiten caracteres alfanuméricos'),
+    .withMessage('Campo obligatorio'),
   body('isbn')
     .notEmpty()
     .withMessage('Campo obligatorio')
