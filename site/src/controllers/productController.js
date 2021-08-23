@@ -1,9 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 let { productos, guardar } = require("../data/product_db");
+
 const costoEnvio = require("../data/envios-costo");
 const generos = require('../data/generos_db');
-
+const { validationResult } = require('express-validator');
 
 module.exports = {
   libros: (req, res) => {
@@ -43,11 +44,8 @@ module.exports = {
 
     let genero = producto.genero
     let idActual = producto.id
-    let recomendados = productos.filter(producto => producto.genero === genero && producto.id != idActual).splice(0,3)
+    let recomendados = productos.filter(producto => producto.genero === genero && producto.id != idActual).splice(0, 3)
 
-
-
-    
     return res.render("./products/productDetail",{
         title: 'LEAF | Detalle',
         producto,
@@ -109,32 +107,40 @@ module.exports = {
     });
   },
   agregarProducto: (req, res) => {
+let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      const { titulo, autor, precio, categoria, genero, sinopsis, slogan, estrellas, editorial, isbn, paginas, idioma, formato, stock} = req.body;
 
-    const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato,stock} = req.body;
-
-    let product = {
-      id : (productos[productos.length-1].id +1),
-      titulo,
-      autor,
-      precio:+precio,
-      categoria,
-      genero,
-      sinopsis,
-      slogan,
-      estrellas:+estrellas,
-      editorial,
-      isbn:+isbn,
-      paginas:+paginas,
-      idioma,
-      formato,
-      stock:+stock,
-      portada : req.file ? req.files.filename : 'default-image.png',
+      let product = {
+        id: (productos[productos.length - 1].id + 1),
+        titulo,
+        autor,
+        precio: +precio,
+        categoria,
+        genero,
+        sinopsis,
+        slogan,
+        estrellas: +estrellas,
+        editorial,
+        isbn: +isbn,
+        paginas: +paginas,
+        idioma,
+        formato,
+        stock: +stock,
+        portada : req.file ? req.file.filename : 'default-image.png'
+      }
+      productos.push(product);
+      guardar(productos)
+      return res.redirect('/products/administrador');
+    } else {
+      return res.render('./products/addProduct', {
+        productos,
+        generos,
+        errores: errors.mapped(),
+        old: req.body,
+        title: "LEAF | Administrador",
+      });
     }
-
-    productos.push(product);
-   guardar(productos)
-    return res.redirect('/products/administrador',);
-
   },
   borrar: (req,res) => {
     productos = productos.filter(producto => producto.id !== +req.params.id);

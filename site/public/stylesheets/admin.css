@@ -144,11 +144,14 @@
 }
 
 /*AVISO CAMPOS OBLIGATORIOS*/
-.admin .administrador p {
+.admin .administrador p,span {
   color: red;
   font-size: 14px;
   margin-bottom: 3%;
+  margin-left: 0;
 }
+
+
 
 /*BOTONES GUARDAR Y CANCELAR*/
 .admin .administrador .formulario .botones .btn-cancelar,

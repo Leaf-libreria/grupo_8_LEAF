@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
-const multer = require("multer");
+let multer = require("multer");
 const path = require("path")
+const addValidator = require('../validations/addProductValidator')
 
-const storage = multer.diskStorage({
+let storage = multer.diskStorage({
     destination: (req,file,cb) => {
         cb(null,"public/images")
     },
@@ -12,7 +13,9 @@ const storage = multer.diskStorage({
     },
 })
 
-
+let upload = multer({
+  storage:storage
+});
 
 const {
   verMasVendidos,
@@ -38,7 +41,7 @@ const {
   borrar,
   verMasNovedades,
   verMasRecomendados,
-} = require("../controllers/productController");
+} = require('../controllers/productController');
 
 // /products
 router.get('/ebooks', ebooks);
@@ -50,9 +53,9 @@ router.get("/detalle/:id", detail);
 router.get("/administrador", administrador);
 // Carga de productos
 router.get("/agregar", addProducto);
-router.post("/agregar", agregarProducto);
+router.post("/agregar",upload.single('portada'),addValidator, agregarProducto);
 router.get("/editar/:id", editarProducto);
-router.put("/editar/:id", actualizarProducto);
+router.put("/editar/:id",upload.single('portada'), actualizarProducto);
 router.delete("/delete/:id", borrar);
 router.get("/carrito", carrito);
 router.get("/pago", pago);
