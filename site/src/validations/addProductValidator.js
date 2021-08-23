@@ -8,7 +8,8 @@ module.exports = [
     .notEmpty()
     .withMessage('Campo obligatorio')
     .isInt()
-    .withMessage('Ingrese solo números'),
+    .withMessage('Ingrese solo números')
+    .isISBN().withMessage('ISBN inválido'),
   body('stock')
     .notEmpty()
     .withMessage('Campo obligatorio')
@@ -32,9 +33,12 @@ module.exports = [
   body('estrellas')
     .notEmpty()
     .withMessage('Campo obligatorio')
-    .isInt().withMessage('Ingrese solo números'),
+    .isInt().withMessage('Ingrese solo números')
+    .isLength({min:1,max:5}).withMessage('Número entre 1 y 5'),
   body('slogan').notEmpty().withMessage('Campo obligatorio'),
 body('sinopsis')
         .notEmpty()
-        .withMessage('Campo obligatorio')
+        .withMessage('Campo obligatorio'),
+  body('portada')
+.notEmpty().withMessage('Seleccione una portada. Campo obligatorio')
 ];

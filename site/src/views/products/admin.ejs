@@ -15,7 +15,9 @@
     <div class="d-grid gap-2">
       <a href="/products/agregar" class="btn btn-outline-success admin-btn-agregar" type="button">AGREGAR PRODUCTOS</a>
     </div>
-    
+
+    <a href="#abajo" id="arriba" class="admin-btn-flotante admin-btn-agregar"><i class="fas fa-arrow-down"></i>
+</a>
     <div class='contenedorNovedades'>
       <% productos.forEach(producto=>{ %> 
     <article class="libro">
@@ -40,6 +42,7 @@
       </article>
       <% }) %>
     </div>
+    <a href="#arriba" id="abajo" class="admin-btn-flotante admin-btn-agregar"><i class="fas fa-arrow-up"></i></a>
 </main>
 
 </body>

@@ -43,6 +43,7 @@
   margin: 22px;
 }
 /* VISTA ADMINISTRADOR */
+
 /* Botones de agregar producto */
 .admin-btn-agregar {
   font-family: var(--letra-cuerpo);
@@ -56,7 +57,20 @@
   font-size: 20px;
   font-weight: 800;
 }
-
+/* Botones ir arriba/abajo */
+.admin-btn-flotante{
+	font-size: 12px; 
+  font-weight: 300;
+	color: rgba(128, 128, 128, 0.897);
+	border-radius: 50%;
+	padding: 0.5%;
+  background-color: rgba(128, 128, 128, 0.096);
+}
+.admin-btn-flotante:hover {
+	font-size: 14px;
+  color: gray;
+  border: solid 1px gray;
+}
 /* Botones de editar y eliminar */
 .admin-btn-editar:hover {
   font-size: 20px;
@@ -91,17 +105,21 @@
   margin: 15px auto;
   display: block;
 }
+/* input file */
+.admin .administrador .formulario .file:not(textarea) {
+  font-size: 8px;
+  font-weight: 600;
+}
+.admin .administrador .formulario .form-control{
+  padding:0;
+  height: initial;
+}
 
 /*Inputs y text area*/
 .admin .administrador .formulario input::placeholder {
   color: var(--color-bordo);
   font-family: var(--letra-titulo);
   font-weight: 400;
-}
-/* input file */
-.admin .administrador .formulario .file:not(textarea) {
-  font-size: 8px;
-  font-weight: 600;
 }
 
 .admin .administrador .formulario input,

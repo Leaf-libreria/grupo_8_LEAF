@@ -26,17 +26,17 @@ module.exports = {
 
   verMasVendidos: (req, res) => {
     return res.render("verMasVendidos", { title: "LEAF | Más vendidos", productos, generos, masVendidos : productos.filter(producto => producto.categoria === "Mas vendidos")},
-     );
+  );
   },
 
   verMasNovedades: (req, res) => {
     return res.render("verMasNovedades", { title: "LEAF | Más novedades", productos, generos, masNovedades : productos.filter(producto => producto.categoria === "Novedades")},
-     );
+    );
   },
 
   verMasRecomendados: (req, res) => {
     return res.render("verMasRecomendados", { title: "LEAF | Más recomendados", productos, generos, masRecomendados : productos.filter(producto => producto.categoria === "Recomendados")},
-     );
+    );
   },
 
   detail: (req,res) => {
@@ -61,8 +61,8 @@ module.exports = {
     }); //Lista todos los productos
   },
 
-   editarProducto: (req, res) => {
-     
+  editarProducto: (req, res) => {
+    
     let productEdit = productos.find(productEdit => productEdit.id === +req.params.id);
     return res.render("./products/editProduct", {
       title: 'Editando ' + productEdit.titulo,
@@ -73,32 +73,48 @@ module.exports = {
   },
 
   actualizarProducto: (req, res) => {
+let productEdit = productos.find(
+  (productEdit) => productEdit.id === +req.params.id
+);
+let errors = validationResult(req);
+    if (errors.isEmpty()) {
 
-   const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato,stock} = req.body;
+      const { titulo, autor, precio, categoria, genero, sinopsis, slogan, estrellas, editorial, isbn, paginas, idioma, formato, stock } = req.body;
     
 
-   let productoEditado = productos.find(producto=> producto.id === +req.params.id);
+      let productoEditado = productos.find(producto => producto.id === +req.params.id);
 
-     productoEditado.titulo =titulo;
-     productoEditado.autor = autor;
-     productoEditado.precio =+precio;
-     productoEditado.categoria = categoria;
-     productoEditado.genero = genero,
-     productoEditado.sinopsis = sinopsis,
-     productoEditado.slogan = slogan,
-     productoEditado.estrellas =+estrellas,
-     productoEditado.editorial = editorial,
-     productoEditado.isbn = +isbn,
-     productoEditado.paginas = +paginas,
-     productoEditado.idioma = idioma,
-     productoEditado.formato = formato,
-     productoEditado.stock = +stock,
-     productoEditado.portada = req.file ? req.file.filename : productoEditado.portada
-   
-   let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
+      productoEditado.titulo = titulo;
+      productoEditado.autor = autor;
+      productoEditado.precio = +precio;
+      productoEditado.categoria = categoria;
+      productoEditado.genero = genero,
+      productoEditado.sinopsis = sinopsis,
+      productoEditado.slogan = slogan,
+      productoEditado.estrellas = +estrellas,
+      productoEditado.editorial = editorial,
+      productoEditado.isbn = +isbn,
+      productoEditado.paginas = +paginas,
+      productoEditado.idioma = idioma,
+      productoEditado.formato = formato,
+      productoEditado.stock = +stock,
+      productoEditado.portada = req.file ? req.file.filename : productoEditado.portada
+  
+      let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
 
-    guardar(productosModificados)
-    return res.redirect('/products/administrador')
+      guardar(productosModificados)
+      return res.redirect('/products/administrador')
+    } else {
+      return res.render('./products/editProduct', {
+        productos,
+        generos,
+        errores: errors.mapped(),
+        old: req.body,
+        productEdit,
+        productoEditado,
+        title: 'LEAF | Administrador',
+      });
+    }
   },
   addProducto: (req,res) =>{
     return res.render("./products/addProduct", {
@@ -151,7 +167,6 @@ let errors = validationResult(req);
 
   carrito: (req, res) => {
     return res.render("./products/productCart", { title: "LEAF | Carrito",  generos,},
-     
     );
   },
 

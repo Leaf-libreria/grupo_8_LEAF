@@ -6,9 +6,9 @@
 
   <body class="admin">
     <!-- encabezado -->
-   <!-- ----header ----->
-   <%-include('../partials/header') %> 
-   <!-- ----header---- -->
+  <!-- ----header ----->
+  <%-include('../partials/header') %> 
+  <!-- ----header---- -->
     <main>
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
@@ -25,7 +25,6 @@
                 >
           </div>
       </div>
-    </section>
     <div class="container-grid-uno">
     <div class="isbn">
       <label for="isbn">ISBN:</label>
@@ -53,22 +52,22 @@
           </div>
           </div>
 </div>
-   <section class="formato">
-       <label for="formato">Formato:</label> 
-       <select name="formato" id="formato">
-           <option value="" hidden selected>Seleccione el formato</option>
-           <option value="libro">Libro</option>
-           <option value="ebook">Ebook</option>
-       </select>
-       <div class="error">
+  <section class="formato">
+      <label for="formato">Formato:</label> 
+      <select name="formato" id="formato">
+          <option value="" hidden selected>Seleccione el formato</option>
+          <option value="libro">Libro</option>
+          <option value="ebook">Ebook</option>
+      </select>
+      <div class="error">
               <!-- Posibles errores -->
                 <span 
                   ><%= locals.errores && locals.errores.formato ? errores.formato.msg :
                   null %></span
                 >
           </div>
-         </section>
-         <section class="categoria">
+        </section>
+        <section class="categoria">
           <label for="categoria">Categoría:</label> 
           <select name="categoria" id="categoria">
               <option value="" hidden selected>Seleccione la categoria</option>
@@ -84,7 +83,7 @@
                 >
           </div>
             </section>
-   <section class="autor">
+  <section class="autor">
         <label for="autor">Autor/Autora:</label>
     <div class="otroAutor">
         <input type="text" name="autor" id="otroAutor" placeholder="Nombre y apellido del autor" class="control" value="<%= locals.old && locals.old.autor? old.autor: null%>">
@@ -181,13 +180,13 @@
 <!--BOTONES-->
 <section class="botones d-grid gap-2 d-md-block">
     <button type="submit" class="btn-guardar">AGREGAR</button>
-    <button type="reset" class="btn-cancelar">CANCELAR</button>
+    <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR</a>
 </section>
   </form>  
 </div>
     </main>
     <!-- ----scripts ----->
- <%-include('../partials/scripts') %> 
- <!-- ----scripts---- -->
+<%-include('../partials/scripts') %> 
+<!-- ----scripts---- -->
 </body>
 </html>
