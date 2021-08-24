@@ -90,7 +90,7 @@
 .body-login .main-login .submit{
     margin-top: 30px;
 }
-.body-login .main-login .submit a{
+.body-login .main-login .submit{
     background-color: var(--color-amarillo);
     padding: 12px;
     color: var(--color-bordo);
@@ -101,7 +101,7 @@
     margin-left: 20%;
     margin-right: 20%;
 }
-.body-login .main-login .submit a:hover{
+.body-login .main-login .submit:hover{
     background-color: var(--color-bordo);
     color: var(--color-amarillo);
 }
@@ -188,7 +188,7 @@
         font-size: 18px;
     }
 
-    .body-login .main-login .submit a{
+    .body-login .main-login .submit {
         background-color: var(--color-bordo);
         padding: 12px;
         color: var(--color-amarillo);
@@ -196,7 +196,7 @@
         font-weight: 600;
         text-align: center;
     }
-    .body-login .main-login .submit a:hover{
+    .body-login .main-login .submit:hover{
         background-color: var(--color-amarillo);
         color: var(--color-bordo);
         font-size: 28px;
