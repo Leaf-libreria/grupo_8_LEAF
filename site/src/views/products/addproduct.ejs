@@ -13,7 +13,7 @@
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
-  <form action="" method="POST" class="formulario" enctype="multipart/form-data">
+  <form action="" method="POST" class="formulario" enctype="multipart/form-data" novalidate>
       <div class="titulo">
           <label for="titulo">Título del libro:</label>
           <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.titulo? old.titulo: null%>">
@@ -162,9 +162,9 @@
 </div>
 <div class="portada">
   <label for="portada">Imagen de portada:</label>
-  <input  class="file" type="file" name="portada" id="portada">
+  <input  class="file" type="file" name="portada" id="portada" value="<%= locals.old && locals.old.portada? old.portada: null%>">
   <div class="error">
-<span ><%= locals.errores && errores.portada ? errores.portada.msg : null %></span>
+<span ><%= locals.errores && locals.errores.portada ? errores.portada.msg : null %></span>
 </div>
   </div>
 
