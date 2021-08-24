@@ -16,10 +16,10 @@
   <form action="/products/editar/<%=productEdit.id%>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data">
       <div class="titulo">
           <label for="titulo">Título del libro:</label>
-          <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.titulo? old.titulo : productEdit.titulo %> ">
+          <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.titulo ? old.titulo : productEdit.titulo %> ">
         <div class="error">
               <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.titulo ? errores.titulo.msg :
+                <span><%= !productEdit.titulo || locals.errores && locals.errores.titulo ? errores.titulo.msg :
                   null %></span>
           </div>  
       </div>
@@ -32,7 +32,7 @@
     <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.isbn ? errores.isbn.msg :
+                  ><%= !productEdit.isbn || locals.errores && locals.errores.isbn ? errores.isbn.msg :
                   null %></span
                 >
           </div>
@@ -44,7 +44,7 @@
     <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.stock ? errores.stock.msg :
+                  ><%= !productEdit.stock ||locals.errores && locals.errores.stock ? errores.stock.msg :
                   null %></span
                 >
     </div>
@@ -59,7 +59,7 @@
       <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.formato ? errores.formato.msg :
+                  ><%= !productEdit.formato ||locals.errores && locals.errores.formato ? errores.formato.msg :
                   null %></span
                 >
           </div>
@@ -74,7 +74,7 @@
           <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.categoria ? errores.categoria.msg :
+                  ><%= !productEdit.categoria || locals.errores && locals.errores.categoria ? errores.categoria.msg :
                   null %></span
                 >
           </div>
@@ -85,7 +85,7 @@
     <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.autor ? errores.autor.msg :
+                  ><%= !productEdit.autor || locals.errores && locals.errores.autor ? errores.autor.msg :
                   null %></span
                 >
           </div>
@@ -96,7 +96,7 @@
     <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.editorial ? errores.editorial.msg :
+                  ><%= !productEdit.editorial|| locals.errores && locals.errores.editorial ? errores.editorial.msg :
                   null %></span
                 >
           </div>
@@ -106,7 +106,7 @@
     <input type="text" name="genero" value="<%= locals.old && locals.old.genero? old.genero:productEdit.genero %>">
     <div class="error">
             <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.genero ? errores.genero.msg :
+                <span><%= !productEdit.genero || locals.errores && locals.errores.genero ? errores.genero.msg :
                 null %></span>
         </div>
 </section>
@@ -116,7 +116,7 @@
     <input type="number" name="precio" id="precio" class="con-grid" placeholder="Ingrese sólo números" value="<%= locals.old && locals.old.precio? old.precio: productEdit.precio %>">
     <div class="error">
               <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.precio ? errores.precio.msg :
+                <span><%= !productEdit.precio ||locals.errores && locals.errores.precio ? errores.precio.msg :
                   null %></span>
           </div>
 </div>
@@ -125,7 +125,7 @@
     <input type="number" name="paginas" id="paginas" class="con-grid" placeholder="Sólo números" value="<%= locals.old && locals.old.paginas? old.paginas:productEdit.paginas %>">
      <div class="error">
               <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.paginas ? errores.paginas.msg :
+                <span><%= !productEdit.paginas ||locals.errores && locals.errores.paginas ? errores.paginas.msg :
                   null %></span>
           </div>
 </div>
@@ -135,7 +135,7 @@
    <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.estrellas ? errores.estrellas.msg :
+                  ><%= !productEdit.estrellas || locals.errores && locals.errores.estrellas ? errores.estrellas.msg :
                   null %></span
                 >
           </div>
@@ -143,12 +143,12 @@
 </div>
 <div class="sinopsis">
   <label for="critica">Crítica:</label>
-  <textarea name="slogan" id="critica" cols="20" rows="2" placeholder="Breve critica"> <%= locals.old && locals.old.slogan? old.slogan:productEdit.slogan %>
+  <textarea name="slogan" id="critica" cols="20" rows="2" placeholder="Breve critica"><%=locals.old ? old.slogan :  productEdit.slogan  %>
     </textarea>
     <div class="error">
-              <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.slogan ? errores.slogan.msg :
-                  null %></span>
+      <% if (!productEdit.slogan || locals.errores && errores.slogan) { %>
+           <span>  <%=errores.slogan.msg %> </span>
+          <% } %>
           </div>
 </div>
 
@@ -161,10 +161,11 @@
   </div>
   <div class="sinopsis">
   <label for="sinopsis">Sinopsis:</label>
-  <textarea  type="text" name="sinopsis" id="sinopsis"  placeholder="Breve sinopsis" cols="30" rows="10"><%= productEdit.sinopsis %></textarea>
+  <textarea  type="text" name="sinopsis" id="sinopsis" placeholder="Breve sinopsis" cols="30" rows="10"><%= locals.old && locals.old.sinopsis ? old.sinopsis : productEdit.sinopsis  %></textarea>
   <div class="error">
         <!-- Posibles errores -->
-    <span><%= locals.errores && locals.errores.sinopsis? errores.sinopsis.msg : null %></span>
+
+    <span><%= productEdit.sinopsis.length ==0 || locals.errores && locals.errores.sinopsis ? errores.sinopsis.msg : null %></span>
   </div>
 <p>*Todos los campos son obligatorios</p>
 <!--BOTONES-->

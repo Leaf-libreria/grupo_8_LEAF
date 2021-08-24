@@ -153,7 +153,7 @@
 </div>
 <div class="sinopsis">
   <label for="critica">Crítica:</label>
-  <textarea  type="text" name="slogan" id="critica"  placeholder="Breve critica"><%= locals.old && locals.old.slogan? old.slogan: null%></textarea>
+  <textarea  type="text" name="slogan" id="critica" placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: null%></textarea>
   <div class="error">
               <!-- Posibles errores -->
                 <span><%= locals.errores && locals.errores.slogan ? errores.slogan.msg :
@@ -173,7 +173,7 @@
   <textarea  type="text" name="sinopsis" id="sinopsis"  placeholder="Breve sinopsis" cols="30" rows="10"><%= locals.old && locals.old.sinopsis? old.sinopsis: null%></textarea>
   <div class="error">
         <!-- Posibles errores -->
-    <span><%= locals.errores && locals.errores.sinopsis? errores.sinopsis.msg : null %></span>
+    <span><%= locals.errores && locals.errores.sinopsis ? errores.sinopsis.msg : null %></span>
           </div>
 </div>
 <p>*Todos los campos son obligatorios</p>
