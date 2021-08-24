@@ -1,4 +1,5 @@
 const users = require("../data/users_db");
+const bcrypt =require('bcryptjs');
 
 module.exports = {
     login: (req, res) => {
@@ -7,7 +8,12 @@ module.exports = {
 
     registro: (req, res) => {
         return res.render("./users/register", { title: "LEAF | Registro" });
+
+        // password: bcrypt.hashSync(password,10),
     },
+   processRegister:(req,res) =>{
+
+   },
     perfil: (req, res) => {
      users.find((user) => user.id === +req.params.id);
         return res.render("./users/perfil", {
