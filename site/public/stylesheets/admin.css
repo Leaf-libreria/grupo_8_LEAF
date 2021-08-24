@@ -58,6 +58,12 @@
   font-weight: 800;
 }
 /* Botones ir arriba/abajo */
+.admin-dcha{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}  
 .admin-btn-flotante{
 	font-size: 12px; 
   font-weight: 300;
@@ -65,6 +71,8 @@
 	border-radius: 50%;
 	padding: 0.5%;
   background-color: rgba(128, 128, 128, 0.096);
+  margin-right: 20px;
+  margin-top: 0;
 }
 .admin-btn-flotante:hover {
 	font-size: 14px;

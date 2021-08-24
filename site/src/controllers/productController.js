@@ -111,7 +111,6 @@ let errors = validationResult(req);
         errores: errors.mapped(),
         old: req.body,
         productEdit,
-        productoEditado,
         title: 'LEAF | Administrador',
       });
     }
