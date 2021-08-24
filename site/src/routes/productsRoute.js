@@ -8,7 +8,6 @@ const editValidator = require('../validations/editProductValidator');
 //Multer
 const multer = require('multer');
 
-var upload = multer({storage : storage});
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public/images');
