@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <!-- ----head ----->
+  <%-include('./partials/head') %> 
+  <!-- ----head---- -->
+
+<body class="novedades">
+
+
+  <!-- ----header ----->
+  <%-include('./partials/header') %> 
+  <!-- ----header---- -->
+
+<main>
+
+    <h2><%= title %> </h2>
+    
+    <div class=contenedorNovedades>
+      <% masNovedades.forEach(product => { %>
+    <article class="libro">
+        <a href="/products/detalle/<%= product.id %> "
+          ><img src="/images/<%= product.portada %> " alt="<%= product.titulo %> "
+        /></a>
+        <div class="detalle">
+          <h3><%= product.titulo %> </h3>
+          <h4><%= product.autor %> </h4>
+          <p>$<%= product.precio %> </p>
+        </div>
+      </article>
+      <% }) %>
+    </div>
+</main>
+
+<!-- ----footer ----->
+<%-include('./partials/footer') %> 
+<!-- ----footer---- -->
+
+</body>
+<!-- ----scripts ----->
+<%-include('./partials/scripts') %> 
+<!-- ----scripts---- -->
+</html>

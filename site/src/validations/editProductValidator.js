@@ -1,15 +1,14 @@
-const { body, check } = require("express-validator");
+const { body, check } = require('express-validator');
 
 module.exports = [
-  body('titulo')
-    .notEmpty()
-    .withMessage('Campo obligatorio'),
+  body('titulo').notEmpty().withMessage('Campo obligatorio'),
   body('isbn')
     .notEmpty()
     .withMessage('Campo obligatorio')
     .isInt()
     .withMessage('Ingrese solo números')
-    .isISBN().withMessage('ISBN inválido'),
+    .isISBN()
+    .withMessage('ISBN inválido'),
   body('stock')
     .notEmpty()
     .withMessage('Campo obligatorio')
@@ -33,12 +32,9 @@ module.exports = [
   body('estrellas')
     .notEmpty()
     .withMessage('Campo obligatorio')
-    .isInt().withMessage('Ingrese solo números')
-    .isLength({min:1,max:5}).withMessage('Número entre 1 y 5'),
+    .isInt({ min: 1, max: 5 })
+    .withMessage('Número entre 1 y 5'),
   body('slogan').notEmpty().withMessage('Campo obligatorio'),
-body('sinopsis')
-        .notEmpty()
-        .withMessage('Campo obligatorio'),
-  body('portada')
-.notEmpty().withMessage('Seleccione una portada. Campo obligatorio')
+  body('sinopsis').notEmpty().withMessage('Campo obligatorio')
 ];
+
