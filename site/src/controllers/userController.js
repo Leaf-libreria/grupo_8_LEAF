@@ -41,7 +41,7 @@ module.exports = {
             console.log(req.body)
             users.push(usuario);
             guardar(users);
-            return res.redirect('/');
+            return res.redirect('/perfil/:id');
             }else{
                 return res.render('./users/register', {
                   errores: errors.mapped(),

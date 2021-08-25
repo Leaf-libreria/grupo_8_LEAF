@@ -89,5 +89,14 @@
     "password": "9QGv0u8D6",
     "category": "user",
     "image": "user_10.jpg"
+  },
+  {
+    "id": 11,
+    "email": "andradasomi@hotmail.com",
+    "password": "1234567",
+    "nombre": "Sofia",
+    "apellido": "Andrada",
+    "category": "user",
+    "nickName": "fosi"
   }
 ]
