@@ -53,8 +53,8 @@
   <section class="categoria">
       <label for="formato">Formato:</label> 
       <select name="formato" id="formato">
-          <option value="libro"<%= productEdit.formato==="libro"?'selected':null %> >Libro</option>
-          <option value="ebook"<%= productEdit.formato==="E-book"?'selected':null %> >Ebook</option>
+          <option value="libro"<%= productEdit.formato==="libro"?'selected':null %> <%= locals.old && old.formato === 'libro' ? 'selected' : null%> >Libro</option>
+          <option value="ebook"<%= productEdit.formato==="ebook"?'selected':null %> <%= locals.old && old.formato === 'ebook' ? 'selected' : null%> >Ebook</option>
       </select>
       <div class="error">
               <!-- Posibles errores -->
@@ -67,9 +67,9 @@
         <section class="categoria">
           <label for="categoria">Categoría:</label> 
           <select name="categoria" id="categoria">
-              <option value="recomendados"<%= productEdit.categoria==="recomendados"?'selected':null %> >Recomendados</option>
-              <option value="novedades"<%= productEdit.categoria==="novedades"?'selected':null %> >Novedades</option>
-              <option value="mas-vendidos"<%= productEdit.categoria==="Mas vendidos"?'selected':null %> >Más vendidos</option>
+              <option value="recomendados"<%= productEdit.categoria==="recomendados"?'selected':null %> <%= locals.old && locals.old.categoria === 'recomendados' ? 'selected' : null%> > Recomendados</option>
+              <option value="novedades" <%= productEdit.categoria==="novedades"?'selected':null %> <%= locals.old && locals.old.categoria === 'novedades' ? 'selected' : null%> >Novedades</option>
+              <option value="mas-vendidos"<%= productEdit.categoria ==="mas-vendidos" ?'selected':null %> <%= locals.old && locals.old.categoria === 'mas-vendidos' ? 'selected' : null%> >Más vendidos</option>
           </select>
           <div class="error">
               <!-- Posibles errores -->
@@ -143,12 +143,11 @@
 </div>
 <div class="sinopsis">
   <label for="critica">Crítica:</label>
-  <textarea name="slogan" id="critica" cols="20" rows="2" placeholder="Breve critica"><%=locals.old ? old.slogan :  productEdit.slogan  %>
-    </textarea>
-    <div class="error">
-      <% if (!productEdit.slogan || locals.errores && errores.slogan) { %>
-           <span>  <%=errores.slogan.msg %> </span>
-          <% } %>
+<textarea name="slogan" id="critica" cols="20" rows="2"placeholder="Breve critica"><%=locals.old ? locals.old.slogan : productEdit.slogan  %>
+  </textarea>
+  <div class="error">
+    <span> <%= productEdit.slogan.length <=5 || locals.errores && locals.errores.slogan ? errores.slogan.msg : null %> </span>
+
           </div>
 </div>
 
@@ -166,6 +165,7 @@
         <!-- Posibles errores -->
 
     <span><%= productEdit.sinopsis.length ==0 || locals.errores && locals.errores.sinopsis ? errores.sinopsis.msg : null %></span>
+  </div>
   </div>
 <p>*Todos los campos son obligatorios</p>
 <!--BOTONES-->

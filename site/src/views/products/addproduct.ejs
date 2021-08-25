@@ -56,8 +56,8 @@
       <label for="formato">Formato:</label> 
       <select name="formato" id="formato">
           <option value="" hidden selected>Seleccione el formato</option>
-          <option value="libro">Libro</option>
-          <option value="ebook">Ebook</option>
+          <option value="libro"<%= locals.old && old.formato === 'libro' ? 'selected' : null%>>Libro</option>
+          <option value="ebook"<%= locals.old && old.formato === 'ebook' ? 'selected' : null%> >Ebook</option>
       </select>
       <div class="error">
               <!-- Posibles errores -->
@@ -71,9 +71,9 @@
           <label for="categoria">Categoría:</label> 
           <select name="categoria" id="categoria">
               <option value="" hidden selected>Seleccione la categoria</option>
-              <option value="recomendados">Recomendados</option>
-              <option value="novedades">Novedades</option>
-              <option value="mas-vendidos">Más vendidos</option>
+              <option value="recomendados" <%= locals.old && old.categoria === 'recomendados' ? 'selected' : null%> >Recomendados</option>
+              <option value="novedades"<%= locals.old && old.categoria === 'novedades' ? 'selected' : null%> >Novedades</option>
+              <option value="mas-vendidos" <%= locals.old && old.categoria === 'mas-vendidos' ? 'selected' : null%> >Más vendidos</option>
           </select>
           <div class="error">
               <!-- Posibles errores -->
