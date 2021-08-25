@@ -109,8 +109,6 @@
 .body-register .main-register .submit-reg{
     margin-top: 15px;
     text-align: center;
-}
-.body-register .main-register .submit-reg a{
     background-color: var(--color-amarillo);
     padding: 12px;
     color: var(--color-bordo);
@@ -121,7 +119,7 @@
     margin-left: 20%;
     margin-right: 20%;
 }
-.body-register .main-register .submit-reg a:hover{
+.body-register .main-register .submit-reg:hover{
     background-color: var(--color-bordo);
     color: var(--color-amarillo);
 }
