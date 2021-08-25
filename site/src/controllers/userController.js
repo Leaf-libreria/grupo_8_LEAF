@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
-const { users,guardar } = require("../data/users_db");
+const { users,guardar } = require('../data/users_db');
+
 
 module.exports = {
     login: (req, res) => {
@@ -21,29 +22,32 @@ module.exports = {
             });
         }
 },
-    registro: (req,res) =>{
+    registro: (req, res) => {
+    return res.render("./users/register", { title: "LEAF | Registro" });
+},
+    crearRegistro: (req,res) =>{
         let errors = validationResult(req);
-        let { email,password,nombre,apellido,nickName,confirmarContrasenia } = req.body;
+
         if (errors.isEmpty()) {
             let usuario = {
-                id : users[users.length - 1].id + 1,  /* users.length > 0 ? users[users.length - 1].id + 1 : 1, */
-                email,
-                password,
-                nombre,
-                apellido,
-                nickName,
-                confirmarContrasenia,
+                id :  users.length > 0 ? users[users.length - 1].id + 1 : 1, 
+                email : req.body.email.trim(),
+                password : req.body.password,
+                nombre : req.body.nombre.trim(),
+                apellido : req.body.apellido.trim(),
                 category : "user",
+                nickName : req.body.nickName ? req.body.nickName.trim() : null,
             }
+            console.log(req.body)
             users.push(usuario);
             guardar(users);
+            return res.redirect('/');
             }else{
                 return res.render('./users/register', {
                   errores: errors.mapped(),
                   old: req.body,
                   title: 'LEAF | Registro',
                 });
-            return res.redirect('/');
         }
     },
     perfil: (req, res) => {

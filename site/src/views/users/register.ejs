@@ -77,9 +77,9 @@
                     <span class="text-danger small"><%= locals.errores && locals.errores.password ? errores.password.msg :null %></span>
 
                     <div class="confirm-password"> <label for="confirm-password">Confirmar contraseña</label> <input type="password"
-                            name="confirmarContrasenia" id="Confirm password" placeholder="Confirmar contraseña">
+                            name="confirmarContrasenia" id="confirmarContrasenia" placeholder="Confirmar contraseña">
                     </div>
-
+                    <span class="text-danger small"><%= locals.errores && locals.errores.confirmarContrasenia ? errores.confirmarContrasenia.msg :null %></span>
 
                     <div class="datos">
                         <p>Al registrarme en nuestro sistema, le informamos que los datos personales de su propiedad
@@ -100,6 +100,7 @@
                             id="politicas"><label for="politicas">Acepto las políticas de privacidad y manejo de
                                 datos</label>
                     </div>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.politicas ? errores.politicas.msg :null %></span>
 
                     <div class="ya-cuenta"><a href="/users/login">¿Ya tienes una cuenta?</a></div> <br>
 
