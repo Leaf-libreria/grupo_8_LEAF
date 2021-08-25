@@ -1,6 +1,5 @@
 const bcrypt =require('bcryptjs');
 const { validationResult } = require('express-validator');
-const { usuarios } = require('../data/users.json');
 const fs = require('fs');
 const path = require('path');
 const { users,guardar } = require('../data/users_db');
@@ -11,17 +10,18 @@ module.exports = {
         return res.render("./users/login", { title: "LEAF | Login" });
     },
 
-        // password: bcrypt.hashSync(password,10),
+       
     loginUsuario:(req,res)=>{
         let errors = validationResult(req);
         let { email } = req.body;
         if (errors.isEmpty()) {
-            let usuario = users.find(user => user.email === email)
+            let user = users.find(user => user.email === email);
+            console.log(user);
             req.session.userLogin = {
                 id : user.id,
                 nombre : user.nombre,
-                rol : user.rol,
-                foto_perfil : user.image,
+                 category: user.rol,
+              
             }
 
             return res.redirect('/');
@@ -50,7 +50,7 @@ cerrarSesion : (req,res) => {
             let usuario = {
                 id :  users.length > 0 ? users[users.length - 1].id + 1 : 1, 
                 email : req.body.email.trim(),
-                password : req.body.password,
+                password: bcrypt.hashSync(req.body.password,10),
                 nombre : req.body.nombre.trim(),
                 apellido : req.body.apellido.trim(),
                 category : "user",

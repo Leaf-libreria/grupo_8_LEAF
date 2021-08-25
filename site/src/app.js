@@ -3,9 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const methodOverride = require("method-override");
-const session = require('express-session');
+var methodOverride = require("method-override");
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
+
+const cookieCheck = require('./middlewares/cookieCheck');
+const localsUserCheck = require('./middlewares/localUserCheck');
 
 var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/usersRoute');
@@ -24,16 +28,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+
+
+app.use(session({
+  secret : "Leaf",
+}));
+
+
+app.use(cookieCheck);
+app.use(localsUserCheck);
+
+
 app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/products", productsRouter);
-
-app.use(session({
-  secret : "Leaf",
-  resave: false,
-  saveUninitialized: true
-}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

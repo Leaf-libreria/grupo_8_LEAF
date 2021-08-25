@@ -6,7 +6,8 @@
     "start": "node ./src/bin/www"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
