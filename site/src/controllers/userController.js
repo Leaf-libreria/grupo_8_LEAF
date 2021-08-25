@@ -13,7 +13,16 @@ module.exports = {
         let errors = validationResult(req);
         let { email } = req.body;
         if (errors.isEmpty()) {
+            let usuario = users.find(user => user.email === email)
+            req.session.userLogin = {
+                id : user.id,
+                nombre : user.nombre,
+                rol : user.rol,
+                foto_perfil : user.image,
+            }
+
             return res.redirect('/');
+
         }else{
             return res.render('./users/login', {
               errores: errors.mapped(),
@@ -21,6 +30,11 @@ module.exports = {
               title: 'LEAF | Login',
             });
         }
+},
+cerrarSesion : (req,res) => {
+    req.session.destroy();
+    res.cookie('Leaf',null,{maxAge:-1})
+    return res.redirect('/')
 },
     registro: (req,res) =>{
         return res.render("./users/register",

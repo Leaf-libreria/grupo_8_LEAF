@@ -1,21 +1,14 @@
 const { body, check } = require('express-validator');
-const { usuarios } = require('../data/users.json');
+const { users } = require('../data/users.json');
 
 module.exports = [
   body('email')
-    .notEmpty()
-    .withMessage('El e-mail es obligatorio')
-    .bail()
-    .isEmail()
-    .withMessage('Debe ingresar un e-mail válido'),
-  body('password')
-    .notEmpty()
-    .withMessage('La contraseña es obligatoria')
-    .bail()
-    .isLength({
-    min: 6,
-    max: 12,
-    })
-    .withMessage('La contraseña debe tener entre 6 y 12 caracteres'),
-];
-
+    .custom((value,{req}) => {
+        let usuario = users.find(usuario => usuario.email === value && bcrypt.compareSync(req.body.password,usuario.password));
+        if (usuario){
+            return true
+        }else{
+            return false
+        }
+    }).withMessage('credenciales inválidas')
+]
