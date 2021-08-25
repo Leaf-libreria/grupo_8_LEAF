@@ -40,5 +40,10 @@ module.exports = [
   body("sinopsis").notEmpty().withMessage("Campo obligatorio"),
   body("portada")
     .notEmpty()
-    .withMessage("Seleccione una portada. Campo obligatorio"),
+    .withMessage('Campo obligatorio')
+    .isInt({min:1,max:5}).withMessage('Número entre 1 y 5'),
+  body('slogan').notEmpty().withMessage('Campo obligatorio'),
+body('sinopsis')
+        .notEmpty()
+        .withMessage('Campo obligatorio'),
 ];

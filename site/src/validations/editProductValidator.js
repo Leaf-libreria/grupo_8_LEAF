@@ -29,11 +29,10 @@ module.exports = [
     .withMessage('Campo obligatorio')
     .isInt()
     .withMessage('Ingrese solo números'),
-  body('estrellas')
+  body('estrellas').isInt( {min: 1, max: 5} )
+    .withMessage('Número entre 1 y 5')
     .notEmpty()
-    .withMessage('Campo obligatorio')
-    .isInt({ min: 1, max: 5 })
-    .withMessage('Número entre 1 y 5'),
+    .withMessage('Campo obligatorio'),
   body('slogan').notEmpty().withMessage('Campo obligatorio'),
   body('sinopsis').notEmpty().withMessage('Campo obligatorio')
 ];

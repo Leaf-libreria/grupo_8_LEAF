@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 let { productos, guardar } = require("../data/product_db");
-
 const costoEnvio = require("../data/envios-costo");
 const generos = require('../data/generos_db');
 const { validationResult } = require('express-validator');

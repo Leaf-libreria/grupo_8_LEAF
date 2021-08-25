@@ -1,7 +1,10 @@
-const users = require("../data/users_db");
 const bcrypt =require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { usuarios } = require('../data/users.json');
+const fs = require('fs');
+const path = require('path');
+const { users,guardar } = require('../data/users_db');
+
 
 module.exports = {
     login: (req, res) => {
@@ -36,13 +39,36 @@ cerrarSesion : (req,res) => {
     res.cookie('Leaf',null,{maxAge:-1})
     return res.redirect('/')
 },
-    registro: (req,res) =>{
-        return res.render("./users/register",
-        {title: 'LEAF | Registro'})
-    },
-   processRegister:(req,res) =>{
+  
+    registro: (req, res) => {
+    return res.render("./users/register", { title: "LEAF | Registro" });
+},
+    crearRegistro: (req,res) =>{
+        let errors = validationResult(req);
 
-   },
+        if (errors.isEmpty()) {
+            let usuario = {
+                id :  users.length > 0 ? users[users.length - 1].id + 1 : 1, 
+                email : req.body.email.trim(),
+                password : req.body.password,
+                nombre : req.body.nombre.trim(),
+                apellido : req.body.apellido.trim(),
+                category : "user",
+                nickName : req.body.nickName ? req.body.nickName.trim() : null,
+            }
+            console.log(req.body)
+            users.push(usuario);
+            guardar(users);
+            return res.redirect('/perfil/:id');
+            }else{
+                return res.render('./users/register', {
+                  errores: errors.mapped(),
+                  old: req.body,
+                  title: 'LEAF | Registro',
+                });
+        }
+    },
+
     perfil: (req, res) => {
      users.find((user) => user.id === +req.params.id);
         return res.render("./users/perfil", {
@@ -56,5 +82,6 @@ cerrarSesion : (req,res) => {
             title: "Editando perfil " + userEdit.first_name,
             userEdit,
         });
-    },
+    }
 };
+

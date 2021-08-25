@@ -423,5 +423,22 @@
     "formato": "libro",
     "stock": 100,
     "portada": "portada-1629696615473.jpg"
+  },
+  {
+    "id": 25,
+    "titulo": "El Sabueso de los Baskerville",
+    "autor": "Arthur Conan Doyle",
+    "precio": 1200,
+    "categoria": "recomendados",
+    "genero": "Policial",
+    "sinopsis": "Un adinerado hombre de negocios es hallado muerto en las cercanías de su casa. Todo indica que su corazón se detuvo y las escasas pistas sugieren que estaba huyendo de alguien; o quizá de algo que nadie quiere nombrar: la maldición de los Baskerville, encarnada en un infernal sabueso de proporciones descomunales. Pero ya sea obra de un criminal o de una criatura fantasmal, Sherlock Holmes está dispuesto a agotar todas las hipótesis antes de admitir que el diablo ha decidido castigar a la familia Baskerville. ",
+    "slogan": "Un caso que lleva al límite de lo racional el talento detectivesco de Sherlock Holmes y su infatigable compañero, el Doctor Watson.",
+    "estrellas": 4,
+    "editorial": "Ediciones Akal",
+    "isbn": 9798542961620,
+    "paginas": 190,
+    "formato": "libro",
+    "stock": 125,
+    "portada": "portada-1629776942495.jpg"
   }
 ]
