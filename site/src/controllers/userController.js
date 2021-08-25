@@ -1,6 +1,7 @@
+const bcrypt =require('bcryptjs');
+const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
-const { validationResult } = require('express-validator');
 const { users,guardar } = require('../data/users_db');
 
 
@@ -9,11 +10,22 @@ module.exports = {
         return res.render("./users/login", { title: "LEAF | Login" });
     },
 
+       
     loginUsuario:(req,res)=>{
         let errors = validationResult(req);
         let { email } = req.body;
         if (errors.isEmpty()) {
+            let user = users.find(user => user.email === email);
+            console.log(user);
+            req.session.userLogin = {
+                id : user.id,
+                nombre : user.nombre,
+                 category: user.rol,
+              
+            }
+
             return res.redirect('/');
+
         }else{
             return res.render('./users/login', {
               errores: errors.mapped(),
@@ -22,6 +34,12 @@ module.exports = {
             });
         }
 },
+cerrarSesion : (req,res) => {
+    req.session.destroy();
+    res.cookie('Leaf',null,{maxAge:-1})
+    return res.redirect('/')
+},
+  
     registro: (req, res) => {
     return res.render("./users/register", { title: "LEAF | Registro" });
 },
@@ -32,7 +50,7 @@ module.exports = {
             let usuario = {
                 id :  users.length > 0 ? users[users.length - 1].id + 1 : 1, 
                 email : req.body.email.trim(),
-                password : req.body.password,
+                password: bcrypt.hashSync(req.body.password,10),
                 nombre : req.body.nombre.trim(),
                 apellido : req.body.apellido.trim(),
                 category : "user",
@@ -50,6 +68,7 @@ module.exports = {
                 });
         }
     },
+
     perfil: (req, res) => {
      users.find((user) => user.id === +req.params.id);
         return res.render("./users/perfil", {

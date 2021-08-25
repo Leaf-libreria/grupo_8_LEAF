@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- ----head ----->
-<%-include('../partials/head') %> 
-<!-- ----head---- -->
+<!-- ----head ----->
+<%-include('../partials/head') %>
+  <!-- ----head---- -->
 
   <body class="admin">
     <!-- encabezado -->
-  <!-- ----header ----->
-  <%-include('../partials/header') %> 
-  <!-- ----header---- -->
-    <main>
+    <!-- ----header ----->
+    <%-include('../partials/header') %>
+      <!-- ----header---- -->
+      <main>
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
@@ -83,110 +83,139 @@
                 >
           </div>
             </section>
-  <section class="autor">
-        <label for="autor">Autor/Autora:</label>
-    <div class="otroAutor">
-        <input type="text" name="autor" id="otroAutor" placeholder="Nombre y apellido del autor" class="control" value="<%= locals.old && locals.old.autor? old.autor: null%>">
-    </div>
-    <div class="error">
-              <!-- Posibles errores -->
-                <span 
-                  ><%= locals.errores && locals.errores.autor ? errores.autor.msg :
-                  null %></span
-                >
-          </div>
-    </section>
-<section class="editorial">
-    <label for="editorial">Editorial:</label>
-    <div class="otraEditorial">
-        <input type="text" name="editorial" id="OtraEditorial" placeholder="Ej: Planeta" class="control" value="<%= locals.old && locals.old.editorial? old.editorial: null%>">
-    </div>
-    <div class="error">
-              <!-- Posibles errores -->
-                <span 
-                  ><%= locals.errores && locals.errores.editorial ? errores.editorial.msg :
-                  null %></span
-                >
-          </div>
-</section>
-<section class="genero">
-    <label for="genero">Género</label>
-    <div class="otroGenero">
-        <input type="text" name="genero" id="otroGenero" placeholder="Ej: Fantasía" class="control" value="<%= locals.old && locals.old.genero? old.genero: null%>">
-    </div>
-    <div class="error">
-            <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.genero ? errores.genero.msg :
-                null %></span>
-        </div>
-</section>
-<div class="container-grid">
-<div class="precio">
-    <label for="precio">Precio $:</label>
-    <input type="number" name="precio" id="precio" class="con-grid" placeholder="Sólo números" value="<%= locals.old && locals.old.precio? old.precio: null%>">
-    <div class="error">
-              <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.precio ? errores.precio.msg :
-                  null %></span>
-          </div>
-</div>
-<div class="paginas">
-    <label for="paginas">Páginas:</label>
-    <input type="number" name="paginas" id="paginas" class="con-grid" placeholder="Sólo números" value="<%= locals.old && locals.old.paginas? old.paginas: null%>">
-    <div class="error">
-              <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.paginas ? errores.paginas.msg :
-                  null %></span>
-          </div>
-</div>
-<div class="estrellas">
-    <label for="estrellas">Estrellas:</label>
-    <input type="text" name="estrellas" id="estrellas" class="con-grid" placeholder="N° de estrellas" value="<%= locals.old && locals.old.estrellas? old.estrellas: null%>">
-    <div class="error">
-              <!-- Posibles errores -->
-                <span 
-                  ><%= locals.errores && locals.errores.estrellas ? errores.estrellas.msg :
-                  null %></span
-                >
-          </div>
-  </div>
-</div>
-<div class="sinopsis">
-  <label for="critica">Crítica:</label>
-  <textarea  type="text" name="slogan" id="critica" placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: null%></textarea>
-  <div class="error">
-              <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.slogan ? errores.slogan.msg :
-                  null %></span>
-          </div>
-</div>
-<div class="portada">
-  <label for="portada">Imagen de portada:</label>
-  <input  class="file" type="file" name="portada" id="portada" value="<%= locals.old && locals.old.portada? old.portada: null%>">
-  <div class="error">
-<span ><%= locals.errores && locals.errores.portada ? errores.portada.msg : null %></span>
-</div>
-  </div>
+            <section class="categoria">
+              <label for="categoria">Categoría:</label>
+              <select name="categoria" id="categoria">
+                <option value="" hidden selected>Seleccione la categoria</option>
+                <option value="recomendados">Recomendados</option>
+                <option value="novedades">Novedades</option>
+                <option value="mas-vendidos">Más vendidos</option>
+              </select>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.categoria ? errores.categoria.msg : null %>
+                </span>
+              </div>
+            </section>
+            <section class="autor">
+              <label for="autor">Autor/Autora:</label>
+              <div class="otroAutor">
+                <input type="text" name="autor" id="otroAutor" placeholder="Nombre y apellido del autor" class="control"
+                  value="<%= locals.old && locals.old.autor? old.autor: null%>">
+              </div>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.autor ? errores.autor.msg : null %>
+                </span>
+              </div>
+            </section>
+            <section class="editorial">
+              <label for="editorial">Editorial:</label>
+              <div class="otraEditorial">
+                <input type="text" name="editorial" id="OtraEditorial" placeholder="Ej: Planeta" class="control"
+                  value="<%= locals.old && locals.old.editorial? old.editorial: null%>">
+              </div>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.editorial ? errores.editorial.msg : null %>
+                </span>
+              </div>
+            </section>
+            <section class="genero">
+              <label for="genero">Género</label>
+              <div class="otroGenero">
+                <input type="text" name="genero" id="otroGenero" placeholder="Ej: Fantasía" class="control"
+                  value="<%= locals.old && locals.old.genero? old.genero: null%>">
+              </div>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.genero ? errores.genero.msg : null %>
+                </span>
+              </div>
+            </section>
+            <div class="container-grid">
+              <div class="precio">
+                <label for="precio">Precio $:</label>
+                <input type="number" name="precio" id="precio" class="con-grid" placeholder="Sólo números"
+                  value="<%= locals.old && locals.old.precio? old.precio: null%>">
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.precio ? errores.precio.msg : null %>
+                  </span>
+                </div>
+              </div>
+              <div class="paginas">
+                <label for="paginas">Páginas:</label>
+                <input type="number" name="paginas" id="paginas" class="con-grid" placeholder="Sólo números"
+                  value="<%= locals.old && locals.old.paginas? old.paginas: null%>">
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.paginas ? errores.paginas.msg : null %>
+                  </span>
+                </div>
+              </div>
+              <div class="estrellas">
+                <label for="estrellas">Estrellas:</label>
+                <input type="text" name="estrellas" id="estrellas" class="con-grid" placeholder="N° de estrellas"
+                  value="<%= locals.old && locals.old.estrellas? old.estrellas: null%>">
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.estrellas ? errores.estrellas.msg : null %>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="sinopsis">
+              <label for="critica">Crítica:</label>
+              <textarea type="text" name="slogan" id="critica"
+                placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: null%></textarea>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.slogan ? errores.slogan.msg : null %>
+                </span>
+              </div>
+            </div>
+            <div class="portada">
+              <label for="portada">Imagen de portada:</label>
+              <input class="file" type="file" name="portada" id="portada">
+              <div class="error">
+                <span>
+                  <%= locals.errores && errores.portada ? errores.portada.msg : null %>
+                </span>
+              </div>
+            </div>
 
-<div class="sinopsis">
-  <label for="sinopsis">Sinopsis:</label>
-  <textarea  type="text" name="sinopsis" id="sinopsis"  placeholder="Breve sinopsis" cols="30" rows="10"><%= locals.old && locals.old.sinopsis? old.sinopsis: null%></textarea>
-  <div class="error">
-        <!-- Posibles errores -->
-    <span><%= locals.errores && locals.errores.sinopsis ? errores.sinopsis.msg : null %></span>
-          </div>
-</div>
-<p>*Todos los campos son obligatorios</p>
-<!--BOTONES-->
-<section class="botones d-grid gap-2 d-md-block">
-    <button type="submit" class="btn-guardar">AGREGAR</button>
-    <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR</a>
-</section>
-  </form>  
-</div>
-    </main>
-    <!-- ----scripts ----->
-<%-include('../partials/scripts') %> 
-<!-- ----scripts---- -->
-</body>
+            <div class="sinopsis">
+              <label for="sinopsis">Sinopsis:</label>
+              <textarea type="text" name="sinopsis" id="sinopsis" placeholder="Breve sinopsis" cols="30"
+                rows="10"><%= locals.old && locals.old.sinopsis ? old.sinopsis: null%></textarea>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.sinopsis ? errores.sinopsis.msg : null %>
+                </span>
+              </div>
+            </div>
+            <p>*Todos los campos son obligatorios</p>
+            <!--BOTONES-->
+            <section class="botones d-grid gap-2 d-md-block">
+              <button type="submit" class="btn-guardar">AGREGAR</button>
+              <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR</a>
+            </section>
+          </form>
+        </div>
+      </main>
+      <!-- ----scripts ----->
+      <%-include('../partials/scripts') %>
+        <!-- ----scripts---- -->
+  </body>
+
 </html>

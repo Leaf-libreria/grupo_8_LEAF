@@ -98,5 +98,14 @@
     "apellido": "Andrada",
     "category": "user",
     "nickName": "fosi"
+  },
+  {
+    "id": 12,
+    "email": "antoespinola55@gmail.com",
+    "password": "$2a$10$NkTCPHyfaprctjVO3YomouIderjtmf3b3HU5EAgSE1i7nnI5CxI8K",
+    "nombre": "Antonela",
+    "apellido": "Espinola",
+    "category": "user",
+    "nickName": "anto"
   }
 ]

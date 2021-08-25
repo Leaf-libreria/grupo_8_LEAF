@@ -3,8 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const methodOverride = require("method-override");
+var methodOverride = require("method-override");
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
+
+const cookieCheck = require('./middlewares/cookieCheck');
+const localsUserCheck = require('./middlewares/localUserCheck');
 
 var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/usersRoute');
@@ -22,6 +27,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
+
+
+
+app.use(session({
+  secret : "Leaf",
+}));
+
+
+app.use(cookieCheck);
+app.use(localsUserCheck);
+
 
 app.use(methodOverride('_method'));
 app.use('/', indexRouter);
