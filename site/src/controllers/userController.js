@@ -13,17 +13,19 @@ module.exports = {
        
     loginUsuario:(req,res)=>{
         let errors = validationResult(req);
-        let { email } = req.body;
+        let { email, recordar } = req.body;
         if (errors.isEmpty()) {
             let user = users.find(user => user.email === email);
             console.log(user);
             req.session.userLogin = {
                 id : user.id,
                 nombre : user.nombre,
-                 category: user.rol,
+                 category: user.category,
               
             }
-
+            if(recordar){
+                res.cookie('Leaf',req.session.userLogin,{maxAge: 1000 * 60})
+            }
             return res.redirect('/');
 
         }else{

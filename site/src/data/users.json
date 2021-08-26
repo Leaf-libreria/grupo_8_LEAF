@@ -105,7 +105,7 @@
     "password": "$2a$10$NkTCPHyfaprctjVO3YomouIderjtmf3b3HU5EAgSE1i7nnI5CxI8K",
     "nombre": "Antonela",
     "apellido": "Espinola",
-    "category": "user",
+    "category": "Administrador",
     "nickName": "anto"
   }
 ]
