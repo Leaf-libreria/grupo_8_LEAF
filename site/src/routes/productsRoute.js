@@ -6,6 +6,8 @@ const addValidator = require('../validations/addProductValidator');
 const editValidator = require('../validations/editProductValidator');
 //middleware acceso administrador
 const administradorMw= require('../middlewares/adminUserCheck')
+//middleware acceso usuarios logueados
+const logueados=require('../middlewares/loggedUser')
 
 //Multer
 const multer = require('multer');
@@ -73,8 +75,8 @@ router.get('/editar/:id',administradorMw, editarProducto);
 router.put('/editar/:id', upload.single('portada'),editValidator, actualizarProducto);
 router.delete('/delete/:id', borrar);
 //Carrito y formulario de pago
-router.get('/carrito', carrito);
-router.get('/pago', pago);
+router.get('/carrito',logueados, carrito);
+router.get('/pago',logueados, pago);
 // rutas de generos
 router.get('/misterio', misterio);
 router.get('/terror', terror);

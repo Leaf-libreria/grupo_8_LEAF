@@ -60,8 +60,13 @@ cerrarSesion : (req,res) => {
             console.log(req.body)
             users.push(usuario);
             guardar(users);
-            return res.redirect('/users/perfil/:id');
+            return res.redirect('/perfil/:id');
             }else{
+                if (req.file) { //Para no guardar la imagen si hay errores
+                let deleteImage = path.join(
+                    __dirname, '../../public/images/'+req.file.filename);
+                fs.unlinkSync(deleteImage);
+                }
                 return res.render('./users/register', {
                   errores: errors.mapped(),
                   old: req.body,

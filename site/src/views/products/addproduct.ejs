@@ -82,22 +82,7 @@
                   null %></span
                 >
           </div>
-            </section>
-            <section class="categoria">
-              <label for="categoria">Categoría:</label>
-              <select name="categoria" id="categoria">
-                <option value="" hidden selected>Seleccione la categoria</option>
-                <option value="recomendados">Recomendados</option>
-                <option value="novedades">Novedades</option>
-                <option value="mas-vendidos">Más vendidos</option>
-              </select>
-              <div class="error">
-                <!-- Posibles errores -->
-                <span>
-                  <%= locals.errores && locals.errores.categoria ? errores.categoria.msg : null %>
-                </span>
-              </div>
-            </section>
+        </section>
             <section class="autor">
               <label for="autor">Autor/Autora:</label>
               <div class="otroAutor">
@@ -116,12 +101,13 @@
               <div class="otraEditorial">
                 <input type="text" name="editorial" id="OtraEditorial" placeholder="Ej: Planeta" class="control"
                   value="<%= locals.old && locals.old.editorial? old.editorial: null%>">
-              </div>
+              
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
                   <%= locals.errores && locals.errores.editorial ? errores.editorial.msg : null %>
                 </span>
+              </div>
               </div>
             </section>
             <section class="genero">
