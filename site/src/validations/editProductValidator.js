@@ -37,16 +37,12 @@ module.exports = [
   body('slogan')
     .notEmpty()
     .withMessage('Campo obligatorio')
-    .isEmpty()
-    .withMessage('Campo obligatorio')
     .isLength({ min: 1 })
     .withMessage('Campo obligatorio.'),
   check('sinopsis')
     .notEmpty()
     .withMessage('Campo obligatorio')
     .isLength({ min: 1})
-    .withMessage('Campo obligatorio')
-    .isEmpty()
     .withMessage('Campo obligatorio'),
 ];
 
