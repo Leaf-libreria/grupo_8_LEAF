@@ -55,6 +55,7 @@ cerrarSesion : (req,res) => {
                 apellido : req.body.apellido.trim(),
                 category : "user",
                 nickName : req.body.nickName ? req.body.nickName.trim() : null,
+                image : req.file ? req.file.filename : 'profile-users-default.png'
             }
             console.log(req.body)
             users.push(usuario);
