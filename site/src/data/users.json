@@ -107,5 +107,14 @@
     "apellido": "Espinola",
     "category": "user",
     "nickName": "anto"
+  },
+  {
+    "id": 13,
+    "email": "lore_cb15@outlook.com",
+    "password": "$2a$10$ib75OShnEnEyHXUqXtpgae8yL8rCq6Ld1MQFSg44zYxObYWty2MO.",
+    "nombre": "Lorena",
+    "apellido": "Cohene",
+    "category": "user",
+    "nickName": "Lorenita"
   }
 ]

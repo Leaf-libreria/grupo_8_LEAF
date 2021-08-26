@@ -20,7 +20,7 @@ module.exports = {
             req.session.userLogin = {
                 id : user.id,
                 nombre : user.nombre,
-                 category: user.rol,
+                 category: user.category,
               
             }
 
@@ -59,7 +59,7 @@ cerrarSesion : (req,res) => {
             console.log(req.body)
             users.push(usuario);
             guardar(users);
-            return res.redirect('/perfil/:id');
+            return res.redirect('/users/perfil/:id');
             }else{
                 return res.render('./users/register', {
                   errores: errors.mapped(),

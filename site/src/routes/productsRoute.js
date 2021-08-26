@@ -4,6 +4,8 @@ const path = require('path');
 //Validaciones para CRUD productos
 const addValidator = require('../validations/addProductValidator');
 const editValidator = require('../validations/editProductValidator');
+//middleware acceso administrador
+const administradorMw= require('../middlewares/adminUserCheck')
 
 //Multer
 const multer = require('multer');
@@ -58,16 +60,16 @@ router.get('/masVendidos', verMasVendidos);
 router.get('/masNovedades', verMasNovedades);
 router.get('/masRecomendados', verMasRecomendados);
 router.get('/detalle/:id', detail);
-router.get('/administrador', administrador);
+router.get('/administrador', administradorMw, administrador);
 // Carga de productos CRUD
-router.get('/agregar', addProducto);
+router.get('/agregar', administradorMw, addProducto);
 router.post(
   '/agregar',
   upload.single('portada'),
   addValidator,
   agregarProducto
 );
-router.get('/editar/:id', editarProducto);
+router.get('/editar/:id',administradorMw, editarProducto);
 router.put('/editar/:id', upload.single('portada'),editValidator, actualizarProducto);
 router.delete('/delete/:id', borrar);
 //Carrito y formulario de pago
