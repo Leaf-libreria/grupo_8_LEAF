@@ -81,6 +81,14 @@
               >
             </div>
 
+              <!-- recordarme -->
+
+              <div class="d-flex justify-content-end">
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
+                    <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                  </div>
+            </div>
             <!-- Posible error -->
             <span class="text-danger small"><%= locals.errores && locals.errores.password ? errores.password.msg :
               null %></span>

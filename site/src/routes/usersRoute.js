@@ -3,7 +3,7 @@ var router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
-const {login, crearRegistro, registro, perfil, editarPerfil, loginUsuario} = require("../controllers/userController")
+const {login, crearRegistro, registro, perfil, editarPerfil, loginUsuario, cerrarSesion} = require("../controllers/userController")
 const loginValidator=require('../validations/loginValidator');
 const registerValidator=require('../validations/registerValidator');
 
@@ -30,4 +30,5 @@ router.get("/register", registro);
 router.post("/register", upload.single('image'), registerValidator, crearRegistro);
 router.get('/perfil/:id', perfil);
 router.get('/editarPerfil/:id', editarPerfil)
+router.get('/logout',cerrarSesion);
 module.exports = router;
