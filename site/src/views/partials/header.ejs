@@ -17,22 +17,54 @@
         </li>
       </ul>
       <!-- mi cuenta -->
-      <div class="login">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-user"></i>
-            <p>Mi cuenta</p>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
-            <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
-            <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
-          </ul>
+      <% if (locals.userLogin) { %>
+        <% if (locals.userLogin.category === "Administrador") { %>
+          <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
+        <% } else{%>
+
+          <div class="login">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+               <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
+                <p><%= locals.userLogin.nombre %></p>
+              </button>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li> <a class="dropdown-item" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil  </a></li>
+                <li> <a class="dropdown-item" href="/users/logout">cerrar sesión</a></li>
+              
+              </ul>
+            </div>
+          </div>
+
+       <% }%>
+       <% }else{ %>
+        <!-- mi cuenta -->
+        <div class="login">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i>
+              <p>Mi cuenta</p>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
+        <% } %>
+         
     </nav>
     <!-- seccion inferior del header -->
+
+
+
+
+
+
+
     <nav class="header2">
   
     
@@ -105,22 +137,11 @@
         </li>
       </div> -->
 
-     <% if (locals.userLogin) { %>
-        <% if (locals.userLogin.category === "Administrador") { %>
-          <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
-
-        <% } else{%>
+  
  
-            
-          <li class="nav-item">
-            <a class="nav-link" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil <%= locals.userLogin.nombre %> </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/logout">cerrar sesión</a>
-          </li>
-       <% }%>
+          
       
-      <% }else{ %>
+    
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
           <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
@@ -128,7 +149,7 @@
       </div>
     </div>
     </li>
-          <% } %>
+         
     </ul>
   </div>
 </div> 

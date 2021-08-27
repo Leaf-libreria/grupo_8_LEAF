@@ -21,6 +21,7 @@ module.exports = {
                 id : user.id,
                 nombre : user.nombre,
                  category: user.category,
+                 image: user.image,
               
             }
             if(recordar){

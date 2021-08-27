@@ -105,7 +105,17 @@
     "password": "$2a$10$NkTCPHyfaprctjVO3YomouIderjtmf3b3HU5EAgSE1i7nnI5CxI8K",
     "nombre": "Antonela",
     "apellido": "Espinola",
-    "category": "Administrador",
+    "category": "admin",
     "nickName": "anto"
+  },
+  {
+    "id": 13,
+    "email": "jml_dcj_92@hotmail.com",
+    "password": "$2a$10$1ZmXuuZSp9IxUokojUsUXOu24Bu7bzIdP5MGSdX9Ic9o7VVEQP6em",
+    "nombre": "Juan",
+    "apellido": "Luque",
+    "category": "user",
+    "nickName": "JML",
+    "image": "user_1.jpg"
   }
 ]
