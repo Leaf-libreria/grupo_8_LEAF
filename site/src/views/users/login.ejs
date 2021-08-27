@@ -60,6 +60,7 @@
             <div class="ingresar">
               <label for="email">Correo electrónico</label
               ><input
+              class="datos"
                 type="email"
                 name="email"
                 id="email"
@@ -74,6 +75,7 @@
             <div class="password">
               <label for="password">Ingresar contraseña</label
               ><input
+              class="datos"
                 type="password"
                 name="password"
                 id="password"
@@ -89,6 +91,8 @@
                     <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                   </div>
             </div>
+
+           
             <!-- Posible error -->
             <span class="text-danger small"><%= locals.errores && locals.errores.password ? errores.password.msg :
               null %></span>

@@ -3,11 +3,14 @@
 /*seccion superior del header*/
 header {
   width: 100%;
-  display: flex;
-  background-color: var(--color-amarillo);
+  background-color: var(--color-amarillo) ;
   color: var(--color-bordo);
 }
 
+.bg-light{
+  background-color: var(--color-amarillo) !important;
+
+}
 header .header1 {
   display: none;
 }
@@ -21,11 +24,35 @@ header .header2 {
 }
 
 header .header2 .contenedorLogo img {
-  width: 25%;
+width: 50px;
 }
 
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link {
+  color: var(--color-bordo);
+}
 header .navbar-brand{
   width: 10px;
+}
+
+/* imagen de perfil */
+header .header2  .img-perfil img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.login .btn{
+  display: flex;
+align-items: center;
+border-bottom: 1px solid var(--color-bordo);
+}
+.login .btn  p{
+  margin-top: 10px ; 
+  margin-right: 5px;
+  margin-bottom: 0;
+}
+.login .btn  img{
+  margin-top: -5px ; 
+  margin-right: 5px;
 }
 /* header .header2 .categorias {
   display: none;
@@ -50,22 +77,42 @@ header .header2 .carrito p {
 }
 header .header2 .contenedorLogo {
   justify-content: flex-start;
-  margin-left: 3.5%;
+}
+
+/* listas de navbar */
+.navbar-collapse{
+  margin-top: 20px;
 }
 .header2 .buscador i,
 .header2 .carrito {
-  margin: 8px;
+
   padding: 2px 4px;
+}
+/* buscador */
+header .me-2 {
+  padding: 3px 10px;
+  margin-right: 0px !important;
+}
+header .buscador .btn{
+  background-color: white;
+  border-color:transparent;
+  background-color: transparent;
+  position: relative;
+  right: 40px;
 }
 
 .header2 .carrito {
   order: 1;
   border: none;
+  margin-top: 10px;
   background-color: transparent;
+  display: flex;
 }
 
 .header2 .carrito i {
   color: var(--color-bordo);
+ 
+  margin-right: 10px;
 }
 
 .header2 .navbar-expand-lg {
@@ -106,6 +153,13 @@ header .header2 .contenedorLogo {
     background-color: var(--color-bordo);
     color: var(--color-amarillo);
   }
+  /* imagen de perfil */
+  header .header1 .img-perfil img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
   header .header1 .redes {
     display: flex;
     flex-direction: row;
@@ -173,12 +227,9 @@ header .header2 .contenedorLogo {
     color: var(--color-bordo);
   }
 
-  header .header2 .buscador form {
-    display: flex;
-    align-items: center;
-  }
+  
   header .header2 .buscador select,
-  header .header2 .buscador i {
+  header .header2  {
     border: none;
     background-color: var(--color-bordo);
     padding: none;
@@ -207,7 +258,7 @@ header .header2 .contenedorLogo {
     align-items: center;
   }
   header .header2 .carrito p {
-    background-color: gray;
+ 
     color: var(--color-amarillo);
     font-size: 17.9px;
     margin-top: 15.5px;
@@ -235,4 +286,19 @@ header .header2 .contenedorLogo {
 
 /*Desktop*/
 @media (min-width: 769px) {
+  /* parte inferior del header */
+  .header2 .collapse {
+    margin-left: 30px;
+  }
+  .header2 .collapse ul {
+   align-items: center;
+  }
+  .header2 .collapse li{
+    margin-left: 30px;
+    align-items: flex-end;
+  } 
+.header2 .carrito{
+  margin-left: -20px;
+  margin-top: -2px;
+}
 }

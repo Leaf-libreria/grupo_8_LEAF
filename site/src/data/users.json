@@ -1,11 +1,13 @@
-[  {
+[
+  {
     "id": 1,
     "email": "antoespinola55@gmail.com",
     "password": "$2a$10$NkTCPHyfaprctjVO3YomouIderjtmf3b3HU5EAgSE1i7nnI5CxI8K",
     "nombre": "Antonela",
     "apellido": "Espinola",
-    "category": "Administrador",
-    "nickName": "anto"
+    "category": "admin",
+    "nickName": "anto",
+    "image": "profile-users-default.png"
   },
   {
     "id": 2,
@@ -14,7 +16,8 @@
     "nombre": "Lorena",
     "apellido": "Cohene",
     "category": "user",
-    "nickName": "Lorenita"
+    "nickName": "JML",
+    "image": "user_1.jpg"
   },
   {
     "id": 3,
@@ -23,7 +26,8 @@
     "nombre": "Admin",
     "apellido": "Istrador",
     "category": "admin",
-    "nickName": "admin"
+    "nickName": "Administrador",
+    "image": "profile-users-default.png"
   },
   {
     "id": 4,
@@ -66,16 +70,6 @@
     "image": "image-1629944981970.png"
   },
   {
-    "id": 8,
-    "email": "scuderi.f@hotmail.com",
-    "password": "$2a$10$66scHOafZcYa1X/kM16HP.DQG0j4PSXv5WrMNkqHYOxiaGB4Rsl8y",
-    "nombre": "Fernando Alan",
-    "apellido": "Scuderi",
-    "category": "user",
-    "nickName": "FerScu1991",
-    "image": "image-1630034838492.jpg"
-  },
-  {
     "id": 9,
     "email": "cinthia.agustina@hotmail.com",
     "password": "$2a$10$QsdYtqn/QDV/wF9DsyNc2OvHL28FOuJQUyT0wPIdZbO2xKIEP5fMm",
@@ -84,5 +78,15 @@
     "category": "user",
     "nickName": "cinagus",
     "image": "profile-users-default.png"
+  },
+  {
+    "id": 10,
+    "email": "scuderi.f@hotmail.com",
+    "password": "$2a$10$ropKad1b/Nan3KQ6iIYd9epu4YpPPTDlxkLs4wL7RAg9YEoxARclS",
+    "nombre": "Fernando",
+    "apellido": "Scuderi",
+    "category": "user",
+    "nickName": "FerScu",
+    "image": "image-1630043062912.png"
   }
 ]

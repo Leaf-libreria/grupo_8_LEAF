@@ -21,6 +21,7 @@ module.exports = {
                 id : user.id,
                 nombre : user.nombre,
                  category: user.category,
+                 image: user.image,
               
             }
             if(recordar){
@@ -91,10 +92,10 @@ cerrarSesion : (req,res) => {
         });
     },
     editarPerfil: (req, res) => {
-        let userEdit = users.find((user) => user.id === +req.params.id);
+        let user = users.find((user) => user.id === +req.params.id);
         return res.render("./users/editPerfil", {
-            title: "Editando perfil " + userEdit.first_name,
-            userEdit,
+            title: "Editando perfil " + users.nombre,
+            user,
         });
     },
 
@@ -102,7 +103,7 @@ cerrarSesion : (req,res) => {
         let errors = validationResult(req);
 
         if (errors.isEmpty() ) {
-            let usuarioEncontrado = users.find(user => user.id === +req.params.id)
+            let user = users.find(user => user.id === +req.params.id)
 
             let usuarioEditado = {
                 id : +req.params.id,
@@ -111,14 +112,15 @@ cerrarSesion : (req,res) => {
                 nombre : req.body.nombre.trim(),
                 apellido : req.body.apellido.trim(),
                 category : "user",
-                nickName : req.body.nickName ? req.body.nickName.trim() : usuarioEncontrado.nickName,
-                image : req.file ? req.file.filename : usuarioEncontrado.image,
+                nickName : req.body.nickName ? req.body.nickName.trim() : user.nickName,
+                image : req.file ? req.file.filename : user.image,
             }
             let userEncontrado = users.map(user => user.id === +req.params.id ? usuarioEditado : user)
             users.push(usuarioEditado);
             guardar(userEncontrado);
             return res.redirect('/');
             }else{
+                let user = users.find(user => user.id === +req.params.id)
                 if (req.file) { //Para no guardar la imagen si hay errores
                 let deleteImage = path.join(
                     __dirname, '../../public/images/'+req.file.filename);
@@ -129,8 +131,21 @@ cerrarSesion : (req,res) => {
                   old: req.body,
                   title: 'LEAF | Registro',
                   users,
+                  user,
+
                 });
         }
     },
-    }
+    actualizarImagen : (req, res) => {
+        let usuarioEditado = {
+            id : +req.params.id,
+            image : req.file ? req.file.filename : user.image,
+        }
+        let userEncontrado = users.map(user => user.id === +req.params.id ? usuarioEditado : user)
+        users.push(usuarioEditado);
+        guardar(userEncontrado);
+        return res.redirect('/');
+        }
+            }
+    
 
