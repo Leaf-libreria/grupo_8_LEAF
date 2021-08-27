@@ -24,15 +24,18 @@ header .header2 .contenedorLogo img {
   width: 25%;
 }
 
-header .header2 .categorias {
-  display: none;
+header .navbar-brand{
+  width: 10px;
 }
+/* header .header2 .categorias {
+  display: none;
+} */
 
-header .header2 .buscador select,
+/* header .header2 .buscador select,
 header .header2 .buscador input,
 header .header2 .carrito p {
   display: none;
-}
+} */
 
 /* buscador */
 .btn-outline-light {
@@ -65,13 +68,11 @@ header .header2 .contenedorLogo {
   color: var(--color-bordo);
 }
 
-.header2 .burger-menu {
+.header2 .navbar-expand-lg {
   order: 3;
-  background-color: var(--color-bordo);
-  color: var(--color-amarillo);
+  background-color: transparent !important;
   border-radius: 8%;
-  margin: 8px;
-  padding: 0 4px;
+
 }
 .header2 .buscador i {
   order: 0;

@@ -3,7 +3,7 @@ const path = require("path");
 let { productos, guardar } = require("../data/product_db");
 const costoEnvio = require("../data/envios-costo");
 const generos = require('../data/generos_db');
-
+const { validationResult } = require('express-validator');
 
 module.exports = {
   libros: (req, res) => {
@@ -23,10 +23,19 @@ module.exports = {
     });
   },
 
-  verMas: (req, res) => {
-    return res.render("verMas", { title: "LEAF | Libros", productos, generos },
-     );
+  verMasVendidos: (req, res) => {
+    return res.render("verMasVendidos", { title: "LEAF | Más vendidos", productos, generos, masVendidos : productos.filter(producto => producto.categoria === "Mas vendidos")},
+  );
+  },
 
+  verMasNovedades: (req, res) => {
+    return res.render("verMasNovedades", { title: "LEAF | Más novedades", productos, generos, masNovedades : productos.filter(producto => producto.categoria === "Novedades")},
+    );
+  },
+
+  verMasRecomendados: (req, res) => {
+    return res.render("verMasRecomendados", { title: "LEAF | Más recomendados", productos, generos, masRecomendados : productos.filter(producto => producto.categoria === "Recomendados")},
+    );
   },
 
   detail: (req,res) => {
@@ -34,11 +43,8 @@ module.exports = {
 
     let genero = producto.genero
     let idActual = producto.id
-    let recomendados = productos.filter(producto => producto.genero === genero && producto.id != idActual).splice(0,3)
+    let recomendados = productos.filter(producto => producto.genero === genero && producto.id != idActual).splice(0, 3)
 
-
-
-    
     return res.render("./products/productDetail",{
         title: 'LEAF | Detalle',
         producto,
@@ -54,8 +60,8 @@ module.exports = {
     }); //Lista todos los productos
   },
 
-   editarProducto: (req, res) => {
-     
+  editarProducto: (req, res) => {
+    
     let productEdit = productos.find(productEdit => productEdit.id === +req.params.id);
     return res.render("./products/editProduct", {
       title: 'Editando ' + productEdit.titulo,
@@ -66,64 +72,90 @@ module.exports = {
   },
 
   actualizarProducto: (req, res) => {
+let productEdit = productos.find(
+  (productEdit) => productEdit.id === +req.params.id
+);
+let errors = validationResult(req);
+    if (errors.isEmpty()) {
 
-   const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
+      const { titulo, autor, precio, categoria, genero, sinopsis, slogan, estrellas, editorial, isbn, paginas, idioma, formato, stock } = req.body;
     
 
-   let productoEditado = productos.find(producto=> producto.id === +req.params.id);
+      let productoEditado = productos.find(producto => producto.id === +req.params.id);
 
-     productoEditado.titulo =titulo;
-     productoEditado.autor = autor;
-     productoEditado.precio =+precio;
-     productoEditado.categoria = categoria;
-     productoEditado.genero = genero,
-     productoEditado.sinopsis = sinopsis,
-     productoEditado.slogan = slogan,
-     productoEditado.estrellas =+estrellas,
-     productoEditado.editorial = editorial,
-     productoEditado.isbn = +isbn,
-     productoEditado.paginas = +paginas,
-     productoEditado.idioma = idioma,
-     productoEditado.formato = formato,
-     productoEditado.portada = req.file ? req.file.filename : productoEditado.portada
-   
-   let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
+      productoEditado.titulo = titulo.trim();
+      productoEditado.autor = autor.trim();
+      productoEditado.precio = +precio.trim();
+      productoEditado.categoria = categoria;
+      productoEditado.genero = genero.trim(),
+      productoEditado.sinopsis = sinopsis.trim(),
+      productoEditado.slogan = slogan.trim(),
+      productoEditado.estrellas = +estrellas.trim(),
+      productoEditado.editorial = editorial.trim(),
+      productoEditado.isbn = +isbn.trim(),
+      productoEditado.paginas = +paginas.trim(),
+      productoEditado.idioma = idioma,
+      productoEditado.formato = formato,
+      productoEditado.stock = +stock.trim(),
+      productoEditado.portada = req.file ? req.file.filename : productoEditado.portada
+  
+      let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
 
-    guardar(productosModificados)
-    return res.redirect('/products/administrador')
+      guardar(productosModificados)
+      return res.redirect('/products/administrador')
+    } else {
+      return res.render('./products/editProduct', {
+        productos,
+        generos,
+        errores: errors.mapped(),
+        old: req.body,
+        productEdit,
+        title: 'LEAF | Administrador',
+      });
+    }
   },
   addProducto: (req,res) =>{
-    return res.render("./products/addProduct", {
-      title: "LEAF | Administrador",
+    return res.render('./products/addProduct', {
+      title: 'LEAF | Administrador',
       generos,
+      productos,
     });
   },
   agregarProducto: (req, res) => {
+let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      const { titulo, autor, precio, categoria, genero, sinopsis, slogan, estrellas, editorial, isbn, paginas, idioma, formato, stock} = req.body;
 
-    const {titulo,autor,precio,categoria,genero,sinopsis,slogan,estrellas,editorial,isbn,paginas,idioma,formato} = req.body;
-
-    let product = {
-      id : (productos[productos.length-1].id +1),
-      titulo,
-      autor,
-      precio:+precio,
-      categoria,
-      genero,
-      sinopsis,
-      slogan,
-      estrellas:+estrellas,
-      editorial,
-      isbn:+isbn,
-      paginas:+paginas,
-      idioma,
-      formato,
-      portada : req.file ? req.files.filename : 'default-image.png',
+      let product = {
+        id: (productos[productos.length - 1].id + 1),
+        titulo,
+        autor,
+        precio: +precio,
+        categoria,
+        genero,
+        sinopsis,
+        slogan,
+        estrellas: +estrellas,
+        editorial,
+        isbn: +isbn,
+        paginas: +paginas,
+        idioma,
+        formato,
+        stock: +stock,
+        portada : req.file ? req.file.filename : 'default-image.png'
+      }
+      productos.push(product);
+      guardar(productos)
+      return res.redirect('/products/administrador');
+    } else {
+      return res.render('./products/addProduct', {
+        productos,
+        generos,
+        errores: errors.mapped(),
+        old: req.body,
+        title: "LEAF | Administrador",
+      });
     }
-
-    productos.push(product);
-   guardar(productos)
-    return res.redirect('/products/administrador',);
-
   },
   borrar: (req,res) => {
     productos = productos.filter(producto => producto.id !== +req.params.id);
@@ -134,7 +166,6 @@ module.exports = {
 
   carrito: (req, res) => {
     return res.render("./products/productCart", { title: "LEAF | Carrito",  generos,},
-     
     );
   },
 

@@ -42,7 +42,56 @@
   color: gray;
   margin: 22px;
 }
-/*-----FORMULARIO-----*/
+/* VISTA ADMINISTRADOR */
+
+/* Botones de agregar producto */
+.admin-btn-agregar {
+  font-family: var(--letra-cuerpo);
+  text-align: center;
+  font-weight: 600;
+  border-radius: 7px;
+  margin: 20px 40px;
+}
+
+.admin-btn-agregar:hover {
+  font-size: 20px;
+  font-weight: 800;
+}
+/* Botones ir arriba/abajo */
+.admin-dcha{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}  
+.admin-btn-flotante{
+	font-size: 12px; 
+  font-weight: 300;
+	color: rgba(128, 128, 128, 0.897);
+	border-radius: 50%;
+	padding: 0.5%;
+  background-color: rgba(128, 128, 128, 0.096);
+  margin-right: 20px;
+  margin-top: 0;
+}
+.admin-btn-flotante:hover {
+	font-size: 14px;
+  color: gray;
+  border: solid 1px gray;
+}
+/* Botones de editar y eliminar */
+.admin-btn-editar:hover {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.admin-btn-eliminar:hover {
+  font-size: 20px;
+  font-weight: 800;
+  color: red;
+  background-color: #fff;
+}
+/*-----FORMULARIOS AGREGAR Y EDITAR PRODUCTOS (ADMIN)-----*/
 .admin .administrador .formulario {
   background-color: rgba(245, 245, 245, 0.575);
   width: 90%;
@@ -64,17 +113,21 @@
   margin: 15px auto;
   display: block;
 }
+/* input file */
+.admin .administrador .formulario .file:not(textarea) {
+  font-size: 8px;
+  font-weight: 600;
+}
+.admin .administrador .formulario .form-control{
+  padding:0;
+  height: initial;
+}
 
 /*Inputs y text area*/
 .admin .administrador .formulario input::placeholder {
   color: var(--color-bordo);
   font-family: var(--letra-titulo);
   font-weight: 400;
-}
-/* input file */
-.admin .administrador .formulario .file:not(textarea) {
-  font-size: 8px;
-  font-weight: 600;
 }
 
 .admin .administrador .formulario input,
@@ -117,11 +170,14 @@
 }
 
 /*AVISO CAMPOS OBLIGATORIOS*/
-.admin .administrador p {
+.admin .administrador p,span {
   color: red;
   font-size: 14px;
   margin-bottom: 3%;
+  margin-left: 0;
 }
+
+
 
 /*BOTONES GUARDAR Y CANCELAR*/
 .admin .administrador .formulario .botones .btn-cancelar,
@@ -168,17 +224,17 @@
   .admin .administrador .formulario .container-grid-uno {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px
+    column-gap: 20px;
   }
-  .admin .administrador .formulario .container-grid-uno .grid{
+  .admin .administrador .formulario .container-grid-uno .grid {
     width: 38vh;
   }
   .admin .administrador .formulario .container-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px
+    column-gap: 20px;
   }
-  .admin .administrador .formulario .container-grid .con-grid{
+  .admin .administrador .formulario .container-grid .con-grid {
     width: 25vh;
   }
 }
@@ -206,12 +262,12 @@
     font-size: 18px;
   }
   /* inputs con grid */
-  
-  .admin .administrador .formulario .container-grid-uno .grid{
+
+  .admin .administrador .formulario .container-grid-uno .grid {
     width: 32vh;
   }
-  
-  .admin .administrador .formulario .container-grid .con-grid{
+
+  .admin .administrador .formulario .container-grid .con-grid {
     width: 21vh;
   }
 }

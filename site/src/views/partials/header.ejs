@@ -34,45 +34,65 @@
     </nav>
     <!-- seccion inferior del header -->
     <nav class="header2">
-      <div class="contenedorLogo">
-        <a href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
-      </div>
+  
+    
+         
+      
+        
       <!-- categorias -->
-      <ul class="categorias noResponsive">
-        <li><a class="noResponsive" href="/products/libros">Libros</a></li>
-        <li><a class="noResponsive" href="/products/ebooks">Ebooks</a></li>
-        <li>
-          <div class="dropdown ul-generos">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-             Generos
-            </button>
-            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-              <% generos.forEach(genero => { %>
-              <li><a class="dropdown-item" href="/products/<%=genero%>"><%=genero%></a></li>
-              <% }) %>
-            </ul>
+      <!-- -------- -->
+      <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="contenedorLogo">
+            <a  class="navbar-brand" href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
           </div>
-        </li>
-      </ul>
-      <div class="burger-menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- -------- -->
+           
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="noResponsive nav-link active" href="/products/libros">Libros</a></li>
+                <li class="nav-item"><a class="noResponsive nav-link" href="/products/ebooks">Ebooks</a></li>
+                <li class="nav-item">
+              <div class="dropdown ul-generos">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                 Generos
+                </button>
+                <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                  <% generos.forEach(genero => { %>
+                  <li><a class="dropdown-item" href="/products/<%=genero%>"><%=genero%></a></li>
+                  <% }) %>
+                </ul>
+              </div>
+            </li>
+          </ul>
+  
+   
+      <!-- <div class="burger-menu">
         <i class="fas fa-bars"></i>
       </div>
-      
+       -->
       <!-- buscador -->
+      <li class="nav-item">
       <div class="buscador">
-        <form action="/search" method="GET">
-          <input name="search"  type="search" placeholder="Buscar..." aria-label="Search">
+        <form action="/search" method="GET" class="d-flex">
+          <input  class="form-control me-2" name="search"  type="search" placeholder="Buscar..." aria-label="Search">
           <button class="btn btn-outline-light" type="submit" ><i class="fas fa-search"></i></button>
         </form>
       </div>
+    </li>
       <!-- carrito -->
+      <li class="nav-item">
       <button class="carrito noMovil">
         <a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a>
         <p>0</p>
       </button>
+      </li>
       <!-- mi cuenta -->
-      <div class="login">
-        <div class="dropdown">
+      <!-- <div class="login">
+        <li class="nav-item dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
             data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-user"></i>
@@ -82,7 +102,51 @@
             <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
             <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
           </ul>
-        </div>
+        </li>
+      </div> -->
+
+     <% if (locals.userLogin) { %>
+        <% if (locals.userLogin.category === "Administrador") { %>
+          <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
+
+        <% } else{%>
+ 
+            
+          <li class="nav-item">
+            <a class="nav-link" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil <%= locals.userLogin.nombre %> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/logout">cerrar sesión</a>
+          </li>
+       <% }%>
+      
+      <% }else{ %>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
+          <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
+        </ul>
       </div>
-  </nav>
+    </div>
+    </li>
+          <% } %>
+    </ul>
+  </div>
+</div> 
+
+      <li class="nav-item">
+      <div class="login">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </button>
+      
+           <!-- -------- -->
+          </div>
+          </div>
+      </div>
+       <!-- -------- -->
+ 
+</nav>
+
   </header>
