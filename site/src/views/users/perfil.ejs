@@ -45,22 +45,22 @@
             <main class="main-register perfil-main">
               
                     <a href="/" class="boton-home" ><i class="fas fa-angle-double-left"></i> Home</a>
-                    <h2 class="bienvenido-perfil">Bienvenido <%=usuarioPerfil.nickname%> </h2>
+                    <h2 class="bienvenido-perfil">Bienvenido <%=usuarioPerfil.nickName ? usuarioPerfil.nickName : usuarioPerfil.nombre%> </h2>
                 <div class="cont-perfil">
                     <!-- Posible error -->
                     <span></span> 
                     <!-- NICK -->
                     <div class="nombre">
                         <h5>NickName</h5>
-                        <p><%=usuarioPerfil.nickname%></p>
+                        <p><%=usuarioPerfil.nickName%></p>
                     </div> 
 
                     <div class="nombre"><h5>Nombre</h5>
-                        <p><%=usuarioPerfil.first_name%></p>
+                        <p><%=usuarioPerfil.nombre%></p>
                     </div>
 
                     <div class="apellido"><h5>Apellido</h5>
-                        <p><%=usuarioPerfil.last_name%></p>
+                        <p><%=usuarioPerfil.apellido%></p>
                     </div>
 
                     <div class="registro-correo"><h5>Correo electrónico</h5> 

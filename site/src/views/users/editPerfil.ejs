@@ -9,9 +9,9 @@
     <!-- Imagen de costado = tablet/desktop -->
     <section class="contenido-gral-register">
         <div class="imgcostado-register" style="width: 18rem;">
-            <img src="/images/<%=userEdit.image%>" class="card-img-top" alt="Logo de leaf">
+            <img src="/images/<%=users.image%>" class="card-img-top" alt="Logo de leaf">
             <div class="card-body">
-              <form  action="/users/editarPerfil/<%=userEdit.id%>?_method=PUT" id="fotoPerfilEditar" enctype="multipart/form-data">
+              <form  action="/users/editarPerfil/<%=users.id%>?_method=PUT" id="fotoPerfilEditar" enctype="multipart/form-data">
                 <label for="imagenPerfil" class="form-label">Cambiar imagen</label>
                 <input type="file" class="form-control" id="imagenPerfil" name="image" accept="image/*">
                 <button type="submit" class="editarPerfil">Guardar</button>
@@ -36,44 +36,44 @@
             </section>
 
             <main class="main-register perfil-main">
-                <form action="/users/editarPerfil/<%=userEdit.id%>?_method=PUT" method="POST" >
+                <form action="/users/editarPerfil/<%=users.id%>?_method=PUT" method="POST" novalidate>
                     <a href="/users/perfil"><i class="fas fa-angle-double-left"></i> Atras</a>
                     <h2  class="bienvenido-perfil">Editando perfil </h2>
 
-                    <!-- Posible error -->
-                    <span></span> 
+                  
 
                          <!-- NICK -->
                     <div class="nombre"><label for="nickName">NickName</label><input type="nickName" name="nickName" id="nickName"
-                        value="<%= userEdit.nickname %> ">
+                        value="<%= locals.old && locals.old.nickName ? old.nickName : users.nickName %> ">
+                        <span class="text-danger small"><%= locals.errores && locals.errores.nickName ? errores.nickName.msg :null %></span>
               
                     </div> 
                     <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="nombre" id="nombre"
-                        value="<%= userEdit.first_name %> ">
+                        value="<%= locals.old && locals.old.nombre ? old.nombre : users.nombre %> ">
                     </div>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.nombre ? errores.nombre.msg :null %></span>
 
                     <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="apellido" name="apellido" id="apellido"
-                        value="<%= userEdit.last_name %> ">
+                        value="<%= locals.old && locals.old.apellido ? old.apellido : users.apellido %> ">
                     </div>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.apellido ? errores.apellido.msg :null %></span>
 
                    
                     <div class="registro-correo"> <label for="registro-correo">Correo electrónico</label><input type="email" name="email" id="email"
-                        value="<%= userEdit.email %> ">
+                        value="<%= locals.old && locals.old.email ? old.email : users.email %> ">
                     </div>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.email ? errores.email.msg :null %></span>
 
                     <div class="registro-password"> <label for="registro-password">Editar contraseña</label> <input type="password" name="password"
-                            id="password"  value="<%= userEdit.password %> ">
+                            id="password"  value="<%= users.password %> ">
                     </div>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.password ? errores.password.msg :null %></span>
 
-                    <div class="confirm-password"> <label for="confirm-password">Confirmar contraseña</label> <input type="confirm-password"
-                            name="Confirmar contraseña" id="Confirm password" placeholder="Confirmar contraseña">
+                    <div class="confirm-password"> <label for="confirm-password">Confirmar contraseña</label> <input type="password"
+                            name="confirmarContrasenia" id="Confirm password" placeholder="Confirmar contraseña">
                     </div>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.confirmarContrasenia ? errores.confirmarContrasenia.msg :null %></span>
 
-                    <!-- Posible error -->
-                    <span></span>
-
-
-                 
 
                     <div >
 						<button type="submit" class="editarPerfil">Guardar</button>

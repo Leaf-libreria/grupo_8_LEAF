@@ -61,7 +61,14 @@ cerrarSesion : (req,res) => {
             }
             users.push(usuario);
             guardar(users);
-            return res.redirect('/users/login');
+
+            req.session.userLogin = {
+                id : usuario.id,
+                nombre : usuario.nombre,
+                category : usuario.category
+            }
+            return res.redirect("/");
+
             }else{
                 if (req.file) { //Para no guardar la imagen si hay errores
                 let deleteImage = path.join(
@@ -89,6 +96,41 @@ cerrarSesion : (req,res) => {
             title: "Editando perfil " + userEdit.first_name,
             userEdit,
         });
+    },
+
+    cambiarPerfil: (req,res) => {
+        let errors = validationResult(req);
+
+        if (errors.isEmpty() ) {
+            let usuarioEncontrado = users.find(user => user.id === +req.params.id)
+
+            let usuarioEditado = {
+                id : +req.params.id,
+                email : req.body.email.trim(),
+                password: bcrypt.hashSync(req.body.password,10),
+                nombre : req.body.nombre.trim(),
+                apellido : req.body.apellido.trim(),
+                category : "user",
+                nickName : req.body.nickName ? req.body.nickName.trim() : usuarioEncontrado.nickName,
+                image : req.file ? req.file.filename : usuarioEncontrado.image,
+            }
+            let userEncontrado = users.map(user => user.id === +req.params.id ? usuarioEditado : user)
+            users.push(usuarioEditado);
+            guardar(userEncontrado);
+            return res.redirect('/');
+            }else{
+                if (req.file) { //Para no guardar la imagen si hay errores
+                let deleteImage = path.join(
+                    __dirname, '../../public/images/'+req.file.filename);
+                fs.unlinkSync(deleteImage);
+                }
+                return res.render('./users/editPerfil', {
+                  errores: errors.mapped(),
+                  old: req.body,
+                  title: 'LEAF | Registro',
+                  users,
+                });
+        }
+    },
     }
-};
 
