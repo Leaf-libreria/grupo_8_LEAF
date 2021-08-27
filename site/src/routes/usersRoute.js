@@ -4,6 +4,7 @@ const multer = require("multer");
 const path = require("path");
 
 const {login, crearRegistro, registro, perfil, editarPerfil, loginUsuario, cerrarSesion} = require("../controllers/userController")
+//validaciones
 const loginValidator=require('../validations/loginValidator');
 const registerValidator=require('../validations/registerValidator');
 
@@ -21,14 +22,11 @@ const storage = multer.diskStorage({
 var upload = multer({storage : storage});
 
 
-
-
-
 router.get('/login', login);
 router.post('/login', loginValidator, loginUsuario);
 router.get("/register", registro);
 router.post("/register", upload.single('image'), registerValidator, crearRegistro);
 router.get('/perfil/:id', perfil);
 router.get('/editarPerfil/:id', editarPerfil)
-router.get('/logout',cerrarSesion);
+router.get('/logout', cerrarSesion);
 module.exports = router;
