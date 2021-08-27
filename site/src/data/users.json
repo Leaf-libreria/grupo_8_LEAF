@@ -97,7 +97,8 @@
     "nombre": "Antonela",
     "apellido": "Espinola",
     "category": "admin",
-    "nickName": "anto"
+    "nickName": "anto",
+    "image": "profile-users-default.png"
   },
   {
     "id": 13,
