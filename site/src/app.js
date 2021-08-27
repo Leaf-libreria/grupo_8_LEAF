@@ -32,6 +32,8 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use(session({
   secret : "Leaf",
+  resave : false,
+  saveUninitialized : false,
 }));
 
 

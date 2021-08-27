@@ -91,15 +91,6 @@
     "image": "user_10.jpg"
   },
   {
-    "id": 11,
-    "email": "andradasomi@hotmail.com",
-    "password": "1234567",
-    "nombre": "Sofia",
-    "apellido": "Andrada",
-    "category": "user",
-    "nickName": "fosi"
-  },
-  {
     "id": 12,
     "email": "antoespinola55@gmail.com",
     "password": "$2a$10$NkTCPHyfaprctjVO3YomouIderjtmf3b3HU5EAgSE1i7nnI5CxI8K",
@@ -117,5 +108,54 @@
     "category": "user",
     "nickName": "JML",
     "image": "user_1.jpg"
+  },
+  {
+    "id": 14,
+    "email": "administrador@leaf.com",
+    "password": "$2a$10$d9CQV4NMeLeCPaQTaxYCL./6Cb6Ahtn0UjeVZNhitIh/gGdY2fcRa",
+    "nombre": "Admin",
+    "apellido": "Istrador",
+    "category": "admin",
+    "nickName": "admin"
+  },
+  {
+    "id": 17,
+    "email": "nahu@gmail.com",
+    "password": "$2a$10$i5cWVRL1fVCxO5.q9KobjOhiNKHkoddykFcYF8kT7k9OOl1MftUzy",
+    "nombre": "Nahuel",
+    "apellido": "Pena",
+    "category": "user",
+    "nickName": "Pena",
+    "image": "profile-users-default.png"
+  },
+  {
+    "id": 18,
+    "email": "andradasomi@hotmail.com",
+    "password": "$2a$10$99kVP4bIC3p4EnbBwqkTbON2kjK5rYjzv0SwXbW/G0x7bKICf0P9i",
+    "nombre": "Sofia",
+    "apellido": "Andrada",
+    "category": "user",
+    "nickName": "Fosi",
+    "image": "image-1629942889174.png"
+  },
+  {
+    "id": 19,
+    "email": "mama@gmail.com",
+    "password": "$2a$10$BmT7KEAzmMODS8V9hG4n/uoe7lDsFu.Gm/OKYJ4O0s7euxK79uyqS",
+    "nombre": "maria",
+    "apellido": "alonzo",
+    "category": "user",
+    "nickName": "mari",
+    "image": "image-1629943072153.png"
+  },
+  {
+    "id": 20,
+    "email": "eliana.ag.95@gmail.com",
+    "password": "$2a$10$taroDh8/ougg.wgn5D/7TOzwOcBiwEUpaTtjGU00sdmHxk2e4xXVG",
+    "nombre": "Eliana",
+    "apellido": "Andrada",
+    "category": "user",
+    "nickName": "Ely",
+    "image": "image-1629944981970.png"
   }
 ]

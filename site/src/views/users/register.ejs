@@ -36,7 +36,7 @@
             </section>
 
             <main class="main-register">
-                <form action="" method="POST" novalidate>
+                <form action="" method="POST" enctype="multipart/form-data" novalidate>
                     <a href="/"><i class="fas fa-angle-double-left"></i> Home</a>
                     <h2>Registrate en LEAF</h2>
 
@@ -68,6 +68,10 @@
                     <!-- Posible error -->
                     <span class="text-danger small"><%= locals.errores && locals.errores.nickName ? errores.nickName.msg :null %></span>
 
+                    <div class="mb-3 nombre">
+                        <label for="formFile" class="form-label"> Imagen de perfil </label>
+                        <input class="form-control" type="file" id="formFile" name="image">
+                      </div>
 
                     <div class="registro-password"> <label for="registro-password">Ingresar contraseña</label> <input type="password" name="password"
                             id="password" placeholder="Contraseña">
@@ -81,21 +85,6 @@
                     </div>
                     <span class="text-danger small"><%= locals.errores && locals.errores.confirmarContrasenia ? errores.confirmarContrasenia.msg :null %></span>
 
-                    <div class="datos">
-                        <p>Al registrarme en nuestro sistema, le informamos que los datos personales de su propiedad
-                            serán
-                            tratados, almacenados, usados y procesados en nuestra base de datos, cuya finalidad es
-                            gestionar
-                            el
-                            envío por nuestras partes de bienes y/o servicios y hacerle partícipe de nuestros eventos
-                            promocionales. LEAF garantiza el ejercicio de los derechos de acceso, rectificación,
-                            cancelación
-                            y
-                            oposición de los datos facilitados. Si desea consultar o eliminar sus datos, puede hacerlo
-                            mediante
-                            comunicación escrita dirigida al correo electrónico <a href="mailto:servicioalcliente@leaf.com"></a>servicioalcliente@leaf.com </p>
-                    </div>
-
                     <div class="politicas-register"><input type="checkbox" name="politicas" value="politicas"
                             id="politicas"><label for="politicas">Acepto las políticas de privacidad y manejo de
                                 datos</label>
@@ -106,6 +95,22 @@
 
                     <button class="submit-reg">Registrarme</button>
                 </form>
+
+                <div class="datos">
+                    <p>Al registrarse en nuestro sistema, le informamos que los datos personales de su propiedad
+                        serán
+                        tratados, almacenados, usados y procesados en nuestra base de datos, cuya finalidad es
+                        gestionar
+                        el
+                        envío por nuestras partes de bienes y/o servicios y hacerle partícipe de nuestros eventos
+                        promocionales. LEAF garantiza el ejercicio de los derechos de acceso, rectificación,
+                        cancelación
+                        y
+                        oposición de los datos facilitados. Si desea consultar o eliminar sus datos, puede hacerlo
+                        mediante
+                        comunicación escrita dirigida al correo electrónico servicioalcliente@leaf.com </p>
+                </div>
+
             </main>
         </div>
     </section>

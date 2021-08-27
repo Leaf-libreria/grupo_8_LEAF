@@ -58,11 +58,12 @@ cerrarSesion : (req,res) => {
                 apellido : req.body.apellido.trim(),
                 category : "user",
                 nickName : req.body.nickName ? req.body.nickName.trim() : null,
+                image : req.file ? req.file.filename : 'profile-users-default.png'
             }
             console.log(req.body)
             users.push(usuario);
             guardar(users);
-            return res.redirect('/perfil/:id');
+            return res.redirect('/users/perfil/:id');
             }else{
                 return res.render('./users/register', {
                   errores: errors.mapped(),

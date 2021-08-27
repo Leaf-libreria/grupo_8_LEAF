@@ -83,20 +83,20 @@ let errors = validationResult(req);
 
       let productoEditado = productos.find(producto => producto.id === +req.params.id);
 
-      productoEditado.titulo = titulo;
-      productoEditado.autor = autor;
-      productoEditado.precio = +precio;
+      productoEditado.titulo = titulo.trim();
+      productoEditado.autor = autor.trim();
+      productoEditado.precio = +precio.trim();
       productoEditado.categoria = categoria;
-      productoEditado.genero = genero,
-      productoEditado.sinopsis = sinopsis,
-      productoEditado.slogan = slogan,
-      productoEditado.estrellas = +estrellas,
-      productoEditado.editorial = editorial,
-      productoEditado.isbn = +isbn,
-      productoEditado.paginas = +paginas,
+      productoEditado.genero = genero.trim(),
+      productoEditado.sinopsis = sinopsis.trim(),
+      productoEditado.slogan = slogan.trim(),
+      productoEditado.estrellas = +estrellas.trim(),
+      productoEditado.editorial = editorial.trim(),
+      productoEditado.isbn = +isbn.trim(),
+      productoEditado.paginas = +paginas.trim(),
       productoEditado.idioma = idioma,
       productoEditado.formato = formato,
-      productoEditado.stock = +stock,
+      productoEditado.stock = +stock.trim(),
       productoEditado.portada = req.file ? req.file.filename : productoEditado.portada
   
       let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
@@ -115,9 +115,10 @@ let errors = validationResult(req);
     }
   },
   addProducto: (req,res) =>{
-    return res.render("./products/addProduct", {
-      title: "LEAF | Administrador",
+    return res.render('./products/addProduct', {
+      title: 'LEAF | Administrador',
       generos,
+      productos,
     });
   },
   agregarProducto: (req, res) => {

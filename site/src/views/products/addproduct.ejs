@@ -13,58 +13,75 @@
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
-          <form action="" method="POST" class="formulario" enctype="multipart/form-data">
-            <div class="titulo">
-              <label for="titulo">Título del libro:</label>
-              <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos"
-                value="<%= locals.old && locals.old.titulo? old.titulo: null%>">
-              <div class="error">
-                <!-- Posibles errores -->
-                <span>
-                  <%= locals.errores && locals.errores.titulo ? errores.titulo.msg : null %>
-                </span>
-              </div>
-            </div>
-            <div class="container-grid-uno">
-              <div class="isbn">
-                <label for="isbn">ISBN:</label>
-                <div class="isbn-btn">
-                  <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos"
-                    value="<%= locals.old && locals.old.isbn? old.isbn: null%>">
-                </div>
-                <div class="error">
-                  <!-- Posibles errores -->
-                  <span>
-                    <%= locals.errores && locals.errores.isbn ? errores.isbn.msg : null %>
-                  </span>
-                </div>
-              </div>
-              <div class="stock">
-                <label for="stock">Stock:</label>
-                <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números"
-                  value="<%= locals.old && locals.old.stock? old.stock: null%>">
-
-                <div class="error">
-                  <!-- Posibles errores -->
-                  <span>
-                    <%= locals.errores && locals.errores.stock ? errores.stock.msg : null %>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <section class="formato">
-              <label for="formato">Formato:</label>
-              <select name="formato" id="formato">
-                <option value="" hidden selected>Seleccione el formato</option>
-                <option value="libro">Libro</option>
-                <option value="ebook">Ebook</option>
-              </select>
-              <div class="error">
-                <!-- Posibles errores -->
-                <span>
-                  <%= locals.errores && locals.errores.formato ? errores.formato.msg : null %>
-                </span>
-              </div>
+  <form action="" method="POST" class="formulario" enctype="multipart/form-data" novalidate>
+      <div class="titulo">
+          <label for="titulo">Título del libro:</label>
+          <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.titulo? old.titulo: null%>">
+          <div class="error">
+              <!-- Posibles errores -->
+                <span 
+                  ><%= locals.errores && locals.errores.titulo ? errores.titulo.msg :
+                  null %></span
+                >
+          </div>
+      </div>
+    <div class="container-grid-uno">
+    <div class="isbn">
+      <label for="isbn">ISBN:</label>
+      <div class="isbn-btn">
+      <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos" value="<%= locals.old && locals.old.isbn? old.isbn: null%>">
+    </div> 
+    <div class="error">
+              <!-- Posibles errores -->
+                <span 
+                  ><%= locals.errores && locals.errores.isbn ? errores.isbn.msg :
+                  null %></span
+                >
+          </div>
+</div>
+    <div class="stock">
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números" value="<%= locals.old && locals.old.stock? old.stock: null%>">
+    
+    <div class="error">
+              <!-- Posibles errores -->
+                <span 
+                  ><%= locals.errores && locals.errores.stock ? errores.stock.msg :
+                  null %></span
+                >
+          </div>
+          </div>
+</div>
+  <section class="formato">
+      <label for="formato">Formato:</label> 
+      <select name="formato" id="formato">
+          <option value="" hidden selected>Seleccione el formato</option>
+          <option value="libro"<%= locals.old && old.formato === 'libro' ? 'selected' : null%>>Libro</option>
+          <option value="ebook"<%= locals.old && old.formato === 'ebook' ? 'selected' : null%> >Ebook</option>
+      </select>
+      <div class="error">
+              <!-- Posibles errores -->
+                <span 
+                  ><%= locals.errores && locals.errores.formato ? errores.formato.msg :
+                  null %></span
+                >
+          </div>
+        </section>
+        <section class="categoria">
+          <label for="categoria">Categoría:</label> 
+          <select name="categoria" id="categoria">
+              <option value="" hidden selected>Seleccione la categoria</option>
+              <option value="recomendados" <%= locals.old && old.categoria === 'recomendados' ? 'selected' : null%> >Recomendados</option>
+              <option value="novedades"<%= locals.old && old.categoria === 'novedades' ? 'selected' : null%> >Novedades</option>
+              <option value="mas-vendidos" <%= locals.old && old.categoria === 'mas-vendidos' ? 'selected' : null%> >Más vendidos</option>
+          </select>
+          <div class="error">
+              <!-- Posibles errores -->
+                <span 
+                  ><%= locals.errores && locals.errores.categoria ? errores.categoria.msg :
+                  null %></span
+                >
+          </div>
             </section>
             <section class="categoria">
               <label for="categoria">Categoría:</label>
@@ -195,61 +212,10 @@
             </section>
           </form>
         </div>
-<<<<<<< HEAD
       </main>
       <!-- ----scripts ----->
       <%-include('../partials/scripts') %>
         <!-- ----scripts---- -->
   </body>
-=======
-</section>
-<div class="container-grid">
-<div class="precio">
-    <label for="precio">Precio $:</label>
-    <input type="number" name="precio" id="precio" class="con-grid" placeholder="Sólo números" value="<%= locals.old && locals.old.precio? old.precio: null%>">
-    <div class="error">
-              <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.precio ? errores.precio.msg :
-                  null %></span>
-          </div>
-</div>
-<div class="paginas">
-    <label for="paginas">Páginas:</label>
-    <input type="number" name="paginas" id="paginas" class="con-grid" placeholder="Sólo números" value="<%= locals.old && locals.old.paginas? old.paginas: null%>">
-    <div class="error">
-              <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.paginas ? errores.paginas.msg :
-                  null %></span>
-          </div>
-</div>
-<div class="estrellas">
-    <label for="estrellas">Estrellas:</label>
-    <input type="text" name="estrellas" id="estrellas" class="con-grid" placeholder="N° de estrellas" value="<%= locals.old && locals.old.estrellas? old.estrellas: null%>">
-    <div class="error">
-              <!-- Posibles errores -->
-                <span 
-                  ><%= locals.errores && locals.errores.estrellas ? errores.estrellas.msg :
-                  null %></span
-                >
-          </div>
-  </div>
-</div>
-<div class="sinopsis">
-  <label for="critica">Crítica:</label>
-  <textarea  type="text" name="slogan" id="critica"  placeholder="Breve critica"><%= locals.old && locals.old.slogan? old.slogan: null%></textarea>
-  <div class="error">
-              <!-- Posibles errores -->
-                <span><%= locals.errores && locals.errores.slogan ? errores.slogan.msg :
-                  null %></span>
-          </div>
-</div>
-<div class="portada">
-  <label for="portada">Imagen de portada:</label>
-  <input  class="file" type="file" name="portada" id="portada" value="<%= locals.old && locals.old.portada? old.portada: null%>">
-  <div class="error">
-<span ><%= locals.errores && locals.errores.portada ? errores.portada.msg : null %></span>
-</div>
-  </div>
->>>>>>> aafef4782698a8b77df75570e25c41e328056ef3
 
 </html>
