@@ -10,16 +10,6 @@
     "image": "profile-users-default.png"
   },
   {
-    "id": 2,
-    "email": "lore_cb15@outlook.com",
-    "password": "$2a$10$ib75OShnEnEyHXUqXtpgae8yL8rCq6Ld1MQFSg44zYxObYWty2MO.",
-    "nombre": "Lorena",
-    "apellido": "Cohene",
-    "category": "user",
-    "nickName": "JML",
-    "image": "user_1.jpg"
-  },
-  {
     "id": 3,
     "email": "administrador@leaf.com",
     "password": "$2a$10$d9CQV4NMeLeCPaQTaxYCL./6Cb6Ahtn0UjeVZNhitIh/gGdY2fcRa",
@@ -27,16 +17,6 @@
     "apellido": "Istrador",
     "category": "admin",
     "nickName": "Administrador",
-    "image": "profile-users-default.png"
-  },
-  {
-    "id": 4,
-    "email": "nahu@gmail.com",
-    "password": "$2a$10$i5cWVRL1fVCxO5.q9KobjOhiNKHkoddykFcYF8kT7k9OOl1MftUzy",
-    "nombre": "Nahuel",
-    "apellido": "Pena",
-    "category": "user",
-    "nickName": "Pena",
     "image": "profile-users-default.png"
   },
   {

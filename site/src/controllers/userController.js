@@ -13,7 +13,7 @@ module.exports = {
        
     loginUsuario:(req,res)=>{
         let errors = validationResult(req);
-        let { email, recordar } = req.body;
+        const { email, recordar } = req.body;
         if (errors.isEmpty()) {
             let user = users.find(user => user.email === email);
             console.log(user);
@@ -25,7 +25,7 @@ module.exports = {
               
             }
             if(recordar){
-                res.cookie('Leaf',req.session.userLogin,{maxAge: 1000 * 60})
+                res.cookie('Leaf',req.session.userLogin,{maxAge:120000})
             }
             return res.redirect('/');
 
@@ -39,7 +39,7 @@ module.exports = {
 },
 cerrarSesion : (req,res) => {
     req.session.destroy();
-    res.cookie('Leaf',null,{maxAge:-1})
+res.clearCookie('Leaf');
     return res.redirect('/')
 },
   
@@ -93,9 +93,9 @@ cerrarSesion : (req,res) => {
     },
     editarPerfil: (req, res) => {
         let user = users.find((user) => user.id === +req.params.id);
-        return res.render("./users/editPerfil", {
-            title: "Editando perfil " + users.nombre,
-            user,
+        return res.render('./users/editPerfil', {
+          user,
+          title: 'Editando perfil de ' + user.nombre,
         });
     },
 

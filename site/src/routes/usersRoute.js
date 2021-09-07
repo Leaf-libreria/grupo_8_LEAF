@@ -8,6 +8,8 @@ const {login, crearRegistro, registro, perfil, editarPerfil, loginUsuario, cerra
 const loginValidator=require('../validations/loginValidator');
 const registerValidator=require('../validations/registerValidator');
 const changeProfile = require("../validations/changeProfile");
+//middleware acceso usuarios logueados
+const logueados=require('../middlewares/loggedUser')
 
 
 const storage = multer.diskStorage({
@@ -27,8 +29,8 @@ router.get('/login', login);
 router.post('/login', loginValidator, loginUsuario);
 router.get("/register", registro);
 router.post("/register", upload.single('image'), registerValidator, crearRegistro);
-router.get('/perfil/:id', perfil);
-router.get('/editarPerfil/:id', editarPerfil);
+router.get('/perfil/:id',logueados, perfil);
+router.get('/editarPerfil/:id',logueados, editarPerfil);
 router.put('/editarPerfil/:id', upload.single("image"), changeProfile, cambiarPerfil);
 router.get('/logout', cerrarSesion);
 module.exports = router;
