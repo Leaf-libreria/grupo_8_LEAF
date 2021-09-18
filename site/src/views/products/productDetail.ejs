@@ -12,21 +12,21 @@
 
     <div class="seleccionProducto">
   <article class="seleccion">
-    <h4><%= producto.titulo %> </h4>
-    <img class= "<%= producto.genero %>" src="/images/<%= producto.portada %> " alt="<%= producto.titulo %> " />
+    <h4><%= producto.title %> </h4>
+    <img class= "<%= producto.genre %>" src="/images/<%= producto.cover %> " alt="<%= producto.title %> " />
   </article>
 
   <section class="producto">
       <div class="productoArriba">
-      <h4>Autor: <%= producto.autor %> </h4>
+      <h4>Autor: <%= producto.author %> </h4>
       <h5>Editorial: <%= producto.editorial %> </h5>
       <h5>Stock: <%= producto.stock %> </h5>
     </div>
       <div class="productoAbajo">
-          <p>$ <%= producto.precio %> </p>
+          <p>$ <%= producto.price %> </p>
           <a class="comprar" href="">COMPRAR</a>
         </div>
-      <p class="sinopsis"> Sinopsis: <%= producto.sinopsis %> </p>
+      <p class="sinopsis"> Sinopsis: <%= producto.synopsis %> </p>
   </section>
 </div>
 
@@ -40,7 +40,7 @@
     <div>
     <i class="fas fa-book-open"></i>
     <p>Páginas</p>
-    <p><%= producto.paginas %> </p>
+    <p><%= producto.pages %> </p>
   </div>
     <div>
     <i class="fas fa-globe-americas"></i>
@@ -50,24 +50,24 @@
     <div>
     <i class="fas fa-boxes"></i>
     <p>Género</p>
-    <p><%= producto.genero %> </p>
+    <p><%= producto.genre %> </p>
   </div>
 </section>
-<h4 class="ademas">También te recomendamos del genero <%=producto.genero%></h4>
+<h4 class="ademas">También te recomendamos del genero <%=producto.genre%></h4>
 
       
       <section class="otros">
         <% recomendados.forEach(producto => { %>
 
             <article>
-              <a href="/products/detalle/<%=producto.id%>">  <img class ="<%= producto.genero%>"
-                src="/images/<%= producto.portada %> "
-                alt="<%= producto.titulo %> "
+              <a href="/products/detalle/<%=producto.id%>">  <img class ="<%= producto.genre%>"
+                src="/images/<%= producto.cover %> "
+                alt="<%= producto.title %> "
               /></a>
               <div class="detalle">
-                <h3><%= producto.titulo %> </h3>
-                <h4><%= producto.autor %> </h4>
-                <p>$ <%= producto.precio %> </p>
+                <h3><%= producto.title %> </h3>
+                <h4><%= producto.author %> </h4>
+                <p>$ <%= producto.price %> </p>
               </div>
             </article>
             

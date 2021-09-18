@@ -61,8 +61,8 @@
                  Generos
                 </button>
                 <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-                  <% generos.forEach(genero => { %>
-                  <li><a class="dropdown-item" href="/products/<%=genero%>"><%=genero%></a></li>
+                  <% genres.forEach(genre => { %>
+                  <li><a class="dropdown-item" href="/products/<%=genre%>"><%=genre%></a></li>
                   <% }) %>
                 </ul>
               </div>
@@ -113,7 +113,7 @@
  
             
           <li class="nav-item">
-            <a class="nav-link" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil <%= locals.userLogin.nombre %> </a>
+            <a class="nav-link" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil <%= locals.userLogin.name %> </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/users/logout">cerrar sesión</a>

@@ -15,8 +15,8 @@
         <div class="administrador">
   <form action="/products/editar/<%=productoEditado.id%>?_method=PUT" method="POST" class="formulario">
       <div class="titulo">
-          <label for="titulo">Título del libro:</label>
-          <input type="text" name="titulo" id="titulo" class="control" placeholder="Ej: El señor de los anillos">
+          <label for="title">Título del libro:</label>
+          <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos">
       </div>
       <div class="id">
           <label for="id" >ID del producto:</label>
@@ -33,27 +33,27 @@
         <label for="stock">Stock:</label>
         <input type="number" name="stock" id="stock" class="control" placeholder="Ingrese números">
     </div>
-   <section class="formato">
-       <label for="formato">Formato:</label> 
-       <select name="formato" id="formato">
+   <section class="format">
+       <label for="format">Formato:</label> 
+       <select name="format" id="format">
            <option value="" hidden selected>Seleccione el formato</option>
            <option value="libro">Libro</option>
            <option value="ebook">Ebook</option>
        </select>
          </section>
-         <section class="categoria">
-          <label for="categoria">Categoría:</label> 
-          <select name="categoria" id="categoria">
+         <section class="category">
+          <label for="category">Categoría:</label> 
+          <select name="category" id="categoria">
               <option value="" hidden selected>Seleccione la categoria</option>
               <option value="recomendados">Recomendados</option>
               <option value="novedades">Novedades</option>
               <option value="mas-vendidos">Más vendidos</option>
           </select>
             </section>
-   <section class="autor">
-        <label for="autor">Autor/Autora:</label>
+   <section class="author">
+        <label for="author">Autor/Autora:</label>
     <div class="otroAutor">
-        <input type="text" name="autor" id="otroAutor" placeholder="Otro. Nombre y apellido del autor" class="control">
+        <input type="text" name="author" id="otroAutor" placeholder="Otro. Nombre y apellido del autor" class="control">
     </div>
     </section>
 <section class="editorial">
@@ -62,35 +62,35 @@
         <input type="text" name="editorial" id="OtraEditorial" placeholder="Otro. Ej: Planeta" class="control">
     </div>
 </section>
-<section class="genero">
-    <label for="genero">Género</label>
+<section class="genre">
+    <label for="genre">Género</label>
     <div class="otroGenero">
-        <input type="text" name="genero" id="otroGenero" placeholder="Otro. Ej: Fantasía" class="control">
+        <input type="text" name="genre" id="otroGenero" placeholder="Otro. Ej: Fantasía" class="control">
     </div>
 </section>
-<div class="precio">
-    <label for="precio">Precio $:</label>
-    <input type="number" name="precio" id="precio" class="control" placeholder="Ingrese sólo números">
+<div class="price">
+    <label for="price">Precio $:</label>
+    <input type="number" name="price" id="price" class="control" placeholder="Ingrese sólo números">
 </div>
-<div class="paginas">
+<div class="pages">
     <label for="paginas">Páginas:</label>
-    <input type="number" name="paginas" id="paginas" class="control" placeholder="Sólo números">
+    <input type="number" name="pages" id="pages" class="control" placeholder="Sólo números">
 </div>
-<div class="critica">
+<div class="critic">
   <label for="critica">Crítica:</label>
-  <textarea  type="text" name="critica" id="critica" class="control" placeholder="Breve critica"></textarea>
+  <textarea  type="text" name="critic" id="critic" class="control" placeholder="Breve critica"></textarea>
 </div>
-<div class="estrellas">
+<div class="stars">
   <label for="estrellas">Estrellas:</label>
-  <input type="text" name="estrellas" id="estrellas" class="control" placeholder="N° de estrellas">
+  <input type="text" name="stars" id="stars" class="control" placeholder="N° de estrellas">
 </div>
-<div class="portada">
+<div class="cover">
   <label for="portada">Imagen de portada:</label>
-  <input  class="file" type="file" name="portada" id="portada">
+  <input  class="file" type="file" name="cover" id="cover">
   </div>
-<div class="sinopsis">
+<div class="synopsis">
      <label for="sinopsis">Sinopsis:</label>
-     <textarea name="sinopsis" id="sinopsis" cols="20" rows="10" placeholder="Sinopsis del libro">
+     <textarea name="synopsis" id="synopsis" cols="20" rows="10" placeholder="Sinopsis del libro">
     </textarea>
 </div>
 <p>*Todos los campos son obligatorios</p>

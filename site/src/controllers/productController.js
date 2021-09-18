@@ -124,25 +124,25 @@ let errors = validationResult(req);
   agregarProducto: (req, res) => {
 let errors = validationResult(req);
     if (errors.isEmpty()) {
-      const { titulo, autor, precio, categoria, genero, sinopsis, slogan, estrellas, editorial, isbn, paginas, idioma, formato, stock} = req.body;
+      const { title, author, price, category, genre, synopsis, slogan, stars, editorial, isbn, pages, language, format, stock} = req.body;
 
       let product = {
         id: (productos[productos.length - 1].id + 1),
-        titulo,
-        autor,
-        precio: +precio,
-        categoria,
-        genero,
-        sinopsis,
+        title,
+        author,
+        price: +price,
+        category,
+        genre,
+        synopsis,
         slogan,
-        estrellas: +estrellas,
+        stars: +stars,
         editorial,
         isbn: +isbn,
-        paginas: +paginas,
-        idioma,
-        formato,
+        pages: +pages,
+        language,
+        format,
         stock: +stock,
-        portada : req.file ? req.file.filename : 'default-image.png'
+        cover : req.file ? req.file.filename : 'default-image.png'
       }
       productos.push(product);
       guardar(productos)
@@ -150,7 +150,7 @@ let errors = validationResult(req);
     } else {
       return res.render('./products/addProduct', {
         productos,
-        generos,
+        genres,
         errores: errors.mapped(),
         old: req.body,
         title: "LEAF | Administrador",

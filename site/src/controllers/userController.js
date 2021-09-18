@@ -19,7 +19,7 @@ module.exports = {
             console.log(user);
             req.session.userLogin = {
                 id : user.id,
-                nombre : user.nombre,
+                name : user.name,
                  category: user.category,
               
             }
@@ -53,10 +53,10 @@ cerrarSesion : (req,res) => {
                 id :  users.length > 0 ? users[users.length - 1].id + 1 : 1, 
                 email : req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password,10),
-                nombre : req.body.nombre.trim(),
-                apellido : req.body.apellido.trim(),
+                name : req.body.name.trim(),
+                lastname : req.body.lastname.trim(),
                 category : "user",
-                nickName : req.body.nickName ? req.body.nickName.trim() : null,
+                nickname : req.body.nickname ? req.body.nickname.trim() : null,
                 image : req.file ? req.file.filename : 'profile-users-default.png'
             }
             console.log(req.body)

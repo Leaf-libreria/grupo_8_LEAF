@@ -29,19 +29,19 @@
               <input
                 class="payForm-input"
                 type="text"
-                name="nombre"
+                name="name"
                 placeholder="Nombre/s"
               />
               <input
                 class="payForm-input"
                 type="text"
-                name="apellido"
+                name="lastname"
                 placeholder="Apellido/s"
               />
               <input
                 class="payForm-input"
                 type="number"
-                name="telefono"
+                name="telephone"
                 placeholder="Teléfono"
               />
             </div>
@@ -55,7 +55,7 @@
                   type="radio"
                   id="retiro-ebook"
                   value="retiro-ebook"
-                  name="medio-envio"
+                  name="shipping"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseExample"
                   aria-expanded="false"
@@ -70,7 +70,7 @@
               <input
                 class="payForm-input"
                 type="email"
-                name="envio-ebook"
+                name="shipping-ebook"
                 placeholder="E-mail de envío"
                 class="collapse"
                 id="collapseExample"
@@ -82,7 +82,7 @@
                   type="radio"
                   id="retiro-local"
                   value="retiro-local"
-                  name="medio-envio"
+                  name="shipping"
                 />
                 <label class="payForm-label" for="retiro-local"
                   >Retiro gratis en el local Calle Falsa N°123</label
@@ -95,7 +95,7 @@
                   type="radio"
                   id="retiro-correo"
                   value="retiro-correo"
-                  name="medio-envio"
+                  name="shipping"
                 />
                 <label class="payForm-label" for="retiro-correo"
                   >Retiro gratis en el correo Calle Perdida S/N</label
@@ -108,7 +108,7 @@
                   type="radio"
                   id="envio-domicilio"
                   value="envio-domicilio"
-                  name="medio-envio"
+                  name="shipping"
                   data-bs-toggle="collapse"
                   href="#multiCollapseExample1"
                   role="radiogroup"
@@ -123,7 +123,7 @@
               <input
                 class="payForm-input"
                 type="text"
-                name="calle"
+                name="street"
                 placeholder="Calle"
                 class="collapse multi-collapse"
                 id="multiCollapseExample1"
@@ -131,7 +131,7 @@
               <input
                 class="payForm-input"
                 type="text"
-                name="altura"
+                name="number"
                 placeholder="Número"
                 class="collapse multi-collapse"
                 id="multiCollapseExample1"
@@ -139,7 +139,7 @@
               <input
                 class="payForm-input"
                 type="number"
-                name="codigo-postal"
+                name="cp"
                 placeholder="Código Postal"
                 class="collapse multi-collapse"
                 id="multiCollapseExample1"
@@ -184,7 +184,7 @@
                 <input
                   class="payForm-input payForm-input--aside"
                   type="radio"
-                  name="medio-pago"
+                  name="paymentMethods"
                   id="credito"
                   value="credito-debito"
                   data-bs-toggle="collapse"
@@ -201,13 +201,13 @@
               <input
                 class="payForm-input"
                 type="text"
-                name="titular-tarjeta"
+                name="titular-card"
                 placeholder="Nombre titular de la tarjeta"
                 class="collapse multi-collapse"
                 id="multiCollapseExample2"
               />
               <select
-                name="tarjeta-tipo"
+                name="card-type"
                 class="payForm-select collapse multi-collapse"
                 id="multiCollapseExample2"
               >
@@ -218,14 +218,14 @@
               <input
                 class="payForm-input"
                 type="number"
-                name="numero-tarjeta"
+                name="card-number"
                 placeholder="Número de tarjeta"
                 class="collapse multi-collapse"
                 id="multiCollapseExample2"
               />
               <label
                 class="payForm-label"
-                for="fecha-vencimiento"
+                for="due-date"
                 class="collapse multi-collapse"
                 id="multiCollapseExample2"
                 >Mes y año de vencimiento:</label
@@ -233,14 +233,14 @@
               <input
                 class="payForm-input"
                 type="month"
-                name="fecha-vencimiento"
+                name="due-date"
                 class="collapse multi-collapse"
                 id="multiCollapseExample2"
               />
               <input
                 class="payForm-input"
                 type="number"
-                name="codigo-seguridad"
+                name="security-code"
                 placeholder="Código de seguridad"
                 class="collapse multi-collapse"
                 id="multiCollapseExample2"
@@ -250,7 +250,7 @@
                 <input
                   class="payForm-input payForm-input--aside"
                   type="radio"
-                  name="medio-pago"
+                  name="paymentMethods"
                   id="payPal"
                   value="paypal"
                 />
@@ -261,7 +261,7 @@
                 <input
                   class="payForm-input payForm-input--aside"
                   type="radio"
-                  name="medio-pago"
+                  name="paymentMethods"
                   id="efectivo"
                   value="efectivo"
                 />
@@ -288,20 +288,20 @@
 							<% libroComprado.forEach(producto=>{ %> 
               <div class="col-md-4">
                 <img
-                  src="/images/<%= producto.portada %> "
+                  src="/images/<%= producto.cover %> "
                   class="payForm-img--mobile img-fluid rounded-start"
-                  alt="<%= producto.titulo %>"
+                  alt="<%= producto.title %>"
                 />
               </div>
               <div class="col-md-8">
                 <div class="card-body payForm-description--body">
                   <div class="payForm-calc-compra">
-                    <h5 class="payForm-card--title-h5"><%= producto.titulo %></h5>
-                    <h6 class="payForm-card--subtitle"><%= producto.autor %></h6>
-                    <p class="payForm-card--p">Formato: <%= producto.formato %></p>
+                    <h5 class="payForm-card--title-h5"><%= producto.title %></h5>
+                    <h6 class="payForm-card--subtitle"><%= producto.author %></h6>
+                    <p class="payForm-card--p">Formato: <%= producto.format %></p>
                     <div class="payForm-card--space-between">
                     <p class="payForm-card--p">Cantidad: 1</p>
-                    <p class="payForm-card--p">$<%= producto.precio %></p>
+                    <p class="payForm-card--p">$<%= producto.price %></p>
                   </div>
                   </div>
                   <div class="payForm-calc-envio">

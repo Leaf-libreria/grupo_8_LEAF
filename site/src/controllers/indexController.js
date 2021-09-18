@@ -2,13 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 const {productos} = require("../data/product_db");
-const generos = require('../data/generos_db')
+const genres = require('../data/generos_db')
 module.exports = {
     index: (req,res) => {
         return res.render("index",
         { title: "LEAF",
         productos,
-        generos,
+        genres,
         masVendidos : productos.filter(producto => producto.categoria === "Mas vendidos").splice(0,4),
         /* con el splice cortamos el array */
         novedades : productos.filter(producto => producto.categoria === "Novedades").splice(0,3),
@@ -19,14 +19,14 @@ module.exports = {
     preguntas: (req,res) =>{
         return res.render("preguntasFrecuentes",
         {title: 'LEAF | Preguntas frecuentes',
-        generos,
+        genres,
     })
     },
 
     quienesSomos: (req,res) =>{
         return res.render("quienesSomos",
         {title: 'LEAF | Quiénes somos',
-        generos,
+        genres,
     })
     },
     search :(req,res) => {
@@ -36,7 +36,7 @@ module.exports = {
             title: 'LEAF | Resultados',
             result,
             search : req.query.search.trim(),
-            generos,
+            genres,
             productos,
           })
         }else{

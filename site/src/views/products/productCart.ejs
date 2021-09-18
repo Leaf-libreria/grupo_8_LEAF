@@ -26,7 +26,7 @@
           </div>
           <!-- cantidad -->
           <div class="cantidad">
-            <input type="number" name="cantidad" id="cantidad" placeholder="Cant.">
+            <input type="number" name="quantity" id="quantity" placeholder="Cant.">
           </div>
           <!-- precio -->
           <div class="precio">
@@ -46,7 +46,7 @@
           </div>
           <!-- cantidad -->
           <div class="cantidad">
-            <input type="number" name="cantidad" id="cantidad" placeholder="Cant.">
+            <input type="number" name="quantity" id="quantity" placeholder="Cant.">
           </div>
           <!-- precio -->
           <div class="precio">
@@ -69,15 +69,15 @@
       <form action="" method="POST">
         <div class="tipos-envios">
           <div>
-            <input type="radio" name="tipo-envio" value="a-domicilio" id="a-domicilio">
+            <input type="radio" name="type-shipping" value="a-domicilio" id="a-domicilio">
             <label for="a-domicilio">A domicilio</label>
           </div>
           <div>
-            <input type="radio" name="tipo-envio" value="correo" id="correo">
+            <input type="radio" name="type-shipping" value="correo" id="correo">
             <label for="correo">Retirar en correo</label>
           </div>
           <div>
-            <input type="radio" name="tipo-envio" value="domicilio-vendedor" id="domicilio-vendedor">
+            <input type="radio" name="type-shipping" value="domicilio-vendedor" id="domicilio-vendedor">
             <label for="domicilio-vendedor">Retirar en sucursal</label>
           </div>
         </div>
@@ -86,8 +86,8 @@
         <!-- aqui devolveria el precio del tipo de envio seleccionado -->
         <div class="localidad">
           <form action="">
-            <label for="domicilio">Ingresa tu localidad</label>
-            <input type="text" id="domicilio" placeholder="Localidad">
+            <label for="address">Ingresa tu localidad</label>
+            <input type="text" id="address" placeholder="Localidad">
             <button type="submit">Calcular</button>
           </form>
         </div>
