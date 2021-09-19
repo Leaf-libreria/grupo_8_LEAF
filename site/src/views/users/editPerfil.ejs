@@ -40,24 +40,23 @@
                         <input type="file" class="form-control" id="imagenPerfil" name="image">
                     </div>
                          <!-- NICK -->
-                    <div class="nombre"><label for="nickName">NickName</label><input type="nickName" name="nickName" id="nickName"
-                        value="<%= locals.old && locals.old.nickName ? old.nickName : user.nickName %> ">
-                        <span class="text-danger small"><%= locals.errores && locals.errores.nickName ? errores.nickName.msg :null %></span>
+                    <div class="nombre"><label for="nickname">NickName</label><input type="nickname" name="nickname" id="nickname"
+                        value="<%= userEdit.nickname %> ">
               
                     </div> 
-                    <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="nombre" id="nombre"
-                        value="<%= locals.old && locals.old.nombre ? old.nombre : user.nombre %> ">
+                    <div class="nombre"><label for="name">Nombre(s)</label><input type="name" name="name" id="name"
+                        value="<%= userEdit.name %> ">
                     </div>
                     <span class="text-danger small"><%= locals.errores && locals.errores.nombre ? errores.nombre.msg :null %></span>
 
-                    <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="apellido" name="apellido" id="apellido"
-                        value="<%= locals.old && locals.old.apellido ? old.apellido : user.apellido %> ">
+                    <div class="apellido"> <label for="lastname">Apellido(s)</label> <input type="lastname" name="lastname" id="lastname"
+                        value="<%= userEdit.lastname %> ">
                     </div>
                     <span class="text-danger small"><%= locals.errores && locals.errores.apellido ? errores.apellido.msg :null %></span>
 
                    
-                    <div class="registro-correo"> <label for="registro-correo">Correo electrónico</label><input type="email" name="email" id="email"
-                        value="<%= locals.old && locals.old.email ? old.email : user.email %> ">
+                    <div class="registro-correo"> <label for="registre-email">Correo electrónico</label><input type="email" name="email" id="email"
+                        value="<%= userEdit.email %> ">
                     </div>
                     <span class="text-danger small"><%= locals.errores && locals.errores.email ? errores.email.msg :null %></span>
 
@@ -67,7 +66,7 @@
                     <span class="text-danger small"><%= locals.errores && locals.errores.password ? errores.password.msg :null %></span>
 
                     <div class="confirm-password"> <label for="confirm-password">Confirmar contraseña</label> <input type="password"
-                            name="confirmarContrasenia" id="Confirm password" placeholder="Confirmar contraseña">
+                            name="confirm-password" id="confirm-password" placeholder="Confirmar contraseña">
                     </div>
                     <span class="text-danger small"><%= locals.errores && locals.errores.confirmarContrasenia ? errores.confirmarContrasenia.msg :null %></span> -->
 

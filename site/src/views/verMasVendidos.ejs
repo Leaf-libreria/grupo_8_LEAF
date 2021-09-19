@@ -20,12 +20,12 @@
       <% masVendidos.forEach(product => { %>
     <article class="libro">
         <a href="/products/detalle/<%= product.id %> "
-          ><img src="/images/<%= product.portada %> " alt="<%= product.titulo %> "
+          ><img src="/images/<%= product.cover %> " alt="<%= product.title %> "
         /></a>
         <div class="detalle">
-          <h3><%= product.titulo %> </h3>
-          <h4><%= product.autor %> </h4>
-          <p>$<%= product.precio %> </p>
+          <h3><%= product.title %> </h3>
+          <h4><%= product.author %> </h4>
+          <p>$<%= product.price %> </p>
         </div>
       </article>
       <% }) %>
