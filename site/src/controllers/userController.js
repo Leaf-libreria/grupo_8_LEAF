@@ -100,7 +100,8 @@ module.exports = {
   },
 
   perfil: (req, res) => {
-    Users.findByPk(req.params.id).then((user) => {
+    Users.findByPk(req.session.userLogin.id)
+    .then((user) => {
       return res.render("./users/perfil", {
         title: "LEAF | Mi perfil",
         user,
@@ -108,10 +109,11 @@ module.exports = {
     });
   },
   editarPerfil: (req, res) => {
+
     Users.findByPk(req.params.id).then((user) => {
       return res.render("./users/editPerfil", {
         user,
-        title: "Editando perfil de " + user.nombre,
+        title: "Editando perfil de " + user.name,
       });
     });
   },
@@ -120,9 +122,8 @@ module.exports = {
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      let user = users.find((user) => user.id === +req.params.id);
-
-      let usuarioEditado = {
+        Users.update({
+            
         id: +req.params.id,
         email: req.body.email.trim(),
         password: bcrypt.hashSync(req.body.password, 10),
@@ -131,15 +132,15 @@ module.exports = {
         category: "user",
         nickName: req.body.nickName ? req.body.nickName.trim() : user.nickName,
         image: req.file ? req.file.filename : user.image,
-      };
-      let userEncontrado = users.map((user) =>
-        user.id === +req.params.id ? usuarioEditado : user
-      );
-      users.push(usuarioEditado);
-      guardar(userEncontrado);
-      return res.redirect("/");
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(()=> res.redirect('/'))
+        .catch((error) => console.log(error))
     } else {
-      let user = users.find((user) => user.id === +req.params.id);
       if (req.file) {
         //Para no guardar la imagen si hay errores
         let deleteImage = path.join(
@@ -152,21 +153,25 @@ module.exports = {
         errores: errors.mapped(),
         old: req.body,
         title: "LEAF | Registro",
-        users,
-        user,
+       
       });
     }
   },
   actualizarImagen: (req, res) => {
-    let usuarioEditado = {
-      id: +req.params.id,
-      image: req.file ? req.file.filename : user.image,
-    };
-    let userEncontrado = users.map((user) =>
-      user.id === +req.params.id ? usuarioEditado : user
-    );
-    users.push(usuarioEditado);
-    guardar(userEncontrado);
-    return res.redirect("/");
+      Users.update({
+        image: req.file ? req.file.filename : user.image,
+      },
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then((user) => {
+          return res.render("./users/perfil", {
+            title: "LEAF | Mi perfil",
+            user,
+          });
+        });
+
   },
 };
