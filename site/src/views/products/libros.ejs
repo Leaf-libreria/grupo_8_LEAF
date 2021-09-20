@@ -18,10 +18,10 @@
     <!-- seccion de mas vendidos -->
     <section class="masVendidos libros-vista">
       <div class="cabecera">
-        <h2><%=productos.titulo%></h2>
+        <h2><%=libros.titulo%></h2>
       </div>
       <div class="articles-masVendidos">
-<% papel.forEach(producto => { %>
+<% librosPapel.forEach(producto => { %>
    <article class="libros-<%=producto.genero%>">
         <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
         <div class="detalle">

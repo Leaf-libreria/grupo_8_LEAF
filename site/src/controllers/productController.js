@@ -2,40 +2,123 @@ const fs = require("fs");
 const path = require("path");
 let { productos, guardar } = require("../data/product_db");
 const costoEnvio = require("../data/envios-costo");
-const generos = require('../data/generos_db');
+const {Genres, Books, Format, Category} = require('../database/models')
 const { validationResult } = require('express-validator');
 
 module.exports = {
   libros: (req, res) => {
+    let libros = Books.findAll();
+    let generos = Genres.findAll();
+    let librosPapel = Format.findOne({
+    where: {
+      name : 'Libro'
+    },
+     include: [
+       {association: 'books'}
+     ]
+    
+   })
+   Promise.all([libros, generos,  librosPapel])
+   .then(([libros, generos, librosPapel]) => {
     return res.render("./products/libros", {
       title: "LEAF | Libros",
-      productos,
-      papel: productos.filter((producto) => producto.formato === "Libro"),
+      libros,
+      librosPapel,
       generos,
     });
+   });
+
   },
   ebooks: (req, res) => {
-    return res.render("./products/ebooks", {
-      title: "LEAF | E-books",
-      productos,
-      ebooks: productos.filter((producto) => producto.formato === "E-book"),
+    let libros = Books.findAll();
+    let generos = Genres.findAll();
+    let ebooks = Format.findOne({
+    where: {
+      name : 'E-book'
+    },
+     include: [
+       {association: 'books'}
+     ]
+    
+   })
+   Promise.all([libros, generos,  ebooks])
+   .then(([libros, generos, ebooks]) => {
+    return res.render("./products/libros", {
+      title: "LEAF | Ebooks",
+      libros,
+      ebooks,
       generos,
     });
+   });
   },
 
   verMasVendidos: (req, res) => {
-    return res.render("verMasVendidos", { title: "LEAF | Más vendidos", productos, generos, masVendidos : productos.filter(producto => producto.categoria === "Mas vendidos")},
-  );
+    let libros = Books.findAll();
+    let generos = Genres.findAll();
+    let masVendidos = Category.findOne({
+    where: {
+      name : "Mas vendidos"
+    },
+     include: [
+       {association: 'books'}
+     ]
+    
+   })
+   Promise.all([libros, generos,  masVendidos])
+   .then(([libros, generos, masVendidos]) => {
+    return res.render("./products/verMasVendidos", {
+      title: "LEAF | Mas vendidos",
+      libros,
+      masVendidos,
+      generos,
+    });
+   });
   },
 
   verMasNovedades: (req, res) => {
-    return res.render("verMasNovedades", { title: "LEAF | Más novedades", productos, generos, masNovedades : productos.filter(producto => producto.categoria === "Novedades")},
-    );
+    let libros = Books.findAll();
+    let generos = Genres.findAll();
+    let masNovedades = Category.findOne({
+    where: {
+      name : "Novedades"
+    },
+     include: [
+       {association: 'books'}
+     ]
+    
+   })
+   Promise.all([libros, generos,  masNovedades])
+   .then(([libros, generos, masNovedades]) => {
+    return res.render("./products/vermasNovedades", {
+      title: "LEAF | Novedades",
+      libros,
+      masNovedades,
+      generos,
+    });
+   });
   },
 
   verMasRecomendados: (req, res) => {
-    return res.render("verMasRecomendados", { title: "LEAF | Más recomendados", productos, generos, masRecomendados : productos.filter(producto => producto.categoria === "Recomendados")},
-    );
+    let libros = Books.findAll();
+    let generos = Genres.findAll();
+    let masRecomendados = Category.findOne({
+    where: {
+      name : "Recomendados"
+    },
+     include: [
+       {association: 'books'}
+     ]
+    
+   })
+   Promise.all([libros, generos,  masRecomendados])
+   .then(([libros, generos, masRecomendados]) => {
+    return res.render("./products/vermasRecomendados", {
+      title: "LEAF | Recomendados",
+      libros,
+      masRecomendados,
+      generos,
+    });
+   });
   },
 
   detail: (req,res) => {
@@ -115,37 +198,19 @@ let errors = validationResult(req);
     }
   },
   addProducto: (req,res) =>{
-    return res.render('./products/addProduct', {
-      title: 'LEAF | Administrador',
-      generos,
-      productos,
-    });
+    Genres.findAll()
+    .then(function(generos){
+      return res.render('./products/addProduct', {generos:generos})
+    })
   },
   agregarProducto: (req, res) => {
 let errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const { titulo, autor, precio, categoria, genero, sinopsis, slogan, estrellas, editorial, isbn, paginas, idioma, formato, stock} = req.body;
 
-      let product = {
-        id: (productos[productos.length - 1].id + 1),
-        titulo,
-        autor,
-        precio: +precio,
-        categoria,
-        genero,
-        sinopsis,
-        slogan,
-        estrellas: +estrellas,
-        editorial,
-        isbn: +isbn,
-        paginas: +paginas,
-        idioma,
-        formato,
-        stock: +stock,
-        portada : req.file ? req.file.filename : 'default-image.png'
-      }
-      productos.push(product);
-      guardar(productos)
+    if (errors.isEmpty()) {
+      Books.create({
+        ...req.body
+      })
+
       return res.redirect('/products/administrador');
     } else {
       if (req.file) {
@@ -156,13 +221,19 @@ let errors = validationResult(req);
         );
         fs.unlinkSync(deleteImage);
       }
-      return res.render('./products/addProduct', {
-        productos,
-        generos,
-        errores: errors.mapped(),
-        old: req.body,
-        title: "LEAF | Administrador",
-      });
+      let generos = Genres.findAll();
+      let productos = Books.findAll();
+      Promise.all([generos, productos])
+      .then(([generos, productos]) =>{
+          res.render('./products/addProduct', {
+          productos,
+          generos,
+          errores: errors.mapped(),
+          old: req.body,
+          title: "LEAF | Administrador",
+        });
+      })
+     
     }
   },
   borrar: (req,res) => {
