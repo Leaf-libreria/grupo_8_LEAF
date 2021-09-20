@@ -1,6 +1,7 @@
 const {check, body} = require('express-validator');
 
 module.exports = [
+<<<<<<< HEAD
   check('email').isEmail().withMessage('Debes ingresar un email válido'),
 
   body('nombre')
@@ -12,6 +13,12 @@ module.exports = [
     })
     .withMessage('El nombre tiene que tener como mínimo 2 caracteres'),
   body('password')
+=======
+    check('email')
+    .isEmail().withMessage('Debes ingresar un email válido'),
+    check('name')
+    .notEmpty().withMessage('El nombre es obligatorio').bail()
+>>>>>>> fc81390475bfe79f1691a5881181a342425a67da
     .isLength({
       min: 6,
       max: 12,

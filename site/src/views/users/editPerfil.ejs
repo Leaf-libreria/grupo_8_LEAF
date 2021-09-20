@@ -45,15 +45,15 @@
                         <span class="text-danger small"><%= locals.errores && locals.errores.nickName ? errores.nickName.msg :null %></span>
               
                     </div> 
-                    <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="nombre" id="nombre"
-                        value="<%= locals.old && locals.old.nombre ? old.nombre : user.nombre %> ">
+                    <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="name" id="nombre"
+                        value="<%= locals.old && locals.old.name ? old.name : user.name %> ">
                     </div>
-                    <span class="text-danger small"><%= locals.errores && locals.errores.nombre ? errores.nombre.msg :null %></span>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.name ? errores.name.msg :null %></span>
 
-                    <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="apellido" name="apellido" id="apellido"
-                        value="<%= locals.old && locals.old.apellido ? old.apellido : user.apellido %> ">
+                    <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="apellido" name="lastname" id="apellido"
+                        value="<%= locals.old && locals.old.lastname ? old.lastname : user.lastname %> ">
                     </div>
-                    <span class="text-danger small"><%= locals.errores && locals.errores.apellido ? errores.apellido.msg :null %></span>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.lastname ? errores.lastname.msg :null %></span>
 
                    
                     <div class="registro-correo"> <label for="registro-correo">Correo electrónico</label><input type="email" name="email" id="email"

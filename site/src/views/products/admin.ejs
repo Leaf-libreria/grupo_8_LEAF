@@ -25,12 +25,12 @@
       <% productos.forEach(producto=>{ %> 
     <article class="libro">
         <a href="/products/detalle/<%=producto.id%>"
-          ><img src="/images/<%= producto.portada %>  " alt="LEAF | Portada del libro"
+          ><img src="/images/<%= producto.cover %>  " alt="LEAF | Portada del libro"
         /></a>
         <div class="detalle">
-          <h3> <%= producto.titulo %>  </h3>
-          <h4> <%= producto.autor %>  </h4>
-          <p>$ <%= producto.precio %>  </p>
+          <h3> <%= producto.title %>  </h3>
+          <h4> <%= producto.author %>  </h4>
+          <p>$ <%= producto.price %>  </p>
         </div>
         <!-- Botones para administrador -->
         <div class="container">

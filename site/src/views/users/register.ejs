@@ -47,26 +47,26 @@
                     <span class="text-danger small"><%= locals.errores && locals.errores.email ? errores.email.msg :null %></span>
                     
 
-                    <div class="nombre"><label for="nombre">Nombre(s)</label><input type="text" name="nombre" id="nombre"
-                            placeholder="Nombre(s)" value=" <%= locals.old && locals.old.nombre ? old.nombre : null %> ">
+                    <div class="nombre"><label for="name">Nombre(s)</label><input type="text" name="name" id="name"
+                            placeholder="Nombre(s)" value=" <%= locals.old && locals.old.name ? old.name : null %> ">
                     </div>
                     <!-- Posible error -->
-                    <span class="text-danger small"><%= locals.errores && locals.errores.nombre ? errores.nombre.msg :null %></span>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.name ? errores.name.msg :null %></span>
 
 
-                    <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="text" name="apellido" id="apellido"
-                            placeholder="Apellido(s)" value=" <%= locals.old && locals.old.apellido ? old.apellido : null %> ">
+                    <div class="apellido"> <label for="lastname">Apellido(s)</label> <input type="text" name="lastname" id="lastname"
+                            placeholder="Apellido(s)" value=" <%= locals.old && locals.old.lastname ? old.lastname : null %> ">
                     </div>
                     <!-- Posible error -->
-                    <span class="text-danger small"><%= locals.errores && locals.errores.apellido ? errores.apellido.msg :null %></span>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.lastname ? errores.lastname.msg :null %></span>
 
 
                     <!-- NICK -->
-                    <div class="nombre"><label for="nickName">NickName</label><input type="text" name="nickName" id="nickName"
-                        placeholder="NickName" value=" <%= locals.old && locals.old.nickName ? old.nickName : null %> ">
+                    <div class="nombre"><label for="nickname">NickName</label><input type="text" name="nickname" id="nickname"
+                        placeholder="NickName" value=" <%= locals.old && locals.old.nickname ? old.nickname : null %> ">
                     </div> 
                     <!-- Posible error -->
-                    <span class="text-danger small"><%= locals.errores && locals.errores.nickName ? errores.nickName.msg :null %></span>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.nickname ? errores.nickname.msg :null %></span>
 
                     <div class="mb-3 nombre">
                         <label for="formFile" class="form-label"> Imagen de perfil </label>

@@ -18,16 +18,16 @@
     <!-- seccion de mas vendidos -->
     <section class="masVendidos libros-vista">
       <div class="cabecera">
-        <h2><%=libros.titulo%></h2>
+        <h2><%=productos.title%></h2>
       </div>
       <div class="articles-masVendidos">
 <% librosPapel.forEach(producto => { %>
-   <article class="libros-<%=producto.genero%>">
-        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
+   <article class="libros-<%=producto.genre%>">
+        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt="portada de<%=producto.title%>" /></a>
         <div class="detalle">
-          <h3><%=producto.titulo%></h3>
-          <h4><%=producto.autor%></h4>
-          <p><%=producto.precio%></p>
+          <h3><%=producto.title%></h3>
+          <h4><%=producto.author%></h4>
+          <p><%=producto.price%></p>
         </div>
       </article>
 <% }) %>
