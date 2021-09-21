@@ -13,7 +13,7 @@ module.exports = {
        
     loginUsuario:(req,res)=>{
         let errors = validationResult(req);
-        let { email, recordar } = req.body;
+        const { email, recordar } = req.body;
         if (errors.isEmpty()) {
             let user = users.find(user => user.email === email);
             console.log(user);
@@ -21,10 +21,11 @@ module.exports = {
                 id : user.id,
                 name : user.name,
                  category: user.category,
+                 image: user.image,
               
             }
             if(recordar){
-                res.cookie('Leaf',req.session.userLogin,{maxAge: 1000 * 60})
+                res.cookie('Leaf',req.session.userLogin,{maxAge:120000})
             }
             return res.redirect('/');
 
@@ -38,7 +39,7 @@ module.exports = {
 },
 cerrarSesion : (req,res) => {
     req.session.destroy();
-    res.cookie('Leaf',null,{maxAge:-1})
+res.clearCookie('Leaf');
     return res.redirect('/')
 },
   
@@ -59,11 +60,22 @@ cerrarSesion : (req,res) => {
                 nickname : req.body.nickname ? req.body.nickname.trim() : null,
                 image : req.file ? req.file.filename : 'profile-users-default.png'
             }
-            console.log(req.body)
             users.push(usuario);
             guardar(users);
-            return res.redirect('/users/perfil/:id');
+
+            req.session.userLogin = {
+                id : usuario.id,
+                nombre : usuario.nombre,
+                category : usuario.category
+            }
+            return res.redirect("/");
+
             }else{
+                if (req.file) { //Para no guardar la imagen si hay errores
+                let deleteImage = path.join(
+                    __dirname, '../../public/images/'+req.file.filename);
+                fs.unlinkSync(deleteImage);
+                }
                 return res.render('./users/register', {
                   errores: errors.mapped(),
                   old: req.body,
@@ -80,11 +92,60 @@ cerrarSesion : (req,res) => {
         });
     },
     editarPerfil: (req, res) => {
-        let userEdit = users.find((user) => user.id === +req.params.id);
-        return res.render("./users/editPerfil", {
-            title: "Editando perfil " + userEdit.first_name,
-            userEdit,
+        let user = users.find((user) => user.id === +req.params.id);
+        return res.render('./users/editPerfil', {
+          user,
+          title: 'Editando perfil de ' + user.nombre,
         });
-    }
-};
+    },
+
+    cambiarPerfil: (req,res) => {
+        let errors = validationResult(req);
+
+        if (errors.isEmpty() ) {
+            let user = users.find(user => user.id === +req.params.id)
+
+            let usuarioEditado = {
+                id : +req.params.id,
+                email : req.body.email.trim(),
+                password: bcrypt.hashSync(req.body.password,10),
+                nombre : req.body.nombre.trim(),
+                apellido : req.body.apellido.trim(),
+                category : "user",
+                nickName : req.body.nickName ? req.body.nickName.trim() : user.nickName,
+                image : req.file ? req.file.filename : user.image,
+            }
+            let userEncontrado = users.map(user => user.id === +req.params.id ? usuarioEditado : user)
+            users.push(usuarioEditado);
+            guardar(userEncontrado);
+            return res.redirect('/');
+            }else{
+                let user = users.find(user => user.id === +req.params.id)
+                if (req.file) { //Para no guardar la imagen si hay errores
+                let deleteImage = path.join(
+                    __dirname, '../../public/images/'+req.file.filename);
+                fs.unlinkSync(deleteImage);
+                }
+                return res.render('./users/editPerfil', {
+                  errores: errors.mapped(),
+                  old: req.body,
+                  title: 'LEAF | Registro',
+                  users,
+                  user,
+
+                });
+        }
+    },
+    actualizarImagen : (req, res) => {
+        let usuarioEditado = {
+            id : +req.params.id,
+            image : req.file ? req.file.filename : user.image,
+        }
+        let userEncontrado = users.map(user => user.id === +req.params.id ? usuarioEditado : user)
+        users.push(usuarioEditado);
+        guardar(userEncontrado);
+        return res.redirect('/');
+        }
+            }
+    
 

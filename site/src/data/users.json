@@ -1,134 +1,26 @@
 [
   {
     "id": 1,
-    "nickname": "Matt",
-    "nombre": "Matti",
-    "apellido": "Dumblton",
-    "email": "mdumblton0@wikia.com",
-    "password": "njYTbaKO",
-    "category": "user",
-    "image": "user_1.jpg"
-  },
-  {
-    "id": 2,
-    "nombre": "Starlene",
-    "apellido": "Evans",
-    "email": "sevans1@china.com.cn",
-    "password": "ipf9qx",
-    "category": "user",
-    "image": "user_2.jpg"
-  },
-  {
-    "id": 3,
-    "nombre": "Celisse",
-    "apellido": "Rowthorne",
-    "email": "crowthorne2@msn.com",
-    "password": "c8KoTrn71i7",
-    "category": "user",
-    "image": "user_3.jpg"
-  },
-  {
-    "id": 4,
-    "nombre": "Gorden",
-    "apellido": "Dizlie",
-    "email": "gdizlie3@jimdo.com",
-    "password": "BqL429VK1",
-    "category": "user",
-    "image": "user_4.jpg"
-  },
-  {
-    "id": 5,
-    "nombre": "Clemmy",
-    "apellido": "Rolfs",
-    "email": "crolfs4@usnews.com",
-    "password": "b5KRRMXvm4",
-    "category": "user",
-    "image": "user_5.jpg"
-  },
-  {
-    "id": 6,
-    "nombre": "Archaimbaud",
-    "apellido": "Eberdt",
-    "email": "aeberdt5@scribd.com",
-    "password": "2Nse5k3W",
-    "category": "user",
-    "image": "user_6.jpg"
-  },
-  {
-    "id": 7,
-    "nombre": "Cecil",
-    "apellido": "Mangenot",
-    "email": "cmangenot6@uiuc.edu",
-    "password": "Y7tQwP00y41",
-    "category": "user",
-    "image": "user_7.jpg"
-  },
-  {
-    "id": 8,
-    "nombre": "Benoite",
-    "apellido": "Hayhurst",
-    "email": "bhayhurst7@vimeo.com",
-    "password": "d5muM7MThcbH",
-    "category": "user",
-    "image": "user_8.jpg"
-  },
-  {
-    "id": 9,
-    "nombre": "Almeta",
-    "apellido": "Summerlie",
-    "email": "asummerlie8@cbsnews.com",
-    "password": "2tEOGmlIHk",
-    "category": "user",
-    "image": "user_9.jpg"
-  },
-  {
-    "id": 10,
-    "nombre": "Dyan",
-    "apellido": "Parysowna",
-    "email": "dparysowna9@upenn.edu",
-    "password": "9QGv0u8D6",
-    "category": "user",
-    "image": "user_10.jpg"
-  },
-  {
-    "id": 12,
     "email": "antoespinola55@gmail.com",
     "password": "$2a$10$NkTCPHyfaprctjVO3YomouIderjtmf3b3HU5EAgSE1i7nnI5CxI8K",
     "nombre": "Antonela",
     "apellido": "Espinola",
-    "category": "Administrador",
-    "nickName": "anto"
+    "category": "admin",
+    "nickName": "anto",
+    "image": "profile-users-default.png"
   },
   {
-    "id": 13,
-    "email": "lore_cb15@outlook.com",
-    "password": "$2a$10$ib75OShnEnEyHXUqXtpgae8yL8rCq6Ld1MQFSg44zYxObYWty2MO.",
-    "nombre": "Lorena",
-    "apellido": "Cohene",
-    "category": "user",
-    "nickName": "Lorenita"
-  },
-  {
-    "id": 14,
+    "id": 3,
     "email": "administrador@leaf.com",
     "password": "$2a$10$d9CQV4NMeLeCPaQTaxYCL./6Cb6Ahtn0UjeVZNhitIh/gGdY2fcRa",
     "nombre": "Admin",
     "apellido": "Istrador",
     "category": "admin",
-    "nickName": "admin"
-  },
-  {
-    "id": 17,
-    "email": "nahu@gmail.com",
-    "password": "$2a$10$i5cWVRL1fVCxO5.q9KobjOhiNKHkoddykFcYF8kT7k9OOl1MftUzy",
-    "nombre": "Nahuel",
-    "apellido": "Pena",
-    "category": "user",
-    "nickName": "Pena",
+    "nickName": "Administrador",
     "image": "profile-users-default.png"
   },
   {
-    "id": 18,
+    "id": 5,
     "email": "andradasomi@hotmail.com",
     "password": "$2a$10$99kVP4bIC3p4EnbBwqkTbON2kjK5rYjzv0SwXbW/G0x7bKICf0P9i",
     "nombre": "Sofia",
@@ -138,7 +30,7 @@
     "image": "image-1629942889174.png"
   },
   {
-    "id": 19,
+    "id": 6,
     "email": "mama@gmail.com",
     "password": "$2a$10$BmT7KEAzmMODS8V9hG4n/uoe7lDsFu.Gm/OKYJ4O0s7euxK79uyqS",
     "nombre": "maria",
@@ -148,7 +40,7 @@
     "image": "image-1629943072153.png"
   },
   {
-    "id": 20,
+    "id": 7,
     "email": "eliana.ag.95@gmail.com",
     "password": "$2a$10$taroDh8/ougg.wgn5D/7TOzwOcBiwEUpaTtjGU00sdmHxk2e4xXVG",
     "nombre": "Eliana",
@@ -156,5 +48,25 @@
     "category": "user",
     "nickName": "Ely",
     "image": "image-1629944981970.png"
+  },
+  {
+    "id": 9,
+    "email": "cinthia.agustina@hotmail.com",
+    "password": "$2a$10$QsdYtqn/QDV/wF9DsyNc2OvHL28FOuJQUyT0wPIdZbO2xKIEP5fMm",
+    "nombre": "cinthia",
+    "apellido": "agustina",
+    "category": "user",
+    "nickName": "cinagus",
+    "image": "profile-users-default.png"
+  },
+  {
+    "id": 10,
+    "email": "scuderi.f@hotmail.com",
+    "password": "$2a$10$ropKad1b/Nan3KQ6iIYd9epu4YpPPTDlxkLs4wL7RAg9YEoxARclS",
+    "nombre": "Fernando",
+    "apellido": "Scuderi",
+    "category": "user",
+    "nickName": "FerScu",
+    "image": "image-1630043062912.png"
   }
 ]

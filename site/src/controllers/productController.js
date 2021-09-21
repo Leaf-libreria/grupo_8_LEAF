@@ -148,6 +148,14 @@ let errors = validationResult(req);
       guardar(productos)
       return res.redirect('/products/administrador');
     } else {
+      if (req.file) {
+        //Para no guardar la imagen si hay errores
+        let deleteImage = path.join(
+          __dirname,
+          '../../public/images/' + req.file.filename
+        );
+        fs.unlinkSync(deleteImage);
+      }
       return res.render('./products/addProduct', {
         productos,
         genres,

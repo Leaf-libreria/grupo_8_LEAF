@@ -10,7 +10,6 @@
     <section class="contenido-gral-register">
         <div class="imgcostado-register" style="width: 18rem;">
             <img src="/images/<%=usuarioPerfil.image%>" class="card-img-top" alt="Logo de leaf">
-            <h4 class="card-title">¡Bienvenido <%=usuarioPerfil.nickname%>!</h4>
             <div class="card-body">
                 <div class="dropdown favoritos-user">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,14 +44,14 @@
             <main class="main-register perfil-main">
               
                     <a href="/" class="boton-home" ><i class="fas fa-angle-double-left"></i> Home</a>
-                    <h2 class="bienvenido-perfil">Bienvenido <%=usuarioPerfil.nickname%> </h2>
+                    <h2 class="bienvenido-perfil">Bienvenido <%=usuarioPerfil.nickName ? usuarioPerfil.nickName : usuarioPerfil.nombre%> </h2>
                 <div class="cont-perfil">
                     <!-- Posible error -->
                     <span></span> 
                     <!-- NICK -->
                     <div class="nombre">
                         <h5>NickName</h5>
-                        <p><%=usuarioPerfil.nickname%></p>
+                        <p><%=usuarioPerfil.nickName%></p>
                     </div> 
 
                     <div class="nombre"><h5>Nombre</h5>
