@@ -6,6 +6,12 @@ module.exports = [
     check('name')
     .notEmpty().withMessage('El nombre es obligatorio').bail()
     .isLength({
+      min: 2,
+      max: 50,
+    })
+    .withMessage('El nombre tiene que tener como mínimo 2 caracteres'),
+  body('password')
+    .isLength({
       min: 6,
       max: 12,
     })
