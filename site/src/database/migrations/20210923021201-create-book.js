@@ -36,6 +36,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
+      cover: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       authorId: {
         type: Sequelize.INTEGER,
         allowNull: false,

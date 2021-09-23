@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     slogan: DataTypes.TEXT,
     pages: DataTypes.INTEGER,
     synopsis: DataTypes.TEXT,
+    cover: DataTypes.STRING,
     authorId: DataTypes.INTEGER,
     genreId: DataTypes.INTEGER,
     formatId: DataTypes.INTEGER,
