@@ -33,6 +33,7 @@ module.exports = {
         categoryId: 1 ,
           },
             include:[{association:'categoria'}],
+      include: [{ association: 'autor' }],
       limit: 4
     })
     let novedades = db.Book.findAll({
@@ -40,7 +41,6 @@ module.exports = {
       categoryId:2,
       },
       include: [{ association: 'categoria' }],
-
       limit: 3
     })
     let recomendados = db.Book.findAll({
@@ -48,7 +48,6 @@ module.exports = {
         categoryId: 3,
       },
       include: [{ association: 'categoria' }],
-
       limit: 3
     })
     let generos = db.Genre.findAll()
@@ -63,7 +62,6 @@ module.exports = {
             novedades,
             recomendados,
             generos,
-           
           })
       }).catch(error => console.log(error))
   },

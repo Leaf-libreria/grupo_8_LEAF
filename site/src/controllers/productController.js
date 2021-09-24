@@ -2,72 +2,94 @@ const db = require('../database/models');
 const { validationResult } = require('express-validator');
 module.exports = {
   libros: (req, res) => {   
-    db.Book.findOne({
+    let productos=db.Book.findAll({
       include:['formato'],
       where: {
         formatId: 1
       }
-    }).then(() =>
+    })
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos])=>
       res.render("./products/libros", {
         title: "LEAF | Libros",
         productos,
-        // generos,/* Ver si necesita esos parametros */
+       generos,
       })).catch(error => console.log(error));
   },
   ebooks: (req, res) => {
-    db.Book.findOne({
+   let productos= db.Book.findAll({
       include:['formato'],
       where: {
         formatId: 2
       }
-    }).then(() =>
+    })
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos]) =>
       res.render("./products/ebooks", {
         title: "LEAF | E-books",
         productos,
-        // generos,/* Ver si necesita esos parametros */
+        generos
       })).catch(error => console.log(error));
   },
 
   verMasVendidos: (req, res) => {
-    db.Book.findOne({
-      include:['categoria'],
+    let productos=db.Book.findAll({
+      include:[{association:'autor'},     
+      {association:'categoria'}],
       where: {
         categoryId: 1
       }
-    }).then(() =>
-      res.render("./products/verMasVendidos", { title: "LEAF | Más vendidos", productos, generos },/* Ver si necesita esos parametros */
-      )).catch(error => console.log(error));
+    })
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos])  =>{
+      return res.render("verMasVendidos",
+      { 
+        title: "LEAF | Más vendidos", productos, generos 
+    })
+      }).catch(error => console.log(error));
   },
 
   verMasNovedades: (req, res) => {
-    db.Book.findOne({
-      include:['categoria'],
+    let productos = db.Book.findAll({
+      include: [{ association: 'autor' },
+      { association: 'categoria' }],
       where: {
         categoryId: 2
       }
-    }).then(() =>
-      res.render("./products/verMasNovedades", {
+    })
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos]) => {
+      return res.render("verMasNovedades", {
         title: "LEAF | Más novedades",
         productos,
-        /*generos*/
-      },
-      )).catch(error => console.log(error));
+        generos
+      })
+    }).catch(error => console.log(error));
   },
 
   verMasRecomendados: (req, res) => {
-    db.Book.findOne({
-      include: ['categoria'],
+    let productos = db.Book.findAll({
+      include: [{ association: 'autor' },
+      { association: 'categoria' }],
       where: {
-        categoryId: 3
+        categoryId: 1
       }
-    }).then(() =>
-      res.render("./products/verMasRecomendados", { title: "LEAF | Más recomendados", /*productos, generos*/ },
-      )).catch(error => console.log(error));
+    })
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos]) => {
+      return res.render("verMasRecomendados", { title: "LEAF | Más recomendados", productos, generos 
+    })
+  }).catch(error => console.log(error));
 
   },
 
   detail: (req, res) => {
-    let book = db.Book.findOne({
+    let producto = db.Book.findOne({
       where: {
         id: req.params.id
       },
@@ -93,26 +115,27 @@ module.exports = {
         },
       ]
     });
-    let recomendados = db.Genre.findOne({
+    let recomendados = db.Genre.findAll({
       where: {
-        id: book.genreId
+        id: 3,
       },
-      limit: 3,
+      include: [{ association: 'libros' }],
+      limit:3,
     });
     let generos = db.Genre.findAll()
     console.log(generos);
-    Promise.all([book, recomendados,generos])
-      .then(([book, recomendados,generos]) => {
+    Promise.all([producto, recomendados,generos])
+      .then(([producto, recomendados,generos]) => {
         return res.render("./products/productDetail", {
           title: 'LEAF | Detalle',
-          book,
+          producto,
           recomendados,
           generos
         })
       }).catch(error => console.log(error));
   },
   administrador: (req, res) => {
-   let productos = db.Book.findAll({
+  let productos = db.Book.findAll({
 
       include: [
         {
@@ -165,7 +188,7 @@ module.exports = {
 
       const { title, author, price, category, genre, synopsis, slogan, stars, editorial, isbn, pages, language, format, stock } = req.body;
 
-      db.Book.update(
+      let productos=Book.update(
         {
           title: title.trim(),
           author: author.trim(),
@@ -190,14 +213,14 @@ module.exports = {
         }
       ).then(() => res.redirect('/products/administrador')).catch(error => console.log(error));
     } else {
-      db.Book.findAll()
-        .then(book => {
+      let productos=db.Book.findAll()
+        .then(productos => {
           return res.render('./products/editProduct', {
-            book,
-            generos,/* ver si necesita generos */
+            productos,
+            generos,
             errores: errors.mapped(),
             old: req.body,
-            productEdit, /* ver si necesita productEdit */
+            productEdit, 
             title: 'LEAF | Administrador',
           });
         })
@@ -205,11 +228,11 @@ module.exports = {
     }
   },
   addProducto: (req, res) => {
-    db.Book.findAll()
-      .then(book => {
+    let productos=db.Book.findAll()
+      .then(productos => {
         return res.render('./products/addProduct', {
           title: 'LEAF | Administrador',
-          book,
+          productos,
         });
       }).catch(error => console.log(error))
   },
