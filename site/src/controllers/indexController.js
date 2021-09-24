@@ -4,21 +4,36 @@ const { validationResult } = require('express-validator');
 
 module.exports = {
   index: (req, res) => {
-
-    let masVendidosLibros = db.Book.findOne({
+    let productos = db.Book.findAll(
+      {
+        include: [
+          {
+            association: 'categoria'
+          },
+          {
+            association: 'editorial'
+          },
+          {
+            association: 'estrella'
+          },
+          {
+            association: 'formato'
+          },
+          {
+            association: 'autor'
+          },
+          {
+            association: 'genero'
+          },
+        ]
+      }
+    );
+    let masVendidos = db.Category.findOne({
       where: {
-        categoryId : 1,
+        name: 'Más vendidos',
       },
-          include : [
-            {association : 'genero'}
-          ],
-          include : [
-            {association : 'autor'}
-          ]
-      ,
       limit: 4
     })
-  
     let novedades = db.Category.findOne({
       where: {
         name: 'Novedades',
@@ -31,26 +46,18 @@ module.exports = {
       },
       limit: 3
     })
-    let generos = db.Genre.findAll()
-   
-    Promise.all([ masVendidosLibros, novedades, recomendados, generos])
-      .then(([ masVendidosLibros, novedades, recomendados, generos]) => {
-      
+    Promise.all([productos, masVendidos, novedades, recomendados])
+      .then(([productos, masVendidos, novedades, recomendados]) => {
         return res.render("index",
-      
           {
             title: "LEAF",
-            masVendidosLibros: masVendidosLibros.libros,
-         
+            productos,
+            masVendidos,
             novedades,
             recomendados,
-            generos,
+            // genres, *ver si lo necesita*
           })
-
-      })
-      console.log(masVendidos)
-      .catch(error => console.log(error))
-    
+      }).catch(error => console.log(error))
   },
   preguntas: (req, res) => {
     return res.render("preguntasFrecuentes",
@@ -88,6 +95,5 @@ module.exports = {
         productos,
       })).catch(error => console.log(error));
     }
-  },
- 
+  }
 }

@@ -49,10 +49,9 @@ module.exports = {
       res.render("./products/verMasNovedades", {
         title: "LEAF | Más novedades",
         productos,
-      
+        /*generos*/
       },
-      ))
-      .catch(error => console.log(error));
+      )).catch(error => console.log(error));
   },
 
   verMasRecomendados: (req, res) => {
@@ -62,7 +61,7 @@ module.exports = {
         categoryId: 3
       }
     }).then(() =>
-      res.render("./products/verMasRecomendados", { title: "LEAF | Más recomendados",  },
+      res.render("./products/verMasRecomendados", { title: "LEAF | Más recomendados", /*productos, generos*/ },
       )).catch(error => console.log(error));
 
   },
@@ -165,7 +164,7 @@ module.exports = {
           title: title.trim(),
           author: author.trim(),
           price: price.trim(),
-          category: category,
+          category: category.trim(),
           genre: genre.trim(),
           synopsis: synopsis.trim(),
           slogan: slogan.trim(),
@@ -173,10 +172,10 @@ module.exports = {
           editorial: editorial.trim(),
           isbn: isbn.trim(),
           pages: pages.trim(),
-          language: language.trim,
-          format: format,
+          language: language.trim(),
+          format: format.trim(),
           stock: stock.trim(),
-          cover: req.file.filename
+          cover: req.file.filename.trim()
         },
         {
           where: {
@@ -228,7 +227,7 @@ module.exports = {
         language: language.trim(),
         format: format.trim(),
         stock: stock.trim(),
-        cover: req.file.trim()
+        cover: req.file.filename.trim()
       }).then(() => {
         return res.redirect('/products/administrador');
       }).catch(error => console.log(error))
@@ -354,5 +353,4 @@ module.exports = {
         // generos,/* Ver si necesita esos parametros */
       })).catch(error => console.log(error));
   },
- 
 };
