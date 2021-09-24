@@ -137,7 +137,6 @@ module.exports = {
         res.render("./products/admin", {
           title: "LEAF | Administrador",
           book,
-          generos,/* ver si necesita generos */
         }); //Lista todos los productos
       })
   },
