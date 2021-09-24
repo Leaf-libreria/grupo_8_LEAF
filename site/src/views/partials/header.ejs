@@ -1,130 +1,137 @@
 <header id="contenedorLogo">
-    <!-- seccion superior del header -->
-    <nav class="header1">
-      <!-- redes sociales -->
-      <ul class="redes">
-        <li>
-          <p class="noResponsive">Seguinos</p>
-        </li>
-        <li>
-          <a href=""><i class="fab fa-facebook-square"></i></a>
-        </li>
-        <li>
-          <a href=""><i class="fab fa-instagram-square"></i></a>
-        </li>
-        <li>
-          <a href=""><i class="fab fa-twitter-square"></i></a>
-        </li>
-      </ul>
-      <!-- mi cuenta -->
-      <% if (locals.userLogin) { %>
-        <% if (locals.userLogin.category === "admin") { %>
-          <div class="login">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-               <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
-                <p><%= locals.userLogin.nombre %></p>
-              </button>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
-                <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
-              
-              </ul>
-            </div>
-          </div>
-         
-        <% } else{%>
-
-          <div class="login">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-               <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
-                <p><%= locals.userLogin.nombre %></p>
-              </button>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li> <a class="dropdown-item" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil  </a></li>
-                <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
-              
-              </ul>
-            </div>
-          </div>
-
-       <% }%>
-       <% }else{ %>
-        <!-- mi cuenta -->
+  <!-- seccion superior del header -->
+  <nav class="header1">
+    <!-- redes sociales -->
+    <ul class="redes">
+      <li>
+        <p noResponsive>Seguinos</p>
+      </li>
+      <li>
+        <a href=""><i class="fab fa-facebook-square"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fab fa-instagram-square"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fab fa-twitter-square"></i></a>
+      </li>
+    </ul>
+    <!-- mi cuenta -->
+    <% if (locals.userLogin) { %>
+      <% if (locals.userLogin.category==="admin" ) { %>
         <div class="login">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-user"></i>
-              <p>Mi cuenta</p>
+              <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
+              <p>
+                <%= locals.userLogin.nombre %>
+              </p>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
-              <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
+              <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
+              <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
+
             </ul>
           </div>
         </div>
-        <% } %>
-         
-    </nav>
-    <!-- seccion inferior del header -->
-    <!-- <nav class="header2"> -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light header2">
-        <div class="container-fluid">
-          <div class="contenedorLogo">
-            <a  class="navbar-brand" href="/"> <img class="logo" src="/images/logo-leaf-remaster.png" alt="logo de Leaf" /></a>
-          </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                   <!-- login -->
-                   <li class="nav-item active">
-                    <% if (locals.userLogin) { %>
-                      <% if (locals.userLogin.category === "admin") { %>
-                        <div class="login">
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                             <div class="img-perfil"> <img src="/images/<%=userLogin.image%>"  alt="foto de perfil" style="width: 30px;"></div>
-                              <p><%= locals.userLogin.nombre %></p>
-                            </button>
-              
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
-                              <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
-                            
-                            </ul>
-                          </div>
-                        </div>
-                       
-                      <% } else{%>
-              
-                        <div class="login">
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                             <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
-                              <p><%= locals.userLogin.nombre %></p>
-                            </button>
-              
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li> <a class="dropdown-item" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil  </a></li>
-                              <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
-                            
-                            </ul>
-                          </div>
-                        </div>
-              
-                     <% }%>
-                     <% }else{ %>
+        <% } else{%>
+          <div class="login">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
+                <p>
+                  <%= locals.userLogin.nombre %>
+                </p>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li> <a class="dropdown-item" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil </a></li>
+                <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
+
+              </ul>
+            </div>
+          </div>
+          <% }%>
+            <% }else{ %>
+              <!-- mi cuenta -->
+              <div class="login">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                    <p>Mi cuenta</p>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
+                    <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
+                  </ul>
+                </div>
+              </div>
+              <% } %>
+
+  </nav>
+  <!-- seccion inferior del header -->
+  <!-- <nav class="header2"> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light header2">
+    <div class="container-fluid">
+      <div class="contenedorLogo">
+        <a class="navbar-brand" href="/"> <img class="logo" src="/images/logo-leaf-remaster.png"
+            alt="logo de Leaf" /></a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- login -->
+          <li class="nav-item active">
+            <% if (locals.userLogin) { %>
+              <% if (locals.userLogin.category==="admin" ) { %>
+                <div class="login">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"
+                          style="width: 30px;"></div>
+                      <p>
+                        <%= locals.userLogin.nombre %>
+                      </p>
+                    </button>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="/products/administrador">Administrador</a></li>
+                      <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
+
+                    </ul>
+                  </div>
+                </div>
+
+                <% } else{%>
+
+                  <div class="login">
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
+                        <p>
+                          <%= locals.userLogin.nombre %>
+                        </p>
+                      </button>
+
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li> <a class="dropdown-item" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil </a></li>
+                        <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+
+                  <% }%>
+                    <% }else{ %>
                       <!-- mi cuenta -->
                       <div class="login">
                         <div class="dropdown">
@@ -140,57 +147,51 @@
                         </div>
                       </div>
                       <% } %>
-                       
-                  </li>
 
-              <li class="nav-item">
-                <a class="noResponsive nav-link " aria-current="page" href="/products/libros">Libros</a>
-              </li>
-              <li class="nav-item">
-                <a class="noResponsive nav-link" href="/products/ebooks">Ebooks</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Generos
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          </li>
 
-                  <% generos.forEach(genero => { %>
-                    <li><a class="dropdown-item" href="/products/<%=genero%>"><%=genero%></a></li>
-                    <% }) %>
-                </ul>
-              </li>
-           
-
-              <li class="nav-item">
-                <div class="buscador">
-                  <form action="/search" method="GET" class="d-flex buscador-form">
-                    <input  class="form-control me-2 buscador" name="search"  type="search" placeholder="Buscar..." aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit" ><i class="fas fa-search"></i></button>
-                  </form>
-                 </div>
-                 </li>
-        <% } else{%>
- 
-            
           <li class="nav-item">
-            <a class="nav-link" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil <%= locals.userLogin.name %> </a>
+            <a class="noResponsive nav-link " aria-current="page" href="/products/libros">Libros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/users/logout">cerrar sesión</a>
+            <a class="noResponsive nav-link" href="/products/ebooks">Ebooks</a>
           </li>
-       <% }%>
-              <li class="nav-item">
-                <button class="carrito noMovil">
-                  <a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a>
-                  <p>0</p>
-                </button>
-                </li>
-           
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Generos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              <% generos.forEach(genero=> { %>
+                <li><a class="dropdown-item" href="/products/<%=genero%>">
+                    <%=genero%>
+                  </a></li>
+                <% }) %>
             </ul>
-          
-          </div>
-        </div>
-      </nav>
+          </li>
 
-  </header>
+
+          <li class="nav-item">
+            <div class="buscador">
+              <form action="/search" method="GET" class="d-flex buscador-form">
+                <input class="form-control me-2 buscador" name="search" type="search" placeholder="Buscar..."
+                  aria-label="Search">
+                <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+              </form>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <button class="carrito noMovil">
+              <a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a>
+              <p>0</p>
+            </button>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>

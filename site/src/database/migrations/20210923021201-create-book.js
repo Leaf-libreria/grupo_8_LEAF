@@ -37,8 +37,9 @@ module.exports = {
         allowNull: false
       },
       cover: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING(500),
+        allowNull: false,
+        defaultValue:'default-image-book.png'
       },
       authorId: {
         type: Sequelize.INTEGER,
@@ -102,7 +103,16 @@ module.exports = {
       },
       language: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true,
+        defaultValue:'Español'
+      },
+      createdAt: {
+        allowNull: true,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: true,
+        type: Sequelize.DATE
       }
     });
   },
