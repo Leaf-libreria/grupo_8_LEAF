@@ -44,15 +44,14 @@ const {
   terror,
   misterio,
   historica,
-  ficcion,
   cienciaFiccion,
-  novela,
   juvenil,
   actualizarProducto,
   addProducto,
   borrar,
   verMasNovedades,
   verMasRecomendados,
+
 } = require('../controllers/productController');
 
 // /products
@@ -82,10 +81,8 @@ router.get('/misterio', misterio);
 router.get('/terror', terror);
 router.get('/romance', romance);
 router.get('/historica', historica);
-router.get('/ficcion', ficcion);
 router.get('/ciencia-ficcion', cienciaFiccion);
 router.get('/policial', policial);
-router.get('/novela', novela);
 router.get('/juvenil', juvenil);
 
 module.exports = router;

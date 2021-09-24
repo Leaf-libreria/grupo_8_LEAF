@@ -130,12 +130,16 @@
   </div>
 
   <!-- Modal contacto -->
+
+
+<!-- modify this form HTML and place wherever you want your form -->
+
   <div class="modal fade" id="contacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog scrollable">
       <div class="modal-content">
         <!--ENCABEZADO MODAL -->
         <div class="modal-header">
-          <form id="my-form" action="" method="POST" class="form-signin">
+          <form id="my-form" action="https://formspree.io/f/mdoybbdw" method="POST" class="form-signin">
             <h3 class="modal-title contacto-title" id="exampleModalLabel">Contactanos</h3>
             <!-- BODY MODAL  -->
             <div id="modal-body">
@@ -153,7 +157,8 @@
               <button id="my-form-button" class="btn btn-lg  btn-block btn-modal centrar-form">Enviar</button>
               <p id="my-form-status"></p>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                <button type="button" 
+                id="my-form-button" class="btn btn-secondary" data-bs-dismiss="modal">
                   Cerrar
                 </button>
               </div>

@@ -21,7 +21,7 @@
         <h2><%=productos.title%></h2>
       </div>
       <div class="articles-masVendidos">
-<% papel.forEach(producto => { %>
+<% librosPapel.forEach(producto => { %>
    <article class="libros-<%=producto.genre%>">
         <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt="portada de<%=producto.title%>" /></a>
         <div class="detalle">

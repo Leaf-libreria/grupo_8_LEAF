@@ -12,7 +12,7 @@
             <img src="/images/<%=user.image%>" class="card-img-top" alt="Logo de leaf">
             <div class="card-body">
               
-            <p><%=user.nombre%></p></div>
+            <p><%=user.name%></p></div>
             <!-- REDES SOCIALES -->
             <ul class="redes-register">
                 <li>
@@ -40,23 +40,24 @@
                         <input type="file" class="form-control" id="imagenPerfil" name="image">
                     </div>
                          <!-- NICK -->
-                    <div class="nombre"><label for="nickname">NickName</label><input type="nickname" name="nickname" id="nickname"
-                        value="<%= userEdit.nickname %> ">
+                    <div class="nombre"><label for="nickName">NickName</label><input type="nickName" name="nickname" id="nickName"
+                        value="<%= locals.old && locals.old.nickname ? old.nickName : user.nickname %> ">
+                        <span class="text-danger small"><%= locals.errores && locals.errores.nickname ? errores.nickname.msg :null %></span>
               
                     </div> 
-                    <div class="nombre"><label for="name">Nombre(s)</label><input type="name" name="name" id="name"
-                        value="<%= userEdit.name %> ">
+                    <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="name" id="nombre"
+                        value="<%= locals.old && locals.old.name ? old.name : user.name %> ">
                     </div>
-                    <span class="text-danger small"><%= locals.errores && locals.errores.nombre ? errores.nombre.msg :null %></span>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.name ? errores.name.msg :null %></span>
 
-                    <div class="apellido"> <label for="lastname">Apellido(s)</label> <input type="lastname" name="lastname" id="lastname"
-                        value="<%= userEdit.lastname %> ">
+                    <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="apellido" name="lastname" id="apellido"
+                        value="<%= locals.old && locals.old.lastname ? old.lastname : user.lastname %> ">
                     </div>
-                    <span class="text-danger small"><%= locals.errores && locals.errores.apellido ? errores.apellido.msg :null %></span>
+                    <span class="text-danger small"><%= locals.errores && locals.errores.lastname ? errores.lastname.msg :null %></span>
 
                    
-                    <div class="registro-correo"> <label for="registre-email">Correo electrónico</label><input type="email" name="email" id="email"
-                        value="<%= userEdit.email %> ">
+                    <div class="registro-correo"> <label for="registro-correo">Correo electrónico</label><input type="email" name="email" id="email"
+                        value="<%= locals.old && locals.old.email ? old.email : user.email %> ">
                     </div>
                     <span class="text-danger small"><%= locals.errores && locals.errores.email ? errores.email.msg :null %></span>
 
