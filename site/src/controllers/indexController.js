@@ -28,26 +28,33 @@ module.exports = {
         ]
       }
     );
-    let masVendidos = db.Category.findOne({
+    let masVendidos = db.Book.findAll({
       where: {
-        name: 'Más vendidos',
-      },
+        categoryId: 1 ,
+          },
+            include:[{association:'categoria'}],
       limit: 4
     })
-    let novedades = db.Category.findOne({
+    let novedades = db.Book.findAll({
       where: {
-        name: 'Novedades',
+      categoryId:2,
       },
+      include: [{ association: 'categoria' }],
+
       limit: 3
     })
-    let recomendados = db.Category.findOne({
+    let recomendados = db.Book.findAll({
       where: {
-        name: 'Recomendados',
+        categoryId: 3,
       },
+      include: [{ association: 'categoria' }],
+
       limit: 3
     })
-    Promise.all([productos, masVendidos, novedades, recomendados])
-      .then(([productos, masVendidos, novedades, recomendados]) => {
+    let generos = db.Genre.findAll()
+
+    Promise.all([productos, masVendidos, novedades, recomendados, generos])
+      .then(([productos, masVendidos, novedades, recomendados,generos]) => {
         return res.render("index",
           {
             title: "LEAF",
@@ -55,7 +62,8 @@ module.exports = {
             masVendidos,
             novedades,
             recomendados,
-            // genres, *ver si lo necesita*
+            generos,
+           
           })
       }).catch(error => console.log(error))
   },

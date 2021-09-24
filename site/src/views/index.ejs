@@ -8,7 +8,7 @@
   <body class="index">
 
     <!-- ----header ----->
-    <%-include('./partials/header') %>
+     <%-include('./partials/header') %>
       <!-- ----header---- -->
 
 
@@ -53,21 +53,18 @@
             <a href="/products/masVendidos">Ver más</a>
       </div>
       <div class="articles-masVendidos">
-<% masVendidosLibros.forEach(producto => { %>
-   <article class="libros-<%=producto[i].name%>">
-        <a href="/products/detalle/<%=producto[i].id%>"><img src="/images/<%=producto[i].cover%>" alt="portada de<%=producto[i].title%>" /></a>
+<% masVendidos.forEach(producto => { %>
+   <article class="libros-<%=producto.genre%>">
+        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt="portada de<%=producto.title%>" /></a>
         <div class="detalle">
           <h3><%=producto.title%></h3>
-          <h4><%=producto.autor.nameLastname%></h4>
+          <h4><%=producto.author%></h4>
           <p>$<%=producto.price%></p>
         </div>
       </article>
 <% }) %>
       </div>
     </section>
-
-
-
         <!-- seccion de novedades -->
         <section class="novedades">
           <div class="cabecera">

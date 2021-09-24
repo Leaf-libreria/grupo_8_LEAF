@@ -99,18 +99,20 @@ module.exports = {
       },
       limit: 3,
     });
-    Promise.all([book, recomendados])
-      .then(([book, recomendados]) => {
+    let generos = db.Genre.findAll()
+    console.log(generos);
+    Promise.all([book, recomendados,generos])
+      .then(([book, recomendados,generos]) => {
         return res.render("./products/productDetail", {
           title: 'LEAF | Detalle',
           book,
           recomendados,
-          // generos /* Ver si los necesita*/
+          generos
         })
       }).catch(error => console.log(error));
   },
   administrador: (req, res) => {
-    db.Book.findAll({
+   let productos = db.Book.findAll({
 
       include: [
         {
@@ -133,22 +135,26 @@ module.exports = {
         },
       ]
     })
-      .then(book => {
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos]) => {
         res.render("./products/admin", {
           title: "LEAF | Administrador",
-          book,
-          generos,/* ver si necesita generos */
+          productos,
+          generos
+         
         }); //Lista todos los productos
       })
   },
   editarProducto: (req, res) => {
-    let genre = db.Genre.findAll();
+    let generos = db.Genre.findAll()
     let productEdit = db.Book.findByPk(req.params.id);
-    Promise.all([genre, productEdit])
-      .then(([genre, productEdit]) => {
+
+    Promise.all([generos, productEdit])
+      .then(([generos, productEdit]) => {
         return res.render("./products/editProduct", {
           title: 'Editando ' + productEdit.title,
-          genre,
+          generos,
           productEdit,//producto editado
         });
       })
