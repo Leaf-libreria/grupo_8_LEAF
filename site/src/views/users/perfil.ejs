@@ -9,7 +9,7 @@
     <!-- Imagen de costado = tablet/desktop -->
     <section class="contenido-gral-register">
         <div class="imgcostado-register" style="width: 18rem;">
-            <img src="/images/<%=usuarioPerfil.image%>" class="card-img-top" alt="Logo de leaf">
+            <img src="/images/<%=user.image%>" class="card-img-top" alt="Logo de leaf">
             <div class="card-body">
                 <div class="dropdown favoritos-user">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,32 +38,32 @@
             <section class="header-register">
                <a href="/products/carrito" class="icono-carrito"><i class="fas fa-shopping-cart "></i></a>
                 <!-- editar perfil -->
-            <div><a href="/users/editarPerfil/<%=usuarioPerfil.id  %> "  class="editar-perfil"><p>Editar perfil</p><i class="fas fa-edit"></i></a></div> 
+            <div><a href="/users/editarPerfil/<%=user.id  %> "  class="editar-perfil"><p>Editar perfil</p><i class="fas fa-edit"></i></a></div> 
             </section>
 
             <main class="main-register perfil-main">
               
                     <a href="/" class="boton-home" ><i class="fas fa-angle-double-left"></i> Home</a>
-                    <h2 class="bienvenido-perfil">Bienvenido <%=usuarioPerfil.nickName ? usuarioPerfil.nickName : usuarioPerfil.name%> </h2>
+                    <h2 class="bienvenido-perfil">Bienvenido <%=user.nickname ? user.nickname : uer.name%> </h2>
                 <div class="cont-perfil">
                     <!-- Posible error -->
                     <span></span> 
                     <!-- NICK -->
                     <div class="nombre">
                         <h5>NickName</h5>
-                        <p><%=usuarioPerfil.nickName%></p>
+                        <p><%=user.nickname%></p>
                     </div> 
 
                     <div class="nombre"><h5>Nombre</h5>
-                        <p><%=usuarioPerfil.name%></p>
+                        <p><%=user.name%></p>
                     </div>
 
                     <div class="apellido"><h5>Apellido</h5>
-                        <p><%=usuarioPerfil.lastname%></p>
+                        <p><%=user.lastname%></p>
                     </div>
 
                     <div class="registro-correo"><h5>Correo electrónico</h5> 
-                        <p><%=usuarioPerfil.email%></p>
+                        <p><%=user.email%></p>
                         
                     </div>
                 </div>

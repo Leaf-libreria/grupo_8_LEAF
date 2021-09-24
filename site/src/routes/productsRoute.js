@@ -44,15 +44,14 @@ const {
   terror,
   misterio,
   historica,
-  ficcion,
   cienciaFiccion,
-  novela,
   juvenil,
   actualizarProducto,
   addProducto,
   borrar,
   verMasNovedades,
   verMasRecomendados,
+
 } = require('../controllers/productController');
 
 // /products

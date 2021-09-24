@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const {index, preguntas, quienesSomos, search} = require("../controllers/indexController");
+const { generos } = require('../controllers/productController');
 
 
 /* GET home page. */

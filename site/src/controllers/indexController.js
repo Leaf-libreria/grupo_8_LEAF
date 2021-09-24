@@ -51,8 +51,10 @@ module.exports = {
 
       limit: 3
     })
-    Promise.all([productos, masVendidos, novedades, recomendados])
-      .then(([productos, masVendidos, novedades, recomendados]) => {
+    let generos = db.Genre.findAll()
+
+    Promise.all([productos, masVendidos, novedades, recomendados, generos])
+      .then(([productos, masVendidos, novedades, recomendados,generos]) => {
         return res.render("index",
           {
             title: "LEAF",
@@ -60,6 +62,7 @@ module.exports = {
             masVendidos,
             novedades,
             recomendados,
+            generos,
           })
       }).catch(error => console.log(error))
   },

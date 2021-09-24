@@ -3,7 +3,7 @@ const {check, body} = require('express-validator');
 module.exports = [
   check('email').isEmail().withMessage('Debes ingresar un email válido'),
 
-  body('nombre')
+  body('name')
     .notEmpty()
     .withMessage('El nombre es obligatorio')
     .isLength({

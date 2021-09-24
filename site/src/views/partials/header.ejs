@@ -18,7 +18,7 @@
     </ul>
     <!-- mi cuenta -->
     <% if (locals.userLogin) { %>
-      <% if (locals.userLogin.category==="admin" ) { %>
+      <% if (locals.userLogin.rol === 2 ) { %>
         <div class="login">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -90,15 +90,15 @@
           <!-- login -->
           <li class="nav-item active">
             <% if (locals.userLogin) { %>
-              <% if (locals.userLogin.category==="admin" ) { %>
+              <% if (locals.userLogin.Id === 2 ) { %>
                 <div class="login">
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                       data-bs-toggle="dropdown" aria-expanded="false">
-                      <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"
+                      <div class="img-perfil"> <img src="/images/<%=userLogin.User.image%>" alt="foto de perfil"
                           style="width: 30px;"></div>
                       <p>
-                        <%= locals.userLogin.nombre %>
+                        <%= locals.userLogin.User.name %>
                       </p>
                     </button>
 
@@ -118,7 +118,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"></div>
                         <p>
-                          <%= locals.userLogin.nombre %>
+                          <%= locals.userLogin.name %>
                         </p>
                       </button>
 
@@ -164,8 +164,8 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
               <% generos.forEach(genero=> { %>
-                <li><a class="dropdown-item" href="/products/<%=genero%>">
-                    <%=genero%>
+                <li><a class="dropdown-item" href="/products/<%=genero.name%>">
+                    <%=genero.name%>
                   </a></li>
                 <% }) %>
             </ul>
