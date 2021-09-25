@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Rol',
   });
   let config = {
+    tableName : 'rols',
     timestamps: false,
     deletedAt: false
 }

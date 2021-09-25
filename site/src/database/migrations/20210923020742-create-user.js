@@ -26,7 +26,8 @@ module.exports = {
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true.valueOf,
+        defaultValue:'profile-users-default.png'
       },
       password: {
         type: Sequelize.STRING,
