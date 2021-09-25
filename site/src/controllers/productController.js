@@ -317,44 +317,65 @@ module.exports = {
     }
   },
   addProducto: (req, res) => {
-      let generos = db.Genre.findAll()
-      .then(() => {
+      db.Genre.findAll()
+      .then(generos => {
         return res.render('./products/addProduct', {
-          title: 'LEAF | Administrador',
-          generos
+          title: 'LEAF | Administrador', generos
         });
       }).catch(error => console.log(error))
   },
   agregarProducto: (req, res) => {
     let errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const { title, author, price, category, genre, synopsis, slogan, stars, editorial, isbn, pages, language, format, stock } = req.body;
+    if (!errors) {
       db.Book.create({
-        title: title.trim(),
-        author: author.trim(),
-        price: price.trim(),
-        category: category.trim(),
-        genre: genre.trim(),
-        synopsis: synopsis.trim(),
-        slogan: slogan.trim(),
-        stars: stars.trim(),
-        editorial: editorial.trim(),
-        isbn: isbn.trim(),
-        pages: pages.trim(),
-        language: language.trim(),
-        format: format.trim(),
-        stock: stock.trim(),
+        /* title: req.body.title.trim(),
+        // author: req.body.author.trim(),
+        // price: req.body.price.trim(),
+        // categories: req.body.categories,
+        // genre: req.body.genre.trim(),
+        // synopsis: req.body.synopsis.trim(),
+        // slogan: req.body.slogan.trim(),
+        // stars: req.body.stars.trim(),
+        // editorial: req.body.editorial.trim(),
+        // isbn: req.body.isbn.trim(),
+        // pages: req.body.pages.trim(),
+        // formats: req.body.formats,
+        // stock: req.body.stock.trim(),*/
+        ...req.body,
         cover: req.file ? req.file.filename : 'default-image-book.png'
       })
-      let generos = db.Genre.findAll()
-      .then(() => {
-        return res.redirect('/products/administrador',{
-          generos
+      let productos = db.Book.findAll(/*{
+        include: [
+          {
+            association: 'categoria'
+          },
+          {
+            association: 'editorial'
+          },
+          {
+            association: 'estrella'
+          },
+          {
+            association: 'formato'
+          },
+          {
+            association: 'autor'
+          },
+          {
+            association: 'genero'
+          },
+        ]}*/)
+     let generos= db.Genre.findAll()
+      Promise.all([productos, generos])
+        .then(([productos, generos]) => {
+        return res.render('./products/admin',{
+          generos, productos,
+          title:"LEAF | Administrador",
         });
       }).catch(error => console.log(error))
     } else {
-      let generos = db.Genre.findAll()
-        .then(() => {
+      db.Genre.findAll()
+        .then(generos => {
           return res.render('./products/addProduct', {
             generos,
             errores: errors.mapped(),
