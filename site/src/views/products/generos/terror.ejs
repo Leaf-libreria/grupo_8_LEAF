@@ -22,13 +22,13 @@
         <h2><%=productos.titulo%></h2>
       </div>
       <div class="articles-masVendidos">
-<% terror.forEach(producto => { %>
+<% productos.forEach(producto => { %>
    <article class="libros-<%=producto.genero%>">
-        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.portada%>" alt="portada de<%=producto.titulo%>" /></a>
+        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt="portada de<%=producto.title%>" /></a>
         <div class="detalle">
-          <h3><%=producto.titulo%></h3>
-          <h4><%=producto.autor%></h4>
-          <p><%=producto.precio%></p>
+          <h3><%=producto.title%></h3>
+          <h4><%=producto.autor.nameLastname%></h4>
+          <p>$<%=producto.price%></p>
         </div>
       </article>
 <% }) %>

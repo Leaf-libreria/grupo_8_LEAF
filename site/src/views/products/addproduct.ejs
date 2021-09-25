@@ -56,45 +56,29 @@
       <label for="format">Formato:</label> 
       <select name="format" id="format">
           <option value="" hidden selected>Seleccione el formato</option>
-          <option value="1"<%= locals.old && old.format === 'libro' ? 'selected' : null%>>Libro</option>
-          <option value="2"<%= locals.old && old.format === 'ebook' ? 'selected' : null%> >Ebook</option>
+          <option value="1"<%= locals.old && old.formats.name === 'Libro' ? 'selected' : null%> >Libro</option>
+          <option value="2"<%= locals.old && old.formats.name === 'E-book' ? 'selected' : null%> >Ebook</option>
       </select>
       <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= locals.errores && locals.errores.format ? errores.format.msg :
+                  ><%= locals.errores && locals.errores.formats ? errores.formats.msg :
                   null %></span
                 >
           </div>
         </section>
-        <section class="categoria">
-          <label for="category">Categoría:</label> 
-          <select name="category" id="category">
-              <option value="" hidden selected>Seleccione la categoria</option>
-              <option value="recomendados" <%= locals.old && old.category === 'recomendados' ? 'selected' : null%> >Recomendados</option>
-              <option value="novedades"<%= locals.old && old.category === 'novedades' ? 'selected' : null%> >Novedades</option>
-              <option value="mas-vendidos" <%= locals.old && old.category === 'mas-vendidos' ? 'selected' : null%> >Más vendidos</option>
-          </select>
-          <div class="error">
-              <!-- Posibles errores -->
-                <span 
-                  ><%= locals.errores && locals.errores.category ? errores.category.msg :
-                  null %></span
-                >
-          </div>
-            </section>
             <section class="categoria">
               <label for="category">Categoría:</label>
-              <select name="category" id="category">
+              <select name="categories" id="category">
                 <option value="" hidden selected>Seleccione la categoria</option>
-                <option value="recomendados">Recomendados</option>
-                <option value="novedades">Novedades</option>
-                <option value="mas-vendidos">Más vendidos</option>
+                <option value="3">Recomendados</option>
+                <option value="2">Novedades</option>
+                <option value="1">Más vendidos</option>
               </select>
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
-                  <%= locals.errores && locals.errores.category ? errores.category.msg : null %>
+                  <%= locals.errores && locals.errores.categories ? errores.categories.msg : null %>
                 </span>
               </div>
             </section>
