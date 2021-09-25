@@ -328,44 +328,44 @@ module.exports = {
     let errors = validationResult(req);
     if (!errors) {
       db.Book.create({
-        /* title: req.body.title.trim(),
-        // author: req.body.author.trim(),
-        // price: req.body.price.trim(),
-        // categories: req.body.categories,
-        // genre: req.body.genre.trim(),
-        // synopsis: req.body.synopsis.trim(),
-        // slogan: req.body.slogan.trim(),
-        // stars: req.body.stars.trim(),
-        // editorial: req.body.editorial.trim(),
-        // isbn: req.body.isbn.trim(),
-        // pages: req.body.pages.trim(),
-        // formats: req.body.formats,
-        // stock: req.body.stock.trim(),*/
-        ...req.body,
+        title: req.body.title.trim(),
+        authorId: req.body.author.trim(),
+        price: req.body.price.trim(),
+        categoryId: req.body.categories,
+        genreId: req.body.genre.trim(),
+        synopsis: req.body.synopsis.trim(),
+        slogan: req.body.slogan.trim(),
+        starsId: req.body.stars.trim(),
+        editorialId: req.body.editorial.trim(),
+        isbn: req.body.isbn.trim(),
+        pages: req.body.pages.trim(),
+        formatId: req.body.formats,
+        stock: req.body.stock.trim(),
+        // ...req.body,
         cover: req.file ? req.file.filename : 'default-image-book.png'
       })
-      let productos = db.Book.findAll(/*{
-        include: [
-          {
-            association: 'categoria'
+       let productos = db.Book.findAll({
+         include: [
+           {
+             association: 'categoria'
+           },
+           {
+             association: 'editorial'
+           },
+           {
+             association: 'estrella'
+           },
+           {
+             association: 'formato'
+           },
+           {
+             association: 'autor'
+           },
+           {
+             association: 'genero'
           },
-          {
-            association: 'editorial'
-          },
-          {
-            association: 'estrella'
-          },
-          {
-            association: 'formato'
-          },
-          {
-            association: 'autor'
-          },
-          {
-            association: 'genero'
-          },
-        ]}*/)
-     let generos= db.Genre.findAll()
+  ]})
+    let generos= db.Genre.findAll()
       Promise.all([productos, generos])
         .then(([productos, generos]) => {
         return res.render('./products/admin',{

@@ -87,12 +87,12 @@
               <label for="author">Autor/Autora:</label>
               <div class="otroAutor">
                 <input type="text" name="author" id="otroAutor" placeholder="Nombre y apellido del autor" class="control"
-                  value="<%= locals.old && locals.old.author? old.author: null%>">
+                  value="<%= locals.old && locals.old.autor.name? old.autor.name: null%>">
               </div>
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
-                  <%= locals.errores && locals.errores.author ? errores.author.msg : null %>
+                  <%= locals.errores && locals.errores.autor.name ? errores.autor.name.msg : null %>
                 </span>
               </div>
             </section>

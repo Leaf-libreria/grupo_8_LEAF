@@ -82,24 +82,28 @@ module.exports = {
   },
   search: (req, res) => {
     if (req.query.search.trim() != "") {
-      db.Book.findAll({
+      let result=db.Book.findAll({
         include: [
-          { association: autor },
-          { association: genero },
-          { association: formato },
-          { association: editorial },
+          { association: 'autor' },
+          { association: 'genero' },
+          { association: 'formato' },
+          { association: 'editorial' },
         ],
         where: {
           [Op.or]: [
-
+          { title: {[Op.substring] : req.query.search}},
           ]
         }
-      }).then(result => res.render('results', {
+      })
+      let generos = db.Genre.findAll()
+      Promise.all([result, generos])
+        .then(([result, generos]) => { return res.render('results', {
         title: 'LEAF | Resultados',
         result,
         search: req.query.search.trim(),
-        productos,
-      })).catch(error => console.log(error));
-    }
+        generos
+      })
+        }).catch(error => console.log(error));
+}
   }
 }
