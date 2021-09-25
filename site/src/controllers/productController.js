@@ -115,11 +115,14 @@ module.exports = {
         },
       ]
     });
-    let recomendados = db.Genre.findAll({
+   let recomendados =  db.Book.findAll({
+    where: {
+      
+    },
       where: {
-        id: 3,
+        id: book.genreId,
       },
-      include: [{ association: 'libros' }],
+      include: [{ association: 'genero' }],
       limit:3,
     });
     let generos = db.Genre.findAll()
