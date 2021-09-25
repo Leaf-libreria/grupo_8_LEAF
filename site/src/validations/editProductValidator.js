@@ -14,7 +14,7 @@ module.exports = [
     .withMessage('Campo obligatorio')
     .isInt()
     .withMessage('Ingrese solo números'),
-  body('format').notEmpty().withMessage('Campo obligatorio'),
+  body('formats').notEmpty().withMessage('Campo obligatorio'),
   body('category').notEmpty().withMessage('Campo obligatorio'),
   body('author').notEmpty().withMessage('Campo obligatorio'),
   body('editorial').notEmpty().withMessage('Campo obligatorio'),
