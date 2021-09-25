@@ -119,25 +119,39 @@ module.exports = {
         },
       ]
     });
-   let recomendados =  db.Book.findAll({
-    where: {
-      
-    },
-      where: {
-        id: book.genreId,
-      },
-      include: [{ association: 'genero' }],
-      limit:3,
-    });
+
     let generos = db.Genre.findAll()
-    console.log(generos);
-    Promise.all([producto, recomendados,generos])
-      .then(([producto, recomendados,generos]) => {
+    let relacionados = db.Book.findAll({
+    
+      include: [
+        {
+          association: 'categoria'
+        },
+        {
+          association: 'editorial'
+        },
+        {
+          association: 'estrella'
+        },
+        {
+          association: 'formato'
+        },
+        {
+          association: 'autor'
+        },
+        {
+          association: 'genero'
+        },
+      ]
+    })
+    Promise.all([producto,generos, relacionados])
+      .then(([producto,generos, relacionados]) => {
         return res.render("./products/productDetail", {
           title: 'LEAF | Detalle',
           producto,
-          recomendados,
-          generos
+          generos,
+          relacionados 
+        
         })
       }).catch(error => console.log(error));
   },

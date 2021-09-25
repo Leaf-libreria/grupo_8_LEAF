@@ -57,20 +57,21 @@
 
       
       <section class="otros">
-        <% recomendados.forEach(producto => { %>
-
+     
+        <% relacionados.forEach(book => { %>
+         <% if(book.genero.name === producto.genero.name){%>
             <article>
-              <a href="/products/detalle/<%=producto.id%>">  <img class ="<%= producto.genre%>"
-                src="/images/<%= producto.cover %> "
-                alt="<%= producto.title %> "
+              <a href="/products/detalle/<%=book.id%>">  <img class ="<%= book.name%>"
+                src="/images/<%= book.cover %> "
+                alt="<%= book.title %> "
               /></a>
               <div class="detalle">
-                <h3><%= producto.title %> </h3>
-                <h4><%= producto.author %> </h4>
-                <p>$ <%= producto.price %> </p>
+                <h3><%= book.title %> </h3>
+                <h4><%= book.autor.nameLastname %> </h4>
+                <p>$ <%= book.price %> </p>
               </div>
             </article>
-            
+            <% }%>
         <% }) %>
       </section>
 
