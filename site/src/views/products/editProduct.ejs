@@ -10,13 +10,13 @@
   <%-include('../partials/header') %>
   <!-- ----header---- -->
     <main>
-        <h2>Edición de <%= productEdit.titulo %> </h2>
+        <h2>Edición de <%= productEdit.title %> </h2>
         <!--FORMULARIO-->
 <div class="administrador">
   <form action="/products/editar/<%=productEdit.id%>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data">
       <div class="titulo">
           <label for="title">Título del libro:</label>
-          <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.titulo ? old.title : productEdit.title %> ">
+          <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.title ? old.title : productEdit.title %> ">
         <div class="error">
               <!-- Posibles errores -->
                 <span><%= !productEdit.title || locals.errores && locals.errores.title ? errores.title.msg :
@@ -51,14 +51,14 @@
     </div>
   <section class="category">
       <label for="format">Formato:</label> 
-      <select name="format" id="format">
-          <option value="libro"<%= productEdit.format==="libro"?'selected':null %> <%= locals.old && old.format === 'libro' ? 'selected' : null%> >Libro</option>
-          <option value="ebook"<%= productEdit.format==="ebook"?'selected':null %> <%= locals.old && old.format === 'ebook' ? 'selected' : null%> >Ebook</option>
+      <select name="formats" id="format">
+          <option value="1"<%= productEdit.formato.name==="Libro"?'selected':null %> <%= locals.old && old.formato.name === 'Libro' ? 'selected' : null%> >Libro</option>
+          <option value="2"<%= productEdit.formato.name==="E-book"?'selected':null %> <%= locals.old && old.formato.name === 'E-book' ? 'selected' : null%> >Ebook</option>
       </select>
       <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= !productEdit.format ||locals.errores && locals.errores.format ? errores.format.msg :
+                  ><%= !productEdit.formato ||locals.errores && locals.errores.formato ? errores.formato.msg :
                   null %></span
                 >
           </div>
@@ -66,32 +66,32 @@
         <section class="category">
           <label for="category">Categoría:</label> 
           <select name="category" id="category">
-              <option value="recomendados"<%= productEdit.category==="recomendados"?'selected':null %> <%= locals.old && locals.old.category === 'recomendados' ? 'selected' : null%> > Recomendados</option>
-              <option value="novedades" <%= productEdit.category==="novedades"?'selected':null %> <%= locals.old && locals.old.category === 'novedades' ? 'selected' : null%> >Novedades</option>
-              <option value="mas-vendidos"<%= productEdit.category ==="mas-vendidos" ?'selected':null %> <%= locals.old && locals.old.category === 'mas-vendidos' ? 'selected' : null%> >Más vendidos</option>
+              <option value="3"<%= productEdit.categoria.name ==="recomendados"?'selected':null %> <%= locals.old && locals.old.categoria.name === 'recomendados' ? 'selected' : null%> > Recomendados</option>
+              <option value="novedades" <%= productEdit.categoria==="2"?'selected':null %> <%= locals.old && locals.old.categoria.name === 'novedades' ? 'selected' : null%> >Novedades</option>
+              <option value="1"<%= productEdit.categoria.name==="mas-vendidos" ?'selected':null %> <%= locals.old && locals.old.categoria.name === 'mas-vendidos' ? 'selected' : null%> >Más vendidos</option>
           </select>
           <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= !productEdit.category || locals.errores && locals.errores.category ? errores.category.msg :
+                  ><%= !productEdit.categoria || locals.errores && locals.errores.categoria ? errores.categoria.msg :
                   null %></span
                 >
           </div>
             </section>
   <section class="author">
         <label for="author">Autor/Autora:</label>
-    <input type="text" name="author" value="<%= locals.old && locals.old.author? old.author: productEdit.author %>">
+    <input type="text" name="author" value="<%= locals.old && locals.old.autor.nameLastname? old.autor.nameLastname: productEdit.autor.nameLastname %>">
     <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= !productEdit.author || locals.errores && locals.errores.author ? errores.author.msg :
+                  ><%= !productEdit.autor || locals.errores && locals.errores.autor ? errores.autor.msg :
                   null %></span
                 >
           </div>
     </section>
 <section class="editorial">
     <label for="editorial">Editorial:</label>
-    <input type="text" name="editorial" value="<%= locals.old && locals.old.editorial? old.editorial:productEdit.editorial %>">
+    <input type="text" name="editorial" value="<%= locals.old && locals.old.editorial.name? old.editorial.name:productEdit.editorial.name %>">
     <div class="error">
               <!-- Posibles errores -->
                 <span 
@@ -102,10 +102,10 @@
 </section>
 <section class="genre">
     <label for="genre">Género</label>
-    <input type="text" name="genre" value="<%= locals.old && locals.old.genre? old.genre:productEdit.genre %>">
+    <input type="text" name="genre" value="<%= locals.old && locals.old.genero.name? old.genero.name:productEdit.genero.name %>">
     <div class="error">
             <!-- Posibles errores -->
-                <span><%= !productEdit.genre || locals.errores && locals.errores.genre ? errores.genre.msg :
+                <span><%= !productEdit.genero || locals.errores && locals.errores.genero ? errores.genero.msg :
                 null %></span>
         </div>
 </section>
@@ -130,13 +130,11 @@
 </div>
 <div class="stars">
   <label for="stars">Estrellas:</label>
-  <input type="text" name="stars" id="stars" class="con-grid"placeholder="N° de stars" value="<%= locals.old && locals.old.stars? old.stars: productEdit.stars %>">
+  <input type="text" name="stars" id="stars" class="con-grid"placeholder="N° de stars" value="<%= locals.old && locals.old.estrella.quantity? old.estrella.quantity: productEdit.estrella.quantity %>">
    <div class="error">
               <!-- Posibles errores -->
-                <span 
-                  ><%= !productEdit.stars || locals.errores && locals.errores.stars ? errores.stars.msg :
-                  null %></span
-                >
+                <span><%= locals.errores && locals.errores.estrella ? errores.estrella.msg :
+                  null %></span>
           </div>
 </div>
 </div>

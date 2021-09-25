@@ -54,7 +54,7 @@
 </div>
   <section class="formato">
       <label for="format">Formato:</label> 
-      <select name="format" id="format">
+      <select name="formats" id="format">
           <option value="" hidden selected>Seleccione el formato</option>
           <option value="1"<%= locals.old && old.formats.name === 'Libro' ? 'selected' : null%> >Libro</option>
           <option value="2"<%= locals.old && old.formats.name === 'E-book' ? 'selected' : null%> >Ebook</option>

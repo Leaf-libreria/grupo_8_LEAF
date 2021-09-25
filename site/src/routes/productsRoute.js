@@ -66,12 +66,12 @@ router.get('/administrador', administradorMw, administrador);
 router.get('/agregar', administradorMw, addProducto);
 router.post(
   '/agregar',
-  upload.single('portada'),
+  upload.single('cover'),
   addValidator,
   agregarProducto
 );
 router.get('/editar/:id',administradorMw, editarProducto);
-router.put('/editar/:id', upload.single('portada'),editValidator, actualizarProducto);
+router.put('/editar/:id', upload.single('cover'),editValidator, actualizarProducto);
 router.delete('/delete/:id', borrar);
 //Carrito y formulario de pago
 router.get('/carrito',logueados, carrito);
