@@ -1,76 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <!-- ----head ----->
-  <%-include('../../partials/head') %> 
+<!-- ----head ----->
+<%-include('../../partials/head') %>
   <!-- ----head---- -->
 
-<body class="index">
+  <body class="index">
 
 
-  <!-- ----header ----->
-  <%-include('../../partials/header') %> 
-  <!-- ----header---- -->
- 
-  
-<h1 class="titulo-generos"><%=title%></h1>
+    <!-- ----header ----->
+    <%-include('../../partials/header') %>
+      <!-- ----header---- -->
 
-  <main class="mainIndex ">
-    <!-- seccion de mas vendidos -->
-    <section class="masVendidos libros-vista">
-      <div class="cabecera">
-        <h2><%=productos.titulo%></h2>
-      </div>
-      <div class="articles-masVendidos">
-<% productos.forEach(producto => { %>
-   <article class="libros-<%=producto.genero%>">
-        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt="portada de<%=producto.title%>" /></a>
-        <div class="detalle">
-          <h3><%=producto.title%></h3>
-          <h4><%=producto.autor.nameLastname%></h4>
-          <p>$<%=producto.price%></p>
-        </div>
-      </article>
-<% }) %>
-      </div>
-    </section>
-   
 
-  
+      <h1 class="titulo-generos">
+        <%=title%>
+      </h1>
 
-    <section class="iconos">
-      <h3>en leaf te ofrecemos</h3>
-      <div class="articulo-iconos">
-        <article class="envios">
-          <i class="fas fa-truck"></i>
-          <p>compra online y <strong> envios a domicilio </strong></p>
-        </article>
-        <article class="tarjetas">
-          <i class="far fa-credit-card"></i>
-          <p>
-            pagos fáciles y seguros con <strong>tarjetas de credito</strong>
-          </p>
-        </article>
-        <article class="cambios">
-          <i class="fas fa-book"></i>
-          <p>simples y rápidos <strong>cambio de libros</strong></p>
-        </article>
-        <article class="precios">
-          <i class="fas fa-dollar-sign"></i>
-          <p>los mejores <strong> precios y ofertas</strong></p>
-        </article>
-      </div>
-    </section>
-  </main>
+      <main class="mainIndex ">
+        <!-- seccion de mas vendidos -->
+        <section class="masVendidos libros-vista">
+          <div class="cabecera">
+            <h2>
+              <%=productos.titulo%>
+            </h2>
+          </div>
+          <div class="articles-masVendidos">
+            <% productos.forEach(producto=> { %>
+              <article class="libros-<%=producto.genero%>">
+                <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>"
+                    alt="portada de<%=producto.title%>" /></a>
+                <div class="detalle">
+                  <h3>
+                    <%=producto.title%>
+                  </h3>
+                  <h4>
+                    <%=producto.autor.nameLastname%>
+                  </h4>
+                  <p>$<%=producto.price%>
+                  </p>
+                </div>
+              </article>
+              <% }) %>
+          </div>
+        </section>
 
-   <!-- ----footer ----->
-   <%-include('../../partials/footer') %> 
-   <!-- ----footer---- -->
- 
-     
+        <section class="iconos">
+          <h3>en leaf te ofrecemos</h3>
+          <div class="articulo-iconos">
+            <article class="envios">
+              <i class="fas fa-truck"></i>
+              <p>compra online y <strong> envios a domicilio </strong></p>
+            </article>
+            <article class="tarjetas">
+              <i class="far fa-credit-card"></i>
+              <p>
+                pagos fáciles y seguros con <strong>tarjetas de credito</strong>
+              </p>
+            </article>
+            <article class="cambios">
+              <i class="fas fa-book"></i>
+              <p>simples y rápidos <strong>cambio de libros</strong></p>
+            </article>
+            <article class="precios">
+              <i class="fas fa-dollar-sign"></i>
+              <p>los mejores <strong> precios y ofertas</strong></p>
+            </article>
+          </div>
+        </section>
+      </main>
 
-</body>
-   <!-- ----scripts ----->
-   <%-include('../../partials/scripts') %> 
-   <!-- ----scripts---- -->
+      <!-- ----footer ----->
+      <%-include('../../partials/footer') %>
+        <!-- ----footer---- -->
+
+  </body>
+  <!-- ----scripts ----->
+  <%-include('../../partials/scripts') %>
+    <!-- ----scripts---- -->
+
 </html>

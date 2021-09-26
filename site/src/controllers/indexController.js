@@ -1,110 +1,112 @@
-const db = require('../database/models');
-const { Op } = require('sequelize');
-const { validationResult } = require('express-validator');
+const db = require("../database/models");
+const { Op } = require("sequelize");
+const { validationResult } = require("express-validator");
 module.exports = {
   index: (req, res) => {
-    let productos = db.Book.findAll(
-      {
-        include: [
-          {
-            association: 'categoria'
-          },
-          {
-            association: 'editorial'
-          },
-          {
-            association: 'estrella'
-          },
-          {
-            association: 'formato'
-          },
-          {
-            association: 'autor'
-          },
-          {
-            association: 'genero'
-          },
-        ]
-      }
-    );
+    let productos = db.Book.findAll({
+      include: [
+        {
+          association: "categoria",
+        },
+        {
+          association: "editorial",
+        },
+        {
+          association: "estrella",
+        },
+        {
+          association: "formato",
+        },
+        {
+          association: "autor",
+        },
+        {
+          association: "genero",
+        },
+      ],
+    });
     let masVendidos = db.Book.findAll({
       where: {
-        categoryId: 1 ,
-          },
-            include:[{association:'categoria'}],
-      include: [{ association: 'autor' }],
-      limit: 4
-    })
+        categoryId: 1,
+      },
+      include: [{ association: "categoria" }],
+      include: [{ association: "autor" }],
+      limit: 4,
+    });
     let novedades = db.Book.findAll({
       where: {
-      categoryId:2,
+        categoryId: 2,
       },
-      include: [{ association: 'categoria' }],
-      limit: 3
-    })
+      include: [{ association: "categoria" }],
+      limit: 3,
+    });
     let recomendados = db.Book.findAll({
       where: {
         categoryId: 3,
       },
-      include: [{ association: 'categoria' }],
-      limit: 3
-    })
-    let generos = db.Genre.findAll()
+      include: [{ association: "categoria" }],
+      limit: 3,
+    });
+    let generos = db.Genre.findAll();
 
     Promise.all([productos, masVendidos, novedades, recomendados, generos])
-      .then(([productos, masVendidos, novedades, recomendados,generos]) => {
-        return res.render("index",
-          {
-            title: "LEAF",
-            productos,
-            masVendidos,
-            novedades,
-            recomendados,
-            generos,
-          
-
-          })
-      }).catch(error => console.log(error))
+      .then(([productos, masVendidos, novedades, recomendados, generos]) => {
+        return res.render("index", {
+          title: "LEAF",
+          productos,
+          masVendidos,
+          novedades,
+          recomendados,
+          generos,
+        });
+      })
+      .catch((error) => console.log(error));
   },
   preguntas: (req, res) => {
-    return res.render("preguntasFrecuentes",
-      {
-        title: 'LEAF | Preguntas frecuentes',
-        genres,
-      })
+    db.Genre.findAll()
+.then((generos) => {
+    return res.render("preguntasFrecuentes", {
+      title: "LEAF | Preguntas frecuentes",
+      generos,
+    });
+  })
   },
-
   quienesSomos: (req, res) => {
-    return res.render("quienesSomos",
-      {
-        title: 'LEAF | Quiénes somos',
-        genres,
-      })
+db.Genre.findAll()
+.then((generos) => {
+  return res.render("quienesSomos", {
+    title: "LEAF | Quiénes somos",
+    generos
+   
+  });
+})
+
+  
   },
   search: (req, res) => {
     if (req.query.search.trim() != "") {
-      let result=db.Book.findAll({
+      let result = db.Book.findAll({
         include: [
-          { association: 'autor' },
-          { association: 'genero' },
-          { association: 'formato' },
-          { association: 'editorial' },
+          { association: "autor" },
+          { association: "genero" },
+          { association: "formato" },
+          { association: "editorial" },
         ],
         where: {
-          [Op.or]: [
-          { title: {[Op.substring] : req.query.search}},
-          ]
-        }
-      })
-      let generos = db.Genre.findAll()
+          [Op.or]: [{ title: { [Op.substring]: req.query.search } }],
+        },
+      });
+      let generos = db.Genre.findAll();
       Promise.all([result, generos])
-        .then(([result, generos]) => { return res.render('results', {
-        title: 'LEAF | Resultados',
-        result,
-        search: req.query.search.trim(),
-        generos
-      })
-        }).catch(error => console.log(error));
-}
-  }
-}
+        .then(([result, generos]) => {
+          return res.render("results", {
+            title: "LEAF | Resultados",
+            result,
+            search: req.query.search.trim(),
+            generos,
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  },
+};
