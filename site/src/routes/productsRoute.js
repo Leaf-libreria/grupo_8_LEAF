@@ -67,11 +67,11 @@ router.get('/agregar', administradorMw, addProducto);
 router.post(
   '/agregar', administradorMw,
   upload.single('cover'),
-  
+  addValidator,
   agregarProducto
 );
 router.get('/editar/:id',administradorMw, editarProducto);
-router.put('/editar/:id', administradorMw,upload.single('cover'),editValidator, actualizarProducto);
+router.put('/editar/:id', administradorMw,upload.single('cover'),/*editValidator,*/ actualizarProducto);
 router.delete('/delete/:id', borrar);
 //Carrito y formulario de pago
 router.get('/carrito',logueados, carrito);

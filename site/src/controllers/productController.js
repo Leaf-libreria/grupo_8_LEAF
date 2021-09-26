@@ -239,7 +239,8 @@ module.exports = {
       }).catch(error => console.log(error))
   },
   actualizarProducto: (req, res) => {
-
+    let errors = validationResult(req);
+if(errors.isEmpty()){
       let productEdit = db.Book.findByPk(req.params.id, {
         
         include: [
@@ -289,54 +290,55 @@ module.exports = {
           .then(() => {
             return res.redirect('/products/administrador')
           }).catch(error => console.log(error));
-    // } else {
-    //   let productEdit = db.Book.findByPk(req.params.id,{
+    } else {
 
-    //     include: [
-    //       {
-    //         association: 'categoria'
-    //       },
-    //       {
-    //         association: 'editorial'
-    //       },
-    //       {
-    //         association: 'estrella'
-    //       },
-    //       {
-    //         association: 'formato'
-    //       },
-    //       {
-    //         association: 'autor'
-    //       },
-    //       {
-    //         association: 'genero'
-    //       },
-    //     ]
-      // }); 
+       let productEdit = db.Book.findByPk(req.params.id,{
 
-    // let generos = db.Genre.findAll()
-    // let autores =  db.Author.findAll()
-    //  let editoriales =  db.Editorial.findAll()
-    //  let estrellas = db.Star.findAll()
-    //  let categorias = db.Category.findAll()
-    //  let formatos = db.Format.findAll()
-    // Promise.all([productEdit, generos, autores, editoriales, estrellas,categorias,formatos])
-    //   .then(([productEdit, generos, autores, editoriales, estrellas,categorias,formatos]) => {
-    //       return res.render('./products/editProduct', {
-    //         generos,
-    //         errores: errors.mapped(),
-    //         old: req.body,
-    //         productEdit, 
-    //         title: 'LEAF | Administrador',
-    //         autores,
-    //         editoriales,
-    //         estrellas,
-    //         categorias,
-    //         formatos
-    //       });
-    //   }).catch (error => console.log(error));
+         include: [
+           {
+             association: 'categoria'
+           },
+           {
+             association: 'editorial'
+           },
+           {
+             association: 'estrella'
+           },
+           {
+             association: 'formato'
+           },
+           {
+             association: 'autor'
+           },
+           {
+             association: 'genero'
+           },
+         ]
+     }); 
 
-    // }
+     let generos = db.Genre.findAll()
+     let autores =  db.Author.findAll()
+      let editoriales =  db.Editorial.findAll()
+      let estrellas = db.Star.findAll()
+      let categorias = db.Category.findAll()
+      let formatos = db.Format.findAll()
+     Promise.all([productEdit, generos, autores, editoriales, estrellas,categorias,formatos])
+       .then(([productEdit, generos, autores, editoriales, estrellas,categorias,formatos]) => {
+           return res.render('./products/editProduct', {
+             generos,
+             errores: errors.mapped(),
+             old: req.body,
+             productEdit, 
+             title: 'LEAF | Administrador',
+             autores,
+             editoriales,
+             estrellas,
+             categorias,
+             formatos
+           })
+       }).catch (error => console.log(error));
+      
+      }
   },
   addProducto: (req, res) => {
      let autores =  db.Author.findAll()

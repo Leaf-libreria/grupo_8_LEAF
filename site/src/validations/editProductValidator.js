@@ -14,11 +14,11 @@ module.exports = [
     .withMessage('Campo obligatorio')
     .isInt()
     .withMessage('Ingrese solo números'),
-  body('formats').notEmpty().withMessage('Campo obligatorio'),
-  body('category').notEmpty().withMessage('Campo obligatorio'),
-  body('author').notEmpty().withMessage('Campo obligatorio'),
-  body('editorial').notEmpty().withMessage('Campo obligatorio'),
-  body('genre').notEmpty().withMessage('Campo obligatorio'),
+  body('formatId').notEmpty().withMessage('Campo obligatorio'),
+  body('categorId').notEmpty().withMessage('Campo obligatorio'),
+  body('authorId').notEmpty().withMessage('Campo obligatorio'),
+  body('editorialId').notEmpty().withMessage('Campo obligatorio'),
+  body('genreId').notEmpty().withMessage('Campo obligatorio'),
   body('price')
     .notEmpty()
     .withMessage('Campo obligatorio')
@@ -29,7 +29,7 @@ module.exports = [
     .withMessage('Campo obligatorio')
     .isInt()
     .withMessage('Ingrese solo números'),
-  body('stars')
+  body('starId')
     .isInt({ min: 1, max: 5 })
     .withMessage('Número entre 1 y 5')
     .notEmpty()

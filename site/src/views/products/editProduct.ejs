@@ -19,8 +19,7 @@
           <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.title ? old.title : productEdit.title %> ">
         <div class="error">
               <!-- Posibles errores -->
-                <span><%= !productEdit.title || locals.errores && locals.errores.title ? errores.title.msg :
-                  null %></span>
+                <span></span>
           </div>  
       </div>
     <div class="container-grid-uno">
@@ -32,8 +31,7 @@
     <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= !productEdit.isbn || locals.errores && locals.errores.isbn ? errores.isbn.msg :
-                  null %></span
+                  ></span
                 >
           </div>
 </div>
@@ -44,8 +42,7 @@
     <div class="error">
               <!-- Posibles errores -->
                 <span 
-                  ><%= !productEdit.stock ||locals.errores && locals.errores.stock ? errores.stock.msg :
-                  null %></span>
+                  ></span>
     </div>
     </div>
     </div>
@@ -55,14 +52,12 @@
   <select name="formatId" id="format">
     <option value="" hidden selected>Seleccione el formato</option>
     <% formatos.forEach(formato => { %>
-      <option value="<%= formato.id %>"><%= formato.name %></option>
+      <option value="<%= formato.id %>" <%= productEdit.formatId ? 'selected': null %> ><%= formato.name %></option>
     <% }) %>
   </select>
   <div class="error">
           <!-- Posibles errores -->
-            <span 
-              ></span
-            >
+            <span></span>
       </div> 
     </section>
 
@@ -72,13 +67,12 @@
               <select name="categoryId" id="category">
                 <option value="" hidden selected>Seleccione la categoria</option>
                 <% categorias.forEach(categoria => { %>
-                  <option value="<%= categoria.id %> "><%= categoria.name%> </option>
+                  <option value="<%= categoria.id %> " <%= productEdit.categoryId ? 'selected' : null %> ><%= categoria.name%> </option>
                 <% }) %>
               </select>
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
-                
                 </span>
               </div>
             </section>
@@ -89,14 +83,13 @@
       <select name="authorId" id="format">
         <option value="" hidden selected>Seleccione el autor</option>
         <% autores.forEach(autor => { %>
-          <option value="<%= autor.id %> "> <%= autor.nameLastname %> </option>
+          <option value="<%= autor.id %>" <%= productEdit.authorId ? 'selected' : null %> > <%= autor.nameLastname %> </option>
         <% }) %>
       </select>
     </div>
     <div class="error">
       <!-- Posibles errores -->
       <span>
-    
       </span>
     </div>
   </section>
@@ -107,13 +100,14 @@
       <select name="editorialId" id="format">
       <option value="" hidden selected>Seleccione la editorial</option>
       <% editoriales.forEach(editorial => { %>
-        <option value="<%= editorial.id %> "><%= editorial.name %></option> 
+        <option value="<%= editorial.id %>" <%= productEdit.editorialId ? 'selected' : null %> ><%= editorial.name %></option> 
       <% }) %>
     </select>
   
   <div class="error">
     <!-- Posibles errores -->
     <span>
+      
     </span>
   </div>
   </div>
@@ -125,13 +119,14 @@
     <select name="genreId" id="format">
       <option value="" hidden selected>Seleccione el género</option>
       <% generos.forEach(genero => { %>
-        <option value="<%= genero.id %> "><%= genero.name %></option>
+        <option value="<%= genero.id %>" <%= productEdit.genreId ? 'selected' : null %> ><%= genero.name %></option>
       <% }) %>
     </select>
   </div>
   <div class="error">
     <!-- Posibles errores -->
     <span>
+      
     </span>
   </div>
 </section>
@@ -140,11 +135,11 @@
     <div class="precio">
       <label for="price">Precio $:</label>
       <input type="number" name="price" id="price" class="con-grid" placeholder="Sólo números"
-        value="">
+        value="<%= locals.old && locals.old.price? old.price: productEdit.price %>">
       <div class="error">
         <!-- Posibles errores -->
         <span>
-         
+        
         </span>
       </div>
     </div>
@@ -152,10 +147,11 @@
     <div class="paginas">
       <label for="pages">Páginas:</label>
       <input type="number" name="pages" id="pages" class="con-grid" placeholder="Sólo números"
-        value="">
+        value="<%= locals.old && locals.old.pages? old.pages: productEdit.pages %>">
       <div class="error">
         <!-- Posibles errores -->
         <span>
+          
         </span>
       </div>
     </div>
@@ -166,12 +162,13 @@
     <select name="starId" id="stars">
       <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
       <% estrellas.forEach(estrella => { %>
-        <option value="<%= estrella.id %> "> <%= estrella.quantity %></option>
+        <option value="<%= estrella.id %>" <%= productEdit.starId ? 'selected' : null %> > <%= estrella.quantity %></option>
       <% }) %>
     </select>
     <div class="error">
       <!-- Posibles errores -->
       <span>
+        
       </span>
     </div>
   </div>
@@ -180,10 +177,11 @@
 <div class="sinopsis">
   <label for="slogan">Crítica:</label>
   <textarea type="text" name="slogan" id="slogan"
-    placeholder="Breve critica"></textarea>
+    placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: productEdit.slogan %></textarea>
   <div class="error">
     <!-- Posibles errores -->
     <span>
+      
     </span>
   </div>
 </div>
@@ -192,16 +190,13 @@
  <div class="portada">
   <label for="cover">Imagen de portada:</label>
   <input class="file" type="file" name="cover" id="cover">
-  <div class="error">
-    <span>
-    </span>
-  </div>
+  
 </div>
 <!-- seccion de sinopsis -->
 <div class="sinopsis">
   <label for="synopsis">Sinopsis:</label>
   <textarea type="text" name="synopsis" id="synopsis" placeholder="Breve sinopsis" cols="30"
-    rows="10"></textarea>
+    rows="10"><%= locals.old && locals.old.synopsis ? old.synopsis: productEdit.synopsis %></textarea>
   <div class="error">
     <!-- Posibles errores -->
     <span>
