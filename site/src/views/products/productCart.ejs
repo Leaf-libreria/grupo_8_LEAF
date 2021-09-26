@@ -2,127 +2,127 @@
 <html lang="es">
 
 <!-- ----head ----->
-<%-include('../partials/head') %> 
-<!-- ----head---- -->
+<%-include('../partials/head') %>
+  <!-- ----head---- -->
 
-<body class="productCart">
-  <!-- encabezado -->
-   <!-- ----header ----->
-   <%-include('../partials/header') %> 
-   <!-- ----header---- -->
-  <main>
-    <div class="contenedor-carrito">
-    <h1>carrito</h1>
-    <!-- productos agregados -->
-    <section class="productos">
+  <body class="productCart">
+    <!-- encabezado -->
+    <!-- ----header ----->
+    <%-include('../partials/header') %>
+      <!-- ----header---- -->
+      <main>
+        <div class="contenedor-carrito">
+          <h1>carrito</h1>
+          <!-- productos agregados -->
+          <section class="productos">
 
-      <article class="productos-agregados">
-        <img src="/images/sombra-del-viento.jpg" alt="">
-        <div class="contenido">
-          <h3>La sombra del viento</h3>
-          <!-- cancelar -->
-          <div class="eliminar">
-            <i class="fas fa-times" size:5px></i>
-          </div>
-          <!-- cantidad -->
-          <div class="cantidad">
-            <input type="number" name="quantity" id="quantity" placeholder="Cant.">
-          </div>
-          <!-- precio -->
-          <div class="precio">
-            <i class="fas fa-dollar-sign"></i>
-            <p class="precio">1300</p>
-          </div>
-        </div>
-      </article>
+            <article class="productos-agregados">
+              <img src="/images/sombra-del-viento.jpg" alt="">
+              <div class="contenido">
+                <h3>La sombra del viento</h3>
+                <!-- cancelar -->
+                <div class="eliminar">
+                  <i class="fas fa-times" size:5px></i>
+                </div>
+                <!-- cantidad -->
+                <div class="cantidad">
+                  <input type="number" name="quantity" id="quantity" placeholder="Cant.">
+                </div>
+                <!-- precio -->
+                <div class="precio">
+                  <i class="fas fa-dollar-sign"></i>
+                  <p class="precio">1300</p>
+                </div>
+              </div>
+            </article>
 
-      <article class="productos-agregados">
-        <img src="/images/la-tia-cosima.jpg" alt="">
-        <div class="contenido">
-          <h3>La tia cosima</h3>
-          <!-- cancelar -->
-          <div class="eliminar">
-            <i class="fas fa-times"></i>
+            <article class="productos-agregados">
+              <img src="/images/la-tia-cosima.jpg" alt="">
+              <div class="contenido">
+                <h3>La tia cosima</h3>
+                <!-- cancelar -->
+                <div class="eliminar">
+                  <i class="fas fa-times"></i>
+                </div>
+                <!-- cantidad -->
+                <div class="cantidad">
+                  <input type="number" name="quantity" id="quantity" placeholder="Cant.">
+                </div>
+                <!-- precio -->
+                <div class="precio">
+                  <i class="fas fa-dollar-sign"></i>
+                  <p class="precio">1800</p>
+                </div>
+              </div>
+            </article>
+          </section>
+          <!-- subtotal -->
+          <section class="subtotal">
+            <h4>Subtotal</h4>
+            <div> <i class="fas fa-dollar-sign"></i>
+              <p class="precio">3.100</p>
+            </div>
+          </section>
+          <!-- medios de envio -->
+          <section class="envios">
+            <h3>Medios de envio</h3>
+            <form action="" method="POST">
+              <div class="tipos-envios">
+                <div>
+                  <input type="radio" name="type-shipping" value="a-domicilio" id="a-domicilio">
+                  <label for="a-domicilio">A domicilio</label>
+                </div>
+                <div>
+                  <input type="radio" name="type-shipping" value="correo" id="correo">
+                  <label for="correo">Retirar en correo</label>
+                </div>
+                <div>
+                  <input type="radio" name="type-shipping" value="domicilio-vendedor" id="domicilio-vendedor">
+                  <label for="domicilio-vendedor">Retirar en sucursal</label>
+                </div>
+              </div>
+            </form>
+            <div>
+              <!-- aqui devolveria el precio del tipo de envio seleccionado -->
+              <div class="localidad">
+                <form action="">
+                  <label for="address">Ingresa tu localidad</label>
+                  <input type="text" id="address" placeholder="Localidad">
+                  <button type="submit">Calcular</button>
+                </form>
+              </div>
+              <!-- ubicacion de sucursal -->
+              <div class="nuestra-sucursal">
+                <p>Nuestro local - Cerca tuyo</p>
+                <a href="https://goo.gl/maps/wCdnhn2ouabxhtEB8">ver mapa</a>
+                <p>libreria Leaf, calle falsa 123, Buenos Aires</p>
+                <p>Horario de atencion: Lunes a Viernes de 9 a 20 hs</p>
+              </div>
+          </section>
+          <div class="total">
+            <div>
+              <h4>TOTAL:</h4>
+              <span>$3.500</span>
+            </div>
+            <p>pagalo hasta en 6 cuotas sin interes</p>
           </div>
-          <!-- cantidad -->
-          <div class="cantidad">
-            <input type="number" name="quantity" id="quantity" placeholder="Cant.">
-          </div>
-          <!-- precio -->
-          <div class="precio">
-            <i class="fas fa-dollar-sign"></i>
-            <p class="precio">1800</p>
-          </div>
+          <section class="realizar-compra">
+            <section class="realizar-compra">
+              <a href="/products/pago"><button>iniciar compra</button></a>
+              <a href="/products">ver mas productos</a>
+            </section>
+
         </div>
-      </article>
-    </section>
-    <!-- subtotal -->
-    <section class="subtotal">
-      <h4>Subtotal</h4>
-      <div> <i class="fas fa-dollar-sign"></i>
-        <p class="precio">3.100</p>
-      </div>
-    </section>
-    <!-- medios de envio -->
-    <section class="envios">
-      <h3>Medios de envio</h3>
-      <form action="" method="POST">
-        <div class="tipos-envios">
-          <div>
-            <input type="radio" name="type-shipping" value="a-domicilio" id="a-domicilio">
-            <label for="a-domicilio">A domicilio</label>
-          </div>
-          <div>
-            <input type="radio" name="type-shipping" value="correo" id="correo">
-            <label for="correo">Retirar en correo</label>
-          </div>
-          <div>
-            <input type="radio" name="type-shipping" value="domicilio-vendedor" id="domicilio-vendedor">
-            <label for="domicilio-vendedor">Retirar en sucursal</label>
-          </div>
-        </div>
-      </form>
-      <div>
-        <!-- aqui devolveria el precio del tipo de envio seleccionado -->
-        <div class="localidad">
-          <form action="">
-            <label for="address">Ingresa tu localidad</label>
-            <input type="text" id="address" placeholder="Localidad">
-            <button type="submit">Calcular</button>
-          </form>
-        </div>
-        <!-- ubicacion de sucursal -->
-        <div class="nuestra-sucursal">
-          <p>Nuestro local - Cerca tuyo</p>
-          <a href="https://goo.gl/maps/wCdnhn2ouabxhtEB8">ver mapa</a>
-          <p>libreria Leaf, calle falsa 123, Buenos Aires</p>
-          <p>Horario de atencion: Lunes a Viernes de 9 a 20 hs</p>
-        </div>
-    </section>
-    <div class="total">
-      <div>
-        <h4>TOTAL:</h4>
-        <span>$3.500</span>
-      </div>
-      <p>pagalo hasta en 6 cuotas sin interes</p>
-    </div>
-    <section class="realizar-compra">
-      <section class="realizar-compra">
-        <a href="/products/pago"><button>iniciar compra</button></a>
-        <a href="/products">ver mas productos</a>
-      </section>
-  
-  </div>
-  </main>
-  <!-- pie de pagina -->
-  <!-- pie de pagina -->
-  <!-- ----footer ----->
-  <%-include('../partials/footer') %> 
-  <!-- ----footer---- -->
- <!-- ----scripts ----->
- <%-include('../partials/scripts') %> 
- <!-- ----scripts---- -->
-</body>
+      </main>
+      <!-- pie de pagina -->
+      <!-- pie de pagina -->
+      <!-- ----footer ----->
+      <%-include('../partials/footer') %>
+        <!-- ----footer---- -->
+        <!-- ----scripts ----->
+        <%-include('../partials/scripts') %>
+          <!-- ----scripts---- -->
+  </body>
 
 </html>
 </body>

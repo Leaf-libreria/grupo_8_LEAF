@@ -18,7 +18,7 @@
     </ul>
     <!-- mi cuenta -->
     <% if (locals.userLogin) { %>
-      <% if (locals.userLogin.rol === 2 ) { %>
+      <% if (locals.userLogin.rol===2 ) { %>
         <div class="login">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -90,7 +90,7 @@
           <!-- login -->
           <li class="nav-item active">
             <% if (locals.userLogin) { %>
-              <% if (locals.userLogin.Id === 2 ) { %>
+              <% if (locals.userLogin.Id===2 ) { %>
                 <div class="login">
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"

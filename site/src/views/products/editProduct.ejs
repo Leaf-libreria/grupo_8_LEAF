@@ -1,219 +1,256 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- ----head ----->
-<%-include('../partials/head') %> 
-<!-- ----head---- -->
+<!-- ----head ----->
+<%-include('.. /partials/head') %>
+  <!-- ----head---- -->
 
   <body class="admin">
     <!-- encabezado -->
-  <!-- ----header ----->
-  <%-include('../partials/header') %>
-  <!-- ----header---- -->
-    <main>
-        <h2>Edición de <%= productEdit.title %></h2>
+    <!-- ----header ----->
+    <%-include('../partials/header') %>
+      <!-- ----header---- -->
+      <main>
+        <h2>Edición de <%= productEdit.title %>
+        </h2>
         <!--FORMULARIO-->
-<div class="administrador">
-  <form action="/products/editar/<%=productEdit.id%>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data">
-      <div class="titulo">
-          <label for="title">Título del libro:</label>
-          <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.title ? old.title : productEdit.title %> ">
-        <div class="error">
-              <!-- Posibles errores -->
-                <span></span>
-          </div>  
-      </div>
-    <div class="container-grid-uno">
-    <div class="isbn">
-      <label for="isbn">ISBN:</label>
-      <div class="isbn-btn">
-      <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos" value="<%= locals.old && locals.old.isbn? old.isbn: productEdit.isbn %>">
-    </div> 
-    <div class="error">
-              <!-- Posibles errores -->
-                <span 
-                  ></span
-                >
-          </div>
-</div>
+        <div class="administrador">
+          <form action="/products/editar/<%=productEdit.id%>?_method=PUT" method="POST" class="formulario"
+            enctype="multipart/form-data">
+            <div class="titulo">
+              <label for="title">Título del libro:</label>
+              <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos"
+                value="<%= locals.old && locals.old.title ? old.title : productEdit.title %> ">
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.title ? errores.title.msg : null %>
+                </span>
+              </div>
+            </div>
+            <div class="container-grid-uno">
+              <div class="isbn">
+                <label for="isbn">ISBN:</label>
+                <div class="isbn-btn">
+                  <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos"
+                    value="<%= locals.old && locals.old.isbn? old.isbn: productEdit.isbn %>">
+                </div>
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.isbn ? errores.isbn.msg : null %>
+                  </span>
+                </div>
+              </div>
 
-    <div class="stock">
-        <label for="stock">Stock:</label>
-        <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números" value="<%= locals.old && locals.old.stock? old.stock : productEdit.stock %>">
-    <div class="error">
-              <!-- Posibles errores -->
-                <span 
-                  ></span>
-    </div>
-    </div>
-    </div>
- <!-- seccion de formato -->
- <section class="formato">
-  <label for="format">Formato:</label> 
-  <select name="formatId" id="format">
-    <option value="" hidden selected>Seleccione el formato</option>
-    <% formatos.forEach(formato => { %>
-      <option value="<%= formato.id %>" <%= productEdit.formatId ? 'selected': null %> ><%= formato.name %></option>
-    <% }) %>
-  </select>
-  <div class="error">
-          <!-- Posibles errores -->
-            <span></span>
-      </div> 
-    </section>
-
-        <!-- seccion de categorias -->
-            <section class="categoria">
-              <label for="category">Categoría:</label>
-              <select name="categoryId" id="category">
-                <option value="" hidden selected>Seleccione la categoria</option>
-                <% categorias.forEach(categoria => { %>
-                  <option value="<%= categoria.id %> " <%= productEdit.categoryId ? 'selected' : null %> ><%= categoria.name%> </option>
-                <% }) %>
+              <div class="stock">
+                <label for="stock">Stock:</label>
+                <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números"
+                  value="<%= locals.old && locals.old.stock? old.stock : productEdit.stock %>">
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.stock ? errores.stock.msg : null %>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- seccion de formato -->
+            <section class="formato">
+              <label for="format">Formato:</label>
+              <select name="formatId" id="format">
+                <option value="" hidden selected>Seleccione el formato</option>
+                <% formatos.forEach(formato=> { %>
+                  <option value="<%= formato.id %>" <%=productEdit.formatId ? 'selected' : null %> ><%= formato.name %>
+                  </option>
+                  <% }) %>
               </select>
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
+                  <%= locals.errores && locals.errores.formats ? errores.formats.msg : null %>
                 </span>
               </div>
             </section>
-  <!-- seccion de autores -->
-  <section class="autor">
-    <label for="author">Autor/Autora:</label>
-    <div class="otroAutor">
-      <select name="authorId" id="format">
-        <option value="" hidden selected>Seleccione el autor</option>
-        <% autores.forEach(autor => { %>
-          <option value="<%= autor.id %>" <%= productEdit.authorId ? 'selected' : null %> > <%= autor.nameLastname %> </option>
-        <% }) %>
-      </select>
-    </div>
-    <div class="error">
-      <!-- Posibles errores -->
-      <span>
-      </span>
-    </div>
-  </section>
- <!-- seccion de editorial -->
- <section class="editorial">
-  <label for="editorial">Editorial:</label>
-  <div class="otraEditorial">
-      <select name="editorialId" id="format">
-      <option value="" hidden selected>Seleccione la editorial</option>
-      <% editoriales.forEach(editorial => { %>
-        <option value="<%= editorial.id %>" <%= productEdit.editorialId ? 'selected' : null %> ><%= editorial.name %></option> 
-      <% }) %>
-    </select>
-  
-  <div class="error">
-    <!-- Posibles errores -->
-    <span>
-      
-    </span>
-  </div>
-  </div>
-</section>
-<!-- seccion de genero -->
-<section class="genero">
-  <label for="genre">Género</label>
-  <div class="otroGenero">
-    <select name="genreId" id="format">
-      <option value="" hidden selected>Seleccione el género</option>
-      <% generos.forEach(genero => { %>
-        <option value="<%= genero.id %>" <%= productEdit.genreId ? 'selected' : null %> ><%= genero.name %></option>
-      <% }) %>
-    </select>
-  </div>
-  <div class="error">
-    <!-- Posibles errores -->
-    <span>
-      
-    </span>
-  </div>
-</section>
-  <!-- seccion de precio -->
-  <div class="container-grid">
-    <div class="precio">
-      <label for="price">Precio $:</label>
-      <input type="number" name="price" id="price" class="con-grid" placeholder="Sólo números"
-        value="<%= locals.old && locals.old.price? old.price: productEdit.price %>">
-      <div class="error">
-        <!-- Posibles errores -->
-        <span>
-        
-        </span>
-      </div>
-    </div>
-    <!-- seccion de paginas -->
-    <div class="paginas">
-      <label for="pages">Páginas:</label>
-      <input type="number" name="pages" id="pages" class="con-grid" placeholder="Sólo números"
-        value="<%= locals.old && locals.old.pages? old.pages: productEdit.pages %>">
-      <div class="error">
-        <!-- Posibles errores -->
-        <span>
-          
-        </span>
-      </div>
-    </div>
-  </div>
-  <!-- seccion  de estrellas -->
-  <div class="estrellas">
-    <label for="stars">Estrellas:</label>
-    <select name="starId" id="stars">
-      <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
-      <% estrellas.forEach(estrella => { %>
-        <option value="<%= estrella.id %>" <%= productEdit.starId ? 'selected' : null %> > <%= estrella.quantity %></option>
-      <% }) %>
-    </select>
-    <div class="error">
-      <!-- Posibles errores -->
-      <span>
-        
-      </span>
-    </div>
-  </div>
 
-<!-- seccion de critica -->
-<div class="sinopsis">
-  <label for="slogan">Crítica:</label>
-  <textarea type="text" name="slogan" id="slogan"
-    placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: productEdit.slogan %></textarea>
-  <div class="error">
-    <!-- Posibles errores -->
-    <span>
-      
-    </span>
-  </div>
-</div>
+            <!-- seccion de categorias -->
+            <section class="categoria">
+              <label for="category">Categoría:</label>
+              <select name="categoryId" id="category">
+                <option value="" hidden selected>Seleccione la categoria</option>
+                <% categorias.forEach(categoria=> { %>
+                  <option value="<%= categoria.id %> " <%=productEdit.categoryId ? 'selected' : null %> ><%=
+                      categoria.name%>
+                  </option>
+                  <% }) %>
+              </select>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.categories ? errores.categories.msg : null %>
 
- <!-- seccion de portada -->
- <div class="portada">
-  <label for="cover">Imagen de portada:</label>
-  <input class="file" type="file" name="cover" id="cover">
-  
-</div>
-<!-- seccion de sinopsis -->
-<div class="sinopsis">
-  <label for="synopsis">Sinopsis:</label>
-  <textarea type="text" name="synopsis" id="synopsis" placeholder="Breve sinopsis" cols="30"
-    rows="10"><%= locals.old && locals.old.synopsis ? old.synopsis: productEdit.synopsis %></textarea>
-  <div class="error">
-    <!-- Posibles errores -->
-    <span>
-    </span>
-  </div>
-</div>
-<p>*Todos los campos son obligatorios</p>
-<!--BOTONES-->
-<section class="botones d-grid gap-2 d-md-block">
-  <button type="submit" class="btn-guardar">GUARDAR EDICIÓN</button>
-  <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR EDICIÓN</a>
-</section>
-  </form>  
-</div>
-    </main>
-    <!-- ----scripts ----->
-<%-include('../partials/scripts') %> 
-<!-- ----scripts---- -->
-</body>
+                </span>
+              </div>
+            </section>
+            <!-- seccion de autores -->
+            <section class="autor">
+              <label for="author">Autor/Autora:</label>
+              <div class="otroAutor">
+                <select name="authorId" id="format">
+                  <option value="" hidden selected>Seleccione el autor</option>
+                  <% autores.forEach(autor=> { %>
+                    <option value="<%= autor.id %>" <%=productEdit.authorId ? 'selected' : null %> > <%=
+                        autor.nameLastname %>
+                    </option>
+                    <% }) %>
+                </select>
+              </div>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.authorId ? errores.authorId.msg : null %>
+
+                </span>
+              </div>
+            </section>
+            <!-- seccion de editorial -->
+            <section class="editorial">
+              <label for="editorial">Editorial:</label>
+              <div class="otraEditorial">
+                <select name="editorialId" id="format">
+                  <option value="" hidden selected>Seleccione la editorial</option>
+                  <% editoriales.forEach(editorial=> { %>
+                    <option value="<%= editorial.id %>" <%=productEdit.editorialId ? 'selected' : null %> ><%=
+                        editorial.name %>
+                    </option>
+                    <% }) %>
+                </select>
+
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.editorial ? errores.editorial.msg : null %>
+
+                  </span>
+                </div>
+              </div>
+            </section>
+            <!-- seccion de genero -->
+            <section class="genero">
+              <label for="genre">Género</label>
+              <div class="otroGenero">
+                <select name="genreId" id="format">
+                  <option value="" hidden selected>Seleccione el género</option>
+                  <% generos.forEach(genero=> { %>
+                    <option value="<%= genero.id %>" <%=productEdit.genreId ? 'selected' : null %> ><%= genero.name %>
+                    </option>
+                    <% }) %>
+                </select>
+              </div>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.genre ? errores.genre.msg : null %>
+
+                </span>
+              </div>
+            </section>
+            <!-- seccion de precio -->
+            <div class="container-grid">
+              <div class="precio">
+                <label for="price">Precio $:</label>
+                <input type="number" name="price" id="price" class="con-grid" placeholder="Sólo números"
+                  value="<%= locals.old && locals.old.price? old.price: productEdit.price %>">
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.price ? errores.price.msg : null %>
+
+                  </span>
+                </div>
+              </div>
+              <!-- seccion de paginas -->
+              <div class="paginas">
+                <label for="pages">Páginas:</label>
+                <input type="number" name="pages" id="pages" class="con-grid" placeholder="Sólo números"
+                  value="<%= locals.old && locals.old.pages? old.pages: productEdit.pages %>">
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.pages ? errores.pages.msg : null %>
+
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- seccion  de estrellas -->
+            <div class="estrellas">
+              <label for="stars">Estrellas:</label>
+              <select name="starId" id="stars">
+                <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
+                <% estrellas.forEach(estrella=> { %>
+                  <option value="<%= estrella.id %>" <%=productEdit.starId ? 'selected' : null %> > <%=
+                      estrella.quantity %>
+                  </option>
+                  <% }) %>
+              </select>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.stars ? errores.stars.msg : null %>
+
+                </span>
+              </div>
+            </div>
+
+            <!-- seccion de critica -->
+            <div class="sinopsis">
+              <label for="slogan">Crítica:</label>
+              <textarea type="text" name="slogan" id="slogan"
+                placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: productEdit.slogan %></textarea>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.slogan ? errores.slogan.msg : null %>
+
+                </span>
+              </div>
+            </div>
+
+            <!-- seccion de portada -->
+            <div class="portada">
+              <label for="cover">Imagen de portada:</label>
+              <input class="file" type="file" name="cover" id="cover">
+              <div class="error">
+                <span>
+                  <%= locals.errores && errores.cover ? errores.cover.msg : null %>
+                </span>
+              </div>
+            </div>
+            <!-- seccion de sinopsis -->
+            <div class="sinopsis">
+              <label for="synopsis">Sinopsis:</label>
+              <textarea type="text" name="synopsis" id="synopsis" placeholder="Breve sinopsis" cols="30"
+                rows="10"><%= locals.old && locals.old.synopsis ? old.synopsis: productEdit.synopsis %></textarea>
+              <div class="error">
+                <!-- Posibles errores -->
+                <span>
+                  <%= locals.errores && locals.errores.synopsis ? errores.synopsis.msg : null %>
+
+                </span>
+              </div>
+            </div>
+            <p>*Todos los campos son obligatorios</p>
+            <!--BOTONES-->
+            <section class="botones d-grid gap-2 d-md-block">
+              <button type="submit" class="btn-guardar">GUARDAR EDICIÓN</button>
+              <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR EDICIÓN</a>
+            </section>
+          </form>
+        </div>
+      </main>
+      <!-- ----scripts ----->
+      <%-include('../partials/scripts') %>
+        <!-- ----scripts---- -->
+  </body>
+
 </html>

@@ -1,123 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- ----head ----->
-<%-include('../partials/head') %> 
-<!-- ----head---- -->
+<!-- ----head ----->
+<%-include('../partials/head') %>
+  <!-- ----head---- -->
+
   <body>
     <!-- ----header ----->
-   <%-include('../partials/header') %> 
-   <!-- ----header---- -->
-    <main>
-      <h1 class="payForm-title">Finaliza tu compra</h1>
-      <div class="payForm-container">
-        <div class="payForm-form">
-          <form action="" method="POST">
-            <div class="payForm-cuenta">
-              <h2 class="payForm-subtitle">Mi cuenta:</h2>
-              <!-- links para registrarse o loguearse -->
-              <div class="payForm-btn-cuenta">
-                <a class="payForm-cuenta--a payForm-cuenta--a-center" href="/login"
-                  >¿Ya tienes cuenta?</a
-                >
-                <a class="payForm-cuenta--a" href="/register"
-                  >¿Aún no tienes cuenta?</a
-                >
+    <%-include('../partials/header') %>
+      <!-- ----header---- -->
+      <main>
+        <h1 class="payForm-title">Finaliza tu compra</h1>
+        <div class="payForm-container">
+          <div class="payForm-form">
+            <form action="" method="POST">
+              <div class="payForm-cuenta">
+                <h2 class="payForm-subtitle">Mi cuenta:</h2>
+                <!-- links para registrarse o loguearse -->
+                <div class="payForm-btn-cuenta">
+                  <a class="payForm-cuenta--a payForm-cuenta--a-center" href="/login">¿Ya tienes cuenta?</a>
+                  <a class="payForm-cuenta--a" href="/register">¿Aún no tienes cuenta?</a>
+                </div>
               </div>
-            </div>
-            <div class="payForm-facturacion">
-              <h2 class="payForm-subtitle">Datos de facturación:</h2>
-              <input
-                class="payForm-input"
-                type="text"
-                name="name"
-                placeholder="Nombre/s"
-              />
-              <input
-                class="payForm-input"
-                type="text"
-                name="lastname"
-                placeholder="Apellido/s"
-              />
-              <input
-                class="payForm-input"
-                type="number"
-                name="telephone"
-                placeholder="Teléfono"
-              />
-            </div>
-            <div class="payForm-envio">
-              <h2 class="payForm-subtitle">Medio de envío:</h2>
-              <!-- opciones de envío -->
-              <!-- si es ebook -->
-              <div class="payForm-radio--aside">
-                <input
-                  class="payForm-input payForm-input--aside"
-                  type="radio"
-                  id="retiro-ebook"
-                  value="retiro-ebook"
-                  name="shipping"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseExample"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                  role="radio"
-                />
-                <label class="payForm-label" for="retiro-ebook"
-                  >Enviar mi e-book a este mail:</label
-                >
-              </div>
-              <!-- bootstrap collapse, no se muestra si no selecciona ebook -->
-              <input
-                class="payForm-input"
-                type="email"
-                name="shipping-ebook"
-                placeholder="E-mail de envío"
-                class="collapse"
-                id="collapseExample"
-              />
-              <!-- retiro en local-->
-              <div class="payForm-radio--aside">
-                <input
-                  class="payForm-input payForm-input--aside"
-                  type="radio"
-                  id="retiro-local"
-                  value="retiro-local"
-                  name="shipping"
-                />
-                <label class="payForm-label" for="retiro-local"
-                  >Retiro gratis en el local Calle Falsa N°123</label
-                >
-              </div>
-              <!-- retiro en correo-->
-              <div class="payForm-radio--aside">
-                <input
-                  class="payForm-input payForm-input--aside"
-                  type="radio"
-                  id="retiro-correo"
-                  value="retiro-correo"
-                  name="shipping"
-                />
-                <label class="payForm-label" for="retiro-correo"
-                  >Retiro gratis en el correo Calle Perdida S/N</label
-                >
-              </div>
-              <!-- A domicilio-->
-              <div class="payForm-radio--aside">
-                <input
-                  class="payForm-input payForm-input--aside"
-                  type="radio"
-                  id="envio-domicilio"
-                  value="envio-domicilio"
-                  name="shipping"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample1"
-                  role="radiogroup"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample1"
-                />
-                <label class="payForm-label" for="envio-domicilio"
-                  >Envío a mi domicilio</label
-                >
+              <div class="payForm-facturacion">
+                <h2 class="payForm-subtitle">Datos de facturación:</h2>
+                <input class="payForm-input" type="text" name="name" placeholder="Nombre/s" />
+                <input class="payForm-input" type="text" name="lastname" placeholder="Apellido/s" />
+                <input class="payForm-input" type="number" name="telephone" placeholder="Teléfono" />
               </div>
               <!-- bootstrap collapse, no se muestran opciones si no selecciona a domicilio -->
               <input
@@ -197,82 +105,49 @@
                   >Tarjeta de crédito o débito</label
                 >
               </div>
-              <!-- bootstrap collapse, no se muestran opciones si no selecciona a domicilio -->
-              <input
-                class="payForm-input"
-                type="text"
-                name="titular-card"
-                placeholder="Nombre titular de la tarjeta"
-                class="collapse multi-collapse"
-                id="multiCollapseExample2"
-              />
-              <select
-                name="card-type"
-                class="payForm-select collapse multi-collapse"
-                id="multiCollapseExample2"
-              >
-                <option value="" hidden selected>Seleccione su tarjeta</option>
-                <option value="Visa">Visa</option>
-                <option value="mastercard">Mastercard</option>
-              </select>
-              <input
-                class="payForm-input"
-                type="number"
-                name="card-number"
-                placeholder="Número de tarjeta"
-                class="collapse multi-collapse"
-                id="multiCollapseExample2"
-              />
-              <label
-                class="payForm-label"
-                for="due-date"
-                class="collapse multi-collapse"
-                id="multiCollapseExample2"
-                >Mes y año de vencimiento:</label
-              >
-              <input
-                class="payForm-input"
-                type="month"
-                name="due-date"
-                class="collapse multi-collapse"
-                id="multiCollapseExample2"
-              />
-              <input
-                class="payForm-input"
-                type="number"
-                name="security-code"
-                placeholder="Código de seguridad"
-                class="collapse multi-collapse"
-                id="multiCollapseExample2"
-              />
-              <!-- paypal -->
-              <div class="payForm-radio--aside">
-                <input
-                  class="payForm-input payForm-input--aside"
-                  type="radio"
-                  name="paymentMethods"
-                  id="payPal"
-                  value="paypal"
-                />
-                <label class="payForm-label" for="paypal">Paypal</label>
+              <div class="payForm-pago">
+                <h2 class="payForm-subtitle">Medio de pago:</h2>
+                <!-- efectivo -->
+                <div class="payForm-radio--aside">
+                  <input class="payForm-input payForm-input--aside" type="radio" name="paymentMethods" id="credito"
+                    value="credito-debito" data-bs-toggle="collapse" href="#multiCollapseExample2" role="radiogroup"
+                    aria-expanded="false" aria-controls="multiCollapseExample2" />
+                  <label class="payForm-label" for="credito">Tarjeta de crédito o débito</label>
+                </div>
+                <!-- bootstrap collapse, no se muestran opciones si no selecciona a domicilio -->
+                <input class="payForm-input" type="text" name="titular-card" placeholder="Nombre titular de la tarjeta"
+                  class="collapse multi-collapse" id="multiCollapseExample2" />
+                <select name="card-type" class="payForm-select collapse multi-collapse" id="multiCollapseExample2">
+                  <option value="" hidden selected>Seleccione su tarjeta</option>
+                  <option value="Visa">Visa</option>
+                  <option value="mastercard">Mastercard</option>
+                </select>
+                <input class="payForm-input" type="number" name="card-number" placeholder="Número de tarjeta"
+                  class="collapse multi-collapse" id="multiCollapseExample2" />
+                <label class="payForm-label" for="due-date" class="collapse multi-collapse"
+                  id="multiCollapseExample2">Mes y año de vencimiento:</label>
+                <input class="payForm-input" type="month" name="due-date" class="collapse multi-collapse"
+                  id="multiCollapseExample2" />
+                <input class="payForm-input" type="number" name="security-code" placeholder="Código de seguridad"
+                  class="collapse multi-collapse" id="multiCollapseExample2" />
+                <!-- paypal -->
+                <div class="payForm-radio--aside">
+                  <input class="payForm-input payForm-input--aside" type="radio" name="paymentMethods" id="payPal"
+                    value="paypal" />
+                  <label class="payForm-label" for="paypal">Paypal</label>
+                </div>
+                <!-- efectivo -->
+                <div class="payForm-radio--aside">
+                  <input class="payForm-input payForm-input--aside" type="radio" name="paymentMethods" id="efectivo"
+                    value="efectivo" />
+                  <label class="payForm-label" for="efectivo">Efectivo en nuestro local</label>
+                </div>
               </div>
-              <!-- efectivo -->
-              <div class="payForm-radio--aside">
-                <input
-                  class="payForm-input payForm-input--aside"
-                  type="radio"
-                  name="paymentMethods"
-                  id="efectivo"
-                  value="efectivo"
-                />
-                <label class="payForm-label" for="efectivo"
-                  >Efectivo en nuestro local</label
-                >
+              <div class="payForm-contenedor-botones">
+                <button class="payForm-btn" type="submit">FINALIZAR COMPRA</button>
+                <a class="btn payForm-btn payForm-btn--a" href="/">SEGUIR COMPRANDO</a>
               </div>
-            </div>
-            <div class="payForm-contenedor-botones">
-            <button class="payForm-btn" type="submit">FINALIZAR COMPRA</button>
-            <a class="btn payForm-btn payForm-btn--a" href="/">SEGUIR COMPRANDO</a>
+            </form>
           </div>
           </form>
         </div>
@@ -346,4 +221,5 @@
 <%-include('../partials/scripts') %> 
 <!-- ----scripts---- -->
   </body>
+
 </html>

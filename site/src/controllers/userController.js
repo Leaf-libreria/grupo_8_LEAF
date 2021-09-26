@@ -58,21 +58,21 @@ module.exports = {
         password: bcrypt.hashSync(req.body.password, 10),
         name: req.body.name.trim(),
         lastname: req.body.lastname.trim(),
-        nickName: req.body.nickName ? req.body.nickName.trim() : null,
+        nickname: req.body.nickname ? req.body.nickname.trim() : null,
         image: req.file ? req.file.filename : "profile-users-default.png",
       })
-      .then((user) => {
-        req.session.userLogin = {
-          id: user.id,
-          name: user.name,
-          rol: user.rolId,
-          image: user.image,
-        };
-       
+        .then((user) => {
+          req.session.userLogin = {
+            id: user.id,
+            name: user.name,
+            rol: user.rolId,
+            image: user.image,
+          };
+
           res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
 
-        return res.redirect("/");
-      })
+          return res.redirect("/");
+        })
         .catch((error) => console.log(error));
     } else {
       if (req.file) {
