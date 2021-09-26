@@ -39,7 +39,7 @@ module.exports = {
         defaultValue: 1,
         references :{
           model : {
-            tableName : 'rol'
+            tableName : 'rols'
           },
           key : 'id'
         }

@@ -67,7 +67,7 @@ router.get('/agregar', administradorMw, addProducto);
 router.post(
   '/agregar', administradorMw,
   upload.single('cover'),
-  addValidator,
+  
   agregarProducto
 );
 router.get('/editar/:id',administradorMw, editarProducto);
