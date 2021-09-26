@@ -27,83 +27,58 @@
                 <input class="payForm-input" type="text" name="lastname" placeholder="Apellido/s" />
                 <input class="payForm-input" type="number" name="telephone" placeholder="Teléfono" />
               </div>
-              <!-- bootstrap collapse, no se muestran opciones si no selecciona a domicilio -->
-              <input
-                class="payForm-input"
-                type="text"
-                name="street"
-                placeholder="Calle"
-                class="collapse multi-collapse"
-                id="multiCollapseExample1"
-              />
-              <input
-                class="payForm-input"
-                type="text"
-                name="number"
-                placeholder="Número"
-                class="collapse multi-collapse"
-                id="multiCollapseExample1"
-              />
-              <input
-                class="payForm-input"
-                type="number"
-                name="cp"
-                placeholder="Código Postal"
-                class="collapse multi-collapse"
-                id="multiCollapseExample1"
-              />
-              <select
-                name="provincia"
-                class="collapse multi-collapse payForm-select"
-                id="multiCollapseExample1"
-              >
-							<option
-                  value=""
-                  hidden
-                  selected
-                  class="collapse multi-collapse payForm-select--option"
-                  id="multiCollapseExample1"
-                >
-                  Seleccione su provincia
-                </option>
-								<% costoEnvio.forEach(envio => {%> 
-                <option
-                  value="<%= envio.name %>"
-                  class="collapse multi-collapse"
-                  id="multiCollapseExample1"
-                >
-                  <%= envio.name %> 
-                </option>
-								<% })%> 
-              </select>
-              <input
-                class="payForm-input"
-                type="text"
-                name="localidad"
-                placeholder="Localidad"
-                class="collapse multi-collapse"
-                id="multiCollapseExample1"
-              />
-            </div>
-            <div class="payForm-pago">
-              <h2 class="payForm-subtitle">Medio de pago:</h2>
-              <!-- efectivo -->
-              <div class="payForm-radio--aside">
-                <input
-                  class="payForm-input payForm-input--aside"
-                  type="radio"
-                  name="paymentMethods"
-                  id="credito"
-                  value="credito-debito"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample2"
-                  role="radiogroup"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample2"
-                />
-                <label class="payForm-label" for="credito"
-                  >Tarjeta de crédito o débito</label
-                >
+              <div class="payForm-envio">
+                <h2 class="payForm-subtitle">Medio de envío:</h2>
+                <!-- opciones de envío -->
+                <!-- si es ebook -->
+                <div class="payForm-radio--aside">
+                  <input class="payForm-input payForm-input--aside" type="radio" id="retiro-ebook" value="retiro-ebook"
+                    name="shipping" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                    aria-controls="collapseExample" role="radio" />
+                  <label class="payForm-label" for="retiro-ebook">Enviar mi e-book a este mail:</label>
+                </div>
+                <!-- bootstrap collapse, no se muestra si no selecciona ebook -->
+                <input class="payForm-input" type="email" name="shipping-ebook" placeholder="E-mail de envío" class="collapse"
+                  id="collapseExample" />
+                <!-- retiro en local-->
+                <div class="payForm-radio--aside">
+                  <input class="payForm-input payForm-input--aside" type="radio" id="retiro-local" value="retiro-local"
+                    name="shipping" />
+                  <label class="payForm-label" for="retiro-local">Retiro gratis en el local Calle Falsa N°123</label>
+                </div>
+                <!-- retiro en correo-->
+                <div class="payForm-radio--aside">
+                  <input class="payForm-input payForm-input--aside" type="radio" id="retiro-correo" value="retiro-correo"
+                    name="shipping" />
+                  <label class="payForm-label" for="retiro-correo">Retiro gratis en el correo Calle Perdida S/N</label>
+                </div>
+                <!-- A domicilio-->
+                <div class="payForm-radio--aside">
+                  <input class="payForm-input payForm-input--aside" type="radio" id="envio-domicilio" value="envio-domicilio"
+                    name="shipping" data-bs-toggle="collapse" href="#multiCollapseExample1" role="radiogroup"
+                    aria-expanded="false" aria-controls="multiCollapseExample1" />
+                  <label class="payForm-label" for="envio-domicilio">Envío a mi domicilio</label>
+                </div>
+                <!-- bootstrap collapse, no se muestran opciones si no selecciona a domicilio -->
+                <input class="payForm-input" type="text" name="street" placeholder="Calle" class="collapse multi-collapse"
+                  id="multiCollapseExample1" />
+                <input class="payForm-input" type="text" name="number" placeholder="Número" class="collapse multi-collapse"
+                  id="multiCollapseExample1" />
+                <input class="payForm-input" type="number" name="cp" placeholder="Código Postal"
+                  class="collapse multi-collapse" id="multiCollapseExample1" />
+                <select name="provincia" class="collapse multi-collapse payForm-select" id="multiCollapseExample1">
+                  <option value="" hidden selected class="collapse multi-collapse payForm-select--option"
+                    id="multiCollapseExample1">
+                    Seleccione su provincia
+                  </option>
+                  <% costoEnvio.forEach(envio=> {%>
+                    <option value="<%= envio.name %>" class="collapse multi-collapse" id="multiCollapseExample1">
+                      <%= envio.name %>
+                    </option>
+                    <% })%>
+                </select>
+                <input class="payForm-input" type="text" name="localidad" placeholder="Localidad"
+                  class="collapse multi-collapse" id="multiCollapseExample1" />
               </div>
               <div class="payForm-pago">
                 <h2 class="payForm-subtitle">Medio de pago:</h2>
@@ -124,8 +99,8 @@
                 </select>
                 <input class="payForm-input" type="number" name="card-number" placeholder="Número de tarjeta"
                   class="collapse multi-collapse" id="multiCollapseExample2" />
-                <label class="payForm-label" for="due-date" class="collapse multi-collapse"
-                  id="multiCollapseExample2">Mes y año de vencimiento:</label>
+                <label class="payForm-label" for="due-date" class="collapse multi-collapse" id="multiCollapseExample2">Mes
+                  y año de vencimiento:</label>
                 <input class="payForm-input" type="month" name="due-date" class="collapse multi-collapse"
                   id="multiCollapseExample2" />
                 <input class="payForm-input" type="number" name="security-code" placeholder="Código de seguridad"
@@ -149,17 +124,12 @@
               </div>
             </form>
           </div>
-          </form>
-        </div>
-        <!-- Resumen de compra y suma de envio -->
-        <aside class="payForm-description">
-          <!-- bootstrap card-images-horizontal -->
-          <div
-            class="card mb-3 payForm-description--card"
-            style="max-width: 540px"
-          >
-            <div class="row g-0">
-              <h4 class="payForm-card-title--h4">Resumen de tu compra:</h4>
+          <!-- Resumen de compra y suma de envio -->
+          <aside class="payForm-description">
+            <!-- bootstrap card-images-horizontal -->
+            <div class="card mb-3 payForm-description--card" style="max-width: 540px">
+              <div class="row g-0">
+                <h4 class="payForm-card-title--h4">Resumen de tu compra:</h4>
                 <div class="col-md-4">
                   <img src="/images/<%= productos.cover %> " class="payForm-img--mobile img-fluid rounded-start"
                     alt="<%= productos.title %>" />
@@ -177,7 +147,7 @@
                       </p>
                       <div class="payForm-card--space-between">
                         <p class="payForm-card--p">Cantidad: 1</p>
-                        <p class="payForm-card--p">$ <%= productos.price %>
+                        <p class="payForm-card--p">$<%= productos.price %>
                         </p>
                       </div>
                     </div>
@@ -188,13 +158,14 @@
                       </h6>
                       <div class="payForm-card--space-between">
                         <h6 class="payForm-card--subtitle">Costo:</h6>
-                        <p class="payForm-card--p">$<%= productos.price %></p>
+                        <p class="payForm-card--p">$0</p>
                       </div>
                     </div>
                     <div class="payForm-subtotal">
                       <div class="payForm-card--space-between">
                         <h6 class="payForm-card--subtitle">Subtotal:</h6>
-                        <p class="payForm-card--p">$<%= productos.price %></p>
+                        <p class="payForm-card--p">$<%= productos.price %>
+                        </p>
                       </div>
                       <div class="payForm-card--space-between">
                         <h6 class="payForm-card--subtitle">Envío:</h6>
@@ -203,15 +174,15 @@
                     </div>
                     <div class="payForm-total payForm-card--space-between">
                       <h5 class="payForm-card--title-h5">Total a pagar:</h5>
-                      <p class="payForm-card--p">$<%= productos.price %></p>
+                      <p class="payForm-card--p">$<%= productos.price %>
+                      </p>
                     </div>
                   </div>
                 </div>
-                </div>
-                </div>
-                            
-        </aside>
-      </div>
+              </div>
+            </div>
+          </aside>
+        </div>
     </main>
     <!-- pie de pagina -->
     <!-- ----footer ----->
