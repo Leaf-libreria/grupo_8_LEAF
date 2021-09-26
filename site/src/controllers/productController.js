@@ -633,4 +633,42 @@ if(errors.isEmpty()){
           generos,
         })).catch(error => console.log(error));
   },
+  thriller: (req, res) => {
+    let productos = db.Book.findAll({
+      where: {
+        genreId: 8,
+      },
+      include: [{ association: 'genero' }, {
+        association: 'autor'
+      },],
+    })
+
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos]) =>
+        res.render("./products/generos/thriller", {
+          title: "LEAF | Misterio",
+          productos,
+          generos,
+        })).catch(error => console.log(error));
+  },
+  fantasia: (req, res) => {
+    let productos = db.Book.findAll({
+      where: {
+        genreId: 9,
+      },
+      include: [{ association: 'genero' }, {
+        association: 'autor'
+      },],
+    })
+
+    let generos = db.Genre.findAll()
+    Promise.all([productos, generos])
+      .then(([productos, generos]) =>
+        res.render("./products/generos/fantasia", {
+          title: "LEAF | Misterio",
+          productos,
+          generos,
+        })).catch(error => console.log(error));
+  },
 };

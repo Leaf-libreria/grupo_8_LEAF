@@ -51,6 +51,8 @@ const {
   borrar,
   verMasNovedades,
   verMasRecomendados,
+  thriller,
+  fantasia,
 
 } = require('../controllers/productController');
 
@@ -83,6 +85,8 @@ router.get('/romance', romance);
 router.get('/historica', historica);
 router.get('/ciencia-ficcion', cienciaFiccion);
 router.get('/policial', policial);
-router.get('/juvenil', juvenil);
+router.get('/thriller', thriller);
+router.get('/fantasia', fantasia);
+
 
 module.exports = router;
