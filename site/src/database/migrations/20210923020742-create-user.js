@@ -26,7 +26,8 @@ module.exports = {
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true.valueOf,
+        defaultValue:'profile-users-default.png'
       },
       password: {
         type: Sequelize.STRING,
@@ -38,7 +39,7 @@ module.exports = {
         defaultValue: 1,
         references :{
           model : {
-            tableName : 'rol'
+            tableName : 'rols'
           },
           key : 'id'
         }

@@ -1,7 +1,6 @@
 const db = require('../database/models');
 const { Op } = require('sequelize');
 const { validationResult } = require('express-validator');
-
 module.exports = {
   index: (req, res) => {
     let productos = db.Book.findAll(
@@ -62,6 +61,8 @@ module.exports = {
             novedades,
             recomendados,
             generos,
+          
+
           })
       }).catch(error => console.log(error))
   },

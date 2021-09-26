@@ -95,6 +95,16 @@ footer .terminos .terminos-li a{
   color: var(--color-amarillo);
 }
 
+
+
+
+
+#my-form-status{
+  font-family: var(--color-bordo);
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+}
 /* hover */
 footer .cabecera-footer .redes i:hover {
   color: rgb(0, 102, 255);

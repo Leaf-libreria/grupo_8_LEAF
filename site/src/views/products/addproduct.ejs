@@ -14,7 +14,7 @@
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
-  <form method="POST" class="formulario" enctype="multipart/form-data" novalidate>
+  <form action="/products/agregar" method="POST"  class="formulario" enctype="multipart/form-data" novalidate>
       <div class="titulo">
           <label for="title">Título del libro:</label>
           <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos" value="<%= locals.old && locals.old.title? old.title: null%>">
@@ -53,12 +53,14 @@
           </div>
           </div>
 </div>
+<!-- seccion de formato -->
   <section class="formato">
       <label for="format">Formato:</label> 
-      <select name="formats" id="format">
-          <option value="" hidden selected>Seleccione el formato</option>
-          <option value="1" <%= locals.old && old.formats.name === 'Libro' ? 'selected' : null%> >Libro</option>
-          <option value="2" <%= locals.old && old.formats.name === 'E-book' ? 'selected' : null%> >Ebook</option>
+      <select name="formatId" id="format">
+        <option value="" hidden selected>Seleccione el formato</option>
+        <% formatos.forEach(formato => { %>
+          <option value="<%= formato.id %> " <%= locals.old && old.formato.name === formato.name  ? 'selected' : null%> ><%= formato.name %> </option>
+        <% }) %>
       </select>
       <div class="error">
               <!-- Posibles errores -->
@@ -68,13 +70,14 @@
                 >
           </div> 
         </section>
+        <!-- seccion de categorias -->
             <section class="categoria">
               <label for="category">Categoría:</label>
-              <select name="categories" id="category">
+              <select name="categoryId" id="category">
                 <option value="" hidden selected>Seleccione la categoria</option>
-                <option value="3">Recomendados</option>
-                <option value="2">Novedades</option>
-                <option value="1">Más vendidos</option>
+                <% categorias.forEach(categoria => { %>
+                  <option value="<%= categoria.id %> " <%= locals.old && old.categoria.name === categoria.name ? 'selected' : null%> ><%= categoria.name%> </option>
+                <% }) %>
               </select>
               <div class="error">
                 <!-- Posibles errores -->
@@ -83,11 +86,16 @@
                 </span>
               </div>
             </section>
+            <!-- seccion de autores -->
             <section class="autor">
               <label for="author">Autor/Autora:</label>
               <div class="otroAutor">
-                <input type="text" name="author" id="otroAutor" placeholder="Nombre y apellido del autor" class="control"
-                  value="<%= locals.old && locals.old.autor.name? old.autor.name: null%>">
+                <select name="authorId" id="format">
+                  <option value="" hidden selected>Seleccione el autor</option>
+                  <% autores.forEach(autor => { %>
+                    <option value="<%= autor.id %> " <%= locals.old && old.autor.nameLastname === autor.nameLastname  ? 'selected' : null%> ><%= autor.nameLastname %> </option>
+                  <% }) %>
+                </select>
               </div>
               <div class="error">
                 <!-- Posibles errores -->
@@ -96,11 +104,17 @@
                 </span>
               </div>
             </section>
+
+            <!-- seccion de editorial -->
             <section class="editorial">
               <label for="editorial">Editorial:</label>
               <div class="otraEditorial">
-                <input type="text" name="editorial" id="OtraEditorial" placeholder="Ej: Planeta" class="control"
-                  value="<%= locals.old && locals.old.editorial? old.editorial: null%>">
+                  <select name="editorialId" id="format">
+                  <option value="" hidden selected>Seleccione la editorial</option>
+                  <% editoriales.forEach(editorial => { %>
+                    <option value="<%= editorial.id %> " <%= locals.old && old.editorial.name === editorial.name  ? 'selected' : null%> ><%= editorial.name %> </option>
+                  <% }) %>
+                </select>
               
               <div class="error">
                 <!-- Posibles errores -->
@@ -110,11 +124,17 @@
               </div>
               </div>
             </section>
+
+            <!-- seccion de genero -->
             <section class="genero">
               <label for="genre">Género</label>
               <div class="otroGenero">
-                <input type="text" name="genre" id="otroGenero" placeholder="Ej: Fantasía" class="control"
-                  value="<%= locals.old && locals.old.genre? old.genre: null%>">
+                <select name="genreId" id="format">
+                  <option value="" hidden selected>Seleccione el género</option>
+                  <% generos.forEach(genero => { %>
+                    <option value="<%= genero.id %> " <%= locals.old && old.genero.name === genero.name  ? 'selected' : null%> ><%= genero.name %> </option>
+                  <% }) %>
+                </select>
               </div>
               <div class="error">
                 <!-- Posibles errores -->
@@ -123,6 +143,9 @@
                 </span>
               </div>
             </section>
+
+
+            <!-- seccion de precio -->
             <div class="container-grid">
               <div class="precio">
                 <label for="price">Precio $:</label>
@@ -135,6 +158,7 @@
                   </span>
                 </div>
               </div>
+              <!-- seccion de paginas -->
               <div class="paginas">
                 <label for="pages">Páginas:</label>
                 <input type="number" name="pages" id="pages" class="con-grid" placeholder="Sólo números"
@@ -146,10 +170,16 @@
                   </span>
                 </div>
               </div>
+            </div>
+              <!-- seccion  de estrellas -->
               <div class="estrellas">
                 <label for="stars">Estrellas:</label>
-                <input type="text" name="stars" id="stars" class="con-grid" placeholder="N° de estrellas"
-                  value="<%= locals.old && locals.old.stars ? old.stars : null%>">
+                <select name="starId" id="stars">
+                  <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
+                  <% estrellas.forEach(estrella => { %>
+                    <option value="<%= estrella.id %> " <%= locals.old && old.estrella.quantity === estrella.quantity ? 'selected' : null%> ><%= estrella.quantity %> </option>
+                  <% }) %>
+                </select>
                 <div class="error">
                   <!-- Posibles errores -->
                   <span>
@@ -157,7 +187,8 @@
                   </span>
                 </div>
               </div>
-            </div>
+           
+            <!-- seccion de critica -->
             <div class="sinopsis">
               <label for="slogan">Crítica:</label>
               <textarea type="text" name="slogan" id="slogan"
@@ -169,6 +200,7 @@
                 </span>
               </div>
             </div>
+            <!-- seccion de portada -->
             <div class="portada">
               <label for="cover">Imagen de portada:</label>
               <input class="file" type="file" name="cover" id="cover">
@@ -178,7 +210,7 @@
                 </span>
               </div>
             </div>
-
+            <!-- seccion de sinopsis -->
             <div class="sinopsis">
               <label for="synopsis">Sinopsis:</label>
               <textarea type="text" name="synopsis" id="synopsis" placeholder="Breve sinopsis" cols="30"
