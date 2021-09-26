@@ -462,37 +462,38 @@ if(errors.isEmpty()){
     )}
       )},
   pago: (req, res) => {
-    let producto = db.Book.findAll({
+    let productos = db.Book.findOne({
+      where: {
+        id: 8,
+      },
       include: [
         {
-          association: 'categoria'
-        },
-        {
           association: 'editorial'
-        },
-        {
-          association: 'estrella'
         },
         {
           association: 'formato'
         },
         {
           association: 'autor'
-        },
-        {
-          association: 'genero'
-        },
+        }
       ]
     })
+    let usuarios=db.User.findAll({
+      include:[
+        {association: 'libros'},
+      ]
+    })
+    let costoEnvio=db.Provincia.findAll() 
+
     let generos = db.Genre.findAll()
-    Promise.all([producto, generos])
-      .then(([producto, generos]) =>{
+    Promise.all([productos,usuarios,costoEnvio,generos])
+      .then(([productos,usuarios,costoEnvio,generos]) =>{
     return res.render("./products/payForm", {
       title: "LEAF | Finaliza tu compra",
-      producto,
+      productos,
       generos,
-      costoEnvio: producto.price,
-      libroComprado: producto.id==1
+      usuarios,
+      costoEnvio,
     })
     })
   },
