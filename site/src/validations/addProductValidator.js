@@ -14,11 +14,11 @@ module.exports = [
     .withMessage("Campo obligatorio")
     .isInt()
     .withMessage("Ingrese solo números"),
-  body("format").notEmpty().withMessage("Campo obligatorio"),
-  body("category").notEmpty().withMessage("Campo obligatorio"),
-  body("author").notEmpty().withMessage("Campo obligatorio"),
-  body("editorial").notEmpty().withMessage("Campo obligatorio"),
-  body("genre").notEmpty().withMessage("Campo obligatorio"),
+  body("formatId").notEmpty().withMessage("Campo obligatorio"),
+  body("categoryId").notEmpty().withMessage("Campo obligatorio"),
+  body("authorId").notEmpty().withMessage("Campo obligatorio"),
+  body("editorialId").notEmpty().withMessage("Campo obligatorio"),
+  body("genreId").notEmpty().withMessage("Campo obligatorio"),
   body("price")
     .notEmpty()
     .withMessage("Campo obligatorio")
@@ -29,13 +29,12 @@ module.exports = [
     .withMessage("Campo obligatorio")
     .isInt()
     .withMessage("Ingrese solo números"),
-  body("stars")
-    .notEmpty()
-    .withMessage("Campo obligatorio")
-    .isInt({ min: 1, max: 5 })
-    .withMessage("Número entre 1 y 5"),
+  // body("starId")
+  //   .notEmpty()
+  //   .withMessage("Campo obligatorio")
+  //   .isInt({ min: 1, max: 5 })
+  //   .withMessage("Número entre 1 y 5"),
   body("slogan").notEmpty().withMessage("Campo obligatorio"),
   body("synopsis").notEmpty().withMessage("Campo obligatorio"),
-  body("slogan").notEmpty().withMessage("Campo obligatorio"),
-  body("synopsis").notEmpty().withMessage("Campo obligatorio"),
+
 ];

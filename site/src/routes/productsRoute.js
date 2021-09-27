@@ -65,13 +65,7 @@ router.get("/detalle/:id", detail);
 router.get("/administrador", administradorMw, administrador);
 // Carga de productos CRUD
 router.get("/agregar", administradorMw, addProducto);
-router.post(
-  "/agregar",
-  administradorMw,
-  upload.single("cover"),
-  addValidator,
-  agregarProducto
-);
+router.post("/agregar", administradorMw,upload.single("cover"),addValidator,agregarProducto);
 router.get("/editar/:id", administradorMw, editarProducto);
 router.put(
   "/editar/:id",
@@ -93,5 +87,6 @@ router.get("/ciencia-ficcion", cienciaFiccion);
 router.get("/policial", policial);
 router.get("/thriller", thriller);
 router.get("/fantasia", fantasia);
+router.get("/juvenil", juvenil);
 
 module.exports = router;

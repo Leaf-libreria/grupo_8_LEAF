@@ -43,7 +43,7 @@
               <div class="stock">
                 <label for="stock">Stock:</label>
                 <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números"
-                  value="<%= locals.old && locals.old.stock? old.stock: null%>">
+                  value="<%= locals.old && locals.old.stock ? old.stock: null%>">
 
                 <div class="error">
                   <!-- Posibles errores -->
@@ -59,7 +59,7 @@
               <select name="formatId" id="format">
                 <option value="" hidden selected>Seleccione el formato</option>
                 <% formatos.forEach(formato=> { %>
-                  <option value="<%= formato.id %> " <%=locals.old && old.formatoId===formato.name ? 'selected' : null%>
+                  <option value="<%= formato.id %> " <%=locals.old && locals.old.formatId === formato.id ? 'selected' : null%>
                     ><%= formato.name %>
                   </option>
                   <% }) %>
@@ -67,7 +67,7 @@
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
-                  <%= locals.errores && locals.errores.formats ? errores.formats.msg : null %>
+                  <%= locals.errores && locals.errores.formatId ? errores.formatId.msg : null %>
                 </span>
               </div>
             </section>
@@ -77,7 +77,7 @@
               <select name="categoryId" id="category">
                 <option value="" hidden selected>Seleccione la categoria</option>
                 <% categorias.forEach(categoria=> { %>
-                  <option value="<%= categoria.id %> " <%=locals.old && old.categoriaId===categoria.name ? 'selected' :
+                  <option value="<%= categoria.id %> " <%=locals.old && locals.old.categoryId === categoria.id ? 'selected' :
                     null%> ><%= categoria.name%>
                   </option>
                   <% }) %>
@@ -85,7 +85,7 @@
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
-                  <%= locals.errores && locals.errores.categories ? errores.categories.msg : null %>
+                  <%= locals.errores && locals.errores.categoryId ? errores.categoryId.msg : null %>
                 </span>
               </div>
             </section>
@@ -96,7 +96,7 @@
                 <select name="authorId" id="format">
                   <option value="" hidden selected>Seleccione el autor</option>
                   <% autores.forEach(autor=> { %>
-                    <option value="<%= autor.id %> " <%=locals.old && old.authorId===autor.nameLastname ? 'selected' :
+                    <option value="<%= autor.id %> " <%=locals.old && locals.old.authorId === autor.id ? 'selected' :
                       null%> ><%= autor.nameLastname %>
                     </option>
                     <% }) %>
@@ -117,7 +117,7 @@
                 <select name="editorialId" id="format">
                   <option value="" hidden selected>Seleccione la editorial</option>
                   <% editoriales.forEach(editorial=> { %>
-                    <option value="<%= editorial.id %> " <%=locals.old && old.editorialId===editorial.name ? 'selected'
+                    <option value="<%= editorial.id %> " <%=locals.old && locals.old.editorialId===editorial.id ? 'selected'
                       : null%> ><%= editorial.name %>
                     </option>
                     <% }) %>
@@ -126,7 +126,7 @@
                 <div class="error">
                   <!-- Posibles errores -->
                   <span>
-                    <%= locals.errores && locals.errores.editorial ? errores.editorial.msg : null %>
+                    <%= locals.errores && locals.errores.editorialId ? errores.editorialId.msg : null %>
                   </span>
                 </div>
               </div>
@@ -139,8 +139,7 @@
                 <select name="genreId" id="format">
                   <option value="" hidden selected>Seleccione el género</option>
                   <% generos.forEach(genero=> { %>
-                    <option value="<%= genero.id %> " <%=locals.old && old.generoId===genero.name ? 'selected' : null%>
-                      ><%= genero.name %>
+                    <option value="<%= genero.id %> " <%=locals.old && locals.old.genreId===genero.id ? 'selected' : null%>><%= genero.name %>
                     </option>
                     <% }) %>
                 </select>
@@ -148,7 +147,7 @@
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
-                  <%= locals.errores && locals.errores.genre ? errores.genre.msg : null %>
+                  <%= locals.errores && locals.errores.genreId ? errores.genreId.msg : null %>
                 </span>
               </div>
             </section>
@@ -159,7 +158,7 @@
               <div class="precio">
                 <label for="price">Precio $:</label>
                 <input type="number" name="price" id="price" class="con-grid" placeholder="Sólo números"
-                  value="<%= locals.old && locals.old.price? old.price: null%>">
+                  value="<%= locals.old && locals.old.price ? old.price: null%>">
                 <div class="error">
                   <!-- Posibles errores -->
                   <span>
@@ -186,15 +185,14 @@
               <select name="starId" id="stars">
                 <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
                 <% estrellas.forEach(estrella=> { %>
-                  <option value="<%= estrella.id %> " <%=locals.old && old.estrellaId===estrella.quantity ? 'selected' :
-                    null%> ><%= estrella.quantity %>
+                  <option value="<%= estrella.id %> " <%=locals.old && locals.old.starId === estrella.id ? 'selected' : null%> ><%= estrella.quantity %>
                   </option>
                   <% }) %>
               </select>
               <div class="error">
                 <!-- Posibles errores -->
                 <span>
-                  <%= locals.errores && locals.errores.stars ? errores.stars.msg : null %>
+                  <%= locals.errores && locals.errores.starId ? errores.starId.msg : null %>
                 </span>
               </div>
             </div>
@@ -217,7 +215,7 @@
               <input class="file" type="file" name="cover" id="cover">
               <div class="error">
                 <span>
-                  <%= locals.errores && errores.cover ? errores.cover.msg : null %>
+                  <%= locals.errores && locals.errores.cover ? errores.cover.msg : null %>
                 </span>
               </div>
             </div>

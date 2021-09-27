@@ -85,7 +85,7 @@ db.Genre.findAll()
   },
   search: (req, res) => {
     if (req.query.search.trim() != "") {
-      let result = db.Book.findAll({
+     let result =  db.Book.findAll({
         include: [
           { association: "autor" },
           { association: "genero" },
@@ -93,9 +93,11 @@ db.Genre.findAll()
           { association: "editorial" },
         ],
         where: {
-          [Op.or]: [{ title: { [Op.substring]: req.query.search } }],
+          [Op.or]: [{ title: { [Op.substring]: req.query.search } }] 
         },
+      
       });
+      
       let generos = db.Genre.findAll();
       Promise.all([result, generos])
         .then(([result, generos]) => {
