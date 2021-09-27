@@ -37,15 +37,9 @@ module.exports = {
         allowNull: false
       },
       cover: {
-<<<<<<< HEAD
-        type: Sequelize.STRING,
-        allowNull: false,
-        default: 'default-image.png'
-=======
         type: Sequelize.STRING(500),
         allowNull: false,
         defaultValue:'default-image-book.png'
->>>>>>> 819d82542dfbfc2220bef09d1cd27195ee75e3eb
       },
       authorId: {
         type: Sequelize.INTEGER,
