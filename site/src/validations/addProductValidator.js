@@ -32,14 +32,10 @@ module.exports = [
   body("stars")
     .notEmpty()
     .withMessage("Campo obligatorio")
-    .isInt({min:1,max:5}).withMessage('Número entre 1 y 5'),
+    .isInt({ min: 1, max: 5 })
+    .withMessage("Número entre 1 y 5"),
   body("slogan").notEmpty().withMessage("Campo obligatorio"),
   body("synopsis").notEmpty().withMessage("Campo obligatorio"),
-  body("cover")
-    .notEmpty()
-    .withMessage('Campo obligatorio'),
-  body('slogan').notEmpty().withMessage('Campo obligatorio'),
-body('synopsis')
-        .notEmpty()
-        .withMessage('Campo obligatorio'),
+  body("slogan").notEmpty().withMessage("Campo obligatorio"),
+  body("synopsis").notEmpty().withMessage("Campo obligatorio"),
 ];

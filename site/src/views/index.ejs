@@ -47,27 +47,30 @@
         </div>
 
         <!-- seccion de mas vendidos -->
-    <section class="masVendidos ">
-      <div class="cabecera">
-        <h2>Más vendidos</h2>
+        <section class="masVendidos ">
+          <div class="cabecera">
+            <h2>Más vendidos</h2>
             <a href="/products/masVendidos">Ver más</a>
-      </div>
-      <div class="articles-masVendidos">
-<% masVendidos.forEach(producto => { %>
-   <article class="libros-<%=producto.genre%>">
-        <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt="portada de<%=producto.title%>" /></a>
-        <div class="detalle">
-          <h3><%=producto.title%></h3>
-          <h4><%=producto.author%></h4>
-          <p>$<%=producto.price%></p>
-        </div>
-      </article>
-<% }) %>
-      </div>
-    </section>
-
-
-
+          </div>
+          <div class="articles-masVendidos">
+            <% masVendidos.forEach(producto=> { %>
+              <article class="libros-<%=producto.genre%>">
+                <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>"
+                    alt="portada de<%=producto.title%>" /></a>
+                <div class="detalle">
+                  <h3>
+                    <%=producto.title%>
+                  </h3>
+                  <h4>
+                    <%=producto.autor.nameLastname%>
+                  </h4>
+                  <p>$<%=producto.price%>
+                  </p>
+                </div>
+              </article>
+              <% }) %>
+          </div>
+        </section>
         <!-- seccion de novedades -->
         <section class="novedades">
           <div class="cabecera">
@@ -99,7 +102,7 @@
                   <%= producto.slogan %>
                 </p>
                 <div>
-                 $ <%= producto.price %>
+                  $ <%= producto.price %>
                 </div>
                 <div class="estrella">
                   <i class="fas fa-star"></i>
@@ -151,7 +154,7 @@
       <!-- ----footer ----->
       <%-include('./partials/footer') %>
         <!-- ----footer---- -->
-
+        <script src="/javascripts/contacto.js"></script>
   </body>
   <!-- ----scripts ----->
   <%-include('./partials/scripts') %>

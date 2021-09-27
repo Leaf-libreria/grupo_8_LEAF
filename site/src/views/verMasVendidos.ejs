@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <!-- ----head ----->
-  <%-include('./partials/head') %> 
+<!-- ----head ----->
+<%-include('./partials/head') %>
   <!-- ----head---- -->
 
-<body class="novedades">
+  <body class="novedades">
 
 
-  <!-- ----header ----->
-  <%-include('./partials/header') %> 
-  <!-- ----header---- -->
+    <!-- ----header ----->
+    <%-include('./partials/header') %>
+      <!-- ----header---- -->
 
-<main>
+      <main>
 
-    <h2><%= title %> </h2>
-    
-    <div class=contenedorNovedades>
-      <% masVendidos.forEach(product => { %>
-    <article class="libro">
-        <a href="/products/detalle/<%= product.id %> "
-          ><img src="/images/<%= product.cover %> " alt="<%= product.title %> "
-        /></a>
-        <div class="detalle">
-          <h3><%= product.title %> </h3>
-          <h4><%= product.author %> </h4>
-          <p>$<%= product.price %> </p>
+        <h2>
+          <%= title %>
+        </h2>
+
+        <div class=contenedorNovedades>
+          <% productos.forEach(producto=> { %>
+            <article class="libro">
+              <a href="/products/detalle/<%= producto.id %> "><img src="/images/<%= producto.cover %> "
+                  alt="<%= producto.title %> " /></a>
+              <div class="detalle">
+                <h3>
+                  <%= producto.title %>
+                </h3>
+                <h4>
+                  <%= producto.autor.nameLastname%>
+                </h4>
+                <p>$<%= producto.price %>
+                </p>
+              </div>
+            </article>
+            <% }) %>
         </div>
-      </article>
-      <% }) %>
-    </div>
-</main>
+      </main>
 
-<!-- ----footer ----->
-<%-include('./partials/footer') %> 
-<!-- ----footer---- -->
+      <!-- ----footer ----->
+      <%-include('./partials/footer') %>
+        <!-- ----footer---- -->
 
-</body>
-<!-- ----scripts ----->
-<%-include('./partials/scripts') %> 
-<!-- ----scripts---- -->
+  </body>
+  <!-- ----scripts ----->
+  <%-include('./partials/scripts') %>
+    <!-- ----scripts---- -->
+
 </html>

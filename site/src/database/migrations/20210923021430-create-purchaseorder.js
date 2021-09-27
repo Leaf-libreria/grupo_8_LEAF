@@ -31,6 +31,14 @@ module.exports = {
       finalprice: {
         type: Sequelize.DECIMAL,
         allowNull: false
+      },
+      createdAt: {
+        allowNull: true,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: true,
+        type: Sequelize.DATE
       }
     });
   },

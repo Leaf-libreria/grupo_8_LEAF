@@ -2,88 +2,103 @@
 <html lang="es">
 
 <!-- ----head ----->
-<%-include('../partials/head') %> 
-<!-- ----head---- -->
+<%-include('../partials/head') %>
+    <!-- ----head---- -->
 
-<body class="body-register perfil">
-    <!-- Imagen de costado = tablet/desktop -->
-    <section class="contenido-gral-register">
-        <div class="imgcostado-register" style="width: 18rem;">
-            <img src="/images/<%=usuarioPerfil.image%>" class="card-img-top" alt="Logo de leaf">
-            <div class="card-body">
-                <div class="dropdown favoritos-user">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      Favoritos
-                    </a>
-                  
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </div>
-            </div>
-            <!-- REDES SOCIALES -->
-            <ul class="redes-register">
-                <li>
-                    <h5>Seguinos en redes sociales</h5>
-                </li>
-                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
-                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-        </div>
+    <body class="body-register perfil">
+        <!-- Imagen de costado = tablet/desktop -->
+        <section class="contenido-gral-register">
+            <div class="imgcostado-register" style="width: 18rem;">
+                <img src="/images/<%=user.image%>" class="card-img-top" alt="Logo de leaf">
+                <div class="card-body">
+                    <div class="dropdown favoritos-user">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Favoritos
+                        </a>
 
-        <div class="conclase-register perfil-div">
-            <section class="header-register">
-               <a href="/products/carrito" class="icono-carrito"><i class="fas fa-shopping-cart "></i></a>
-                <!-- editar perfil -->
-            <div><a href="/users/editarPerfil/<%=usuarioPerfil.id  %> "  class="editar-perfil"><p>Editar perfil</p><i class="fas fa-edit"></i></a></div> 
-            </section>
-
-            <main class="main-register perfil-main">
-              
-                    <a href="/" class="boton-home" ><i class="fas fa-angle-double-left"></i> Home</a>
-                    <h2 class="bienvenido-perfil">Bienvenido <%=usuarioPerfil.nickName ? usuarioPerfil.nickName : usuarioPerfil.nombre%> </h2>
-                <div class="cont-perfil">
-                    <!-- Posible error -->
-                    <span></span> 
-                    <!-- NICK -->
-                    <div class="nombre">
-                        <h5>NickName</h5>
-                        <p><%=usuarioPerfil.nickName%></p>
-                    </div> 
-
-                    <div class="nombre"><h5>Nombre</h5>
-                        <p><%=usuarioPerfil.name%></p>
-                    </div>
-
-                    <div class="apellido"><h5>Apellido</h5>
-                        <p><%=usuarioPerfil.lastname%></p>
-                    </div>
-
-                    <div class="registro-correo"><h5>Correo electrónico</h5> 
-                        <p><%=usuarioPerfil.email%></p>
-                        
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
                     </div>
                 </div>
+                <!-- REDES SOCIALES -->
+                <ul class="redes-register">
+                    <li>
+                        <h5>Seguinos en redes sociales</h5>
+                    </li>
+                    <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="conclase-register perfil-div">
+                <section class="header-register">
+                    <a href="/products/carrito" class="icono-carrito"><i class="fas fa-shopping-cart "></i></a>
+                    <!-- editar perfil -->
+                    <div><a href="/users/editarPerfil/<%=user.id  %> " class="editar-perfil">
+                            <p>Editar perfil</p><i class="fas fa-edit"></i>
+                        </a></div>
+                </section>
+
+                <main class="main-register perfil-main">
+
+                    <a href="/" class="boton-home"><i class="fas fa-angle-double-left"></i> Home</a>
+                    <h2 class="bienvenido-perfil">Bienvenido <%=user.nickname ? user.nickname : user.name%>
+                    </h2>
+                    <div class="cont-perfil">
+                        <!-- Posible error -->
+                        <span></span>
+                        <!-- NICK -->
+                        <div class="nombre">
+                            <h5>NickName</h5>
+                            <p>
+                                <%=user.nickname%>
+                            </p>
+                        </div>
+
+                        <div class="nombre">
+                            <h5>Nombre</h5>
+                            <p>
+                                <%=user.name%>
+                            </p>
+                        </div>
+
+                        <div class="apellido">
+                            <h5>Apellido</h5>
+                            <p>
+                                <%=user.lastname%>
+                            </p>
+                        </div>
+
+                        <div class="registro-correo">
+                            <h5>Correo electrónico</h5>
+                            <p>
+                                <%=user.email%>
+                            </p>
+
+                        </div>
+                    </div>
                     <!-- Posible error -->
                     <span></span>
 
                     <!-- <button type="button" class="btn btn-outline-warning"><b>Cerrar sesion</b> </button> -->
-                     <li class="nav-item" >
+                    <li class="nav-item">
                         <a class="nav-link" href="/users/logout"><b>Cerrar sesion</b> </a>
-                     </li>
-            </main>
-        </div>
-    </section>
+                    </li>
+                </main>
+            </div>
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    </body>
 
 </html>
