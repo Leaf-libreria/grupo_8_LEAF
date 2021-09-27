@@ -557,38 +557,40 @@ module.exports = {
     });
   },
   pago: (req, res) => {
-    let producto = db.Book.findAll({
+    let productos = db.Book.findOne({
+      where: {
+        id: 8,
+      },
       include: [
         {
-          association: "categoria",
+          association: 'editorial'
         },
         {
-          association: "editorial",
+          association: 'formato'
         },
         {
-          association: "estrella",
-        },
-        {
-          association: "formato",
-        },
-        {
-          association: "autor",
-        },
-        {
-          association: "genero",
-        },
-      ],
-    });
-    let generos = db.Genre.findAll();
-    Promise.all([producto, generos]).then(([producto, generos]) => {
-      return res.render("./products/payForm", {
-        title: "LEAF | Finaliza tu compra",
-        producto,
-        generos,
-        costoEnvio: producto.price,
-        libroComprado: producto.id == 1,
-      });
-    });
+          association: 'autor'
+        }
+      ]
+    })
+    let usuarios=db.User.findAll({
+      include:[
+        {association: 'libros'},
+      ]
+    })
+    let costoEnvio=db.Provincia.findAll() 
+
+    let generos = db.Genre.findAll()
+    Promise.all([productos,usuarios,costoEnvio,generos])
+      .then(([productos,usuarios,costoEnvio,generos]) =>{
+    return res.render("./products/payForm", {
+      title: "LEAF | Finaliza tu compra",
+      productos,
+      generos,
+      usuarios,
+      costoEnvio,
+    })
+    })
   },
 
   // controladores para generos
