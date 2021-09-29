@@ -1,5 +1,6 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
+
 module.exports = {
   libros: (req, res) => {
     let productos = db.Book.findAll({
@@ -387,6 +388,7 @@ module.exports = {
     }
   },
   addProducto: (req, res) => {
+    let errors = validationResult(req);
     let autores = db.Author.findAll();
     let generos = db.Genre.findAll();
     let editoriales = db.Editorial.findAll();
@@ -406,6 +408,7 @@ module.exports = {
         ([autores, generos, editoriales, estrellas, categorias, formatos]) => {
           return res.render("./products/addProduct", {
             title: "LEAF | Administrador",
+            errores:errors.mapped(),
             autores,
             generos,
             editoriales,
@@ -429,12 +432,12 @@ module.exports = {
         isbn: req.body.isbn.trim(),
         pages: req.body.pages.trim(),
         stock: req.body.stock.trim(),
-        authorId: req.body.authorId,
-        genreId: req.body.genreId,
-        formatId: req.body.formatId,
-        categoryId: req.body.categoryId,
-        editorialId: req.body.editorialId,
-        starId: req.body.starId,
+        authorId: req.body.authorId.trim(),
+        genreId: req.body.genreId.trim(),
+        formatId: req.body.formatId.trim(),
+        categoryId: req.body.categoryId.trim(),
+        editorialId: req.body.editorialId.trim(),
+        starId: req.body.starId.trim(),
         cover: req.file ? req.file.filename : "default-image-book.png",
       });
 
@@ -554,38 +557,40 @@ module.exports = {
     });
   },
   pago: (req, res) => {
-    let producto = db.Book.findAll({
+    let productos = db.Book.findOne({
+      where: {
+        id: 8,
+      },
       include: [
         {
-          association: "categoria",
+          association: 'editorial'
         },
         {
-          association: "editorial",
+          association: 'formato'
         },
         {
-          association: "estrella",
-        },
-        {
-          association: "formato",
-        },
-        {
-          association: "autor",
-        },
-        {
-          association: "genero",
-        },
-      ],
-    });
-    let generos = db.Genre.findAll();
-    Promise.all([producto, generos]).then(([producto, generos]) => {
-      return res.render("./products/payForm", {
-        title: "LEAF | Finaliza tu compra",
-        producto,
-        generos,
-        costoEnvio: producto.price,
-        libroComprado: producto.id == 1,
-      });
-    });
+          association: 'autor'
+        }
+      ]
+    })
+    let usuarios=db.User.findAll({
+      include:[
+        {association: 'libros'},
+      ]
+    })
+    let costoEnvio=db.Provincia.findAll() 
+
+    let generos = db.Genre.findAll()
+    Promise.all([productos,usuarios,costoEnvio,generos])
+      .then(([productos,usuarios,costoEnvio,generos]) =>{
+    return res.render("./products/payForm", {
+      title: "LEAF | Finaliza tu compra",
+      productos,
+      generos,
+      usuarios,
+      costoEnvio,
+    })
+    })
   },
 
   // controladores para generos

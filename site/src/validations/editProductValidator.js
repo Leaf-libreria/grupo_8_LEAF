@@ -39,9 +39,6 @@ module.exports = [
     .withMessage("Campo obligatorio")
     .isLength({ min: 1 })
     .withMessage("Campo obligatorio."),
-  check("synopsis")
-    .notEmpty()
-    .withMessage("Campo obligatorio")
-    .isLength({ min: 1 })
-    .withMessage("Campo obligatorio"),
+    body("synopsis").notEmpty().withMessage("Campo obligatorio"),
+
 ];

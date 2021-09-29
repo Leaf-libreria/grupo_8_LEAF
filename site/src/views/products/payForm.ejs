@@ -38,8 +38,8 @@
                   <label class="payForm-label" for="retiro-ebook">Enviar mi e-book a este mail:</label>
                 </div>
                 <!-- bootstrap collapse, no se muestra si no selecciona ebook -->
-                <input class="payForm-input" type="email" name="shipping-ebook" placeholder="E-mail de envío"
-                  class="collapse" id="collapseExample" />
+                <input class="payForm-input" type="email" name="shipping-ebook" placeholder="E-mail de envío" class="collapse"
+                  id="collapseExample" />
                 <!-- retiro en local-->
                 <div class="payForm-radio--aside">
                   <input class="payForm-input payForm-input--aside" type="radio" id="retiro-local" value="retiro-local"
@@ -48,22 +48,22 @@
                 </div>
                 <!-- retiro en correo-->
                 <div class="payForm-radio--aside">
-                  <input class="payForm-input payForm-input--aside" type="radio" id="retiro-correo"
-                    value="retiro-correo" name="shipping" />
+                  <input class="payForm-input payForm-input--aside" type="radio" id="retiro-correo" value="retiro-correo"
+                    name="shipping" />
                   <label class="payForm-label" for="retiro-correo">Retiro gratis en el correo Calle Perdida S/N</label>
                 </div>
                 <!-- A domicilio-->
                 <div class="payForm-radio--aside">
-                  <input class="payForm-input payForm-input--aside" type="radio" id="envio-domicilio"
-                    value="envio-domicilio" name="shipping" data-bs-toggle="collapse" href="#multiCollapseExample1"
-                    role="radiogroup" aria-expanded="false" aria-controls="multiCollapseExample1" />
+                  <input class="payForm-input payForm-input--aside" type="radio" id="envio-domicilio" value="envio-domicilio"
+                    name="shipping" data-bs-toggle="collapse" href="#multiCollapseExample1" role="radiogroup"
+                    aria-expanded="false" aria-controls="multiCollapseExample1" />
                   <label class="payForm-label" for="envio-domicilio">Envío a mi domicilio</label>
                 </div>
                 <!-- bootstrap collapse, no se muestran opciones si no selecciona a domicilio -->
-                <input class="payForm-input" type="text" name="street" placeholder="Calle"
-                  class="collapse multi-collapse" id="multiCollapseExample1" />
-                <input class="payForm-input" type="text" name="number" placeholder="Número"
-                  class="collapse multi-collapse" id="multiCollapseExample1" />
+                <input class="payForm-input" type="text" name="street" placeholder="Calle" class="collapse multi-collapse"
+                  id="multiCollapseExample1" />
+                <input class="payForm-input" type="text" name="number" placeholder="Número" class="collapse multi-collapse"
+                  id="multiCollapseExample1" />
                 <input class="payForm-input" type="number" name="cp" placeholder="Código Postal"
                   class="collapse multi-collapse" id="multiCollapseExample1" />
                 <select name="provincia" class="collapse multi-collapse payForm-select" id="multiCollapseExample1">
@@ -72,8 +72,8 @@
                     Seleccione su provincia
                   </option>
                   <% costoEnvio.forEach(envio=> {%>
-                    <option value="<%= envio.provincia %>" class="collapse multi-collapse" id="multiCollapseExample1">
-                      <%= envio.provincia %>
+                    <option value="<%= envio.name %>" class="collapse multi-collapse" id="multiCollapseExample1">
+                      <%= envio.name %>
                     </option>
                     <% })%>
                 </select>
@@ -99,8 +99,8 @@
                 </select>
                 <input class="payForm-input" type="number" name="card-number" placeholder="Número de tarjeta"
                   class="collapse multi-collapse" id="multiCollapseExample2" />
-                <label class="payForm-label" for="due-date" class="collapse multi-collapse"
-                  id="multiCollapseExample2">Mes y año de vencimiento:</label>
+                <label class="payForm-label" for="due-date" class="collapse multi-collapse" id="multiCollapseExample2">Mes
+                  y año de vencimiento:</label>
                 <input class="payForm-input" type="month" name="due-date" class="collapse multi-collapse"
                   id="multiCollapseExample2" />
                 <input class="payForm-input" type="number" name="security-code" placeholder="Código de seguridad"
@@ -130,67 +130,67 @@
             <div class="card mb-3 payForm-description--card" style="max-width: 540px">
               <div class="row g-0">
                 <h4 class="payForm-card-title--h4">Resumen de tu compra:</h4>
-                <% libroComprado.forEach(producto=>{ %>
-                  <div class="col-md-4">
-                    <img src="/images/<%= producto.cover %> " class="payForm-img--mobile img-fluid rounded-start"
-                      alt="<%= producto.title %>" />
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body payForm-description--body">
-                      <div class="payForm-calc-compra">
-                        <h5 class="payForm-card--title-h5">
-                          <%= producto.title %>
-                        </h5>
-                        <h6 class="payForm-card--subtitle">
-                          <%= producto.author %>
-                        </h6>
-                        <p class="payForm-card--p">Formato: <%= producto.format %>
+                <div class="col-md-4">
+                  <img src="/images/<%= productos.cover %> " class="payForm-img--mobile img-fluid rounded-start"
+                    alt="<%= productos.title %>" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body payForm-description--body">
+                    <div class="payForm-calc-compra">
+                      <h5 class="payForm-card--title-h5">
+                        <%= productos.title %>
+                      </h5>
+                      <h6 class="payForm-card--subtitle">
+                        <%= productos.autor.nameLastname %>
+                      </h6>
+                      <p class="payForm-card--p">Formato: <%= productos.formato.name %>
+                      </p>
+                      <div class="payForm-card--space-between">
+                        <p class="payForm-card--p">Cantidad: 1</p>
+                        <p class="payForm-card--p">$<%= productos.price %>
                         </p>
-                        <div class="payForm-card--space-between">
-                          <p class="payForm-card--p">Cantidad: 1</p>
-                          <p class="payForm-card--p">$<%= producto.price %>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="payForm-calc-envio">
-                        <h5 class="payForm-card--title-h5">Forma de envio</h5>
-                        <h6 class="payForm-card--subtitle">
-                          Retiro gratis en el local Calle Falsa N°123
-                        </h6>
-                        <div class="payForm-card--space-between">
-                          <h6 class="payForm-card--subtitle">Costo:</h6>
-                          <p class="payForm-card--p">$0</p>
-                        </div>
-                      </div>
-                      <div class="payForm-subtotal">
-                        <div class="payForm-card--space-between">
-                          <h6 class="payForm-card--subtitle">Subtotal:</h6>
-                          <p class="payForm-card--p">$1300</p>
-                        </div>
-                        <div class="payForm-card--space-between">
-                          <h6 class="payForm-card--subtitle">Envío:</h6>
-                          <p class="payForm-card--p">$0</p>
-                        </div>
-                      </div>
-                      <div class="payForm-total payForm-card--space-between">
-                        <h5 class="payForm-card--title-h5">Total a pagar:</h5>
-                        <p class="payForm-card--p">$1300</p>
                       </div>
                     </div>
+                    <div class="payForm-calc-envio">
+                      <h5 class="payForm-card--title-h5">Forma de envio</h5>
+                      <h6 class="payForm-card--subtitle">
+                        Retiro gratis en el local Calle Falsa N°123
+                      </h6>
+                      <div class="payForm-card--space-between">
+                        <h6 class="payForm-card--subtitle">Costo:</h6>
+                        <p class="payForm-card--p">$0</p>
+                      </div>
+                    </div>
+                    <div class="payForm-subtotal">
+                      <div class="payForm-card--space-between">
+                        <h6 class="payForm-card--subtitle">Subtotal:</h6>
+                        <p class="payForm-card--p">$<%= productos.price %>
+                        </p>
+                      </div>
+                      <div class="payForm-card--space-between">
+                        <h6 class="payForm-card--subtitle">Envío:</h6>
+                        <p class="payForm-card--p">$0</p>
+                      </div>
+                    </div>
+                    <div class="payForm-total payForm-card--space-between">
+                      <h5 class="payForm-card--title-h5">Total a pagar:</h5>
+                      <p class="payForm-card--p">$<%= productos.price %>
+                      </p>
+                    </div>
                   </div>
+                </div>
               </div>
             </div>
-            <% }) %>
           </aside>
         </div>
-      </main>
-      <!-- pie de pagina -->
-      <!-- ----footer ----->
-      <%-include('../partials/footer') %>
-        <!-- ----footer---- -->
-        <!-- ----scripts ----->
-        <%-include('../partials/scripts') %>
-          <!-- ----scripts---- -->
+    </main>
+    <!-- pie de pagina -->
+    <!-- ----footer ----->
+  <%-include('../partials/footer') %> 
+  <!-- ----footer---- -->
+<!-- ----scripts ----->
+<%-include('../partials/scripts') %> 
+<!-- ----scripts---- -->
   </body>
 
 </html>
