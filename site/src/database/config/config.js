@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   development: {
     username: process.env.DB_USERNAME,
@@ -9,7 +11,7 @@ module.exports = {
   test: {
     username: "root",
     password: null,
-    database: "database_test",
+    database: "leaf_db",
     host: "127.0.0.1",
     dialect: "mysql"
   },
