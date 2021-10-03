@@ -11,18 +11,30 @@
     <%-include('../partials/header') %>
       <!-- ----header---- -->
       <main>
-
+        
+        <div class="d-grid gap-3">
+          <a href="/products/agregarAutor" id="arriba" class="btn btn-outline-success admin-btn-agregar"
+            type="button">AGREGAR AUTOR</a>
+        </div>
+        <div class="d-grid gap-3">
+          <a href="/products/agregarEditorial" id="arriba" class="btn btn-outline-success admin-btn-agregar"
+            type="button">AGREGAR EDITORIAL</a>
+        </div>
+        <div class="d-grid gap-3">
+          <a href="/products/agregarGenero" id="arriba" class="btn btn-outline-success admin-btn-agregar" type="button">AGREGAR
+            GÉNERO</a>
+        </div>
         <h2>Lista de productos</h2>
         <div class="d-grid gap-3">
-          <a href="/products/agregar" id="arriba" class="btn btn-outline-success admin-btn-agregar"
-            type="button">AGREGAR PRODUCTOS</a>
+          <a href="/products/agregar" id="arriba" class="btn btn-outline-success admin-btn-agregar" type="button">AGREGAR
+            PRODUCTOS</a>
         </div>
         <div class="admin-dcha">
           <a href="#abajo" class="admin-btn-flotante admin-btn-agregar"><i class="fas fa-chevron-down"></i> </a>
         </div>
         <div class='contenedorNovedades'>
           <% productos.forEach(producto=>{ %>
-            <article class="libro">
+            <article class="libro libros-<%=producto.genero.name%>">
               <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%= producto.cover %>  "
                   alt="LEAF | Portada del libro" /></a>
               <div class="detalle">
@@ -41,8 +53,8 @@
                   <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
                     <div class="d-grid gap-2 col-6 mx-auto">
                       <a href="/products/editar/<%= producto.id %> " type="button"
-                        class="admin-btn-editar btn btn-warning">EDITAR</a>
-                      <button class="btn btn-danger admin-btn-eliminar">ELIMINAR</button>
+                        class="admin-btn-editar btn btn-outline-warning">EDITAR</a>
+                      <button class="btn btn-outline-danger admin-btn-eliminar">ELIMINAR</button>
                   </form>
                 </div>
               </div>

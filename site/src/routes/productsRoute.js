@@ -4,6 +4,8 @@ const path = require("path");
 //Validaciones para CRUD productos
 const addValidator = require("../validations/addProductValidator");
 const editValidator = require("../validations/editProductValidator");
+const addAuthorValidator= require('../validations/addAuthorValidator');
+const addGenreEditorialValidator=require('../validations/addGenreEditorialValidator')
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
 //middleware acceso usuarios logueados
@@ -53,6 +55,13 @@ const {
   verMasRecomendados,
   thriller,
   fantasia,
+  addAuthorPost,
+  addAuthorGet,
+  addGenreGet,
+  addGenrePost,
+  addEditorialGet,
+  addEditorialPost,
+
 } = require("../controllers/productController");
 
 // /products
@@ -75,6 +84,14 @@ router.put(
   actualizarProducto
 );
 router.delete("/delete/:id", borrar);
+//Agregar autor, género, editorial
+router.get('/agregarAutor',administradorMw,addAuthorGet);
+router.post('/agregarAutor',administradorMw,addAuthorValidator,addAuthorPost);
+router.get('/agregarGenero',administradorMw,addGenreGet);
+router.post('/agregarGenero',administradorMw,addGenreEditorialValidator,addGenrePost);
+router.get('/agregarEditorial',administradorMw,addEditorialGet);
+router.post('/agregarEditorial',addGenreEditorialValidator,administradorMw,addEditorialPost);
+
 //Carrito y formulario de pago
 router.get("/carrito", logueados, carrito);
 router.get("/pago", logueados, pago);

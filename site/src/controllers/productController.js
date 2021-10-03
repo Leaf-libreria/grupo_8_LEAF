@@ -408,7 +408,7 @@ module.exports = {
         ([autores, generos, editoriales, estrellas, categorias, formatos]) => {
           return res.render("./products/addProduct", {
             title: "LEAF | Administrador",
-            errores:errors.mapped(),
+            errores: errors.mapped(),
             autores,
             generos,
             editoriales,
@@ -523,7 +523,91 @@ module.exports = {
       .then(() => res.redirect("/products/administrador"))
       .catch((error) => console.log(error));
   },
-
+  //Agregar autor, editorial,genero
+  addAuthorGet: (req, res) => {
+    let errors = validationResult(req);
+    db.Author.findAll()
+      .then(autor => {
+        return res.render('./products/addAuthor', {
+          autor, errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+      }).catch(error => console.log(error));
+  },
+  addAuthorPost: (req,res)=>{
+    let errors = validationResult(req);
+  if(errors.isEmpty()){
+    db.Author.create({
+      nameLastname: req.body.nameLastname.trim()
+    })
+    .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
+  }else{
+    let errors = validationResult(req);
+    db.Author.findAll()
+    .then(()=>{return res.render('./products/addAuthor', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+  }).catch(error => console.log(error));
+}
+  },
+    addGenreGet: (req, res) => {
+    let errors = validationResult(req);
+    db.Genre.findAll()
+      .then(() => {
+        return res.render('./products/addGenre', {
+        errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+      }).catch(error => console.log(error));
+  },
+  addGenrePost: (req,res)=>{
+    let errors = validationResult(req);
+  if(errors.isEmpty()){
+    db.Genre.create({
+      name: req.body.name.trim()
+    })
+    .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
+  } else{
+    let errors = validationResult(req);
+    db.Genre.findAll()
+    .then(()=>{return res.render('./products/addGenre', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+  }).catch(error => console.log(error));
+}   
+  },
+    addEditorialGet: (req, res) => {
+    let errors = validationResult(req);
+    db.Editorial.findAll()
+      .then(() => {
+        return res.render('./products/addEditorial', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+      }).catch(error => console.log(error));
+  },
+  addEditorialPost: (req,res)=>{
+    let errors = validationResult(req);
+  if(errors.isEmpty()){
+    db.Editorial.create({
+      name: req.body.name.trim()
+    })
+    .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
+  }else{
+    let errors = validationResult(req);
+    db.Editorial.findAll()
+    .then(()=>{return res.render('./products/addEditorial', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+  }).catch(error => console.log(error));
+}      
+  },
   carrito: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -573,26 +657,25 @@ module.exports = {
         }
       ]
     })
-    let usuarios=db.User.findAll({
-      include:[
-        {association: 'libros'},
+    let usuarios = db.User.findAll({
+      include: [
+        { association: 'libros' },
       ]
     })
-    let costoEnvio=db.Provincia.findAll() 
+    let costoEnvio = db.Provincia.findAll()
 
     let generos = db.Genre.findAll()
-    Promise.all([productos,usuarios,costoEnvio,generos])
-      .then(([productos,usuarios,costoEnvio,generos]) =>{
-    return res.render("./products/payForm", {
-      title: "LEAF | Finaliza tu compra",
-      productos,
-      generos,
-      usuarios,
-      costoEnvio,
-    })
-    })
+    Promise.all([productos, usuarios, costoEnvio, generos])
+      .then(([productos, usuarios, costoEnvio, generos]) => {
+        return res.render("./products/payForm", {
+          title: "LEAF | Finaliza tu compra",
+          productos,
+          generos,
+          usuarios,
+          costoEnvio,
+        })
+      })
   },
-
   // controladores para generos
   policial: (req, res) => {
     let productos = db.Book.findAll({

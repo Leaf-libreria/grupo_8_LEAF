@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- ----head ----->
+  <%-include('../partials/head') %>
+  <!-- ----head---- -->
+
+  <body class="novedades admin">
+    <!-- encabezado -->
+    <!-- ----header ----->
+    <%-include('../partials/header') %>
+    <!-- ----header---- -->
+    <main>
+        <div class="card mt-5 ">
+            <div class="card-header">
+                <h3>Agregar autor/a:</h3>
+            </div>
+            <div class="card-body administrador">
+                <form action="" method="POST" class="formulario">
+                    <label for="nameLastname">Nombre y apellido del autor/a:</label>
+                        <input type="text" name="nameLastname" id="nameLastname" value="<%= locals.old &&locals.old.nameLastname ? old.nameLastname : null %> ">
+                        <!-- Posibles errores -->
+                        <span>
+                            <%= locals.errores && locals.errores.nameLastname ?errores.nameLastname.msg :null %>
+                        </span>
+    <!--BOTONES-->
+    <section class="botones d-grid gap-2 d-md-block">
+        <button type="submit" class="btn-guardar">AGREGAR</button>
+        <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR</a>
+    </section>
+
+                    </form>
+            </div>
+        
+        </div>
+    </main>
+  </body>
+</html>

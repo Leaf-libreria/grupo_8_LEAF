@@ -54,10 +54,11 @@
                 </div>
               </div>
             </div>
+            <div class="container-grid-uno">
             <!-- seccion de formato -->
             <section class="formato">
               <label for="format">Formato:</label>
-              <select name="formatId" id="format">
+              <select name="formatId" id="format" class="grid">
                 <option value="" hidden selected>Seleccione el formato</option>
                 <% formatos.forEach(formato=> { %>
                   <option value="<%= formato.id %>" <%=productEdit.formatId ? 'selected' : null %> ><%= formato.name %>
@@ -75,7 +76,7 @@
             <!-- seccion de categorias -->
             <section class="categoria">
               <label for="category">Categoría:</label>
-              <select name="categoryId" id="category">
+              <select name="categoryId" id="category" class="grid">
                 <option value="" hidden selected>Seleccione la categoria</option>
                 <% categorias.forEach(categoria=> { %>
                   <option value="<%= categoria.id %> " <%=productEdit.categoryId ? 'selected' : null %> ><%=
@@ -91,11 +92,13 @@
                 </span>
               </div>
             </section>
+            </div>
+            <div class="container-grid-uno">
             <!-- seccion de autores -->
             <section class="autor">
               <label for="author">Autor/Autora:</label>
               <div class="otroAutor">
-                <select name="authorId" id="format">
+                <select name="authorId" id="format" class="grid">
                   <option value="" hidden selected>Seleccione el autor</option>
                   <% autores.forEach(autor=> { %>
                     <option value="<%= autor.id %>" <%=productEdit.authorId ? 'selected' : null %> > <%=
@@ -116,7 +119,7 @@
             <section class="editorial">
               <label for="editorial">Editorial:</label>
               <div class="otraEditorial">
-                <select name="editorialId" id="format">
+                <select name="editorialId" id="format" class="grid">
                   <option value="" hidden selected>Seleccione la editorial</option>
                   <% editoriales.forEach(editorial=> { %>
                     <option value="<%= editorial.id %>" <%=productEdit.editorialId ? 'selected' : null %> ><%=
@@ -134,11 +137,31 @@
                 </div>
               </div>
             </section>
+            </div>
             <!-- seccion de genero -->
+            <div class="container-grid-uno">
+              <!-- seccion  de estrellas -->
+              <div class="estrellas">
+                <label for="stars">Estrellas:</label>
+                <select name="starId" id="stars" class="grid">
+                  <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
+                  <% estrellas.forEach(estrella=> { %>
+                    <option value="<%= estrella.id %>" <%=productEdit.starId ? 'selected' : null %> > <%= estrella.quantity %>
+                    </option>
+                    <% }) %>
+                </select>
+                <div class="error">
+                  <!-- Posibles errores -->
+                  <span>
+                    <%= locals.errores && locals.errores.stars ? errores.stars.msg : null %>
+              
+                  </span>
+                </div>
+              </div>
             <section class="genero">
               <label for="genre">Género</label>
               <div class="otroGenero">
-                <select name="genreId" id="format">
+                <select name="genreId" id="format" class="grid">
                   <option value="" hidden selected>Seleccione el género</option>
                   <% generos.forEach(genero=> { %>
                     <option value="<%= genero.id %>" <%=productEdit.genreId ? 'selected' : null %> ><%= genero.name %>
@@ -154,11 +177,13 @@
                 </span>
               </div>
             </section>
+
+            </div>
             <!-- seccion de precio -->
-            <div class="container-grid">
+            <div class="container-grid-uno">
               <div class="precio">
                 <label for="price">Precio $:</label>
-                <input type="number" name="price" id="price" class="con-grid" placeholder="Sólo números"
+                <input type="number" name="price" id="price" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.price? old.price: productEdit.price %>">
                 <div class="error">
                   <!-- Posibles errores -->
@@ -171,7 +196,7 @@
               <!-- seccion de paginas -->
               <div class="paginas">
                 <label for="pages">Páginas:</label>
-                <input type="number" name="pages" id="pages" class="con-grid" placeholder="Sólo números"
+                <input type="number" name="pages" id="pages" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.pages? old.pages: productEdit.pages %>">
                 <div class="error">
                   <!-- Posibles errores -->
@@ -182,25 +207,7 @@
                 </div>
               </div>
             </div>
-            <!-- seccion  de estrellas -->
-            <div class="estrellas">
-              <label for="stars">Estrellas:</label>
-              <select name="starId" id="stars">
-                <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
-                <% estrellas.forEach(estrella=> { %>
-                  <option value="<%= estrella.id %>" <%=productEdit.starId ? 'selected' : null %> > <%=
-                      estrella.quantity %>
-                  </option>
-                  <% }) %>
-              </select>
-              <div class="error">
-                <!-- Posibles errores -->
-                <span>
-                  <%= locals.errores && locals.errores.stars ? errores.stars.msg : null %>
-
-                </span>
-              </div>
-            </div>
+            
 
             <!-- seccion de critica -->
             <div class="sinopsis">
@@ -229,7 +236,7 @@
             <!-- seccion de sinopsis -->
             <div class="sinopsis">
               <label for="synopsis">Sinopsis:</label>
-              <textarea type="text" name="synopsis" id="synopsis" placeholder="Breve sinopsis" cols="30"
+              <textarea type="text" name="synopsis" id="synopsis" placeholder="Breve sinopsis"
                 rows="10"><%= locals.old && locals.old.synopsis ? old.synopsis: productEdit.synopsis %></textarea>
               <div class="error">
                 <!-- Posibles errores -->
