@@ -49,7 +49,7 @@ module.exports = {
 
   verMasVendidos: (req, res) => {
     let productos = db.Book.findAll({
-      include: [{ association: "autor" }, { association: "categoria" }],
+      include: [{ association: "autor" }, { association: "categoria" },{ association: "genero" }],
       where: {
         categoryId: 1,
       },
@@ -68,7 +68,7 @@ module.exports = {
 
   verMasNovedades: (req, res) => {
     let productos = db.Book.findAll({
-      include: [{ association: "autor" }, { association: "categoria" }],
+      include: [{ association: "autor" }, { association: "categoria" },{ association: "genero" }],
       where: {
         categoryId: 2,
       },
@@ -87,7 +87,7 @@ module.exports = {
 
   verMasRecomendados: (req, res) => {
     let productos = db.Book.findAll({
-      include: [{ association: "autor" }, { association: "categoria" }],
+      include: [{ association: "autor" }, { association: "categoria" },{ association: "genero" }],
       where: {
         categoryId: 3,
       },

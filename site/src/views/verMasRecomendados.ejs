@@ -20,7 +20,7 @@
 
         <div class=contenedorNovedades>
           <% productos.forEach(product=> { %>
-            <article class="libro">
+            <article class=" libro libros-<%=product.genero.name%>">
               <a href="/products/detalle/<%= product.id %> "><img src="/images/<%= product.cover %> "
                   alt="<%= product.title %> " /></a>
               <div class="detalle">
