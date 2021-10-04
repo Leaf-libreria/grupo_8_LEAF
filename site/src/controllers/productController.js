@@ -523,7 +523,7 @@ module.exports = {
       .then(() => res.redirect("/products/administrador"))
       .catch((error) => console.log(error));
   },
-  //Agregar autor, editorial,genero
+  //Agregar autor, editorial,genero, carrusel y publicidad
   addAuthorGet: (req, res) => {
     let errors = validationResult(req);
     db.Author.findAll()
@@ -601,6 +601,62 @@ module.exports = {
   }else{
     let errors = validationResult(req);
     db.Editorial.findAll()
+    .then(()=>{return res.render('./products/addEditorial', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+  }).catch(error => console.log(error));
+}      
+  },
+      addCarouselGet: (req, res) => {
+    let errors = validationResult(req);
+    db.Carousel.findAll()
+      .then(() => {
+        return res.render('./products/addCarouselImage', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+      }).catch(error => console.log(error));
+  },
+  addCarouselPost: (req,res)=>{
+    let errors = validationResult(req);
+  if(errors.isEmpty()){
+    db.Carousel.create({
+      carouselImage: req.file.filename
+    })
+    .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
+  }else{
+    let errors = validationResult(req);
+    db.Carousel.findAll()
+    .then(()=>{return res.render('./products/addCarouselImage', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+  }).catch(error => console.log(error));
+}      
+  },
+        addPromoGet: (req, res) => {
+    let errors = validationResult(req);
+    db.Promo.findAll()
+      .then(() => {
+        return res.render('./products/addPromoImage', {
+          errores: errors.mapped(), old:req.body,
+          title: "LEAF | Administrador"
+        })
+      }).catch(error => console.log(error));
+  },
+  addPromoPost: (req,res)=>{
+    let errors = validationResult(req);
+  if(errors.isEmpty()){
+    db.Promo.create({
+      promoImage: req.file.filename
+    })
+    .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
+  }else{
+    let errors = validationResult(req);
+    db.Promo.findAll()
     .then(()=>{return res.render('./products/addEditorial', {
           errores: errors.mapped(), old:req.body,
           title: "LEAF | Administrador"
