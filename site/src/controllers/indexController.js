@@ -29,8 +29,10 @@ module.exports = {
       where: {
         categoryId: 1,
       },
-      include: [{ association: "categoria" }],
-      include: [{ association: "autor" }],
+      include: [{ association: "genero" },
+       { association: "categoria" },
+       { association: "autor" }],
+      
       limit: 4,
     });
     let novedades = db.Book.findAll({

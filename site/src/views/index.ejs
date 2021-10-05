@@ -54,7 +54,7 @@
           </div>
           <div class="articles-masVendidos">
             <% masVendidos.forEach(producto=> { %>
-              <article class="libros-<%=producto.genre%>">
+              <article class="libros-<%=producto.genero.name%>">
                 <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>"
                     alt="portada de<%=producto.title%>" /></a>
                 <div class="detalle">

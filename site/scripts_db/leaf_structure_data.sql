@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `leaf_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `leaf_db`;
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: leaf_db
+-- Host: localhost    Database: leaf_db
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -16,6 +18,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `addresses`
+--
+
+DROP TABLE IF EXISTS `addresses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `addresses` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `street` varchar(255) NOT NULL,
+  `number` int NOT NULL,
+  `cp` varchar(255) NOT NULL,
+  `provinciaId` int NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `provinciaId` (`provinciaId`),
+  CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`provinciaId`) REFERENCES `provincias` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `addresses`
 --
 
@@ -24,6 +47,22 @@ LOCK TABLES `addresses` WRITE;
 INSERT INTO `addresses` VALUES (1,'Colegiales',3000,'1756',2,NULL,NULL),(2,'Oran',1548,'A440',17,NULL,NULL),(3,'Av. Don Bosco',3976,'B5000',6,NULL,NULL),(4,'Cervantes',663,'3500',4,NULL,NULL),(5,'La milagrosa',5000,'3300',14,NULL,NULL),(6,'Tacuarí',1750,'W3400',7,NULL,NULL),(7,'Av. Belgrano',975,'Z9311',20,NULL,NULL),(8,'Av. San Martin',360,'Q8340',15,NULL,NULL),(9,'Tucumán',383,'T4142EOG',24,NULL,NULL),(10,'Av. Mitre',667,'D5730',19,NULL,NULL);
 /*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `authors`
+--
+
+DROP TABLE IF EXISTS `authors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `authors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nameLastname` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `authors`
@@ -36,6 +75,48 @@ INSERT INTO `authors` VALUES (1,'John Grisham',NULL,NULL),(2,'John Katzenbach',N
 UNLOCK TABLES;
 
 --
+-- Table structure for table `books`
+--
+
+DROP TABLE IF EXISTS `books`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `books` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `isbn` bigint NOT NULL,
+  `stock` int NOT NULL,
+  `price` decimal(10,0) NOT NULL,
+  `slogan` text NOT NULL,
+  `pages` int NOT NULL,
+  `synopsis` text NOT NULL,
+  `cover` varchar(500) NOT NULL DEFAULT 'default-image-book.png',
+  `authorId` int NOT NULL,
+  `genreId` int NOT NULL,
+  `formatId` int NOT NULL,
+  `categoryId` int NOT NULL,
+  `editorialId` int NOT NULL,
+  `starId` int NOT NULL,
+  `language` varchar(255) DEFAULT 'Español',
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `authorId` (`authorId`),
+  KEY `genreId` (`genreId`),
+  KEY `formatId` (`formatId`),
+  KEY `categoryId` (`categoryId`),
+  KEY `editorialId` (`editorialId`),
+  KEY `starId` (`starId`),
+  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`),
+  CONSTRAINT `books_ibfk_2` FOREIGN KEY (`genreId`) REFERENCES `genres` (`id`),
+  CONSTRAINT `books_ibfk_3` FOREIGN KEY (`formatId`) REFERENCES `formats` (`id`),
+  CONSTRAINT `books_ibfk_4` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`),
+  CONSTRAINT `books_ibfk_5` FOREIGN KEY (`editorialId`) REFERENCES `editorials` (`id`),
+  CONSTRAINT `books_ibfk_6` FOREIGN KEY (`starId`) REFERENCES `stars` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `books`
 --
 
@@ -46,6 +127,28 @@ INSERT INTO `books` VALUES (1,'El manuscrito',9789506445584,100,1500,'¡Llega la
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cart` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `bookId` int NOT NULL,
+  `userId` int NOT NULL,
+  `quantity` int NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `bookId` (`bookId`),
+  KEY `userId` (`userId`),
+  CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `books` (`id`),
+  CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `cart`
 --
 
@@ -53,6 +156,22 @@ LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `categories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categories`
@@ -65,6 +184,22 @@ INSERT INTO `categories` VALUES (1,'Más vendidos',NULL,NULL),(2,'Novedades',NUL
 UNLOCK TABLES;
 
 --
+-- Table structure for table `editorials`
+--
+
+DROP TABLE IF EXISTS `editorials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `editorials` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `editorials`
 --
 
@@ -75,6 +210,27 @@ INSERT INTO `editorials` VALUES (1,'Plaza & Janés',NULL,NULL),(2,'B de bolsillo
 UNLOCK TABLES;
 
 --
+-- Table structure for table `favourites`
+--
+
+DROP TABLE IF EXISTS `favourites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `favourites` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `bookId` int NOT NULL,
+  `userId` int NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `bookId` (`bookId`),
+  KEY `userId` (`userId`),
+  CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `books` (`id`),
+  CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `favourites`
 --
 
@@ -82,6 +238,22 @@ LOCK TABLES `favourites` WRITE;
 /*!40000 ALTER TABLE `favourites` DISABLE KEYS */;
 /*!40000 ALTER TABLE `favourites` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `formats`
+--
+
+DROP TABLE IF EXISTS `formats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `formats` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `formats`
@@ -94,6 +266,22 @@ INSERT INTO `formats` VALUES (1,'Libro',NULL,NULL),(2,'E-book',NULL,NULL);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `genres`
+--
+
+DROP TABLE IF EXISTS `genres`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `genres` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `genres`
 --
 
@@ -104,6 +292,22 @@ INSERT INTO `genres` VALUES (1,'Policial',NULL,NULL),(2,'Historica',NULL,NULL),(
 UNLOCK TABLES;
 
 --
+-- Table structure for table `paymentmethods`
+--
+
+DROP TABLE IF EXISTS `paymentmethods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `paymentmethods` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `paymentmethods`
 --
 
@@ -111,6 +315,23 @@ LOCK TABLES `paymentmethods` WRITE;
 /*!40000 ALTER TABLE `paymentmethods` DISABLE KEYS */;
 /*!40000 ALTER TABLE `paymentmethods` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `provincias`
+--
+
+DROP TABLE IF EXISTS `provincias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `provincias` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `provincias`
@@ -123,6 +344,28 @@ INSERT INTO `provincias` VALUES (1,'CABA',50,NULL,NULL),(2,'Buenos Aires',100,NU
 UNLOCK TABLES;
 
 --
+-- Table structure for table `purchaseorders`
+--
+
+DROP TABLE IF EXISTS `purchaseorders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `purchaseorders` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cartId` int NOT NULL,
+  `paymentmethodId` int NOT NULL,
+  `finalprice` decimal(10,0) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cartId` (`cartId`),
+  KEY `paymentmethodId` (`paymentmethodId`),
+  CONSTRAINT `purchaseorders_ibfk_1` FOREIGN KEY (`cartId`) REFERENCES `cart` (`id`),
+  CONSTRAINT `purchaseorders_ibfk_2` FOREIGN KEY (`paymentmethodId`) REFERENCES `paymentmethods` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `purchaseorders`
 --
 
@@ -130,6 +373,22 @@ LOCK TABLES `purchaseorders` WRITE;
 /*!40000 ALTER TABLE `purchaseorders` DISABLE KEYS */;
 /*!40000 ALTER TABLE `purchaseorders` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `rols`
+--
+
+DROP TABLE IF EXISTS `rols`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rols` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `rols`
@@ -142,6 +401,20 @@ INSERT INTO `rols` VALUES (1,'Usuario',NULL,NULL),(2,'Administrador',NULL,NULL);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sequelizemeta`
+--
+
+DROP TABLE IF EXISTS `sequelizemeta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sequelizemeta` (
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `sequelizemeta`
 --
 
@@ -150,6 +423,22 @@ LOCK TABLES `sequelizemeta` WRITE;
 INSERT INTO `sequelizemeta` VALUES ('20210923015729-create-category.js'),('20210923015824-create-author.js'),('20210923015853-create-format.js'),('20210923015921-create-genre.js'),('20210923020213-create-provincia.js'),('20210923020238-create-editorial.js'),('20210923020305-create-paymentmethod.js'),('20210923020428-create-rol.js'),('20210923020456-create-star.js'),('20210923020550-create-address.js'),('20210923020742-create-user.js'),('20210923021201-create-book.js'),('20210923021243-create-favourite.js'),('20210923021341-create-cart.js'),('20210923021430-create-purchaseorder.js');
 /*!40000 ALTER TABLE `sequelizemeta` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `stars`
+--
+
+DROP TABLE IF EXISTS `stars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `stars` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `quantity` varchar(255) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `stars`
@@ -162,12 +451,39 @@ INSERT INTO `stars` VALUES (1,'1',NULL,NULL),(2,'2',NULL,NULL),(3,'3',NULL,NULL)
 UNLOCK TABLES;
 
 --
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `nickname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT 'profile-users-default.png',
+  `password` varchar(255) NOT NULL,
+  `rolId` int NOT NULL DEFAULT '1',
+  `addressId` int DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `rolId` (`rolId`),
+  KEY `addressId` (`addressId`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`rolId`) REFERENCES `rols` (`id`),
+  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`addressId`) REFERENCES `addresses` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `users`
 --
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Antonela','Anto','Espinola','antoespinola55@gmail.com','profile-users-default.png','Antonela123',2,NULL,NULL,NULL),(2,'Eliana','Ely','Andrada','eliana.ag.95@gmail.com','image-1629944981970.png','Eliana123',2,NULL,NULL,NULL),(3,'Lorena','Lore','Cohene Báez','loreley.cb15@gmail.com','profile-users-default.png','Lorena123',2,NULL,NULL,NULL),(4,'Administrador','Leaf','Leaf','administrador@leaf.com','profile-users-default.png','Leaf123',2,NULL,NULL,NULL),(5,'Fernando','FerScu','Scuderi','scuderi.f@hotmail.com','image-1630043062912.png','Fernando123',2,NULL,NULL,NULL),(6,'Sofia','Fosi','Andrada','andradasomi@hotmail.com','image-1629942889174.png','Sofia123',1,7,NULL,NULL),(7,'Maria','Mari','Alonzo','mama@gmail.com','image-1629943072153.png','Maria123',1,2,NULL,NULL),(8,'Gabriel','Gabi','Carrizo','gabriel@gmail.com','profile-users-default.png','Gabriel123',1,4,NULL,NULL),(9,'Juan',NULL,'De Giorgi','Juan-giorgi@gmail.com','profile-users-default.png','Juan123',1,3,NULL,NULL),(10,'Gonzalo','Gonza','Gonzales','gonzalo@gmail.com','profile-users-default.png','Gonzalo123',1,5,NULL,NULL),(11,'Enzo','En?','Aguero','enzo@gmail.com','profile-users-default.png','Enzo123',1,6,NULL,NULL),(12,'Bernardo','Bernard','Dinarte','Bernardo@gmail.com','profile-users-default.png','Bernardo123',1,8,NULL,NULL),(13,'Roberto','Robert','Veintemilla','roberto@gmail.com','profile-users-default.png','Roberto123',2,9,NULL,NULL),(14,'Eric','profe','Mena','eric@gmail.com','profile-users-default.png','Eric123',2,10,NULL,NULL),(15,'Jose','Seba','Araya','Jose@gmail.com','profile-users-default.png','Jose123',1,1,NULL,NULL),(16,'Antonela','Anto','Espinola','anto18_rock@yahoo.com.ar','image-1632711791402.png','$2a$10$Xoa4YAXgcqK2qcsTro7QVOVmvVfom9bqBRNHhglSwUm6AZVtDqciK',1,NULL,'2021-09-27 03:03:11','2021-09-27 03:03:11');
+INSERT INTO `users` VALUES (1,'Antonela','Anto','Espinola','antoespinola55@gmail.com','profile-users-default.png','Antonela123',2,NULL,NULL,NULL),(2,'Eliana','Ely','Andrada','eliana.ag.95@gmail.com','image-1629944981970.png','Eliana123',2,NULL,NULL,NULL),(3,'Lorena','Lore','Cohene Báez','loreley.cb15@gmail.com','profile-users-default.png','Lorena123',2,NULL,NULL,NULL),(4,'Administrador','Leaf','Leaf','administrador@leaf.com','profile-users-default.png','Leaf123',2,NULL,NULL,NULL),(5,'Fernando','FerScu','Scuderi','scuderi.f@hotmail.com','image-1630043062912.png','Fernando123',2,NULL,NULL,NULL),(6,'Sofia','Fosi','Andrada','andradasomi@hotmail.com','image-1629942889174.png','Sofia123',1,7,NULL,NULL),(7,'Maria','Mari','Alonzo','mama@gmail.com','image-1629943072153.png','Maria123',1,2,NULL,NULL),(8,'Gabriel','Gabi','Carrizo','gabriel@gmail.com','profile-users-default.png','Gabriel123',1,4,NULL,NULL),(9,'Juan',NULL,'De Giorgi','Juan-giorgi@gmail.com','profile-users-default.png','Juan123',1,3,NULL,NULL),(10,'Gonzalo','Gonza','Gonzales','gonzalo@gmail.com','profile-users-default.png','Gonzalo123',1,5,NULL,NULL),(11,'Enzo','En?','Aguero','enzo@gmail.com','profile-users-default.png','Enzo123',1,6,NULL,NULL),(12,'Bernardo','Bernard','Dinarte','Bernardo@gmail.com','profile-users-default.png','Bernardo123',1,8,NULL,NULL),(13,'Roberto','Robert','Veintemilla','roberto@gmail.com','profile-users-default.png','Roberto123',2,9,NULL,NULL),(14,'Eric','profe','Mena','eric@gmail.com','profile-users-default.png','Eric123',2,10,NULL,NULL),(15,'Jose','Seba','Araya','Jose@gmail.com','profile-users-default.png','Jose123',1,1,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -180,4 +496,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-27  0:20:09
+-- Dump completed on 2021-10-01 15:18:05
