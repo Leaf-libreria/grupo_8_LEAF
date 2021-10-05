@@ -53,6 +53,7 @@ const {
   verMasRecomendados,
   thriller,
   fantasia,
+  addImages
 } = require("../controllers/productController");
 
 // /products
@@ -75,6 +76,19 @@ router.put(
   actualizarProducto
 );
 router.delete("/delete/:id", borrar);
+// rutas crud de carrusel de imagenes
+ router.get("/carrusel", administradorMw, addImages);
+// router.post("/carruselAgregar", administradorMw,upload.array("cover"),addValidator,agregarImages);
+// router.get("/carruselEditar/:id", administradorMw, editarImages);
+// router.put(
+//   "/carruselEditar/:id",
+//   administradorMw,
+//   upload.array("cover"),
+//   editValidator,
+//   actualizarimages
+// );
+// router.delete("/carruselDelete/:id", borrarImages);
+
 //Carrito y formulario de pago
 router.get("/carrito", logueados, carrito);
 router.get("/pago", logueados, pago);

@@ -1,0 +1,32 @@
+.carruselEjs{
+    width: 50%;
+   margin: 50px  auto;
+
+}
+.carruselEjs h2{
+    color: black;
+    
+}
+.carruselEjs img{
+    height: 300px;
+}
+.carruselEjs button{
+    display: initial;
+}
+.carruselEjs #formCarousel{
+
+    display: flex;
+    justify-content: space-around;
+    align-items:center ;
+    margin-top: -10px;
+    margin-bottom: 40px;
+    background-color: gainsboro;
+   border-bottom: 1px solid black;
+}
+.carruselEjs form button{
+flex-wrap: nowrap;
+width: 100px;
+height:50px;
+margin-top: 15px;
+margin-right: 20px;
+}

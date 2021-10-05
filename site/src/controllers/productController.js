@@ -421,7 +421,7 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   agregarProducto: (req, res) => {
-    console.log(req.body);
+  
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       db.Book.create({
@@ -812,4 +812,28 @@ module.exports = {
       )
       .catch((error) => console.log(error));
   },
+  // metodos para carrusel de imagenes
+  addImages:(req, res) =>{
+    let primerImage = db.carouselImage.findOne({
+      where: {
+        id : 1
+      }
+    })
+  let imagesCarousel = db.carouselImage.findAll()
+   let generos= db.Genre.findAll({ })
+  Promise.all([ primerImage,imagesCarousel, generos])
+    .then(([primerImage,imagesCarousel, generos]) =>{
+      return res.render('./products/carrusel', {
+        title: 'Carrusel de imagenes',
+        primerImage,
+        imagesCarousel,
+        generos,
+     
+      })
+    })
+  
+  },
+  agregarImgCarrusel: (req, res) =>{
+  
+  }
 };
