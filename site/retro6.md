@@ -44,7 +44,7 @@
 
 ## Empezar a hacer
 
-
+* No perder tiempo en tareas no obligatorias.
 
 ## Dejar de hacer
 
