@@ -68,14 +68,7 @@
                         <span class="text-danger small">
                             <%= locals.errores && locals.errores.lastname ? errores.lastname.msg :null %>
                         </span>
-                        <div class="registro-correo"> <label for="registro-correo">Correo electrónico</label><input
-                                type="email" name="email" id="email"
-                                value="<%= locals.old && locals.old.email ? old.email : user.email %> ">
-                        </div>
-                        <span class="text-danger small">
-                            <%= locals.errores && locals.errores.email ? errores.email.msg :null %>
-                        </span>
-                        <div>
+                        
                             <button type="submit" class="editarPerfil">Guardar</button>
                         </div>
                     </form>
