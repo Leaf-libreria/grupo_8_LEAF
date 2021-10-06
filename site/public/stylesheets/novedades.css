@@ -21,19 +21,18 @@
 .novedades .contenedorNovedades .libro{
     display: block;
     margin: 30px auto;
-    box-shadow: 5px 5px 15px 5px var(--color-amarillo);
+    box-shadow: 3px 3px 4px 5px rgba(128, 128, 128, 0.589);
     width:70%;
 }
 
 .novedades .contenedorNovedades .libro:hover{
-    box-shadow: 5px 5px 15px 5px var(--color-bordo);
+    box-shadow: 3px 3px 4px 5px #63120fa8;
 }
 
 .novedades .contenedorNovedades .libro img{
     display: block;
     width:auto;
     height: 240px;
-    background-color: var(--color-amarillo);
     padding: 10px;
     margin: 15px auto 5px;
 
