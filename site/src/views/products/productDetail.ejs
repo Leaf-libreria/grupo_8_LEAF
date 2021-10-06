@@ -11,7 +11,7 @@
       <main>
 
         <div class="seleccionProducto">
-          <article class="seleccion">
+          <article class="seleccion libros-<%=producto.genero.name%>">
             <h4>
               <%= producto.title %>
             </h4>
@@ -71,7 +71,7 @@
         <section class="otros">
           <% relacionados.forEach(book=> { %>
             <% if(book.genero.name===producto.genero.name){%>
-              <article>
+              <article class="libros-<%=book.genero.name%>">
                 <a href="/products/detalle/<%=book.id%>"> <img class="<%= book.name%>" src="/images/<%= book.cover %> "
                     alt="<%= book.title %> " /></a>
                 <div class="detalle">

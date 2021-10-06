@@ -50,7 +50,7 @@
   text-align: center;
   font-weight: 600;
   border-radius: 7px;
-  margin: 20px 40px;
+  margin: 10px 40px;
 }
 
 .admin-btn-agregar:hover {
@@ -80,6 +80,9 @@
   border: solid 1px gray;
 }
 /* Botones de editar y eliminar */
+.admin-btn-editar, .admin-btn-eliminar{
+  font-weight: 600;
+}
 .admin-btn-editar:hover {
   font-size: 20px;
   font-weight: 800;
@@ -88,8 +91,8 @@
 .admin-btn-eliminar:hover {
   font-size: 20px;
   font-weight: 800;
-  color: red;
-  background-color: #fff;
+  color:black;
+  background-color: red;
 }
 /*-----FORMULARIOS AGREGAR Y EDITAR PRODUCTOS (ADMIN)-----*/
 .admin .administrador .formulario {
@@ -189,6 +192,7 @@
   border: none;
   font-size: 20px;
   margin-bottom: 10px;
+  
 }
 
 .admin .administrador .formulario .botones .btn-cancelar {
@@ -200,6 +204,7 @@
 .admin .administrador .formulario .botones .btn-guardar {
   background-color: var(--color-bordo);
   color: var(--color-amarillo);
+  margin-top: 15px
 }
 
 .admin .administrador .formulario .botones :hover {

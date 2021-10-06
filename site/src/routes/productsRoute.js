@@ -4,6 +4,8 @@ const path = require("path");
 //Validaciones para CRUD productos
 const addValidator = require("../validations/addProductValidator");
 const editValidator = require("../validations/editProductValidator");
+const addAuthorValidator= require('../validations/addAuthorValidator');
+const addGenreEditorialValidator=require('../validations/addGenreEditorialValidator')
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
 //middleware acceso usuarios logueados
@@ -53,7 +55,17 @@ const {
   verMasRecomendados,
   thriller,
   fantasia,
-  addImages
+  addImages,
+  addAuthorPost,
+  addAuthorGet,
+  addGenreGet,
+  addGenrePost,
+  addEditorialGet,
+  addEditorialPost,
+addCarouselGet,
+addCarouselPost,
+addPromoGet,
+addPromoPost,
 } = require("../controllers/productController");
 
 // /products
@@ -88,6 +100,17 @@ router.delete("/delete/:id", borrar);
 //   actualizarimages
 // );
 // router.delete("/carruselDelete/:id", borrarImages);
+//Agregar autor, género, editorial, imagen carrusel y publicidad
+router.get('/agregarAutor',administradorMw,addAuthorGet);
+router.post('/agregarAutor',administradorMw,addAuthorValidator,addAuthorPost);
+router.get('/agregarGenero',administradorMw,addGenreGet);
+router.post('/agregarGenero',administradorMw,addGenreEditorialValidator,addGenrePost);
+router.get('/agregarEditorial',administradorMw,addEditorialGet);
+router.post('/agregarEditorial',addGenreEditorialValidator,administradorMw,addEditorialPost);
+router.get('/agregarCarrusel',administradorMw, addCarouselGet);
+router.post('/agregarCarrusel',administradorMw,upload.single("carouselImage"),addCarouselPost);
+router.get('/agregarPublicidad',administradorMw, addPromoGet);
+router.post('/agregarPublicidad',administradorMw,upload.single("promoImage"),addPromoPost);
 
 //Carrito y formulario de pago
 router.get("/carrito", logueados, carrito);
