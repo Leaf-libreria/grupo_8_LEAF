@@ -49,7 +49,11 @@ module.exports = {
 
   verMasVendidos: (req, res) => {
     let productos = db.Book.findAll({
-      include: [{ association: "autor" }, { association: "categoria" },{ association: "genero" }],
+      include: [
+        { association: "autor" },
+        { association: "categoria" },
+        { association: "genero" },
+      ],
       where: {
         categoryId: 1,
       },
@@ -68,7 +72,11 @@ module.exports = {
 
   verMasNovedades: (req, res) => {
     let productos = db.Book.findAll({
-      include: [{ association: "autor" }, { association: "categoria" },{ association: "genero" }],
+      include: [
+        { association: "autor" },
+        { association: "categoria" },
+        { association: "genero" },
+      ],
       where: {
         categoryId: 2,
       },
@@ -87,7 +95,11 @@ module.exports = {
 
   verMasRecomendados: (req, res) => {
     let productos = db.Book.findAll({
-      include: [{ association: "autor" }, { association: "categoria" },{ association: "genero" }],
+      include: [
+        { association: "autor" },
+        { association: "categoria" },
+        { association: "genero" },
+      ],
       where: {
         categoryId: 3,
       },
@@ -421,7 +433,6 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   agregarProducto: (req, res) => {
-  
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       db.Book.create({
@@ -527,142 +538,215 @@ module.exports = {
   addAuthorGet: (req, res) => {
     let errors = validationResult(req);
     db.Author.findAll()
-      .then(autor => {
-        return res.render('./products/addAuthor', {
-          autor, errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-      }).catch(error => console.log(error));
-  },
-  addAuthorPost: (req,res)=>{
-    let errors = validationResult(req);
-  if(errors.isEmpty()){
-    db.Author.create({
-      nameLastname: req.body.nameLastname.trim()
-    })
-    .then(() => res.redirect("/products/administrador"))
+      .then((autor) => {
+        return res.render("./products/addAuthor", {
+          autor,
+          errores: errors.mapped(),
+          old: req.body,
+          title: "LEAF | Administrador",
+        });
+      })
       .catch((error) => console.log(error));
-  }else{
-    let errors = validationResult(req);
-    db.Author.findAll()
-    .then(()=>{return res.render('./products/addAuthor', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-  }).catch(error => console.log(error));
-}
   },
-    addGenreGet: (req, res) => {
+  addAuthorPost: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      db.Author.create({
+        nameLastname: req.body.nameLastname.trim(),
+      })
+        .then(() => res.redirect("/products/administrador"))
+        .catch((error) => console.log(error));
+    } else {
+      let errors = validationResult(req);
+      db.Author.findAll()
+        .then(() => {
+          return res.render("./products/addAuthor", {
+            errores: errors.mapped(),
+            old: req.body,
+            title: "LEAF | Administrador",
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  },
+  addGenreGet: (req, res) => {
     let errors = validationResult(req);
     db.Genre.findAll()
       .then(() => {
-        return res.render('./products/addGenre', {
-        errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-      }).catch(error => console.log(error));
-  },
-  addGenrePost: (req,res)=>{
-    let errors = validationResult(req);
-  if(errors.isEmpty()){
-    db.Genre.create({
-      name: req.body.name.trim()
-    })
-    .then(() => res.redirect("/products/administrador"))
+        return res.render("./products/addGenre", {
+          errores: errors.mapped(),
+          old: req.body,
+          title: "LEAF | Administrador",
+        });
+      })
       .catch((error) => console.log(error));
-  } else{
-    let errors = validationResult(req);
-    db.Genre.findAll()
-    .then(()=>{return res.render('./products/addGenre', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-  }).catch(error => console.log(error));
-}   
   },
-    addEditorialGet: (req, res) => {
+  addGenrePost: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      db.Genre.create({
+        name: req.body.name.trim(),
+      })
+        .then(() => res.redirect("/products/administrador"))
+        .catch((error) => console.log(error));
+    } else {
+      let errors = validationResult(req);
+      db.Genre.findAll()
+        .then(() => {
+          return res.render("./products/addGenre", {
+            errores: errors.mapped(),
+            old: req.body,
+            title: "LEAF | Administrador",
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  },
+  addEditorialGet: (req, res) => {
     let errors = validationResult(req);
     db.Editorial.findAll()
       .then(() => {
-        return res.render('./products/addEditorial', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-      }).catch(error => console.log(error));
-  },
-  addEditorialPost: (req,res)=>{
-    let errors = validationResult(req);
-  if(errors.isEmpty()){
-    db.Editorial.create({
-      name: req.body.name.trim()
-    })
-    .then(() => res.redirect("/products/administrador"))
+        return res.render("./products/addEditorial", {
+          errores: errors.mapped(),
+          old: req.body,
+          title: "LEAF | Administrador",
+        });
+      })
       .catch((error) => console.log(error));
-  }else{
-    let errors = validationResult(req);
-    db.Editorial.findAll()
-    .then(()=>{return res.render('./products/addEditorial', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-  }).catch(error => console.log(error));
-}      
   },
-      addCarouselGet: (req, res) => {
+  addEditorialPost: (req, res) => {
     let errors = validationResult(req);
-    db.Carousel.findAll()
-      .then(() => {
-        return res.render('./products/addCarouselImage', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
+    if (errors.isEmpty()) {
+      db.Editorial.create({
+        name: req.body.name.trim(),
+      })
+        .then(() => res.redirect("/products/administrador"))
+        .catch((error) => console.log(error));
+    } else {
+      let errors = validationResult(req);
+      db.Editorial.findAll()
+        .then(() => {
+          return res.render("./products/addEditorial", {
+            errores: errors.mapped(),
+            old: req.body,
+            title: "LEAF | Administrador",
+          });
         })
-      }).catch(error => console.log(error));
+        .catch((error) => console.log(error));
+    }
   },
-  addCarouselPost: (req,res)=>{
+  // mostrar vista para agregar carrusel
+  addCarouselGet: (req, res) => {
     let errors = validationResult(req);
-  if(errors.isEmpty()){
-    db.Carousel.create({
-      carouselImage: req.file.filename
+   let primerImage = db.carouselImage.findOne({
+      where: {
+        id: 1,
+      },
+    });
+    let imagesCarousel = db.carouselImage.findAll();
+    let generos = db.Genre.findAll({});
+    Promise.all([primerImage, imagesCarousel, generos]).then(
+      ([primerImage, imagesCarousel, generos]) => {
+        return res.render("./products/carrusel", {
+          title: "Carrusel de imagenes",
+          primerImage,
+          imagesCarousel,
+          generos,
+        });
+      }
+    );
+  },
+  // metodo carrusel post
+  addCarouselPost: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      db.carouselImage.create({
+        name: req.file.filename,
+      })
+        .then(() => res.redirect("/products/administrador"))
+        .catch((error) => console.log(error));
+    } else {
+      let errors = validationResult(req);
+      db.Carousel.findAll()
+        .then(() => {
+          return res.render("./products/addCarouselImage", {
+            errores: errors.mapped(),
+            old: req.body,
+            title: "LEAF | Administrador",
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  },
+  // metodo para editar imagenes del carrusel
+  editCarouselGet:(req,res) => {
+    db.carouselImage.findByPk(req.params.id)
+    .then(image => {
+      return res.render('./products/editarCarousel',{
+        title: 'Editando carrusel',
+        image
+      })
     })
-    .then(() => res.redirect("/products/administrador"))
-      .catch((error) => console.log(error));
-  }else{
-    let errors = validationResult(req);
-    db.Carousel.findAll()
-    .then(()=>{return res.render('./products/addCarouselImage', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-  }).catch(error => console.log(error));
-}      
   },
-        addPromoGet: (req, res) => {
+  editCarouselUpdate:(req,res) => {
+    db.carouselImage.update({
+    name: req.file ? req.file.filename : req.body.image
+    },{
+      where: {
+        id: req.params.id
+      },
+    }
+    );
+    let primerImage = db.carouselImage.findOne({
+      where: {
+        id: 1,
+      },
+    });
+    let imagesCarousel = db.carouselImage.findAll();
+    let generos = db.Genre.findAll({});
+    Promise.all([primerImage, imagesCarousel, generos]).then(
+      ([primerImage, imagesCarousel, generos]) => {
+        return res.render("./products/carrusel", {
+          title: "Carrusel de imagenes",
+          primerImage,
+          imagesCarousel,
+          generos,
+        });
+      }
+    );
+  },
+  addPromoGet: (req, res) => {
     let errors = validationResult(req);
     db.Promo.findAll()
       .then(() => {
-        return res.render('./products/addPromoImage', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
-        })
-      }).catch(error => console.log(error));
-  },
-  addPromoPost: (req,res)=>{
-    let errors = validationResult(req);
-  if(errors.isEmpty()){
-    db.Promo.create({
-      promoImage: req.file.filename
-    })
-    .then(() => res.redirect("/products/administrador"))
+        return res.render("./products/addPromoImage", {
+          errores: errors.mapped(),
+          old: req.body,
+          title: "LEAF | Administrador",
+        });
+      })
       .catch((error) => console.log(error));
-  }else{
+  },
+  addPromoPost: (req, res) => {
     let errors = validationResult(req);
-    db.Promo.findAll()
-    .then(()=>{return res.render('./products/addEditorial', {
-          errores: errors.mapped(), old:req.body,
-          title: "LEAF | Administrador"
+    if (errors.isEmpty()) {
+      db.Promo.create({
+        promoImage: req.file.filename,
+      })
+        .then(() => res.redirect("/products/administrador"))
+        .catch((error) => console.log(error));
+    } else {
+      let errors = validationResult(req);
+      db.Promo.findAll()
+        .then(() => {
+          return res.render("./products/addEditorial", {
+            errores: errors.mapped(),
+            old: req.body,
+            title: "LEAF | Administrador",
+          });
         })
-  }).catch(error => console.log(error));
-}      
+        .catch((error) => console.log(error));
+    }
   },
   carrito: (req, res) => {
     let productos = db.Book.findAll({
@@ -703,34 +787,33 @@ module.exports = {
       },
       include: [
         {
-          association: 'editorial'
+          association: "editorial",
         },
         {
-          association: 'formato'
+          association: "formato",
         },
         {
-          association: 'autor'
-        }
-      ]
-    })
+          association: "autor",
+        },
+      ],
+    });
     let usuarios = db.User.findAll({
-      include: [
-        { association: 'libros' },
-      ]
-    })
-    let costoEnvio = db.Provincia.findAll()
+      include: [{ association: "libros" }],
+    });
+    let costoEnvio = db.Provincia.findAll();
 
-    let generos = db.Genre.findAll()
-    Promise.all([productos, usuarios, costoEnvio, generos])
-      .then(([productos, usuarios, costoEnvio, generos]) => {
+    let generos = db.Genre.findAll();
+    Promise.all([productos, usuarios, costoEnvio, generos]).then(
+      ([productos, usuarios, costoEnvio, generos]) => {
         return res.render("./products/payForm", {
           title: "LEAF | Finaliza tu compra",
           productos,
           generos,
           usuarios,
           costoEnvio,
-        })
-      })
+        });
+      }
+    );
   },
   // controladores para generos
   policial: (req, res) => {
@@ -952,27 +1035,8 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   // metodos para carrusel de imagenes
-  addImages:(req, res) =>{
-    let primerImage = db.carouselImage.findOne({
-      where: {
-        id : 1
-      }
-    })
-  let imagesCarousel = db.carouselImage.findAll()
-   let generos= db.Genre.findAll({ })
-  Promise.all([ primerImage,imagesCarousel, generos])
-    .then(([primerImage,imagesCarousel, generos]) =>{
-      return res.render('./products/carrusel', {
-        title: 'Carrusel de imagenes',
-        primerImage,
-        imagesCarousel,
-        generos,
-     
-      })
-    })
-  
+  addImages: (req, res) => {
+   
   },
-  agregarImgCarrusel: (req, res) =>{
-  
-  }
+  agregarImgCarrusel: (req, res) => {},
 };

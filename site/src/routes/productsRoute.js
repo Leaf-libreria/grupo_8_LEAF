@@ -66,6 +66,8 @@ addCarouselGet,
 addCarouselPost,
 addPromoGet,
 addPromoPost,
+editCarouselGet,
+editCarouselUpdate,
 } = require("../controllers/productController");
 
 // /products
@@ -89,16 +91,16 @@ router.put(
 );
 router.delete("/delete/:id", borrar);
 // rutas crud de carrusel de imagenes
- router.get("/carrusel", administradorMw, addImages);
-// router.post("/carruselAgregar", administradorMw,upload.array("cover"),addValidator,agregarImages);
-// router.get("/carruselEditar/:id", administradorMw, editarImages);
-// router.put(
-//   "/carruselEditar/:id",
-//   administradorMw,
-//   upload.array("cover"),
-//   editValidator,
-//   actualizarimages
-// );
+ router.get("/agregarCarrusel", administradorMw, addCarouselGet);
+ router.post('/agregarCarrusel',administradorMw,upload.single("carouselImage"),addCarouselPost);
+  router.get("/carruselEditar/:id", administradorMw, editCarouselGet);
+router.put(
+  "/carruselEditar/:id",
+  administradorMw,
+  upload.single("carouselImage"),
+
+  editCarouselUpdate
+);
 // router.delete("/carruselDelete/:id", borrarImages);
 //Agregar autor, género, editorial, imagen carrusel y publicidad
 router.get('/agregarAutor',administradorMw,addAuthorGet);
@@ -107,8 +109,8 @@ router.get('/agregarGenero',administradorMw,addGenreGet);
 router.post('/agregarGenero',administradorMw,addGenreEditorialValidator,addGenrePost);
 router.get('/agregarEditorial',administradorMw,addEditorialGet);
 router.post('/agregarEditorial',addGenreEditorialValidator,administradorMw,addEditorialPost);
-router.get('/agregarCarrusel',administradorMw, addCarouselGet);
-router.post('/agregarCarrusel',administradorMw,upload.single("carouselImage"),addCarouselPost);
+
+
 router.get('/agregarPublicidad',administradorMw, addPromoGet);
 router.post('/agregarPublicidad',administradorMw,upload.single("promoImage"),addPromoPost);
 
