@@ -63,8 +63,6 @@ const {
   addGenrePost,
   addEditorialGet,
   addEditorialPost,
-editCarouselGet,
-editCarouselUpdate,
 authorList,
 editAuthorPut,
 editAuthorGet,

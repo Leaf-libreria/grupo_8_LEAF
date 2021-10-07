@@ -1217,7 +1217,7 @@ deleteEditorial: (req, res) => {
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/generos/misterio", {
-          title: "LEAF | Misterio",
+          title: "LEAF | Histórica",
           productos,
           generos,
         })
@@ -1241,7 +1241,7 @@ deleteEditorial: (req, res) => {
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/generos/thriller", {
-          title: "LEAF | Misterio",
+          title: "LEAF | Thriller",
           productos,
           generos,
         })
@@ -1265,7 +1265,7 @@ deleteEditorial: (req, res) => {
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/generos/fantasia", {
-          title: "LEAF | Misterio",
+          title: "LEAF | Fantasía",
           productos,
           generos,
         })
