@@ -556,7 +556,7 @@ module.exports = {
       db.Author.create({
         nameLastname: req.body.nameLastname.trim(),
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() => res.redirect("/products/listadoAutores"))
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -610,7 +610,7 @@ if(errors.isEmpty()){
     }
   })
   .then(()=>{
-              return res.redirect("/products/administrador");
+              return res.redirect("/products/listadoAutores");
 
   }).catch(error => console.log(error));
 }else{
@@ -632,9 +632,20 @@ deleteAuthor: (req, res) => {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("/products/administrador"))
+      .then(() => res.redirect("/products/listadoAutores"))
       .catch((error) => console.log(error));
   },
+
+  genreList:(req,res)=>{
+  generos
+    .then((generos)=>{
+    return res.render('./products/genreList',{
+      title: "LEAF | Administrador",
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
   addGenreGet: (req, res) => {
     let errors = validationResult(req);
     db.Genre.findAll()
@@ -653,7 +664,7 @@ deleteAuthor: (req, res) => {
       db.Genre.create({
         name: req.body.name.trim(),
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() => res.redirect("/products/listadoGeneros"))
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -668,6 +679,72 @@ deleteAuthor: (req, res) => {
         .catch((error) => console.log(error));
     }
   },
+
+editGenreGet:(req,res)=>{
+  generos
+let genre=db.Genre.findByPk(req.params.id)
+  Promise.all([generos,genre])
+  .then(([generos,genre])=>{
+    return res.render('./products/editGenre',{
+      title: "LEAF | Administrador",
+      generos,
+      genre,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editGenrePut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Genre.update({
+    name:req.body.name.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/listadoGeneros");
+
+  }).catch(error => console.log(error));
+}else{
+  db.Genre.findByPk(req.params.id)
+.then((genre)=>{
+  return res.render('./products/editGenre',{
+    genre,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deleteGenre: (req, res) => {
+    db.Genre.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/listadoGeneros"))
+      .catch((error) => console.log(error));
+  },
+
+editorialList:(req,res)=>{
+  generos
+  let editoriales=db.Editorial.findAll()
+  Promise.all([generos,editoriales])
+    .then(([generos,editoriales])=>{
+    return res.render('./products/editorialList',{
+      title: "LEAF | Administrador",
+      editoriales,
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
   addEditorialGet: (req, res) => {
     let errors = validationResult(req);
     db.Editorial.findAll()
@@ -686,7 +763,7 @@ deleteAuthor: (req, res) => {
       db.Editorial.create({
         name: req.body.name.trim(),
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() => res.redirect("/products/listadoEditorial"))
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -701,6 +778,58 @@ deleteAuthor: (req, res) => {
         .catch((error) => console.log(error));
     }
   },
+editEditorialGet:(req,res)=>{
+  generos
+let editorial=db.Editorial.findByPk(req.params.id)
+  Promise.all([generos,editorial])
+  .then(([generos,editorial])=>{
+    return res.render('./products/editEditorial',{
+      title: "LEAF | Administrador",
+      generos,
+      editorial,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editEditorialPut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Editorial.update({
+    name:req.body.name.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/listadoEditorial");
+
+  }).catch(error => console.log(error));
+}else{
+  db.findByPk(req.params.id)
+.then((editorial)=>{
+  return res.render('./products/editAuthor',{
+    editorial,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deleteEditorial: (req, res) => {
+    db.Editorial.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/listadoEditorial"))
+      .catch((error) => console.log(error));
+  },
+
   // mostrar vista para agregar carrusel
   addCarouselGet: (req, res) => {
     let errors = validationResult(req);

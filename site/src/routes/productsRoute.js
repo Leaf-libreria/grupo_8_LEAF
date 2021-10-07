@@ -72,6 +72,14 @@ authorList,
 editAuthorPut,
 editAuthorGet,
 deleteAuthor,
+editEditorialPut,
+deleteEditorial,
+editEditorialGet,
+editorialList,
+genreList,
+editGenreGet,
+editGenrePut,
+deleteGenre,
 } = require("../controllers/productController");
 
 // /products
@@ -107,21 +115,29 @@ router.put(
 );
 // router.delete("/carruselDelete/:id", borrarImages);
 
-//Agregar autor, género, editorial y publicidad
+//CRUD autor
 router.get('/agregarAutor',administradorMw,addAuthorGet);
 router.post('/agregarAutor',administradorMw,addAuthorValidator,addAuthorPost);
-router.get('/listadoAutor',authorList);
+router.get('/listadoAutores',administradorMw,authorList);
 router.get('/editarAutor/:id',administradorMw,addAuthorValidator,editAuthorGet);
 router.put('/editarAutor/:id',administradorMw,addAuthorValidator,editAuthorPut);
 router.delete('/eliminarAutor/:id',administradorMw,deleteAuthor);
-
+//CRUD género
 router.get('/agregarGenero',administradorMw,addGenreGet);
 router.post('/agregarGenero',administradorMw,addGenreEditorialValidator,addGenrePost);
-
+router.get('/listadoGeneros',administradorMw,genreList);
+router.get('/editarGenero/:id',administradorMw,addGenreEditorialValidator,editGenreGet);
+router.put('/editarGenero/:id',administradorMw,addGenreEditorialValidator,editGenrePut);
+router.delete('/eliminarGenero/:id',administradorMw,deleteGenre);
+//CRUD editorial
 router.get('/agregarEditorial',administradorMw,addEditorialGet);
-router.post('/agregarEditorial',addGenreEditorialValidator,administradorMw,addEditorialPost);
+router.post('/agregarEditorial',administradorMw,addGenreEditorialValidator,addEditorialPost);
+router.get('/listadoEditorial',administradorMw,editorialList);
+router.get('/editarEditorial/:id',administradorMw,addGenreEditorialValidator,editEditorialGet);
+router.put('/editarEditorial/:id',administradorMw,addGenreEditorialValidator,editEditorialPut);
+router.delete('/eliminarEditorial/:id',administradorMw,deleteEditorial);
 
-
+//Agregar publicidad
 router.get('/agregarPublicidad',administradorMw, addPromoGet);
 router.post('/agregarPublicidad',administradorMw,upload.single("promoImage"),addPromoPost);
 

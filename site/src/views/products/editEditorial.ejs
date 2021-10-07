@@ -12,20 +12,21 @@
             <main>
                 <div class="card mt-5 ">
                     <div class="card-header">
-                        <h3>Agregar editorial:</h3>
+                        <h3>Editar editorial <%= editorial.name %> :</h3>
                     </div>
                     <div class="card-body administrador">
-                        <form action="" method="POST" class="formulario">
-                            <label for="editorial">Editorial:</label>
-                            <input type="text" name="name" id="editorial"
-                                value="<%= locals.old &&locals.old.name ? old.name : null %> ">
+                        <form action="/products/editarEditorial/<%=editorial.id%>?_method=PUT " method="POST"
+                            class="formulario">
+                            <label for="name">Nombre de la editorial:</label>
+                            <input type="text" name="name" id="name"
+                                value="<%= locals.old &&locals.old.name ? old.name : editorial.name %> ">
                             <!-- Posibles errores -->
                             <span>
-                                <%= locals.errores && locals.errores.name ? errores.name.msg :null %>
+                                <%= locals.errores && locals.errores.name ?errores.name.msg :null %>
                             </span>
                             <!--BOTONES-->
                             <section class="botones d-grid gap-2 d-md-block">
-                                <button type="submit" class="btn-guardar">AGREGAR</button>
+                                <button type="submit" class="btn-guardar">EDITAR</button>
                                 <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR</a>
                             </section>
 
