@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 
 module.exports = [
   body("email").custom((value, { req }) => {
-    console.log(req.body);
+
     return db.User.findOne({
       where: {
         email: value,

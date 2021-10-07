@@ -4,8 +4,9 @@ const path = require("path");
 //Validaciones para CRUD productos
 const addValidator = require("../validations/addProductValidator");
 const editValidator = require("../validations/editProductValidator");
-const addAuthorValidator= require('../validations/addAuthorValidator');
-const addGenreEditorialValidator=require('../validations/addGenreEditorialValidator')
+const addAuthorValidator = require("../validations/addAuthorValidator");
+const addGenreEditorialValidator = require("../validations/addGenreEditorialValidator");
+const addCarouselImageValidator = require("../validations/addCarouselImageValidator");
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
 //middleware acceso usuarios logueados
@@ -62,10 +63,6 @@ const {
   addGenrePost,
   addEditorialGet,
   addEditorialPost,
-addCarouselGet,
-addCarouselPost,
-addPromoGet,
-addPromoPost,
 editCarouselGet,
 editCarouselUpdate,
 authorList,
@@ -86,6 +83,12 @@ paymentMethodList,
 editPaymentGet,
 editPaymentPut,
 deletePayment,
+  addCarouselGet,
+  addCarouselPost,
+  addPromoGet,
+  addPromoPost,
+  editCarouselGet,
+  editCarouselUpdate,
 } = require("../controllers/productController");
 
 // /products
@@ -98,7 +101,13 @@ router.get("/detalle/:id", detail);
 router.get("/administrador", administradorMw, administrador);
 // Carga de productos CRUD
 router.get("/agregar", administradorMw, addProducto);
-router.post("/agregar", administradorMw,upload.single("cover"),addValidator,agregarProducto);
+router.post(
+  "/agregar",
+  administradorMw,
+  upload.single("cover"),
+  addValidator,
+  agregarProducto
+);
 router.get("/editar/:id", administradorMw, editarProducto);
 router.put(
   "/editar/:id",
@@ -115,10 +124,13 @@ router.delete("/delete/:id", administradorMw,borrar);
 router.put(
   "/carruselEditar/:id",
   administradorMw,
-  upload.single("carouselImage"),
+  upload.single("carouselImage"));
 
-  editCarouselUpdate
-);
+// rutas crud de carrusel de imagenes
+router.get("/agregarCarrusel", administradorMw, addCarouselGet);
+router.post("/agregarCarrusel", administradorMw, upload.single("carouselImage"),addCarouselImageValidator, addCarouselPost);
+router.get("/carruselEditar/:id", administradorMw, editCarouselGet);
+router.put("/carruselEditar/:id",administradorMw, upload.single("carouselImage"),addCarouselImageValidator, editCarouselUpdate);
 // router.delete("/carruselDelete/:id", borrarImages);
 
 //CRUD autor
