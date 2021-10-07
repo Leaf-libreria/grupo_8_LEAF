@@ -1,5 +1,7 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
+const path = require("path");
+const fs = require('fs');
 
 module.exports = {
   libros: (req, res) => {
@@ -652,6 +654,7 @@ module.exports = {
           primerImage,
           imagesCarousel,
           generos,
+          errors
         });
       }
     );
@@ -666,10 +669,28 @@ module.exports = {
         .then(() => res.redirect("/products/administrador"))
         .catch((error) => console.log(error));
     } else {
+      if (req.file) {
+        let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
+        fs.unlinkSync(borrarImage);
+      }
+
+
+
       let errors = validationResult(req);
-      db.Carousel.findAll()
-        .then(() => {
-          return res.render("./products/addCarouselImage", {
+      let primerImage = db.carouselImage.findOne({
+        where: {
+          id: 1,
+        },
+      });
+      let imagesCarousel = db.carouselImage.findAll();
+      let generos = db.Genre.findAll({});
+      Promise.all([primerImage, imagesCarousel, generos]).then(
+        ([primerImage, imagesCarousel, generos]) => {
+          return res.render("./products/carrusel", {
+            title: "Carrusel de imagenes",
+            primerImage,
+            imagesCarousel,
+            generos,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -678,7 +699,7 @@ module.exports = {
         .catch((error) => console.log(error));
     }
   },
-  // metodo para editar imagenes del carrusel
+  // metodo para editar imagenes del carrusel get
   editCarouselGet:(req,res) => {
     db.carouselImage.findByPk(req.params.id)
     .then(image => {
@@ -687,8 +708,13 @@ module.exports = {
         image
       })
     })
+    .catch((error) => console.log(error));
   },
+  // metodo para editar imagenes del carrusel put
   editCarouselUpdate:(req,res) => {
+    let errors = validationResult(req);
+
+    if (errors.isEmpty()) {
     db.carouselImage.update({
     name: req.file ? req.file.filename : req.body.image
     },{
@@ -714,6 +740,23 @@ module.exports = {
         });
       }
     );
+  } else {
+    req.file
+      ? (file) =>
+          fs
+            .unlinkSync(path.join(__dirname, file))
+            .deleteFile(`../public/images/${req.file.filename}`)
+      : null;
+      db.carouselImage.findByPk(req.params.id)
+      .then(image => {
+        return res.render('./products/editarCarousel',{
+        errores: errors.mapped(),
+        old: req.body,
+        title: "LEAF | Editando carrusel",
+        image,
+      });
+    });
+  }
   },
   addPromoGet: (req, res) => {
     let errors = validationResult(req);
