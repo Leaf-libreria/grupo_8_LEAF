@@ -808,7 +808,7 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  db.findByPk(req.params.id)
+  db.Editorial.verMasVendidosfindByPk(req.params.id)
 .then((editorial)=>{
   return res.render('./products/editAuthor',{
     editorial,
@@ -1234,4 +1234,103 @@ deleteEditorial: (req, res) => {
    
   },
   agregarImgCarrusel: (req, res) => {},
+
+//Crud métodos de pago
+paymentMethodList:(req,res)=>{
+  generos
+  let pagoMetodos=db.Paymentmethod.findAll()
+  Promise.all([generos,pagoMetodos])
+    .then(([generos,pagoMetodos])=>{
+    return res.render('./products/paymentList',{
+      title: "LEAF | Administrador",
+      pagoMetodos,
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
+  addPaymentGet: (req, res) => {
+    let errors = validationResult(req);
+    db.Paymentmethod.findAll()
+      .then(() => {
+        return res.render("./products/addPaymentMethod", {
+          errores: errors.mapped(),
+          old: req.body,
+          title: "LEAF | Administrador",
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+  addPaymentPost: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      db.Paymentmethod.create({
+        name: req.body.name.trim(),
+      })
+        .then(() => res.redirect("/products/listadoMetodosPago"))
+        .catch((error) => console.log(error));
+    } else {
+      let errors = validationResult(req);
+      db.Paymentmethod.findAll()
+        .then(() => {
+          return res.render("./products/addPaymentMethod", {
+            errores: errors.mapped(),
+            old: req.body,
+            title: "LEAF | Administrador",
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  },
+editPaymentGet:(req,res)=>{
+  generos
+let pagoMetodo=db.Paymentmethod.findByPk(req.params.id)
+  Promise.all([generos,pagoMetodo])
+  .then(([generos,pagoMetodo])=>{
+    return res.render('./products/editPaymentMethod',{
+      title: "LEAF | Administrador",
+      generos,
+      pagoMetodo,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editPaymentPut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Paymentmethod.update({
+    name:req.body.name.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/listadoMetodosPago");
+
+  }).catch(error => console.log(error));
+}else{
+  db.Paymentmethod.findByPk(req.params.id)
+.then((pagoMetodo)=>{
+  return res.render('./products/editPaymentMethod',{
+    pagoMetodo,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deletePayment: (req, res) => {
+    db.Paymentmethod.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/listadoMetodosPago"))
+      .catch((error) => console.log(error));
+  },
 };

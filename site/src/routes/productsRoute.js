@@ -80,6 +80,12 @@ genreList,
 editGenreGet,
 editGenrePut,
 deleteGenre,
+addPaymentGet,
+addPaymentPost,
+paymentMethodList,
+editPaymentGet,
+editPaymentPut,
+deletePayment,
 } = require("../controllers/productController");
 
 // /products
@@ -154,5 +160,13 @@ router.get("/policial", policial);
 router.get("/thriller", thriller);
 router.get("/fantasia", fantasia);
 router.get("/juvenil", juvenil);
+
+//CRUD métodos de pago
+router.get('/agregarMetodoPago',administradorMw,addPaymentGet);
+router.post('/agregarMetodoPago',administradorMw,addGenreEditorialValidator,addPaymentPost);
+router.get('/listadoMetodosPago',administradorMw,paymentMethodList);
+router.get('/editarMetodosPago/:id',administradorMw,addGenreEditorialValidator,editPaymentGet);
+router.put('/editarMetodosPago/:id',administradorMw,addGenreEditorialValidator,editPaymentPut);
+router.delete('/eliminarMetodosPago/:id',administradorMw,deletePayment);
 
 module.exports = router;
