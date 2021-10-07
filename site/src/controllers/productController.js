@@ -1,5 +1,6 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
+const generos = db.Genre.findAll();
 
 module.exports = {
   libros: (req, res) => {
@@ -534,6 +535,7 @@ module.exports = {
       .then(() => res.redirect("/products/administrador"))
       .catch((error) => console.log(error));
   },
+
   //Agregar autor, editorial,genero, carrusel y publicidad
   addAuthorGet: (req, res) => {
     let errors = validationResult(req);
@@ -568,6 +570,70 @@ module.exports = {
         })
         .catch((error) => console.log(error));
     }
+  },
+authorList:(req,res)=>{
+  generos
+  let autores=db.Author.findAll()
+  Promise.all([generos,autores])
+    .then(([generos,autores])=>{
+    return res.render('./products/authorList',{
+      title: "LEAF | Administrador",
+      autores,
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
+editAuthorGet:(req,res)=>{
+  generos
+let autor=db.Author.findByPk(req.params.id)
+  Promise.all([generos,autor])
+  .then(([generos,autor])=>{
+    return res.render('./products/editAuthor',{
+      title: "LEAF | Administrador",
+      generos,
+      autor,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editAuthorPut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Author.update({
+    nameLastname:req.body.nameLastname.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/administrador");
+
+  }).catch(error => console.log(error));
+}else{
+  db.Author.findByPk(req.params.id)
+.then((autor)=>{
+  return res.render('./products/editAuthor',{
+    autor,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deleteAuthor: (req, res) => {
+    db.Author.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
   },
   addGenreGet: (req, res) => {
     let errors = validationResult(req);
