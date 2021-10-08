@@ -88,6 +88,7 @@ deletePayment,
   editCarouselGet,
   editCarouselUpdate,
   commonViews,
+  viewEditorials,
 } = require("../controllers/productController");
 
 // /products
@@ -182,5 +183,7 @@ router.delete('/eliminarMetodosPago/:id',administradorMw,deletePayment);
 
 //Ruta vista libros por autor
 router.get('/autor/:nameLastname',commonViews)
+//Ruta libros por editorial
+router.get('/editorial/:name',viewEditorials)
 
 module.exports = router;
