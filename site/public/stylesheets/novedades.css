@@ -46,6 +46,14 @@
   color: var(--color-bordo);
 }
 
+.novedades .contenedorNovedades .detalle a{
+    color: var(--color-bordo);
+}
+
+.novedades .contenedorNovedades .detalle a:hover{
+    text-decoration: underline;
+}
+
 @media (min-width: 361px) {
 
     .novedades .contenedorNovedades .libro{

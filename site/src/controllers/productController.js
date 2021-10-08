@@ -1376,4 +1376,25 @@ deletePayment: (req, res) => {
       .then(() => res.redirect("/products/listadoMetodosPago"))
       .catch((error) => console.log(error));
   },
+
+  commonViews: (req,res)=>{
+    generos
+    let productos = db.Book.findAll({
+      include: [
+        { association: "genero" },
+        {
+          association: "autor",
+          where: {nameLastname: req.params.nameLastname}
+        },
+      ],
+    });
+    Promise.all([generos,productos])
+    .then(([generos,productos])=>{return res.render('./products/generos/commonViews',{
+    title: 'LEAF | Librería' ,
+    generos,
+    
+    productos,
+    })
+  }).catch(error => console.log(error));
+  }
 };

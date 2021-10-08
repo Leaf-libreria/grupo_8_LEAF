@@ -87,6 +87,7 @@ deletePayment,
   addPromoPost,
   editCarouselGet,
   editCarouselUpdate,
+  commonViews,
 } = require("../controllers/productController");
 
 // /products
@@ -178,5 +179,8 @@ router.get('/listadoMetodosPago',administradorMw,paymentMethodList);
 router.get('/editarMetodosPago/:id',administradorMw,addGenreEditorialValidator,editPaymentGet);
 router.put('/editarMetodosPago/:id',administradorMw,addGenreEditorialValidator,editPaymentPut);
 router.delete('/eliminarMetodosPago/:id',administradorMw,deletePayment);
+
+//Ruta vista libros por autor
+router.get('/autor/:nameLastname',commonViews)
 
 module.exports = router;
