@@ -1,32 +1,25 @@
 .carruselEjs{
-    width: 50%;
+    width: 60%;
    margin: 50px  auto;
 
 }
 .carruselEjs h2{
     color: black;
-    
+    text-align: left;
+    margin-top: 40px;
+}
+.carruselEjs p{
+    text-align: left;
+    margin-left: 20px;
 }
 .carruselEjs img{
     height: 300px;
 }
-.carruselEjs button{
-    display: initial;
-}
-.carruselEjs #formCarousel{
+.carruselEjs .imageEditarCarrusel{
 
-    display: flex;
-    justify-content: space-around;
-    align-items:center ;
-    margin-top: -10px;
-    margin-bottom: 40px;
-    background-color: gainsboro;
-   border-bottom: 1px solid black;
+    margin: auto;
 }
-.carruselEjs form button{
-flex-wrap: nowrap;
-width: 100px;
-height:50px;
-margin-top: 15px;
-margin-right: 20px;
+.carruselEjs .imageEditarCarrusel img{
+
+    margin-top: 50px;
 }
