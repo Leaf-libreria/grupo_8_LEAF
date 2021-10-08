@@ -1,5 +1,6 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
+const generos = db.Genre.findAll();
 const path = require("path");
 const fs = require('fs');
 
@@ -536,6 +537,7 @@ module.exports = {
       .then(() => res.redirect("/products/administrador"))
       .catch((error) => console.log(error));
   },
+
   //Agregar autor, editorial,genero, carrusel y publicidad
   addAuthorGet: (req, res) => {
     let errors = validationResult(req);
@@ -556,7 +558,7 @@ module.exports = {
       db.Author.create({
         nameLastname: req.body.nameLastname.trim(),
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() => res.redirect("/products/listadoAutores"))
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -571,6 +573,81 @@ module.exports = {
         .catch((error) => console.log(error));
     }
   },
+authorList:(req,res)=>{
+  generos
+  let autores=db.Author.findAll()
+  Promise.all([generos,autores])
+    .then(([generos,autores])=>{
+    return res.render('./products/authorList',{
+      title: "LEAF | Administrador",
+      autores,
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
+editAuthorGet:(req,res)=>{
+  generos
+let autor=db.Author.findByPk(req.params.id)
+  Promise.all([generos,autor])
+  .then(([generos,autor])=>{
+    return res.render('./products/editAuthor',{
+      title: "LEAF | Administrador",
+      generos,
+      autor,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editAuthorPut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Author.update({
+    nameLastname:req.body.nameLastname.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/listadoAutores");
+
+  }).catch(error => console.log(error));
+}else{
+  db.Author.findByPk(req.params.id)
+.then((autor)=>{
+  return res.render('./products/editAuthor',{
+    autor,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deleteAuthor: (req, res) => {
+    db.Author.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/listadoAutores"))
+      .catch((error) => console.log(error));
+  },
+
+  genreList:(req,res)=>{
+  generos
+    .then((generos)=>{
+    return res.render('./products/genreList',{
+      title: "LEAF | Administrador",
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
   addGenreGet: (req, res) => {
     let errors = validationResult(req);
     db.Genre.findAll()
@@ -589,7 +666,7 @@ module.exports = {
       db.Genre.create({
         name: req.body.name.trim(),
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() => res.redirect("/products/listadoGeneros"))
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -604,6 +681,72 @@ module.exports = {
         .catch((error) => console.log(error));
     }
   },
+
+editGenreGet:(req,res)=>{
+  generos
+let genre=db.Genre.findByPk(req.params.id)
+  Promise.all([generos,genre])
+  .then(([generos,genre])=>{
+    return res.render('./products/editGenre',{
+      title: "LEAF | Administrador",
+      generos,
+      genre,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editGenrePut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Genre.update({
+    name:req.body.name.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/listadoGeneros");
+
+  }).catch(error => console.log(error));
+}else{
+  db.Genre.findByPk(req.params.id)
+.then((genre)=>{
+  return res.render('./products/editGenre',{
+    genre,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deleteGenre: (req, res) => {
+    db.Genre.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/listadoGeneros"))
+      .catch((error) => console.log(error));
+  },
+
+editorialList:(req,res)=>{
+  generos
+  let editoriales=db.Editorial.findAll()
+  Promise.all([generos,editoriales])
+    .then(([generos,editoriales])=>{
+    return res.render('./products/editorialList',{
+      title: "LEAF | Administrador",
+      editoriales,
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
   addEditorialGet: (req, res) => {
     let errors = validationResult(req);
     db.Editorial.findAll()
@@ -622,7 +765,7 @@ module.exports = {
       db.Editorial.create({
         name: req.body.name.trim(),
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() => res.redirect("/products/listadoEditorial"))
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -637,6 +780,58 @@ module.exports = {
         .catch((error) => console.log(error));
     }
   },
+editEditorialGet:(req,res)=>{
+  generos
+let editorial=db.Editorial.findByPk(req.params.id)
+  Promise.all([generos,editorial])
+  .then(([generos,editorial])=>{
+    return res.render('./products/editEditorial',{
+      title: "LEAF | Administrador",
+      generos,
+      editorial,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editEditorialPut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Editorial.update({
+    name:req.body.name.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/listadoEditorial");
+
+  }).catch(error => console.log(error));
+}else{
+  db.Editorial.verMasVendidosfindByPk(req.params.id)
+.then((editorial)=>{
+  return res.render('./products/editAuthor',{
+    editorial,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deleteEditorial: (req, res) => {
+    db.Editorial.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/listadoEditorial"))
+      .catch((error) => console.log(error));
+  },
+
   // mostrar vista para agregar carrusel
   addCarouselGet: (req, res) => {
     let errors = validationResult(req);
@@ -1022,7 +1217,7 @@ module.exports = {
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/generos/misterio", {
-          title: "LEAF | Misterio",
+          title: "LEAF | Histórica",
           productos,
           generos,
         })
@@ -1046,7 +1241,7 @@ module.exports = {
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/generos/thriller", {
-          title: "LEAF | Misterio",
+          title: "LEAF | Thriller",
           productos,
           generos,
         })
@@ -1070,7 +1265,7 @@ module.exports = {
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/generos/fantasia", {
-          title: "LEAF | Misterio",
+          title: "LEAF | Fantasía",
           productos,
           generos,
         })
@@ -1082,4 +1277,145 @@ module.exports = {
    
   },
   agregarImgCarrusel: (req, res) => {},
+
+//Crud métodos de pago
+paymentMethodList:(req,res)=>{
+  generos
+  let pagoMetodos=db.Paymentmethod.findAll()
+  Promise.all([generos,pagoMetodos])
+    .then(([generos,pagoMetodos])=>{
+    return res.render('./products/paymentList',{
+      title: "LEAF | Administrador",
+      pagoMetodos,
+      generos
+    })
+  })
+  .catch(error => console.log(error));
+},
+  addPaymentGet: (req, res) => {
+    let errors = validationResult(req);
+    db.Paymentmethod.findAll()
+      .then(() => {
+        return res.render("./products/addPaymentMethod", {
+          errores: errors.mapped(),
+          old: req.body,
+          title: "LEAF | Administrador",
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+  addPaymentPost: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      db.Paymentmethod.create({
+        name: req.body.name.trim(),
+      })
+        .then(() => res.redirect("/products/listadoMetodosPago"))
+        .catch((error) => console.log(error));
+    } else {
+      let errors = validationResult(req);
+      db.Paymentmethod.findAll()
+        .then(() => {
+          return res.render("./products/addPaymentMethod", {
+            errores: errors.mapped(),
+            old: req.body,
+            title: "LEAF | Administrador",
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  },
+editPaymentGet:(req,res)=>{
+  generos
+let pagoMetodo=db.Paymentmethod.findByPk(req.params.id)
+  Promise.all([generos,pagoMetodo])
+  .then(([generos,pagoMetodo])=>{
+    return res.render('./products/editPaymentMethod',{
+      title: "LEAF | Administrador",
+      generos,
+      pagoMetodo,
+      old:req.body
+    })
+  })
+  .catch(error => console.log(error));  
+},
+editPaymentPut:(req,res)=>{
+    let errors = validationResult(req);
+if(errors.isEmpty()){
+  db.Paymentmethod.update({
+    name:req.body.name.trim()
+  },
+  {
+    where:{
+      id:req.params.id
+    }
+  })
+  .then(()=>{
+              return res.redirect("/products/listadoMetodosPago");
+
+  }).catch(error => console.log(error));
+}else{
+  db.Paymentmethod.findByPk(req.params.id)
+.then((pagoMetodo)=>{
+  return res.render('./products/editPaymentMethod',{
+    pagoMetodo,
+    generos,
+    errores:errors.mapped(),
+    old:req.body,
+    title:'LEAF | Administrador'
+  })
+})
+}
+},
+deletePayment: (req, res) => {
+    db.Paymentmethod.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/listadoMetodosPago"))
+      .catch((error) => console.log(error));
+  },
+
+  commonViews: (req,res)=>{
+    generos
+    let productos = db.Book.findAll({
+      include: [
+        { association: "genero" },
+        {
+          association: "autor",
+          where: {nameLastname: req.params.nameLastname}
+        },
+      ],
+    });
+    Promise.all([generos,productos])
+    .then(([generos,productos])=>{return res.render('./products/generos/commonViews',{
+    title: 'LEAF | Librería' ,
+    generos,
+    
+    productos,
+    })
+  }).catch(error => console.log(error));
+  },
+  viewEditorials: (req,res)=>{
+    generos
+    let productos = db.Book.findAll({
+      include: [
+        { association: "genero" },
+        {
+          association: "autor",
+        },
+        {association:"editorial",
+          where: {name: req.params.name}
+      }
+      ],
+    });
+    Promise.all([generos,productos])
+    .then(([generos,productos])=>{return res.render('./products/generos/commonViews',{
+    title: 'LEAF | Librería' ,
+    generos,
+    productos,
+    })
+  }).catch(error => console.log(error));
+  },
 };

@@ -8,8 +8,13 @@
 .detail main{
   margin-top: 30px;
 }
- .productoArriba{
+.detail .productoArriba{
   margin: 10px auto;
+}
+
+.detail .productoArriba a:hover{
+color: #212529;
+text-decoration: underline;
 }
 
 .detail .producto .comprar {

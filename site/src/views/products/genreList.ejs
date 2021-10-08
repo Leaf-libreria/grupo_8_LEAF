@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- ----head ----->
+<%-include('../partials/head') %>
+    <!-- ----head---- -->
+
+    <body class="novedades admin">
+        <!-- encabezado -->
+        <!-- ----header ----->
+        <%-include('../partials/header') %>
+            <!-- ----header---- -->
+            <main>
+                <div class="d-grid gap-3">
+                    <a class="btn btn-outline-success admin-btn-agregar" href="/products/agregarGenero"">AGREGAR
+                        GÉNERO</a>
+                </div>
+                <div class=" card mt-5 ">
+                    <div class=" card-header">
+                        <h3>Listado de géneros:</h3>
+
+                </div>
+                <div class="card-body administrador">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Género</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <% generos.forEach(genero=> { %>
+                                    <td>
+                                        <%= genero.name %>
+                                    </td>
+
+                                    <td><a href="/products/editarGenero/<%= genero.id %> " type="button"
+                                            class=" btn btn-outline-warning"><i class="fas fa-edit"></i></a></td>
+                                    <td>
+                                        <form action="/products/eliminarGenero/<%= genero.id %>?_method=DELETE"
+                                            method="POST">
+                                            <button class="btn btn-outline-danger "><i
+                                                    class="fas fa-trash-alt"></i></button>
+
+                                        </form>
+                                    </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+    </body>
+
+</html>

@@ -41,6 +41,11 @@
   margin-top: 10px;
 }
 
+.index .mainIndex article .detalle a:hover{
+text-decoration: underline;
+color: #212529;
+}
+
 .index .mainIndex article .detalle h4 {
   font-size: 20px;
 }
