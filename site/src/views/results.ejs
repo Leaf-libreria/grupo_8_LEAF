@@ -28,16 +28,18 @@
             <% if (result.length> 0) { %>
               <% result.forEach(producto=> { %>
 
-                <article class="libros-<%=producto.genre%>">
+                <article class="libros-<%=producto.genero.name%>">
                   <a href="/products/detalle/<%= producto.id %> "><img src="/images/<%=producto.cover%>"
                       alt="portada de<%=producto.title%>" /></a>
                   <div class="detalle">
                     <h3>
                       <%=producto.title%>
                     </h3>
+<a href="/products/autor/<%= producto.autor.nameLastname %> ">
                     <h4>
                       <%=producto.autor.nameLastname%>
                     </h4>
+</a>
                     <p>$<%=producto.price%>
                     </p>
                   </div>
