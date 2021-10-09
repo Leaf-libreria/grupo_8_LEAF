@@ -810,9 +810,9 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  db.Editorial.verMasVendidosfindByPk(req.params.id)
+  db.Editorial.findByPk(req.params.id)
 .then((editorial)=>{
-  return res.render('./products/editAuthor',{
+  return res.render('./products/editEditorial',{
     editorial,
     generos,
     errores:errors.mapped(),
