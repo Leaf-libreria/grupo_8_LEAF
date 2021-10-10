@@ -83,7 +83,10 @@
                         <div class="mb-3 nombre">
                             <label for="formFile" class="form-label"> Imagen de perfil </label>
                             <input class="form-control" type="file" id="formFile" name="image">
+                           
                         </div>
+                        <div id="image-render"> <img  id="image"></div>
+                       
                           <!-- Posible error -->
                           <span class="text-danger small">
                             <%= locals.errores && locals.errores.image ? errores.image.msg :null %>
@@ -145,6 +148,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
             crossorigin="anonymous"></script>
+            <script src="/javascripts/register.js"></script>
     </body>
 
 </html>
