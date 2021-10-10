@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- ----head ----->
+<%-include('../partials/head') %>
+    <!-- ----head---- -->
+
+    <body class="novedades admin">
+        <!-- encabezado -->
+        <!-- ----header ----->
+        <%-include('../partials/header') %>
+            <!-- ----header---- -->
+            <main>
+                <div class="card mt-5 ">
+                    <div class="card-header">
+                        <h3>Editar genero <%= genre.name %> :</h3>
+                    </div>
+                    <div class="card-body administrador">
+                        <form action="/products/editarGenero/<%=genre.id%>?_method=PUT " method="POST"
+                            class="formulario">
+                            <label for="name">Género:</label>
+                            <input type="text" name="name" id="name"
+                                value="<%= locals.old &&locals.old.name ? old.name : genre.name %> ">
+                            <!-- Posibles errores -->
+                            <span>
+                                <%= locals.errores && locals.errores.name ?errores.name.msg :null %>
+                            </span>
+                            <!--BOTONES-->
+                            <section class="botones d-grid gap-2 d-md-block">
+                                <button type="submit" class="btn-guardar">EDITAR</button>
+                                <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR</a>
+                            </section>
+
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+    </body>
+
+</html>
