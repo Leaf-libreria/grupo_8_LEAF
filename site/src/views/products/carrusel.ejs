@@ -18,10 +18,10 @@
               <div class="card-body administrador">
                   <form action="" method="POST" class="formulario" enctype="multipart/form-data" >
                       <label for="carouselImage">Imagen:</label>
-                      <input type="file" name="carouselImage" id="carouselImage" value="<%= locals.old &&locals.old.carouselImage ? old.carouselImage : null %> ">
+                      <input type="file" name="carouselImage" id="carouselImage" value="<%= locals.old && locals.old.carouselImage ? old.carouselImage : null %> ">
                       <!-- Posibles errores -->
                       <span>
-                          <%= locals.errores && locals.errores.carouselImage ?errores.carouselImage.msg :null %>
+                          <%= locals.errores && locals.errores.carouselImage ? errores.carouselImage.msg :null %>
                       </span>
                       <!--BOTONES-->
                       <section class="botones d-grid gap-2 d-md-block">

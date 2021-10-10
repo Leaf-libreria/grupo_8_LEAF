@@ -865,17 +865,16 @@ deleteEditorial: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       db.carouselImage.create({
-        name: req.file.filename,
+        name : req.file.filename,
       })
         .then(() => res.redirect("/products/administrador"))
         .catch((error) => console.log(error));
     } else {
+      //metodo para borrar imagenes si hay error
       if (req.file) {
         let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
         fs.unlinkSync(borrarImage);
       }
-
-
 
       let errors = validationResult(req);
       let primerImage = db.carouselImage.findOne({

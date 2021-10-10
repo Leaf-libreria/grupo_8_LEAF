@@ -60,7 +60,7 @@ module.exports = [
     .custom(value => {
       console.log(value);
       if (!regexPassword.test(value)) {
-        throw new Error("La contraseña debe tener entre 8 y 12 caracteres, al menos una mayuscula, al menos una miniscula y al menos un caracter especial(#?!@$%^&*-)");
+        throw new Error("La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, al menos una minúscula y al menos un carácter especial (#?!@$%^&*-)");
       } else {
         return true
       }
@@ -81,3 +81,25 @@ module.exports = [
     .isString("off")
     .withMessage("Debes aceptar los términos y condiciones"),
 ];
+
+
+
+
+ //renderiza la imagen
+  
+//   const $image = document.getElementById("image");
+//   const $file = document.getElementById("file");
+// let image
+//   function renderImage(formData) {
+//     const file = formData.get("image");
+//    image = URL.createObjectURL(file);
+//     $image.setAttribute("src", image);
+//     console.log(image.valueOf)
+//   }
+
+
+//   $file.addEventListener("change", (e) => {
+//     var data = new FormData(form);
+//     renderImage(data);
+    
+//   });

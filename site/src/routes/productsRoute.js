@@ -118,14 +118,7 @@ router.put(
   actualizarProducto
 );
 router.delete("/delete/:id", administradorMw,borrar);
-// rutas crud de carrusel de imagenes
- router.get("/agregarCarrusel", administradorMw, addCarouselGet);
- router.post('/agregarCarrusel',administradorMw,upload.single("carouselImage"),addCarouselPost);
-  router.get("/carruselEditar/:id", administradorMw, editCarouselGet);
-router.put(
-  "/carruselEditar/:id",
-  administradorMw,
-  upload.single("carouselImage"));
+
 
 // rutas crud de carrusel de imagenes
 router.get("/agregarCarrusel", administradorMw, addCarouselGet);
