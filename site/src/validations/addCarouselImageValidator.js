@@ -3,7 +3,7 @@ const { body } = require("express-validator");
 module.exports = [
   body("carouselImage").custom((value, { req }) => {
     let image = req.file;
-    let allowedExtensions = [".jpg", ".png", ".gif"];
+    let allowedExtensions = [".jpg", ".jpeg",".png", ".gif"];
     console.log(image);
     if (!image) {
       throw new Error(" Debes seleccionar una imagen");

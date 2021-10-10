@@ -489,6 +489,12 @@ module.exports = {
         })
         .catch((error) => console.log(error));
     } else {
+      req.file
+      ? (file) =>
+          fs
+            .unlinkSync(path.join(__dirname, file))
+            .deleteFile(`../public/images/${req.file.filename}`)
+      : null;
       let autores = db.Author.findAll();
       let generos = db.Genre.findAll();
       let editoriales = db.Editorial.findAll();
@@ -811,9 +817,9 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  db.Editorial.verMasVendidosfindByPk(req.params.id)
+  db.Editorial.findByPk(req.params.id)
 .then((editorial)=>{
-  return res.render('./products/editAuthor',{
+  return res.render('./products/editEditorial',{
     editorial,
     generos,
     errores:errors.mapped(),
@@ -860,17 +866,16 @@ deleteEditorial: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       db.carouselImage.create({
-        name: req.file.filename,
+        name : req.file.filename,
       })
         .then(() => res.redirect("/products/administrador"))
         .catch((error) => console.log(error));
     } else {
+      //metodo para borrar imagenes si hay error
       if (req.file) {
         let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
         fs.unlinkSync(borrarImage);
       }
-
-
 
       let errors = validationResult(req);
       let primerImage = db.carouselImage.findOne({
@@ -953,6 +958,16 @@ deleteEditorial: (req, res) => {
       });
     });
   }
+  },
+  // borrar imagen de carrusel
+ deleteImageCarousel: (req, res) => {
+    db.carouselImage.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
   },
   addPromoGet: (req, res) => {
     let errors = validationResult(req);
