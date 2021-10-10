@@ -69,6 +69,7 @@ const {
   addPromoPost,
   editCarouselGet,
   editCarouselUpdate,
+  deleteImageCarousel,
 } = require("../controllers/productController");
 
 // /products
@@ -103,7 +104,7 @@ router.get("/agregarCarrusel", administradorMw, addCarouselGet);
 router.post("/agregarCarrusel", administradorMw, upload.single("carouselImage"),addCarouselImageValidator, addCarouselPost);
 router.get("/carruselEditar/:id", administradorMw, editCarouselGet);
 router.put("/carruselEditar/:id",administradorMw, upload.single("carouselImage"),addCarouselImageValidator, editCarouselUpdate);
-// router.delete("/carruselDelete/:id", borrarImages);
+router.delete("/carruselBorrar/:id", deleteImageCarousel);
 //Agregar autor, género, editorial, imagen carrusel y publicidad
 router.get("/agregarAutor", administradorMw, addAuthorGet);
 router.post(

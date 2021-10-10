@@ -84,6 +84,10 @@
                             <label for="formFile" class="form-label"> Imagen de perfil </label>
                             <input class="form-control" type="file" id="formFile" name="image">
                         </div>
+                          <!-- Posible error -->
+                          <span class="text-danger small">
+                            <%= locals.errores && locals.errores.image ? errores.image.msg :null %>
+                        </span>
 
                         <div class="registro-password"> <label for="registro-password">Ingresar contraseña</label>
                             <input type="password" name="password" id="password" placeholder="Contraseña">

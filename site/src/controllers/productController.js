@@ -487,6 +487,12 @@ module.exports = {
         })
         .catch((error) => console.log(error));
     } else {
+      req.file
+      ? (file) =>
+          fs
+            .unlinkSync(path.join(__dirname, file))
+            .deleteFile(`../public/images/${req.file.filename}`)
+      : null;
       let autores = db.Author.findAll();
       let generos = db.Genre.findAll();
       let editoriales = db.Editorial.findAll();
@@ -757,6 +763,16 @@ module.exports = {
       });
     });
   }
+  },
+  // borrar imagen de carrusel
+ deleteImageCarousel: (req, res) => {
+    db.carouselImage.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/products/administrador"))
+      .catch((error) => console.log(error));
   },
   addPromoGet: (req, res) => {
     let errors = validationResult(req);
