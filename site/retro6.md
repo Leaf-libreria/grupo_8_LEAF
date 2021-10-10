@@ -1,8 +1,8 @@
-# Retrospectiva Sprint 5
+# Retrospectiva Sprint 6
 
 ## Seguir haciendo
 
-* Seguir siendo aplicados en las reuniones.
+* Seguir siendo aplicadas en las reuniones.
 
 * Seguir dividiendo las tareas de manera aplicada y en comun acuerdo.
 
@@ -12,9 +12,9 @@
 
 * Estar pendientes de si nuestros compañeros necesitan ayuda.
 
-* Estar  atentos a los grupos en comun para poder tener una comunicacion fluida.
+* Estar  atentas a los grupos en comun para poder tener una comunicacion fluida.
 
-* De ser posible seguir planificando las reuniones con anticipación, a la liberación del sprint.
+* De ser posible, seguir planificando las reuniones con anticipación a la liberación del sprint.
 
 * Seguir tomando sabias decisiones en equipo.
 
@@ -30,19 +30,21 @@
 
 * En caso de no cumplir con los plazos internos del equipo, notificar para redistribuir las tareas.
 
-## Hacer más
-
-* Pedir ayuda apenas tengamos una dificultad, de contenido curricular, tecnica o personal. No esperar a estar saturados o agobiados.
-
 * Reuniones de catarsis.
 
-* Intentar llegar a las clases con los videos de Playground vistos.
-
-## Empezar a hacer
+* Pedir ayuda apenas tengamos una dificultad, de contenido curricular, tecnica o personal. No esperar a estar saturadas o agobiadas.
 
 * Detallar bien las tarjetas de tareas en el trello especificando hasta que punto llega cada una.
 
+## Hacer más
+
+* Intentar llegar a las clases con los videos de Playground vistos.
+
 * Dar ideas de organizacion en trello.
+
+## Empezar a hacer
+
+* No perder tiempo en tareas no obligatorias.
 
 ## Dejar de hacer
 
