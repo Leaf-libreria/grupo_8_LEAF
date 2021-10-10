@@ -1,6 +1,7 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
 const generos = db.Genre.findAll();
+const promos = db.Promo.findAll();
 const path = require("path");
 const fs = require('fs');
 
@@ -539,7 +540,7 @@ module.exports = {
   },
 
   //Agregar autor, editorial,genero, carrusel y publicidad
-  addAuthorGet: (req, res) => {
+  addAuthorGet: (req, res) => {  /* muestra la vista */
     let errors = validationResult(req);
     db.Author.findAll()
       .then((autor) => {
@@ -552,7 +553,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
-  addAuthorPost: (req, res) => {
+  addAuthorPost: (req, res) => { 
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       db.Author.create({
@@ -955,7 +956,7 @@ deleteEditorial: (req, res) => {
   },
   addPromoGet: (req, res) => {
     let errors = validationResult(req);
-    db.Promo.findAll()
+    promos
       .then(() => {
         return res.render("./products/addPromoImage", {
           errores: errors.mapped(),
@@ -975,7 +976,7 @@ deleteEditorial: (req, res) => {
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      db.Promo.findAll()
+      promos
         .then(() => {
           return res.render("./products/addEditorial", {
             errores: errors.mapped(),
@@ -986,6 +987,66 @@ deleteEditorial: (req, res) => {
         .catch((error) => console.log(error));
     }
   },
+  promoList:(req,res) =>{
+    promos
+    .then(() => {
+      return res.render("./products/promoList",{
+        title: "LEAF | Administrador",
+        promos
+      })
+    })
+    .catch(error =>console.log(error));
+  },
+  editPromoGet:(req,res) =>{
+    promos
+    let promo = db.Promo.findByPk(req.params.id)
+    Promise.all(promos)
+    .then((promos) => {
+      return res.render('./products/editPromo',{
+        title: "LEAF | Administrador",
+        promos,
+        old: req.body
+      })
+    })
+    .catch(error => console.log(error))
+  },
+  editPromoPut:(req,res) =>{
+    let errors = validationResult(req);
+    if(errors.isEmpty()){
+      db.Promo.update({
+        promo:req.body.promo.trim()
+      },
+      {
+        where:{
+          id:req.params.id
+        }
+      })
+      .then(() =>{
+        return res.redirect("/products/promoList");
+      }).catch(error => console.log(error))
+    }else{
+      db.Promo.findByPk(req.params.id)
+      .then((promo) =>{
+        return res.render("./products/editPromo",{
+          promos,
+          errores: errors.mapped(),
+          old:req.body,
+          title:"LEAF | Administrador"
+        })
+      })
+    }
+  },
+  deletePromo:(req,res) =>{
+    db.Promo.destroy({
+      where:{
+        id: req.params.id,
+      },
+    })
+    .then(() => res.redirect("/products/promoList"))
+    .catch((error) => console.log(error))
+  },
+ 
+
   carrito: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -1053,6 +1114,20 @@ deleteEditorial: (req, res) => {
       }
     );
   },
+
+  pagoCard: (req, res) => {
+    let errors = validationResult(req);
+
+    if(errors.isEmpty()){
+      Paymentmethod.create({
+        titularCard: req.body.titularCard.trim(),
+        cardNumber: req.body.cardNumber.trim(),
+        dueDate: req.body.dueDate.trim(),
+        securityCode: bcrypt.hashSync(req.body.securityCode, 10),
+      })
+    }
+  },
+
   // controladores para generos
   policial: (req, res) => {
     let productos = db.Book.findAll({

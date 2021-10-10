@@ -15,13 +15,13 @@
                         <h3>Agregar Imagen para publicidad:</h3>
                     </div>
                     <div class="card-body administrador">
-                        <form action="" method="POST" class="formulario"  enctype="multipart/form-data">
+                        <form action="" method="POST" class="formulario" enctype="multipart/form-data">
                             <label for="promoImage">Imagen:</label>
                             <input type="file" name="promoImage" id="promoImage"
                                 value="<%= locals.old &&locals.old.promoImage ? old.promoImage : null %> ">
                             <!-- Posibles errores -->
                             <span>
-                                <%= locals.errores && locals.errores.promoImage ?errores.promoImage.msg :null %>
+                                <%= locals.errores && locals.errores.promoImage ? errores.promoImage.msg :null %>
                             </span>
                             <!--BOTONES-->
                             <section class="botones d-grid gap-2 d-md-block">
@@ -33,6 +33,57 @@
                     </div>
 
                 </div>
+
+
+                <div class="card mt-5 ">
+                    <div class="card-header">
+                        <h3>Listado de publicidades:</h3>
+
+                    </div>
+                    <div class="card-body administrador">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+
+                            <!-- <section class="publicidades">
+                                <img class="promo1" src="/images/promo1.png" alt="promo1" />
+                                <div class="publicidad-abajo">
+                                  <img class="promo2" src="/images/promo2.png" alt="" />
+                                  <img class="promo3" src="/images/promo3.jpg" alt="" />
+                                  <img class="promo4" src="/images/promo4.png" alt="" />
+                                </div>
+                              </section> -->
+
+                              <tbody>
+                                <tr>
+                                    <% promos.forEach(promo => { %>
+                                        <td>
+                                            <%= promo.name %>
+                                        </td>
+
+                                        <td><a href="/products/editarPublicidad/<%= promo.id %> " type="button"
+                                                class=" btn btn-outline-warning"><i class="fas fa-edit"></i></a></td>
+                                        <td>
+                                            <form action="/products/eliminarPublicidad/<%= promo.id %>?_method=DELETE"
+                                                method="POST">
+                                                <button class="btn btn-outline-danger "><i
+                                                        class="fas fa-trash-alt"></i></button>
+
+                                            </form>
+                                        </td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+
+                        </table>
+                    </div>
+
             </main>
     </body>
 

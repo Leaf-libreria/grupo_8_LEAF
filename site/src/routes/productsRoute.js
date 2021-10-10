@@ -7,6 +7,7 @@ const editValidator = require("../validations/editProductValidator");
 const addAuthorValidator = require("../validations/addAuthorValidator");
 const addGenreEditorialValidator = require("../validations/addGenreEditorialValidator");
 const addCarouselImageValidator = require("../validations/addCarouselImageValidator");
+const payFormValidator = require("../validations/payFormValidator");
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
 //middleware acceso usuarios logueados
@@ -89,6 +90,8 @@ deletePayment,
   editCarouselUpdate,
   commonViews,
   viewEditorials,
+  pagoCard,
+  promoList
 } = require("../controllers/productController");
 
 // /products
@@ -139,7 +142,7 @@ router.post('/agregarAutor',administradorMw,addAuthorValidator,addAuthorPost);
 router.get('/listadoAutores',administradorMw,authorList);
 router.get('/editarAutor/:id',administradorMw,addAuthorValidator,editAuthorGet);
 router.put('/editarAutor/:id',administradorMw,addAuthorValidator,editAuthorPut);
-router.delete('/eliminarAutor/:id',administradorMw,deleteAuthor);
+router.delete('/eliminarAutor/:id',administradorMw,deleteAuthor); 
 //CRUD género
 router.get('/agregarGenero',administradorMw,addGenreGet);
 router.post('/agregarGenero',administradorMw,addGenreEditorialValidator,addGenrePost);
@@ -155,13 +158,19 @@ router.get('/editarEditorial/:id',administradorMw,addGenreEditorialValidator,edi
 router.put('/editarEditorial/:id',administradorMw,addGenreEditorialValidator,editEditorialPut);
 router.delete('/eliminarEditorial/:id',administradorMw,deleteEditorial);
 
-//Agregar publicidad
+//CRUD publicidad
 router.get('/agregarPublicidad',administradorMw, addPromoGet);
 router.post('/agregarPublicidad',administradorMw,upload.single("promoImage"),addPromoPost);
+router.get('/listadoPublicidad',administradorMw,promoList);
+/* router.get("/editarPublicidad/:id",administradorMw,editPromoGet) */
+/* router.put("/editarPublicidad/:id",administradorMw,editPromoPut); */
+/* router.delete('/eliminarPublicidad/:id',administradorMw,deletePromo); */
+
 
 //Carrito y formulario de pago
 router.get("/carrito", logueados, carrito);
 router.get("/pago", logueados, pago);
+router.post("/pago", logueados, payFormValidator, pagoCard);
 // rutas de generos
 router.get("/misterio", misterio);
 router.get("/terror", terror);

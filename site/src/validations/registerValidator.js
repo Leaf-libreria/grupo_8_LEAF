@@ -41,3 +41,4 @@ module.exports = [
     .isString("off")
     .withMessage("Debes aceptar los términos y condiciones"),
 ];
+
