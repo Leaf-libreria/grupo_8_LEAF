@@ -2,7 +2,14 @@
 .body-register {
     width: 100%;
 }
-
+#image-render{
+ width: 36%;
+    margin: auto;
+}
+#image{
+    width: 90%;
+    
+}
 .body-register .contenido-gral-register .header-register{
     display: flex;
     justify-content: space-between;

@@ -37,7 +37,7 @@
                 </section>
 
                 <main class="main-register perfil-main">
-                    <form action="/users/editarPerfil/<%=user.id%>?_method=PUT" method="POST" novalidate
+                    <form action="/users/editarPerfil/<%=user.id%>?_method=PUT" method="POST" id="edit-perfil-form" novalidate
                         enctype="multipart/form-data">
                         <a href="/users/perfil/<%=user.id%>"><i class="fas fa-angle-double-left"></i> Atras</a>
                         <h2 class="bienvenido-perfil">Editando perfil </h2>
@@ -45,6 +45,8 @@
                             <label for="imagenPerfil" class="form-label">Cambiar imagen</label>
                             <input type="file" class="form-control" id="imagenPerfil" name="image">
                         </div>
+                            <!-- previsualiza imagen -->
+            <div id="image-render"><img  id="image"></div>
                         <!-- NICK -->
                         <div class="nombre"><label for="nickname">NickName</label><input type="nickname" name="nickname"
                                 id="nickname"
@@ -82,6 +84,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
             crossorigin="anonymous"></script>
+            <script src="/javascripts/editPerfilRenderImage.js"></script>
     </body>
 
 </html>
