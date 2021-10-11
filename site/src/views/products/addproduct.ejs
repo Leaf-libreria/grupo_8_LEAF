@@ -162,7 +162,7 @@
                 <select name="genreId" id="format" class="grid">
                   <option value="" hidden selected>Seleccione el género</option>
                   <% generos.forEach(genero=> { %>
-                    <option value="<%= genero.id %> " <%=locals.old && locals.old.genreId===genero.id ? 'selected' : null%>><%= genero.name %>
+                    <option value="<%= genero.id %> " <%=locals.old && locals.old.genreId===genero.id ? 'selected' : null%> ><%= genero.name %>
                     </option>
                     <% }) %>
                 </select>

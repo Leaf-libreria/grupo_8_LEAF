@@ -4,8 +4,8 @@ const path = require("path");
 //Validaciones para CRUD productos
 const addValidator = require("../validations/addProductValidator");
 const editValidator = require("../validations/editProductValidator");
-const addAuthorValidator = require("../validations/addAuthorValidator");
-const addGenreEditorialValidator = require("../validations/addGenreEditorialValidator");
+const authorValidator = require("../validations/addAuthorValidator");
+const genreEditorialValidator = require("../validations/addGenreEditorialValidator");
 const addCarouselImageValidator = require("../validations/addCarouselImageValidator");
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
@@ -57,30 +57,30 @@ const {
   thriller,
   fantasia,
   addImages,
+  authorList,
   addAuthorPost,
   addAuthorGet,
-  addGenreGet,
-  addGenrePost,
+  editAuthorPut,
+  editAuthorGet,
+  deleteAuthor,
   addEditorialGet,
   addEditorialPost,
-authorList,
-editAuthorPut,
-editAuthorGet,
-deleteAuthor,
-editEditorialPut,
-deleteEditorial,
-editEditorialGet,
-editorialList,
-genreList,
-editGenreGet,
-editGenrePut,
-deleteGenre,
-addPaymentGet,
-addPaymentPost,
-paymentMethodList,
-editPaymentGet,
-editPaymentPut,
-deletePayment,
+  editEditorialPut,
+  deleteEditorial,
+  editEditorialGet,
+  editorialList,
+  addGenreGet,
+  addGenrePost,
+  genreList,
+  editGenreGet,
+  editGenrePut,
+  deleteGenre,
+  addPaymentGet,
+  addPaymentPost,
+  paymentMethodList,
+  editPaymentGet,
+  editPaymentPut,
+  deletePayment,
   addCarouselGet,
   addCarouselPost,
   addPromoGet,
@@ -126,49 +126,27 @@ router.post("/agregarCarrusel", administradorMw, upload.single("carouselImage"),
 router.get("/carruselEditar/:id", administradorMw, editCarouselGet);
 router.put("/carruselEditar/:id",administradorMw, upload.single("carouselImage"),addCarouselImageValidator, editCarouselUpdate);
 router.delete("/carruselBorrar/:id", deleteImageCarousel);
-//Agregar autor, género, editorial, imagen carrusel y publicidad
-router.get("/agregarAutor", administradorMw, addAuthorGet);
-router.post(
-  "/agregarAutor",
-  administradorMw,
-  addAuthorValidator,
-  addAuthorPost
-);
-router.get("/agregarGenero", administradorMw, addGenreGet);
-router.post(
-  "/agregarGenero",
-  administradorMw,
-  addGenreEditorialValidator,
-  addGenrePost
-);
-router.get("/agregarEditorial", administradorMw, addEditorialGet);
-router.post(
-  "/agregarEditorial",
-  addGenreEditorialValidator,
-  administradorMw,
-  addEditorialPost
-);
 
 //CRUD autor
 router.get('/agregarAutor',administradorMw,addAuthorGet);
-router.post('/agregarAutor',administradorMw,addAuthorValidator,addAuthorPost);
+router.post('/agregarAutor',administradorMw,authorValidator,addAuthorPost);
 router.get('/listadoAutores',administradorMw,authorList);
-router.get('/editarAutor/:id',administradorMw,addAuthorValidator,editAuthorGet);
-router.put('/editarAutor/:id',administradorMw,addAuthorValidator,editAuthorPut);
+router.get('/editarAutor/:id',administradorMw,authorValidator,editAuthorGet);
+router.put('/editarAutor/:id',administradorMw,authorValidator,editAuthorPut);
 router.delete('/eliminarAutor/:id',administradorMw,deleteAuthor);
 //CRUD género
 router.get('/agregarGenero',administradorMw,addGenreGet);
-router.post('/agregarGenero',administradorMw,addGenreEditorialValidator,addGenrePost);
+router.post('/agregarGenero',administradorMw,genreEditorialValidator,addGenrePost);
 router.get('/listadoGeneros',administradorMw,genreList);
-router.get('/editarGenero/:id',administradorMw,addGenreEditorialValidator,editGenreGet);
-router.put('/editarGenero/:id',administradorMw,addGenreEditorialValidator,editGenrePut);
+router.get('/editarGenero/:id',administradorMw,genreEditorialValidator,editGenreGet);
+router.put('/editarGenero/:id',administradorMw,genreEditorialValidator,editGenrePut);
 router.delete('/eliminarGenero/:id',administradorMw,deleteGenre);
 //CRUD editorial
 router.get('/agregarEditorial',administradorMw,addEditorialGet);
-router.post('/agregarEditorial',administradorMw,addGenreEditorialValidator,addEditorialPost);
+router.post('/agregarEditorial',administradorMw,genreEditorialValidator,addEditorialPost);
 router.get('/listadoEditorial',administradorMw,editorialList);
-router.get('/editarEditorial/:id',administradorMw,addGenreEditorialValidator,editEditorialGet);
-router.put('/editarEditorial/:id',administradorMw,addGenreEditorialValidator,editEditorialPut);
+router.get('/editarEditorial/:id',administradorMw,genreEditorialValidator,editEditorialGet);
+router.put('/editarEditorial/:id',administradorMw,genreEditorialValidator,editEditorialPut);
 router.delete('/eliminarEditorial/:id',administradorMw,deleteEditorial);
 
 //Agregar publicidad
@@ -191,10 +169,10 @@ router.get("/juvenil", juvenil);
 
 //CRUD métodos de pago
 router.get('/agregarMetodoPago',administradorMw,addPaymentGet);
-router.post('/agregarMetodoPago',administradorMw,addGenreEditorialValidator,addPaymentPost);
+router.post('/agregarMetodoPago',administradorMw,genreEditorialValidator,addPaymentPost);
 router.get('/listadoMetodosPago',administradorMw,paymentMethodList);
-router.get('/editarMetodosPago/:id',administradorMw,addGenreEditorialValidator,editPaymentGet);
-router.put('/editarMetodosPago/:id',administradorMw,addGenreEditorialValidator,editPaymentPut);
+router.get('/editarMetodosPago/:id',administradorMw,genreEditorialValidator,editPaymentGet);
+router.put('/editarMetodosPago/:id',administradorMw,genreEditorialValidator,editPaymentPut);
 router.delete('/eliminarMetodosPago/:id',administradorMw,deletePayment);
 
 //Ruta vista libros por autor
