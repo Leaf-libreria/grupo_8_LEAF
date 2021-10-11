@@ -14,7 +14,7 @@
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
-          <form action="/products/agregar" method="POST" class="formulario" enctype="multipart/form-data" novalidate>
+          <form action="/products/agregar" method="POST" id="add-product-form" class="formulario" enctype="multipart/form-data" novalidate>
             <div class="titulo">
               <label for="title">Título del libro:</label>
               <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos"
@@ -225,6 +225,9 @@
                 </span>
               </div>
             </div>
+            <br>
+            <!-- previsualiza imagen -->
+            <div id="image-render"><img  id="image"></div>
             <!-- seccion de sinopsis -->
             <div class="sinopsis">
               <label for="synopsis">Sinopsis:</label>
@@ -248,6 +251,7 @@
       </main>
       <!-- ----scripts ----->
       <%-include('../partials/scripts') %>
+      <script src="/javascripts/addProductRenderImage.js"></script>
         <!-- ----scripts---- -->
   </body>
 
