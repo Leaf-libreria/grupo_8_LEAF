@@ -3,21 +3,18 @@ let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\�
 
 window.addEventListener('load', () => {
 
-    let listEmails;
     const emailVerify = async () => {
         try {
 
             const response = await fetch("/api/users/emails");
             const result = await response.json();
-            return result;
+            return result.emails;
         } catch (error) {
             console.log(error);
         }
     }
 
-    emailVerify().then(array => {
-        listEmails = array
-    })
+    emailVerify()
 
     const form = document.getElementById('formLogin');
 
@@ -25,33 +22,33 @@ window.addEventListener('load', () => {
 
     const pass = document.getElementById('password');
 
-    email.addEventListener('keyup', (e) => {
+    email.addEventListener('keyup', () => {
 
         if (email.value == '') {
-            document.getElementById('errorEmail').innerHTML = "El email es obligatorio"
-            email.classList.add('text-danger small')
+            document.getElementById('errorEmail').innerText = "El email es obligatorio"
+            email.classList.add('text-danger')
 
         } else if (!regExEmail.test(email.value)) {
-            document.getElementById('errorEmail').innerHTML = "Debes ingresar un email vàlido"
-            email.classList.add('text-danger small')
+            document.getElementById('errorEmail').innerText = "Debes ingresar un email vàlido"
+            email.classList.add('text-danger')
 
-        } else if (!listEmails.includes(email.value)) {
-            document.getElementById('errorEmail').innerHTML = "Èste email no està registrado"
-            email.classList.add('text-danger small')
+        } else if (!email.value) {
+            document.getElementById('errorEmail').innerText = "Èste email no està registrado"
+            email.classList.add('text-danger')
         } else {
-            document.getElementById('errorEmail').innerHTML = null;
-            email.classList.remove('text-danger small')
+            document.getElementById('errorEmail').innerText = null;
+            email.classList.remove('text-danger')
         }
     })
 
-    pass.addEventListener('keyup', (e) => {
+    pass.addEventListener('keyup', () => {
 
         if (pass.value == '') {
-            document.getElementById('errorPassword').innerHTML = 'La contraseña es obligatoria'
-            pass.classList.add('text-danger small')
+            document.getElementById('errorPassword').innerText = 'La contraseña es obligatoria'
+            pass.classList.add('text-danger')
         } else {
-            document.getElementById('errorPassword').innerHTML = null
-            pass.classList.remove('text-danger small')
+            document.getElementById('errorPassword').innerText = null
+            pass.classList.remove('text-danger')
         }
     })
 form.addEventListener('submit', e => {
@@ -63,8 +60,8 @@ form.addEventListener('submit', e => {
     for (let i = 0; i < elementosForm.length - 1; i++) {
         
         if(!elementosForm[i].value){
-            elementosForm[i].classList.add('text-danger small')
-            document.getElementById('errorEmpty').innerHTML = 'Los campos señalados son obligatorios';
+            elementosForm[i].classList.add('text-danger')
+            document.getElementById('errorEmpty').innerText = 'Los campos señalados son obligatorios';
             error = true
         }
     }
