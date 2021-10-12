@@ -47,16 +47,17 @@
         </div>
 
         <main class="main-login">
-          <form action="" method="POST" novalidate>
+          <form action="" method="POST" id="formLogin" novalidate>
             <a href="/"><i class="fas fa-angle-double-left"></i> Home</a>
             <h2>Ingresa a tu cuenta</h2>
-
+<span id="errorEmpty"></span>
             <div class="ingresar">
               <label for="email">Correo electrónico</label><input class="datos" type="email" name="email" id="email"
                 placeholder="nombre@correo.com" value="<%= locals.old && locals.old.email ? old.email : null%>">
             </div>
             <!-- Posibles errores -->
-            <span class="text-danger small">
+<span id="errorEmail"></span>
+            <span class="text-danger">
               <%= locals.errores && locals.errores.email ? errores.email.msg : null %>
             </span>
 
@@ -64,22 +65,18 @@
               <label for="password">Ingresar contraseña</label><input class="datos" type="password" name="password"
                 id="password" placeholder="Contraseña">
             </div>
-
+<!-- Posible error -->
+<span id="errorPassword"></span>
+<span class="text-danger">
+  <%= locals.errores && locals.errores.password ? errores.password.msg : null %>
+</span>
             <!-- recordarme -->
-
             <div class="d-flex justify-content-end">
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
                 <label class="form-check-label" for="exampleCheck1">Recordarme</label>
               </div>
             </div>
-
-
-            <!-- Posible error -->
-            <span class="text-danger small">
-              <%= locals.errores && locals.errores.password ? errores.password.msg : null %>
-            </span>
-
             <span class="olvidar"><a href="">¿Olvidaste tu contraseña?</a></span>
             <br />
             <button type="submit" class="submit">INICIAR SESIÓN</button>
@@ -94,6 +91,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"></script>
+        <script src="/javascripts/loginFrontValidator.js"></script>
   </body>
 
 </html>

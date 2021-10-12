@@ -21,7 +21,7 @@
                 value="<%= locals.old && locals.old.title? old.title: null%>">
               <div class="error">
                 <!-- Posibles errores -->
-                <span>
+                <span id="titleError">
                   <%= locals.errores && locals.errores.title ? errores.title.msg : null %>
                 </span>
               </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="error">
                   <!-- Posibles errores -->
-                  <span>
+                  <span id="isbnError">
                     <%= locals.errores && locals.errores.isbn ? errores.isbn.msg : null %>
                   </span>
                 </div>
@@ -47,7 +47,7 @@
 
                 <div class="error">
                   <!-- Posibles errores -->
-                  <span>
+                  <span id="stockError">
                     <%= locals.errores && locals.errores.stock ? errores.stock.msg : null %>
                   </span>
                 </div>
@@ -67,7 +67,7 @@
               </select>
               <div class="error">
                 <!-- Posibles errores -->
-                <span>
+                <span id="formatError">
                   <%= locals.errores && locals.errores.formatId ? errores.formatId.msg : null %>
                 </span>
               </div>
@@ -85,7 +85,7 @@
               </select>
               <div class="error">
                 <!-- Posibles errores -->
-                <span>
+                <span id="categoryError">
                   <%= locals.errores && locals.errores.categoryId ? errores.categoryId.msg : null %>
                 </span>
               </div>
@@ -96,7 +96,7 @@
             <section class="autor">
               <label for="author">Autor/Autora:</label>
               <div class="otroAutor">
-                <select name="authorId" id="format" class="grid">
+                <select name="authorId" id="author" class="grid">
                   <option value="" hidden selected>Seleccione el autor</option>
                   <% autores.forEach(autor=> { %>
                     <option value="<%= autor.id %> " <%=locals.old && locals.old.authorId === autor.id ? 'selected' :
@@ -107,7 +107,7 @@
               </div>
               <div class="error">
                 <!-- Posibles errores -->
-                <span>
+                <span id="authorError">
                   <%= locals.errores && locals.errores.authorId ? errores.authorId.msg : null %>
                 </span>
               </div>
@@ -117,7 +117,7 @@
             <section class="editorial">
               <label for="editorial">Editorial:</label>
               <div class="otraEditorial">
-                <select name="editorialId" id="format" class="grid">
+                <select name="editorialId" id="editorial" class="grid">
                   <option value="" hidden selected>Seleccione la editorial</option>
                   <% editoriales.forEach(editorial=> { %>
                     <option value="<%= editorial.id %> " <%=locals.old && locals.old.editorialId===editorial.id ? 'selected'
@@ -128,7 +128,7 @@
 
                 <div class="error">
                   <!-- Posibles errores -->
-                  <span>
+                  <span id="editorialError"> 
                     <%= locals.errores && locals.errores.editorialId ? errores.editorialId.msg : null %>
                   </span>
                 </div>
@@ -149,7 +149,7 @@
   </select>
   <div class="error">
     <!-- Posibles errores -->
-    <span>
+    <span id="starError">
       <%= locals.errores && locals.errores.starId ? errores.starId.msg : null %>
     </span>
   </div>
@@ -159,17 +159,17 @@
             <section class="genero">
               <label for="genre">Género</label>
               <div class="otroGenero">
-                <select name="genreId" id="format" class="grid">
+                <select name="genreId" id="genre" class="grid">
                   <option value="" hidden selected>Seleccione el género</option>
                   <% generos.forEach(genero=> { %>
-                    <option value="<%= genero.id %> " <%=locals.old && locals.old.genreId===genero.id ? 'selected' : null%>><%= genero.name %>
+                    <option value="<%= genero.id %> " <%=locals.old && locals.old.genreId===genero.id ? 'selected' : null%> ><%= genero.name %>
                     </option>
                     <% }) %>
                 </select>
               </div>
               <div class="error">
                 <!-- Posibles errores -->
-                <span>
+                <span id="genreError">
                   <%= locals.errores && locals.errores.genreId ? errores.genreId.msg : null %>
                 </span>
               </div>
@@ -184,7 +184,7 @@
                   value="<%= locals.old && locals.old.price ? old.price: null%>">
                 <div class="error">
                   <!-- Posibles errores -->
-                  <span>
+                  <span id="priceError">
                     <%= locals.errores && locals.errores.price ? errores.price.msg : null %>
                   </span>
                 </div>
@@ -196,7 +196,7 @@
                   value="<%= locals.old && locals.old.pages? old.pages: null%>">
                 <div class="error">
                   <!-- Posibles errores -->
-                  <span>
+                  <span id="pagesError">
                     <%= locals.errores && locals.errores.pages ? errores.pages.msg : null %>
                   </span>
                 </div>
@@ -210,7 +210,7 @@
                 placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: null%></textarea>
               <div class="error">
                 <!-- Posibles errores -->
-                <span>
+                <span id="sloganError">
                   <%= locals.errores && locals.errores.slogan ? errores.slogan.msg : null %>
                 </span>
               </div>
@@ -220,7 +220,7 @@
               <label for="cover">Imagen de portada:</label>
               <input class="file" type="file" name="cover" id="cover">
               <div class="error">
-                <span>
+                <span id="coverError">
                   <%= locals.errores && locals.errores.cover ? errores.cover.msg : null %>
                 </span>
               </div>
@@ -235,12 +235,12 @@
                 rows="10"><%= locals.old && locals.old.synopsis ? old.synopsis: null%></textarea>
               <div class="error">
                 <!-- Posibles errores -->
-                <span>
+                <span id="synopsisError">
                   <%= locals.errores && locals.errores.synopsis ? errores.synopsis.msg : null %>
                 </span>
               </div>
+              <span id="addErrores"></span>
             </div>
-            <p>*Todos los campos son obligatorios</p>
             <!--BOTONES-->
             <section class="botones d-grid gap-2 d-md-block">
               <button type="submit" class="btn-guardar">AGREGAR</button>
@@ -252,6 +252,7 @@
       <!-- ----scripts ----->
       <%-include('../partials/scripts') %>
       <script src="/javascripts/addProductRenderImage.js"></script>
+      <script src="/javascripts/createProductFrontValidator.js"></script>
         <!-- ----scripts---- -->
   </body>
 

@@ -151,18 +151,6 @@ module.exports = {
     let relacionados = db.Book.findAll({
       include: [
         {
-          association: "categoria",
-        },
-        {
-          association: "editorial",
-        },
-        {
-          association: "estrella",
-        },
-        {
-          association: "formato",
-        },
-        {
           association: "autor",
         },
         {
@@ -176,7 +164,7 @@ module.exports = {
           title: "LEAF | Detalle",
           producto,
           generos,
-          relacionados,
+          relacionados,          
         });
       })
       .catch((error) => console.log(error));
