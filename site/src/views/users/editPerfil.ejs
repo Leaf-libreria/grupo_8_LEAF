@@ -45,25 +45,29 @@
                             <label for="imagenPerfil" class="form-label">Cambiar imagen</label>
                             <input type="file" class="form-control" id="imagenPerfil" name="image">
                         </div>
+                        <!-- errores -->
+                        <span class="text-danger small ">
+                            <%= locals.errores && locals.errores.image ? errores.image.msg :null %>
+                        </span>
                             <!-- previsualiza imagen -->
             <div id="image-render"><img  id="image"></div>
                         <!-- NICK -->
-                        <div class="nombre"><label for="nickname">NickName</label><input type="nickname" name="nickname"
+                        <div class="nombre"><label for="nickname">NickName</label><input type="text" name="nickname"
                                 id="nickname"
-                                value="<%= locals.old && locals.old.nickname ? old.nickName : user.nickname %> ">
+                                value="<%= locals.old && locals.old.nickname ? old.nickname : user.nickname %> ">
                             <span class="text-danger small">
                                 <%= locals.errores && locals.errores.nickname ? errores.nickname.msg :null %>
                             </span>
 
                         </div>
-                        <div class="nombre"><label for="nombre">Nombre(s)</label><input type="nombre" name="name"
+                        <div class="nombre"><label for="nombre">Nombre(s)</label><input type="text" name="name"
                                 id="nombre" value="<%= locals.old && locals.old.name ? old.name : user.name %> ">
                         </div>
                         <span class="text-danger small">
                             <%= locals.errores && locals.errores.name ? errores.name.msg :null %>
                         </span>
 
-                        <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="apellido"
+                        <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="text"
                                 name="lastname" id="apellido"
                                 value="<%= locals.old && locals.old.lastname ? old.lastname : user.lastname %> ">
                         </div>

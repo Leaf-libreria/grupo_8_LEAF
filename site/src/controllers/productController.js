@@ -941,12 +941,11 @@ deleteEditorial: (req, res) => {
       }
     );
   } else {
-    req.file
-      ? (file) =>
-          fs
-            .unlinkSync(path.join(__dirname, file))
-            .deleteFile(`../public/images/${req.file.filename}`)
-      : null;
+    //metodo para borrar imagenes si hay error
+    if (req.file) {
+      let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
+      fs.unlinkSync(borrarImage);
+    }
       db.carouselImage.findByPk(req.params.id)
       .then(image => {
         return res.render('./products/editarCarousel',{
@@ -1006,6 +1005,9 @@ deleteEditorial: (req, res) => {
       include: [
         {
           association: "categoria",
+        },
+        {
+          association: "cart",
         },
         {
           association: "editorial",

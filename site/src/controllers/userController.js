@@ -112,12 +112,10 @@ module.exports = {
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      User.findByPk(req.params.id).then((user) => {
-        user;
-      });
+     
       User.update(
         {
-          email: req.body.email.trim(),
+         
           name: req.body.name.trim(),
           lastname: req.body.lastname.trim(),
           nickname: req.body.nickname
@@ -130,27 +128,28 @@ module.exports = {
             id: req.params.id,
           },
         }
-      );
-      User.findByPk(req.body.id)
-        .then((user) => {
+      )
+        .then(() => {
           res.redirect("/");
         })
         .catch((error) => console.log(error));
     } else {
-      req.file
-        ? (file) =>
-            fs
-              .unlinkSync(path.join(__dirname, file))
-              .deleteFile(`../public/images/${req.file.filename}`)
-        : null;
-      User.findByPk(req.params.id).then((user) => {
+      //metodo para borrar imagenes si hay error
+      if (req.file) {
+        let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
+        fs.unlinkSync(borrarImage);
+      }
+      User.findByPk(req.params.id)
+      .then((user) => {
         return res.render("./users/editPerfil", {
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Registro",
           user,
         });
-      });
+      })
+      .catch((error) => console.log(error))
+
     }
   },
   actualizarImagen: (req, res) => {

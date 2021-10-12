@@ -46,11 +46,6 @@ router.post(
 );
 router.get("/perfil/:id", logueados, perfil);
 router.get("/editarPerfil/:id", logueados, editarPerfil);
-router.put(
-  "/editarPerfil/:id",
-  upload.single("image"),
-  changeProfile,
-  cambiarPerfil
-);
+router.put("/editarPerfil/:id",upload.single("image"),changeProfile,cambiarPerfil);
 router.get("/logout", cerrarSesion);
 module.exports = router;
