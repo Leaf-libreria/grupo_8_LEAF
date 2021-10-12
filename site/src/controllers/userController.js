@@ -23,6 +23,7 @@ module.exports = {
           req.session.userLogin = {
             id: user.id,
             name: user.name,
+            nickname: user.nickname ? user.nickname : null,
             rol: user.rolId,
             image: user.image,
           };
@@ -65,6 +66,7 @@ module.exports = {
           req.session.userLogin = {
             id: user.id,
             name: user.name,
+            nickname: user.nickname ? user.nickname : null,
             rol: user.rolId,
             image: user.image,
           };
@@ -118,9 +120,7 @@ module.exports = {
          
           name: req.body.name.trim(),
           lastname: req.body.lastname.trim(),
-          nickname: req.body.nickname
-            ? req.body.nickname.trim()
-            : user.nickname,
+          nickname: req.body.nickname ? req.body.nickname.trim() : null,
           image: req.file ? req.file.filename : req.body.image,
         },
         {
