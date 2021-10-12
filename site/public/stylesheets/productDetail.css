@@ -17,6 +17,11 @@ color: #212529;
 text-decoration: underline;
 }
 
+.detail .otros a:hover{
+color: #212529;
+text-decoration: underline;
+}
+
 .detail .producto .comprar {
   background-color: var(--color-bordo);
   color: var(--color-amarillo);
