@@ -311,7 +311,7 @@ module.exports = {
           categoryId: req.body.categoryId,
           editorialId: req.body.editorialId,
           starId: req.body.starId,
-          cover: req.file ? req.file.filename : "default-image-book.png",
+          cover: req.file ? req.file.filename : productEdit.cover,
         },
         {
           where: {

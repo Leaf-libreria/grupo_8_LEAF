@@ -219,7 +219,7 @@
             <div class="portada">
               <label for="cover">Imagen de portada:</label>
               <input class="file" type="file" name="cover" id="cover">
-              <div class="error">
+              <div class="error error-coverGral">
                 <span id="coverError">
                   <%= locals.errores && locals.errores.cover ? errores.cover.msg : null %>
                 </span>
@@ -239,8 +239,8 @@
                   <%= locals.errores && locals.errores.synopsis ? errores.synopsis.msg : null %>
                 </span>
               </div>
-              <span id="addErrores"></span>
             </div>
+            <span id="addErrores"></span>
             <!--BOTONES-->
             <section class="botones d-grid gap-2 d-md-block">
               <button type="submit" class="btn-guardar">AGREGAR</button>
