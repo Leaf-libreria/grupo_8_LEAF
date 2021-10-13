@@ -144,6 +144,7 @@ window.addEventListener('load', () => {
     if(!coverAddBook.value){
         coverError.innerText = 'Campo obligatorio'
     }
+    
 })
 coverAddBook.addEventListener('focus', ()=>{
 coverError.innerText= 'Debes seleccionar una imagen'
@@ -169,7 +170,7 @@ synopsisAddBook.addEventListener('keyup', () => {
 
     for (let i = 0; i < elementosForm.length; i++) {
         
-        if(!elementosForm[i].value){
+        if(elementosForm[i].value){
             elementosForm[i].innerHTML =('Campo obligatorio')
             elementosForm[i].classList.add('text-danger')
 
