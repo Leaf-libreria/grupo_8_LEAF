@@ -130,7 +130,16 @@ module.exports = {
         }
       )
         .then(() => {
-          res.redirect("/");
+          req.session.userLogin = {
+            id : req.session.userLogin.id,
+            name : req.body.name,
+            image: req.file ? req.file.filename : req.session.userLogin.image,
+            rol:req.session.userLogin.rol,
+            email:req.session.userLogin.email,
+          }
+          
+          res.redirect("/")
+           
         })
         .catch((error) => console.log(error));
     } else {

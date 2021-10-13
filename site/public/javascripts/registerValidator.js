@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
 
     //campo email
 
-    $('email').addEventListener('blur', async() => {
+    $('email').addEventListener('keyup', async() => {
         if (!regexEmail.test($('email').value)) {
             $('email').classList.add('is-invalid');
             $('error-email').innerHTML = "Debes ingresar un email valido";
@@ -55,7 +55,7 @@ window.addEventListener("load", function () {
     })
 
     //campo nombre
-    $('name').addEventListener('blur', () => {
+    $('name').addEventListener('keyup', () => {
         if (!$('name').value.trim()) {
             $('name').classList.add('is-invalid')
             $('error-name').innerHTML = "El nombre es obligatorio"
@@ -72,7 +72,7 @@ window.addEventListener("load", function () {
     })
 
     //campo apellido
-    $('lastname').addEventListener('blur', () => {
+    $('lastname').addEventListener('keyup', () => {
         if (!$('lastname').value.trim()) {
             $('lastname').classList.add('is-invalid')
             $('error-lastname').innerHTML = "El apellido es obligatorio"
@@ -118,7 +118,7 @@ window.addEventListener("load", function () {
    
 
     //campo contraseña
-    $('password').addEventListener('blur', () => {
+    $('password').addEventListener('keyup', () => {
         if (!$('password').value) {
             $('requisitos-password').innerHTML = "La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un carácter especial (#?!@$%^&*-)"
         }
@@ -134,7 +134,7 @@ window.addEventListener("load", function () {
     })
 
     //campo confirmar contraseña
-    $('confirmarContrasenia').addEventListener('blur', () => {
+    $('confirmarContrasenia').addEventListener('keyup', () => {
         if ($('password').value.trim() !== $('confirmarContrasenia').value.trim()) {
             $('confirmarContrasenia').classList.add('is-invalid')
             $('error-confirmarContrasenia').innerHTML = "Las contraseñas no coinciden"
@@ -160,14 +160,7 @@ window.addEventListener("load", function () {
         let elementosForm = formRegister.elements;
         let error = false;
 
-        for (let i = 0; i < elementosForm.length - 1; i++) {
-            if (elementosForm[i].value) {
-                elementosForm[i].classList.add('is-invalid')
-                $('error-general').innerHTML = 'Los campos señalados son obligatorios';
-                error = true;
-            }
-
-        }
+      
         //campo de politicas
         if (!$('politicas').checked) {
             $('politicas').classList.add('is-invalid')
