@@ -15,16 +15,19 @@ window.addEventListener('load', () => {
     let sloganAddBook = document.getElementById('slogan');
     let coverAddBook = document.getElementById('cover');
     let synopsisAddBook = document.getElementById('synopsis');
-
+    let titleError=document.getElementById('titleError')
+    let coverError=document.getElementById('coverError')
 
     titleAddBook.addEventListener('keyup', () => {
         if (titleAddBook.value == '') {
-            document.getElementById('titleError').innerText = "Campo obligatorio"
+            titleError.innerText = "Campo obligatorio"
         } else {
-            document.getElementById('titleError').innerText = null
+            titleError.innerText = null
         }
         if (titleAddBook.value.trim().length < 2) {
-            document.getElementById('titleError').innerText = "Debes ingresar minimo 2 caracteres"
+            titleError.innerText = "Debes ingresar minimo 2 caracteres"
+        }else {
+            titleError.innerText = null
         }
     })
     isbnAddBook.addEventListener('keyup', () => {
@@ -44,53 +47,71 @@ window.addEventListener('load', () => {
     formatAddBook.addEventListener('focus', () => {
         if (formatAddBook.value == '') {
             document.getElementById('formatError').innerText = "Campo obligatorio"
-        } else {
-            document.getElementById('formatError').innerText = null
         }
     })
+    formatAddBook.addEventListener('change',()=>{
+            if (formatAddBook.value !== ''){
+                document.getElementById('formatError').innerText = null
+            }
+        })
     categoryAddBook.addEventListener('focus', () => {
         if (categoryAddBook.value == '') {
             document.getElementById('categoryError').innerText = "Campo obligatorio"
-        } else {
-            document.getElementById('categoryError').innerText = null
-        }
+        } 
     })
+    categoryAddBook.addEventListener('change',()=>{
+            if (categoryAddBook.value !== ''){
+                document.getElementById('categoryError').innerText = null
+            }
+        })
     authorAddBook.addEventListener('focus', () => {
         if (authorAddBook.value == '') {
             document.getElementById('authorError').innerText = "Campo obligatorio"
-        } else {
-            document.getElementById('authorError').innerText = null
-        }
+        } 
     })
+    authorAddBook.addEventListener('change',()=>{
+            if (authorAddBook.value !== ''){
+                document.getElementById('authorError').innerText = null
+            }
+        })
     editorialAddBook.addEventListener('focus', () => {
         if (editorialAddBook.value == '') {
             document.getElementById('editorialError').innerText = "Campo obligatorio"
-        } else {
-            document.getElementById('editorialError').innerText = null
-        }
+        } 
     })
+    editorialAddBook.addEventListener('change',()=>{
+            if (editorialAddBook.value !== ''){
+                document.getElementById('editorialError').innerText = null
+            }
+        })
     starsAddBook.addEventListener('focus', () => {
         if (starsAddBook.value == '') {
             document.getElementById('starError').innerText = "Campo obligatorio, sólo números"
-        } else {
-            document.getElementById('starError').innerText = null
-        }
+        } 
     })
+    starsAddBook.addEventListener('change',()=>{
+            if (starsAddBook.value !== ''){
+                document.getElementById('starError').innerText = null
+            }
+        })
     genreAddBook.addEventListener('focus', () => {
         if (genreAddBook.value == '') {
             document.getElementById('genreError').innerText = "Campo obligatorio"
-        } else {
-            document.getElementById('genreError').innerText = null
-        }
+        } 
     })
-    priceAddBook.addEventListener('focus', () => {
+    genreAddBook.addEventListener('change',()=>{
+            if (genreAddBook.value !== ''){
+                document.getElementById('genreError').innerText = null
+            }
+        })
+    priceAddBook.addEventListener('keyup', () => {
         if (priceAddBook.value == '') {
             document.getElementById('priceError').innerText = "Campo obligatorio, sólo números"
         } else {
             document.getElementById('priceError').innerText = null
         }
     })
-    pagesAddBook.addEventListener('focus', () => {
+    pagesAddBook.addEventListener('keyup', () => {
         if (pagesAddBook.value == '') {
             document.getElementById('pagesError').innerText = "Campo obligatorio, sólo números"
         } else {
@@ -116,14 +137,18 @@ window.addEventListener('load', () => {
         if (coverAddBook.value) {
 
             if (!allowedExtensions.exec(fileRoute)) {
-                document.getElementById('coverError').innerText = 'Las extensiones de archivo permitidas son .jpg/.jpeg/.png/.gif'
+                coverError.innerText = 'Las extensiones de archivo permitidas son .jpg/.jpeg/.png/.gif'
                 return true
             }
         }
     if(!coverAddBook.value){
-        document.getElementById('coverError').innerText = 'Campo obligatorio'
+        coverError.innerText = 'Campo obligatorio'
     }
 })
+coverAddBook.addEventListener('focus', ()=>{
+coverError.innerText= 'Debes seleccionar una imagen'
+})
+
 synopsisAddBook.addEventListener('keyup', () => {
         if (synopsisAddBook.value == '') {
             document.getElementById('synopsisError').innerText = "Campo obligatorio"
@@ -139,14 +164,16 @@ synopsisAddBook.addEventListener('keyup', () => {
     formAddBook.addEventListener('submit', e => {
     e.preventDefault();
 
-    let elementosForm = formAddBook.elements;
+    let elementosForm = document.querySelectorAll('div.error');
     let error = false;
 
-    for (let i = 0; i < elementosForm.length - 1; i++) {
+    for (let i = 0; i < elementosForm.length; i++) {
         
         if(!elementosForm[i].value){
+            elementosForm[i].innerHTML =('Campo obligatorio')
             elementosForm[i].classList.add('text-danger')
-            document.getElementById('addErrores').innerText = 'Todos los campos señalados son obligatorios';
+
+            document.getElementById('addErrores').innerText = '*Todos los campos señalados son obligatorios';
             error = true
         }
     }
