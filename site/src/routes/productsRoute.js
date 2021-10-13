@@ -8,6 +8,7 @@ const addAuthorValidator = require("../validations/addAuthorValidator");
 const addGenreEditorialValidator = require("../validations/addGenreEditorialValidator");
 const addCarouselImageValidator = require("../validations/addCarouselImageValidator");
 const payFormValidator = require("../validations/payFormValidator");
+const addPromoValidator = require("../validations/addPromoValidator")
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
 //middleware acceso usuarios logueados
@@ -86,13 +87,15 @@ deletePayment,
   addCarouselPost,
   addPromoGet,
   addPromoPost,
+  editPromoGet,
+  editPromoPut,
+  deletePromo,
   editCarouselGet,
   editCarouselUpdate,
   deleteImageCarousel,
   commonViews,
   viewEditorials,
-  pagoCard,
-  promoList
+  pagoCard
 } = require("../controllers/productController");
 
 // /products
@@ -175,12 +178,11 @@ router.put('/editarEditorial/:id',administradorMw,addGenreEditorialValidator,edi
 router.delete('/eliminarEditorial/:id',administradorMw,deleteEditorial);
 
 //CRUD publicidad
-router.get('/agregarPublicidad',administradorMw, addPromoGet);
-router.post('/agregarPublicidad',administradorMw,upload.single("promoImage"),addPromoPost);
-router.get('/listadoPublicidad',administradorMw,promoList);
-/* router.get("/editarPublicidad/:id",administradorMw,editPromoGet) */
-/* router.put("/editarPublicidad/:id",administradorMw,editPromoPut); */
-/* router.delete('/eliminarPublicidad/:id',administradorMw,deletePromo); */
+router.get('/listadoPublicidad',administradorMw, addPromoGet);
+router.post('/listadoPublicidad',administradorMw, upload.single("promos"),addPromoValidator, addPromoPost);
+router.get("/editarPublicidad/:id",administradorMw, editPromoGet);
+router.put("/editarPublicidad/:id",administradorMw, upload.single("promos"), addPromoValidator,editPromoPut);  
+router.delete('/eliminarPublicidad/:id',administradorMw,deletePromo);  
 
 
 //Carrito y formulario de pago

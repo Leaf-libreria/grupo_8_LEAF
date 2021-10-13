@@ -1,7 +1,6 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
 const generos = db.Genre.findAll();
-const promos = db.Promo.findAll();
 const path = require("path");
 const fs = require('fs');
 
@@ -842,7 +841,7 @@ deleteEditorial: (req, res) => {
   // mostrar vista para agregar carrusel
   addCarouselGet: (req, res) => {
     let errors = validationResult(req);
-   let primerImage = db.carouselImage.findOne({
+   let primerImage = db.carouselImage.findOne({ 
       where: {
         id: 1,
       },
@@ -969,18 +968,29 @@ deleteEditorial: (req, res) => {
       .then(() => res.redirect("/products/administrador"))
       .catch((error) => console.log(error));
   },
+  /* sección de publicidad */
   addPromoGet: (req, res) => {
     let errors = validationResult(req);
-    promos
-      .then(() => {
-        return res.render("./products/addPromoImage", {
-          errores: errors.mapped(),
-          old: req.body,
-          title: "LEAF | Administrador",
-        });
-      })
-      .catch((error) => console.log(error));
+      let primerPromo = db.Promo.findOne({
+        where: {
+          id: 1,
+        },
+      });
+      let imagesPromos = db.Promo.findAll();
+      let generos = db.Genre.findAll();
+      Promise.all([primerPromo,imagesPromos,generos]).then(
+        ([primerPromo,imagesPromos,generos]) => {
+          return res.render("./products/promoList", {
+            title: "Listado de publicidades",
+            primerPromo,
+            imagesPromos,
+            generos,
+            errors
+          });
+        }
+      )
   },
+
   addPromoPost: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -990,66 +1000,79 @@ deleteEditorial: (req, res) => {
         .then(() => res.redirect("/products/administrador"))
         .catch((error) => console.log(error));
     } else {
-      let errors = validationResult(req);
-      promos
-        .then(() => {
-          return res.render("./products/addEditorial", {
+      let primerPromo = db.Promo.findOne({
+        where: {
+          id: 1,
+        },
+      });
+      let imagesPromos = db.Promo.findAll();
+      let generos = db.Genre.findAll();
+      Promise.all([primerPromo,imagesPromos,generos]).then(
+        ([primerPromo,imagesPromos,generos]) => {
+          return res.render("./products/promoList", {
+            title: "Listado de publicidades",
+            primerPromo,
+            imagesPromos,
+            generos,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
           });
-        })
+        }
+      )
         .catch((error) => console.log(error));
     }
   },
-  promoList:(req,res) =>{
-    promos
-    .then(() => {
-      return res.render("./products/promoList",{
-        title: "LEAF | Administrador",
-        promos
-      })
-    })
-    .catch(error =>console.log(error));
-  },
   editPromoGet:(req,res) =>{
-    promos
-    let promo = db.Promo.findByPk(req.params.id)
-    Promise.all(promos)
-    .then((promos) => {
-      return res.render('./products/editPromo',{
-        title: "LEAF | Administrador",
-        promos,
-        old: req.body
+    let image = db.Promo.findByPk(req.params.id)
+    .then(image => {
+      return res.render('./products/promoListEdit',{
+        title: "Editando publicidad",
+        image,
       })
     })
     .catch(error => console.log(error))
   },
   editPromoPut:(req,res) =>{
     let errors = validationResult(req);
-    if(errors.isEmpty()){
-      db.Promo.update({
-        promo:req.body.promo.trim()
+
+    if (errors.isEmpty()) {
+    db.Promo.update({
+      promoImage: req.file ? req.file.filename : req.body.image
+    },{
+      where: {
+        id: req.params.id
       },
-      {
-        where:{
-          id:req.params.id
-        }
-      })
-      .then(() =>{
-        return res.redirect("/products/promoList");
-      }).catch(error => console.log(error))
-    }else{
-      db.Promo.findByPk(req.params.id)
-      .then((promo) =>{
-        return res.render("./products/editPromo",{
-          promos,
-          errores: errors.mapped(),
-          old:req.body,
-          title:"LEAF | Administrador"
-        })
-      })
     }
+    );
+    let primerPromo = db.Promo.findOne({
+      where: {
+        id: 1,
+      },
+    });
+    let imagesPromos = db.Promo.findAll();
+    let generos = db.Genre.findAll({});
+    Promise.all([primerPromo, imagesPromos, generos]).then(
+      ([primerPromo, imagesPromos, generos]) => {
+        return res.redirect("/products/listadoPublicidad", {
+          title: "Imagenes de publicidad",
+          primerPromo,
+          imagesPromos,
+          generos,
+        });
+      }
+    );
+  } else {
+      db.Promo.findByPk(req.params.id)
+      .then(image => {
+        return res.render('./products/promoListEdit',{
+        errores: errors.mapped(),
+        old: req.body,
+        title: "LEAF | Editando publicidad",
+        image,
+      });
+    });
+  }
   },
   deletePromo:(req,res) =>{
     db.Promo.destroy({
@@ -1057,7 +1080,7 @@ deleteEditorial: (req, res) => {
         id: req.params.id,
       },
     })
-    .then(() => res.redirect("/products/promoList"))
+    .then(() => res.redirect("/products/listadoPublicidad"))
     .catch((error) => console.log(error))
   },
  
