@@ -441,38 +441,9 @@ module.exports = {
         editorialId: req.body.editorialId.trim(),
         starId: req.body.starId.trim(),
         cover: req.file ? req.file.filename : "default-image-book.png",
-      });
-
-      let productos = db.Book.findAll({
-        include: [
-          {
-            association: "categoria",
-          },
-          {
-            association: "editorial",
-          },
-          {
-            association: "estrella",
-          },
-          {
-            association: "formato",
-          },
-          {
-            association: "autor",
-          },
-          {
-            association: "genero",
-          },
-        ],
-      });
-      let generos = db.Genre.findAll();
-      Promise.all([productos, generos])
-        .then(([productos, generos]) => {
-          return res.render("./products/admin", {
-            generos,
-            productos,
-            title: "LEAF | Administrador",
-          });
+      })
+      .then(() => {
+          return res.redirect("/products/administrador");
         })
         .catch((error) => console.log(error));
     } else {

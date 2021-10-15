@@ -35,7 +35,6 @@ module.exports = [
     .withMessage("Campo obligatorio")
     .isInt()
     .withMessage("Ingrese solo números"),
-
   body("slogan").notEmpty().withMessage("Campo obligatorio")
   .isLength({
       min: 5,

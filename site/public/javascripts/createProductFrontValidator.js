@@ -142,6 +142,7 @@ window.addEventListener('load', () => {
     if(!coverAddBook.value){
         coverError.innerText = 'Campo obligatorio'
     }
+    
 })
 coverAddBook.addEventListener('focus', ()=>{
 coverError.innerText= 'Debes seleccionar una imagen'
