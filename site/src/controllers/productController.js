@@ -931,8 +931,9 @@ deleteEditorial: (req, res) => {
     let errors = validationResult(req);
       let primerPromo = db.Promo.findOne({
         where: {
-          id: 1,
-        },
+         
+      id: 1
+    },
       });
       let imagesPromos = db.Promo.findAll();
       let generos = db.Genre.findAll();
@@ -958,6 +959,12 @@ deleteEditorial: (req, res) => {
         .then(() => res.redirect("/products/administrador"))
         .catch((error) => console.log(error));
     } else {
+         //metodo para borrar imagenes si hay error
+    if (req.file) {
+      let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
+      fs.unlinkSync(borrarImage);
+    }
+      let errors = validationResult(req);
       let primerPromo = db.Promo.findOne({
         where: {
           id: 1,
@@ -1002,25 +1009,22 @@ deleteEditorial: (req, res) => {
         id: req.params.id
       },
     }
-    );
-    let primerPromo = db.Promo.findOne({
-      where: {
-        id: 1,
-      },
-    });
-    let imagesPromos = db.Promo.findAll();
-    let generos = db.Genre.findAll({});
-    Promise.all([primerPromo, imagesPromos, generos]).then(
-      ([primerPromo, imagesPromos, generos]) => {
-        return res.redirect("/products/listadoPublicidad", {
-          title: "Imagenes de publicidad",
-          primerPromo,
-          imagesPromos,
-          generos,
-        });
-      }
-    );
+    )
+    
+   .then(()=> {
+    return res.redirect("/products/listadoPublicidad");
+   })
+   .catch((error) => {
+     console.log(error);
+   })
+    
+      
   } else {
+       //metodo para borrar imagenes si hay error
+       if (req.file) {
+        let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
+        fs.unlinkSync(borrarImage);
+      }
       db.Promo.findByPk(req.params.id)
       .then(image => {
         return res.render('./products/promoListEdit',{

@@ -39,20 +39,19 @@
               <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
              
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
+                  <div class="carousel-item active promo-carrusel">
                     <img src="/images/<%= primerPromo.promoImage %>" class="d-block w-100 " alt="..." />
                     <form action="/products/eliminarPublicidad/<%= primerPromo.id %>?_method=DELETE" method="POST">
                     <div class="d-grid gap-2 col-6 mx-auto">
                       <a href=" /products/editarPublicidad/<%= primerPromo.id %>" type="button"
                         class="admin-btn-editar btn btn-warning">EDITAR</a>
-                      <button class="btn btn-danger admin-btn-eliminar">ELIMINAR</button>
                 </div>
               </form>
                 
                   </div>
                   <% imagesPromos.forEach(image => { %>
                     <% if (image.id != 1) { %>
-                      <div class="carousel-item">
+                      <div class="carousel-item promo-carrusel">
                         <img src="/images/<%= image.promoImage %>" class="d-block w-100 " alt="..." />
                         <form action="/products/eliminarPublicidad/<%= image.id %>?_method=DELETE" method="POST">
   

@@ -12,9 +12,7 @@
     text-align: left;
     margin-left: 20px;
 }
-.carruselEjs img{
-    height: 3%;
-}
+
 .carruselEjs img#image{
     height: auto;
 }
@@ -25,4 +23,8 @@
 .carruselEjs .imageEditarCarrusel img{
 
     margin-top: 50px;
+}
+.promo-carrusel img{
+ width: 400px;
+ height: 420px;
 }
