@@ -30,15 +30,12 @@ module.exports = [
     .isInt()
     .withMessage("Ingrese solo números"),
   body("pages")
+  
     .notEmpty()
     .withMessage("Campo obligatorio")
     .isInt()
     .withMessage("Ingrese solo números"),
-  body("starId")
-  .notEmpty()
-    .withMessage("Campo obligatorio")
-  .isInt({ min: 1, max: 5 })
-    .withMessage("Número entre 1 y 5"),
+
   body("slogan").notEmpty().withMessage("Campo obligatorio")
   .isLength({
       min: 5,

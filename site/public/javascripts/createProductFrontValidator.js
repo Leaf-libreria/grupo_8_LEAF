@@ -87,13 +87,11 @@ window.addEventListener('load', () => {
     starsAddBook.addEventListener('focus', () => {
         if (starsAddBook.value == '') {
             document.getElementById('starError').innerText = "Campo obligatorio, sólo números"
-        } 
+        } else{
+            document.getElementById('starError').innerText = null
+        }
     })
-    starsAddBook.addEventListener('change',()=>{
-            if (starsAddBook.value !== ''){
-                document.getElementById('starError').innerText = null
-            }
-        })
+
     genreAddBook.addEventListener('focus', () => {
         if (genreAddBook.value == '') {
             document.getElementById('genreError').innerText = "Campo obligatorio"
@@ -169,7 +167,7 @@ synopsisAddBook.addEventListener('keyup', () => {
 
     for (let i = 0; i < elementosForm.length; i++) {
         
-        if(!elementosForm[i].value){
+        if(elementosForm[i].value){
             elementosForm[i].innerHTML =('Campo obligatorio')
             elementosForm[i].classList.add('text-danger')
 

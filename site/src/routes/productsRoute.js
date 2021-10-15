@@ -102,21 +102,9 @@ router.get("/detalle/:id", detail);
 router.get("/administrador", administradorMw, administrador);
 // Carga de productos CRUD
 router.get("/agregar", administradorMw, addProducto);
-router.post(
-  "/agregar",
-  administradorMw,
-  upload.single("cover"),
-  addValidator,
-  agregarProducto
-);
+router.post("/agregar",administradorMw,upload.single("cover"),addValidator,agregarProducto);
 router.get("/editar/:id", administradorMw, editarProducto);
-router.put(
-  "/editar/:id",
-  administradorMw,
-  upload.single("cover"),
-  editValidator,
-  actualizarProducto
-);
+router.put("/editar/:id",administradorMw,upload.single("cover"),editValidator, actualizarProducto);
 router.delete("/delete/:id", administradorMw,borrar);
 
 

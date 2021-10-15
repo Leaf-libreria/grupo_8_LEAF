@@ -31,9 +31,8 @@ window.addEventListener('load', () => {
     isbnAddBook.addEventListener('keyup', () => {
         if (isbnAddBook.value == '') {
             document.getElementById('isbnError').innerText = "Campo obligatorio"
-        } else 
-if (isbnAddBook.value.length < 13) {
-            document.getElementById('isbnError').innerText = "El isb debe tener 13 numeros"
+        } else if (isbnAddBook.value.length < 13) {
+            document.getElementById('isbnError').innerText = "El isbn debe tener 13 numeros"
         } else {
             document.getElementById('isbnError').innerText = null
         }
@@ -155,10 +154,30 @@ synopsisAddBook.addEventListener('keyup', () => {
         }
     })
    
-    formAddBook.addEventListener('submit', e => {
-    e.preventDefault();
+
    
-        formAddBook.submit()
+
+    formAddBook.addEventListener('submit', e => {
+        e.preventDefault();
+    
+        let elementosForm = document.querySelectorAll('div.error');
+        let error = false;
+    
+        for (let i = 0; i < elementosForm.length; i++) {
+            
+            if(elementosForm[i].value){
+                elementosForm[i].innerHTML =('Campo obligatorio')
+                elementosForm[i].classList.add('text-danger')
+    
+                document.getElementById('addErrores').innerText = '*Los campos señalados son obligatorios';
+                error = true
+            }
+        }
+        if(!error){
+            formAddBook.submit()
+        }
+    
+      
     
 })
 })
