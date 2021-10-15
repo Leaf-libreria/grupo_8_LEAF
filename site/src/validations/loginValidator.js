@@ -1,10 +1,14 @@
-const { body } = require("express-validator");
+const { body, check } = require("express-validator");
 const db = require("../database/models");
 const bcrypt = require("bcryptjs");
 
 module.exports = [
-  body("email").custom((value, { req }) => {
+  check("email")
+  .isEmail()
+  .withMessage("Debes ingresar un email válido"),
 
+  body("email").custom((value, { req }) => {
+    
     return db.User.findOne({
       where: {
         email: value,

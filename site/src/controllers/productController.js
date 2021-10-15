@@ -504,7 +504,7 @@ module.exports = {
   },
 
   //Agregar autor, editorial,genero, carrusel y publicidad
-  addAuthorGet: (req, res) => {
+  addAuthorGet: (req, res) => {  /* muestra la vista */
     let errors = validationResult(req);
     db.Author.findAll()
       .then((autor) => {
@@ -517,7 +517,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
-  addAuthorPost: (req, res) => {
+  addAuthorPost: (req, res) => { 
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       db.Author.create({
@@ -800,7 +800,7 @@ deleteEditorial: (req, res) => {
   // mostrar vista para agregar carrusel
   addCarouselGet: (req, res) => {
     let errors = validationResult(req);
-   let primerImage = db.carouselImage.findOne({
+   let primerImage = db.carouselImage.findOne({ 
       where: {
         id: 1,
       },
@@ -926,18 +926,29 @@ deleteEditorial: (req, res) => {
       .then(() => res.redirect("/products/administrador"))
       .catch((error) => console.log(error));
   },
+  /* sección de publicidad */
   addPromoGet: (req, res) => {
     let errors = validationResult(req);
-    db.Promo.findAll()
-      .then(() => {
-        return res.render("./products/addPromoImage", {
-          errores: errors.mapped(),
-          old: req.body,
-          title: "LEAF | Administrador",
-        });
-      })
-      .catch((error) => console.log(error));
+      let primerPromo = db.Promo.findOne({
+        where: {
+          id: 1,
+        },
+      });
+      let imagesPromos = db.Promo.findAll();
+      let generos = db.Genre.findAll();
+      Promise.all([primerPromo,imagesPromos,generos]).then(
+        ([primerPromo,imagesPromos,generos]) => {
+          return res.render("./products/promoList", {
+            title: "Listado de publicidades",
+            primerPromo,
+            imagesPromos,
+            generos,
+            errors
+          });
+        }
+      )
   },
+
   addPromoPost: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -947,18 +958,91 @@ deleteEditorial: (req, res) => {
         .then(() => res.redirect("/products/administrador"))
         .catch((error) => console.log(error));
     } else {
-      let errors = validationResult(req);
-      db.Promo.findAll()
-        .then(() => {
-          return res.render("./products/addEditorial", {
+      let primerPromo = db.Promo.findOne({
+        where: {
+          id: 1,
+        },
+      });
+      let imagesPromos = db.Promo.findAll();
+      let generos = db.Genre.findAll();
+      Promise.all([primerPromo,imagesPromos,generos]).then(
+        ([primerPromo,imagesPromos,generos]) => {
+          return res.render("./products/promoList", {
+            title: "Listado de publicidades",
+            primerPromo,
+            imagesPromos,
+            generos,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
           });
-        })
+        }
+      )
         .catch((error) => console.log(error));
     }
   },
+  editPromoGet:(req,res) =>{
+    let image = db.Promo.findByPk(req.params.id)
+    .then(image => {
+      return res.render('./products/promoListEdit',{
+        title: "Editando publicidad",
+        image,
+      })
+    })
+    .catch(error => console.log(error))
+  },
+  editPromoPut:(req,res) =>{
+    let errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+    db.Promo.update({
+      promoImage: req.file ? req.file.filename : req.body.image
+    },{
+      where: {
+        id: req.params.id
+      },
+    }
+    );
+    let primerPromo = db.Promo.findOne({
+      where: {
+        id: 1,
+      },
+    });
+    let imagesPromos = db.Promo.findAll();
+    let generos = db.Genre.findAll({});
+    Promise.all([primerPromo, imagesPromos, generos]).then(
+      ([primerPromo, imagesPromos, generos]) => {
+        return res.redirect("/products/listadoPublicidad", {
+          title: "Imagenes de publicidad",
+          primerPromo,
+          imagesPromos,
+          generos,
+        });
+      }
+    );
+  } else {
+      db.Promo.findByPk(req.params.id)
+      .then(image => {
+        return res.render('./products/promoListEdit',{
+        errores: errors.mapped(),
+        old: req.body,
+        title: "LEAF | Editando publicidad",
+        image,
+      });
+    });
+  }
+  },
+  deletePromo:(req,res) =>{
+    db.Promo.destroy({
+      where:{
+        id: req.params.id,
+      },
+    })
+    .then(() => res.redirect("/products/listadoPublicidad"))
+    .catch((error) => console.log(error))
+  },
+ 
+
   carrito: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -1029,6 +1113,20 @@ deleteEditorial: (req, res) => {
       }
     );
   },
+
+  pagoCard: (req, res) => {
+    let errors = validationResult(req);
+
+    if(errors.isEmpty()){
+      Paymentmethod.create({
+        titularCard: req.body.titularCard.trim(),
+        cardNumber: req.body.cardNumber.trim(),
+        dueDate: req.body.dueDate.trim(),
+        securityCode: bcrypt.hashSync(req.body.securityCode, 10),
+      })
+    }
+  },
+
   // controladores para generos
   policial: (req, res) => {
     let productos = db.Book.findAll({

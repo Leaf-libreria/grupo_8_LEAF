@@ -7,6 +7,8 @@ const editValidator = require("../validations/editProductValidator");
 const authorValidator = require("../validations/addAuthorValidator");
 const genreEditorialValidator = require("../validations/addGenreEditorialValidator");
 const addCarouselImageValidator = require("../validations/addCarouselImageValidator");
+const payFormValidator = require("../validations/payFormValidator");
+const addPromoValidator = require("../validations/addPromoValidator")
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
 //middleware acceso usuarios logueados
@@ -85,11 +87,15 @@ const {
   addCarouselPost,
   addPromoGet,
   addPromoPost,
+  editPromoGet,
+  editPromoPut,
+  deletePromo,
   editCarouselGet,
   editCarouselUpdate,
   deleteImageCarousel,
   commonViews,
   viewEditorials,
+  pagoCard
 } = require("../controllers/productController");
 
 // /products
@@ -137,13 +143,18 @@ router.get('/editarEditorial/:id',administradorMw,genreEditorialValidator,editEd
 router.put('/editarEditorial/:id',administradorMw,genreEditorialValidator,editEditorialPut);
 router.delete('/eliminarEditorial/:id',administradorMw,deleteEditorial);
 
-//Agregar publicidad
-router.get('/agregarPublicidad',administradorMw, addPromoGet);
-router.post('/agregarPublicidad',administradorMw,upload.single("promoImage"),addPromoPost);
+//CRUD publicidad
+router.get('/listadoPublicidad',administradorMw, addPromoGet);
+router.post('/listadoPublicidad',administradorMw, upload.single("promos"),addPromoValidator, addPromoPost);
+router.get("/editarPublicidad/:id",administradorMw, editPromoGet);
+router.put("/editarPublicidad/:id",administradorMw, upload.single("promos"), addPromoValidator,editPromoPut);  
+router.delete('/eliminarPublicidad/:id',administradorMw,deletePromo);  
+
 
 //Carrito y formulario de pago
 router.get("/carrito", logueados, carrito);
 router.get("/pago", logueados, pago);
+router.post("/pago", logueados, payFormValidator, pagoCard);
 // rutas de generos
 router.get("/misterio", misterio);
 router.get("/terror", terror);

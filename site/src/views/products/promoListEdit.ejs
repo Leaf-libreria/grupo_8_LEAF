@@ -1,0 +1,38 @@
+<html lang="es">
+    <!-- ----head ----->
+    <%-include('../partials/head') %>
+      <!-- ----head---- -->
+      <body class="admin">
+        <!-- encabezado -->
+        <!-- ----header ----->
+        <%-include('../partials/header') %>
+          <!-- ----header---- -->
+        <main  class=" carruselEjs">
+          <div class="card mt-5 ">
+            <div class="card-header">
+                <h3>Editar imagen para publicidad:</h3>
+            </div>
+            <div class="imageEditarPublicidad"><img src="/images/<%= image.promoImage %>" alt=""></div>
+            <div class="card-body administrador">
+                <form action="/products/editarPublicidad/<%= image.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data" >
+                    <label for="promos">Cargar nueva imagen:</label>
+                    <input type="file" name="promos" id="promos" value="<%= locals.old && locals.old.promos ? old.promos : null %> ">
+                    <!-- Posibles errores -->
+                    <span>
+                        <%= locals.errores && locals.errores.promos ? errores.promos.msg : null %>
+                    </span>
+                    <!--BOTONES-->
+                    <section class="botones d-grid gap-2 d-md-block">
+                        <button type="submit" class="btn-guardar">AGREGAR</button>
+                        <a href="/products/administrador" class="btn-cancelar" type="button">CANCELAR</a>
+                    </section>
+                </form>
+            </div>
+        </div>
+        </main>
+              <!-- ----scripts ----->
+      <%-include('../partials/scripts') %>
+      <!-- ----scripts---- -->
+</body>
+
+</html>

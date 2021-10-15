@@ -31,6 +31,7 @@ window.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
     var data = new FormData(form);
+    
     ajax(form.method, form.action, data, success, error);
   });
 });
@@ -51,3 +52,52 @@ function ajax(method, url, data, success, error) {
   };
   xhr.send(data);
 }
+
+
+
+
+/* validaciones */
+
+$('name').addEventListener('blur', () => {
+  if(!$('name').value.trim()){
+      $('name').classList.add('is-invalid')
+      $('error-name').innerHTML = "El nombre es obligatorio"
+  }else{
+      $('name').classList.remove('is-invalid')
+      $('name').classList.add('is-valid')
+      $('error-name').innerHTML = null
+  }
+})
+
+$('lastname').addEventListener('blur', () => {
+  if(!$('lastname').value.trim()){
+      $('lastname').classList.add('is-invalid')
+      $('error-name').innerHTML = "El apellido es obligatorio"
+  }else{
+      $('lastname').classList.remove('is-invalid')
+      $('lastname').classList.add('is-valid')
+      $('error-lastname').innerHTML = null
+  }
+})
+
+$('email').addEventListener('blur', () => {
+  if(!$('email').value.trim()){
+      $('email').classList.add('is-invalid')
+      $('error-email').innerHTML = "El email es obligatorio"
+  }else{
+      $('email').classList.remove('is-invalid')
+      $('email').classList.add('is-valid')
+      $('error-email').innerHTML = null
+  }
+})
+
+$('mens').addEventListener('blur', () => {
+  if(!$('mens').value.trim()){
+      $('mens').classList.add('is-invalid')
+      $('error-mens').innerHTML = "Debes escribir un mensaje"
+  }else{
+      $('mens').classList.remove('is-invalid')
+      $('mens').classList.add('is-valid')
+      $('error-mens').innerHTML = null
+  }
+})

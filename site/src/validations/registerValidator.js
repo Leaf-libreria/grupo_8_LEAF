@@ -82,6 +82,9 @@ module.exports = [
     .withMessage("Debes aceptar los términos y condiciones"),
 ];
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> ef3119efd6571c9dfb3ee717eafe4b84fd6cf8fb
