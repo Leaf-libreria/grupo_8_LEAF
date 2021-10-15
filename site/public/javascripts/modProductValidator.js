@@ -157,27 +157,8 @@ synopsisAddBook.addEventListener('keyup', () => {
 
    
 
-    formAddBook.addEventListener('submit', e => {
-        e.preventDefault();
-    
-        let elementosForm = document.querySelectorAll('div.error');
-        let error = false;
-    
-        for (let i = 0; i < elementosForm.length; i++) {
-            
-            if(elementosForm[i].value){
-                elementosForm[i].innerHTML =('Campo obligatorio')
-                elementosForm[i].classList.add('text-danger')
-    
-                document.getElementById('addErrores').innerText = '*Los campos señalados son obligatorios';
-                error = true
-            }
-        }
-        if(!error){
-            formAddBook.submit()
-        }
-    
+
       
     
-})
+
 })

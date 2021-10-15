@@ -29,6 +29,7 @@ module.exports = [
     .withMessage("Campo obligatorio")
     .isInt()
     .withMessage("Ingrese solo números"),
+  body('starId').notEmpty().withMessage("Campo obligatorio"),
   body("pages")
   
     .notEmpty()
@@ -43,7 +44,9 @@ module.exports = [
   body("cover").custom((value, { req }) => {
     let cover = req.file;
     let allowedExtensions = [".jpg",".jpeg", ".png", ".gif"];
-    if (cover) {
+    if (!cover) {
+      throw new Error(" Debes seleccionar una imagen");
+    } else {
       let fileExtension = path.extname(cover.originalname);
       if (!allowedExtensions.includes(fileExtension)) {
         throw new Error(

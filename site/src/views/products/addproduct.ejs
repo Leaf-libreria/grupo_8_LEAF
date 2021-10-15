@@ -60,7 +60,7 @@
               <select name="formatId" id="format" class="grid">
                 <option value="" hidden selected>Seleccione el formato</option>
                 <% formatos.forEach(formato=> { %>
-                  <option value="<%= formato.id %> " <%=locals.old && locals.old.formatId === formato.id ? 'selected' : null%>
+                  <option value="<%= formato.id %> " <%=locals.old && locals.old.formatId  ? 'selected' : null%>
                     ><%= formato.name %>
                   </option>
                   <% }) %>
@@ -78,7 +78,7 @@
               <select name="categoryId" id="category" class="grid">
                 <option value="" hidden selected>Seleccione la categoria</option>
                 <% categorias.forEach(categoria=> { %>
-                  <option value="<%= categoria.id %> " <%=locals.old && locals.old.categoryId === categoria.id ? 'selected' :
+                  <option value="<%= categoria.id %> " <%=locals.old && locals.old.categoryId  ? 'selected' :
                     null%> ><%= categoria.name%>
                   </option>
                   <% }) %>
@@ -99,7 +99,7 @@
                 <select name="authorId" id="author" class="grid">
                   <option value="" hidden selected>Seleccione el autor</option>
                   <% autores.forEach(autor=> { %>
-                    <option value="<%= autor.id %> " <%=locals.old && locals.old.authorId === autor.id ? 'selected' :
+                    <option value="<%= autor.id %> " <%=locals.old && locals.old.authorId ? 'selected' :
                       null%> ><%= autor.nameLastname %>
                     </option>
                     <% }) %>
@@ -120,7 +120,7 @@
                 <select name="editorialId" id="editorial" class="grid">
                   <option value="" hidden selected>Seleccione la editorial</option>
                   <% editoriales.forEach(editorial=> { %>
-                    <option value="<%= editorial.id %> " <%=locals.old && locals.old.editorialId===editorial.id ? 'selected'
+                    <option value="<%= editorial.id %> " <%=locals.old && locals.old.editorialId ? 'selected'
                       : null%> ><%= editorial.name %>
                     </option>
                     <% }) %>
@@ -142,7 +142,7 @@
   <select name="starId" id="stars" class="grid">
     <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
     <% estrellas.forEach(estrella=> { %>
-      <option value="<%= estrella.id %> " <%=locals.old && locals.old.starId===estrella.id ? 'selected' : null%> ><%=
+      <option value="<%= estrella.id %> " <%=locals.old && locals.old.starId ? 'selected' : null%> ><%=
           estrella.quantity %>
       </option>
       <% }) %>
@@ -162,7 +162,7 @@
                 <select name="genreId" id="genre" class="grid">
                   <option value="" hidden selected>Seleccione el género</option>
                   <% generos.forEach(genero=> { %>
-                    <option value="<%= genero.id %> " <%=locals.old && locals.old.genreId===genero.id ? 'selected' : null%> ><%= genero.name %>
+                    <option value="<%= genero.id %> " <%=locals.old && locals.old.genreId ? 'selected' : null%> ><%= genero.name %>
                     </option>
                     <% }) %>
                 </select>
