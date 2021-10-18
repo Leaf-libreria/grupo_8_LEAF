@@ -1131,14 +1131,15 @@ deleteEditorial: (req, res) => {
     }
   },
 
-  // controladores para generos
-  policial: (req, res) => {
+  // controlador para generos
+  genresViews: (req, res) => {
     let productos = db.Book.findAll({
-      where: {
-        genreId: 1,
-      },
       include: [
-        { association: "genero" },
+        { association: "genero" ,
+      where: {
+        name: req.params.name
+      }
+    },
         {
           association: "autor",
         },
@@ -1148,214 +1149,15 @@ deleteEditorial: (req, res) => {
     let generos = db.Genre.findAll();
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
-        res.render("./products/generos/policial", {
-          title: "LEAF | Policial",
+        res.render("./products/generos/genreView", {
+          title: `LEAF | ${req.params.name.toUpperCase()}`,
           productos,
           generos,
         })
       )
       .catch((error) => console.log(error));
   },
-  romance: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 4,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/romance", {
-          title: "LEAF | Romance",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-
-  misterio: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 5,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/misterio", {
-          title: "LEAF | Misterio",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-  terror: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 7,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/terror", {
-          title: "LEAF | Terror",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-  cienciaFiccion: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 3,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/ciencia-ficcion", {
-          title: "LEAF | Ciencia Ficción",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-
-  juvenil: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 6,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/juvenil", {
-          title: "LEAF | Juvenil",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-  historica: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 2,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/misterio", {
-          title: "LEAF | Histórica",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-  thriller: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 8,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/thriller", {
-          title: "LEAF | Thriller",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-  fantasia: (req, res) => {
-    let productos = db.Book.findAll({
-      where: {
-        genreId: 9,
-      },
-      include: [
-        { association: "genero" },
-        {
-          association: "autor",
-        },
-      ],
-    });
-
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/generos/fantasia", {
-          title: "LEAF | Fantasía",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-  // metodos para carrusel de imagenes
-  addImages: (req, res) => {
-   
-  },
-  agregarImgCarrusel: (req, res) => {},
-
+  
 //Crud métodos de pago
 paymentMethodList:(req,res)=>{
   generos
@@ -1468,9 +1270,8 @@ deletePayment: (req, res) => {
     });
     Promise.all([generos,productos])
     .then(([generos,productos])=>{return res.render('./products/generos/commonViews',{
-    title: 'LEAF | Librería' ,
+    title: `LEAF | ${req.params.nameLastname.toUpperCase()}`, 
     generos,
-    
     productos,
     })
   }).catch(error => console.log(error));
@@ -1490,7 +1291,7 @@ deletePayment: (req, res) => {
     });
     Promise.all([generos,productos])
     .then(([generos,productos])=>{return res.render('./products/generos/commonViews',{
-    title: 'LEAF | Librería' ,
+    title: `LEAF | ${req.params.name.toUpperCase()}`, 
     generos,
     productos,
     })

@@ -44,21 +44,11 @@ const {
   editarProducto,
   libros,
   ebooks,
-  policial,
-  romance,
-  terror,
-  misterio,
-  historica,
-  cienciaFiccion,
-  juvenil,
   actualizarProducto,
   addProducto,
   borrar,
   verMasNovedades,
   verMasRecomendados,
-  thriller,
-  fantasia,
-  addImages,
   authorList,
   addAuthorPost,
   addAuthorGet,
@@ -95,7 +85,8 @@ const {
   deleteImageCarousel,
   commonViews,
   viewEditorials,
-  pagoCard
+  pagoCard,
+  genresViews,
 } = require("../controllers/productController");
 
 // /products
@@ -155,16 +146,8 @@ router.delete('/eliminarPublicidad/:id',administradorMw,deletePromo);
 router.get("/carrito", logueados, carrito);
 router.get("/pago", logueados, pago);
 router.post("/pago", logueados, payFormValidator, pagoCard);
-// rutas de generos
-router.get("/misterio", misterio);
-router.get("/terror", terror);
-router.get("/romance", romance);
-router.get("/historica", historica);
-router.get("/ciencia-ficcion", cienciaFiccion);
-router.get("/policial", policial);
-router.get("/thriller", thriller);
-router.get("/fantasia", fantasia);
-router.get("/juvenil", juvenil);
+// ruta de generos
+router.get("/genero/:name", genresViews);
 
 //CRUD métodos de pago
 router.get('/agregarMetodoPago',administradorMw,addPaymentGet);

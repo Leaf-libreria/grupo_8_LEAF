@@ -7,20 +7,19 @@
 
   <body class="index">
 
+
     <!-- ----header ----->
     <%-include('../../partials/header') %>
       <!-- ----header---- -->
-
       <h1 class="titulo-generos">
         <%=title%>
       </h1>
-
       <main class="mainIndex ">
         <!-- seccion de mas vendidos -->
         <section class="masVendidos libros-vista">
           <div class="cabecera">
             <h2>
-              <%=productos.titulo%>
+              <%=productos.title%>
             </h2>
           </div>
           <div class="articles-masVendidos">
@@ -33,16 +32,15 @@
                     <%=producto.title%>
                   </h3>
                   <h4>
-                    <%=producto.autor.nameLastname%>
+                    <a href="/products/autor/<%= producto.autor.nameLastname %> "><%= producto.autor.nameLastname %></a>
                   </h4>
-                  <p>$<%=producto.price%>
+                  <p>$ <%=producto.price%>
                   </p>
                 </div>
               </article>
               <% }) %>
           </div>
         </section>
-
         <section class="iconos">
           <h3>en leaf te ofrecemos</h3>
           <div class="articulo-iconos">
@@ -71,6 +69,8 @@
       <!-- ----footer ----->
       <%-include('../../partials/footer') %>
         <!-- ----footer---- -->
+
+
 
   </body>
   <!-- ----scripts ----->
