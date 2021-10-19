@@ -35,7 +35,7 @@ const upload = multer({
 
 //Controlador
 const {
-  verMasVendidos,
+  verMas,
   detail,
   administrador,
   carrito,
@@ -47,8 +47,6 @@ const {
   actualizarProducto,
   addProducto,
   borrar,
-  verMasNovedades,
-  verMasRecomendados,
   authorList,
   addAuthorPost,
   addAuthorGet,
@@ -83,7 +81,7 @@ const {
   editCarouselGet,
   editCarouselUpdate,
   deleteImageCarousel,
-  commonViews,
+  authorViews,
   viewEditorials,
   pagoCard,
   genresViews,
@@ -92,9 +90,7 @@ const {
 // /products
 router.get("/ebooks", ebooks);
 router.get("/libros", libros);
-router.get("/masVendidos", verMasVendidos);
-router.get("/masNovedades", verMasNovedades);
-router.get("/masRecomendados", verMasRecomendados);
+router.get("/categoria/:name", verMas);
 router.get("/detalle/:id", detail);
 router.get("/administrador", administradorMw, administrador);
 // Carga de productos CRUD
@@ -158,7 +154,7 @@ router.put('/editarMetodosPago/:id',administradorMw,genreEditorialValidator,edit
 router.delete('/eliminarMetodosPago/:id',administradorMw,deletePayment);
 
 //Ruta vista libros por autor
-router.get('/autor/:nameLastname',commonViews)
+router.get('/autor/:nameLastname',authorViews)
 //Ruta libros por editorial
 router.get('/editorial/:name',viewEditorials)
 

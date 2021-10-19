@@ -32,8 +32,8 @@ module.exports = {
         categoryId: 1,
       },
       include: [{ association: "genero" },
-       { association: "categoria" },
-       { association: "autor" }],
+      { association: "categoria" },
+      { association: "autor" }],
       
       limit: 4,
     });

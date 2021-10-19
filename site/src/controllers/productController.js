@@ -16,7 +16,7 @@ module.exports = {
         formatId: 1,
       },
     });
-    let generos = db.Genre.findAll();
+    generos
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/libros", {
@@ -38,7 +38,7 @@ module.exports = {
         formatId: 2,
       },
     });
-    let generos = db.Genre.findAll();
+    generos
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
         res.render("./products/ebooks", {
@@ -50,68 +50,23 @@ module.exports = {
       .catch((error) => console.log(error));
   },
 
-  verMasVendidos: (req, res) => {
+  verMas: (req, res) => {
     let productos = db.Book.findAll({
       include: [
         { association: "autor" },
-        { association: "categoria" },
+        { association: "categoria",
+      where: {
+        name:req.params.name
+      }
+      },
         { association: "genero" },
       ],
-      where: {
-        categoryId: 1,
-      },
     });
-    let generos = db.Genre.findAll();
+    generos;
     Promise.all([productos, generos])
       .then(([productos, generos]) => {
-        return res.render("verMasVendidos", {
-          title: "LEAF | Más vendidos",
-          productos,
-          generos,
-        });
-      })
-      .catch((error) => console.log(error));
-  },
-
-  verMasNovedades: (req, res) => {
-    let productos = db.Book.findAll({
-      include: [
-        { association: "autor" },
-        { association: "categoria" },
-        { association: "genero" },
-      ],
-      where: {
-        categoryId: 2,
-      },
-    });
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) => {
-        return res.render("verMasNovedades", {
-          title: "LEAF | Más novedades",
-          productos,
-          generos,
-        });
-      })
-      .catch((error) => console.log(error));
-  },
-
-  verMasRecomendados: (req, res) => {
-    let productos = db.Book.findAll({
-      include: [
-        { association: "autor" },
-        { association: "categoria" },
-        { association: "genero" },
-      ],
-      where: {
-        categoryId: 3,
-      },
-    });
-    let generos = db.Genre.findAll();
-    Promise.all([productos, generos])
-      .then(([productos, generos]) => {
-        return res.render("verMasRecomendados", {
-          title: "LEAF | Más recomendados",
+        return res.render("verMas", {
+          title: `LEAF | ${req.params.name.toUpperCase()}`,
           productos,
           generos,
         });
@@ -147,7 +102,7 @@ module.exports = {
       ],
     });
 
-    let generos = db.Genre.findAll();
+    generos
     let relacionados = db.Book.findAll({
       include: [
         {
@@ -192,7 +147,7 @@ module.exports = {
         },
       ],
     });
-    let generos = db.Genre.findAll();
+    generos
     Promise.all([productos, generos])
       .then(([productos, generos]) => {
         res.render("./products/admin", {
@@ -205,7 +160,7 @@ module.exports = {
   },
   editarProducto: (req, res) => {
     let errors = validationResult(req);
-    let generos = db.Genre.findAll();
+    generos
 
     let productEdit = db.Book.findByPk(req.params.id, {
       include: [
@@ -348,7 +303,7 @@ module.exports = {
         ],
       });
 
-      let generos = db.Genre.findAll();
+      generos;
       let autores = db.Author.findAll();
       let editoriales = db.Editorial.findAll();
       let estrellas = db.Star.findAll();
@@ -393,7 +348,7 @@ module.exports = {
   addProducto: (req, res) => {
     let errors = validationResult(req);
     let autores = db.Author.findAll();
-    let generos = db.Genre.findAll();
+    generos;
     let editoriales = db.Editorial.findAll();
     let estrellas = db.Star.findAll();
     let categorias = db.Category.findAll();
@@ -454,7 +409,7 @@ module.exports = {
             .deleteFile(`../public/images/${req.file.filename}`)
       : null;
       let autores = db.Author.findAll();
-      let generos = db.Genre.findAll();
+      generos;
       let editoriales = db.Editorial.findAll();
       let estrellas = db.Star.findAll();
       let categorias = db.Category.findAll();
@@ -800,13 +755,13 @@ deleteEditorial: (req, res) => {
   // mostrar vista para agregar carrusel
   addCarouselGet: (req, res) => {
     let errors = validationResult(req);
-   let primerImage = db.carouselImage.findOne({ 
+  let primerImage = db.carouselImage.findOne({ 
       where: {
         id: 1,
       },
     });
     let imagesCarousel = db.carouselImage.findAll();
-    let generos = db.Genre.findAll({});
+    generos;
     Promise.all([primerImage, imagesCarousel, generos]).then(
       ([primerImage, imagesCarousel, generos]) => {
         return res.render("./products/carrusel", {
@@ -842,7 +797,7 @@ deleteEditorial: (req, res) => {
         },
       });
       let imagesCarousel = db.carouselImage.findAll();
-      let generos = db.Genre.findAll({});
+      generos;
       Promise.all([primerImage, imagesCarousel, generos]).then(
         ([primerImage, imagesCarousel, generos]) => {
           return res.render("./products/carrusel", {
@@ -888,7 +843,7 @@ deleteEditorial: (req, res) => {
       },
     });
     let imagesCarousel = db.carouselImage.findAll();
-    let generos = db.Genre.findAll({});
+    generos;
     Promise.all([primerImage, imagesCarousel, generos]).then(
       ([primerImage, imagesCarousel, generos]) => {
         return res.render("./products/carrusel", {
@@ -917,7 +872,7 @@ deleteEditorial: (req, res) => {
   }
   },
   // borrar imagen de carrusel
- deleteImageCarousel: (req, res) => {
+deleteImageCarousel: (req, res) => {
     db.carouselImage.destroy({
       where: {
         id: req.params.id,
@@ -931,12 +886,11 @@ deleteEditorial: (req, res) => {
     let errors = validationResult(req);
       let primerPromo = db.Promo.findOne({
         where: {
-         
       id: 1
     },
       });
       let imagesPromos = db.Promo.findAll();
-      let generos = db.Genre.findAll();
+      generos;
       Promise.all([primerPromo,imagesPromos,generos]).then(
         ([primerPromo,imagesPromos,generos]) => {
           return res.render("./products/promoList", {
@@ -971,7 +925,7 @@ deleteEditorial: (req, res) => {
         },
       });
       let imagesPromos = db.Promo.findAll();
-      let generos = db.Genre.findAll();
+      generos;
       Promise.all([primerPromo,imagesPromos,generos]).then(
         ([primerPromo,imagesPromos,generos]) => {
           return res.render("./products/promoList", {
@@ -1011,17 +965,17 @@ deleteEditorial: (req, res) => {
     }
     )
     
-   .then(()=> {
+  .then(()=> {
     return res.redirect("/products/listadoPublicidad");
-   })
-   .catch((error) => {
-     console.log(error);
-   })
+  })
+  .catch((error) => {
+    console.log(error);
+  })
     
       
   } else {
        //metodo para borrar imagenes si hay error
-       if (req.file) {
+      if (req.file) {
         let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
         fs.unlinkSync(borrarImage);
       }
@@ -1045,7 +999,6 @@ deleteEditorial: (req, res) => {
     .then(() => res.redirect("/products/listadoPublicidad"))
     .catch((error) => console.log(error))
   },
- 
 
   carrito: (req, res) => {
     let productos = db.Book.findAll({
@@ -1073,7 +1026,7 @@ deleteEditorial: (req, res) => {
         },
       ],
     });
-    let generos = db.Genre.findAll();
+    generos;
     Promise.all([productos, generos]).then(([productos, generos]) => {
       return res.render("./products/productCart", {
         title: "LEAF | Carrito",
@@ -1104,7 +1057,7 @@ deleteEditorial: (req, res) => {
     });
     let costoEnvio = db.Provincia.findAll();
 
-    let generos = db.Genre.findAll();
+    generos;
     Promise.all([productos, usuarios, costoEnvio, generos]).then(
       ([productos, usuarios, costoEnvio, generos]) => {
         return res.render("./products/payForm", {
@@ -1146,10 +1099,10 @@ deleteEditorial: (req, res) => {
       ],
     });
 
-    let generos = db.Genre.findAll();
+    generos;
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
-        res.render("./products/generos/genreView", {
+        res.render("./products/commonViews/commonViews", {
           title: `LEAF | ${req.params.name.toUpperCase()}`,
           productos,
           generos,
@@ -1257,7 +1210,7 @@ deletePayment: (req, res) => {
       .catch((error) => console.log(error));
   },
 
-  commonViews: (req,res)=>{
+  authorViews: (req,res)=>{
     generos
     let productos = db.Book.findAll({
       include: [
@@ -1269,7 +1222,8 @@ deletePayment: (req, res) => {
       ],
     });
     Promise.all([generos,productos])
-    .then(([generos,productos])=>{return res.render('./products/generos/commonViews',{
+      .then(([generos, productos]) => {
+        return res.render('./products/commonViews/commonViews',{
     title: `LEAF | ${req.params.nameLastname.toUpperCase()}`, 
     generos,
     productos,
@@ -1290,8 +1244,9 @@ deletePayment: (req, res) => {
       ],
     });
     Promise.all([generos,productos])
-    .then(([generos,productos])=>{return res.render('./products/generos/commonViews',{
-    title: `LEAF | ${req.params.name.toUpperCase()}`, 
+      .then(([generos, productos]) => {
+        return res.render('./products/commonViews/commonViews',{
+    title: `LEAF | EDITORIAL ${req.params.name.toUpperCase()}`, 
     generos,
     productos,
     })

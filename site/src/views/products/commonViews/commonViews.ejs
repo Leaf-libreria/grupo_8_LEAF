@@ -24,7 +24,8 @@
                                         <%=producto.title%>
                                     </h3>
                                     <h4>
-                                        <%=producto.autor.nameLastname%>
+                                        <a href="/products/autor/<%= producto.autor.nameLastname %> ">
+                                        <%=producto.autor.nameLastname%></a>
                                     </h4>
                                     <p>$<%=producto.price%>
                                     </p>
