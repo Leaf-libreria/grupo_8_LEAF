@@ -42,8 +42,6 @@ const {
   pago,
   agregarProducto,
   editarProducto,
-  libros,
-  ebooks,
   actualizarProducto,
   addProducto,
   borrar,
@@ -85,11 +83,11 @@ const {
   viewEditorials,
   pagoCard,
   genresViews,
+  formatViews,
 } = require("../controllers/productController");
 
 // /products
-router.get("/ebooks", ebooks);
-router.get("/libros", libros);
+router.get("/:name", formatViews);
 router.get("/categoria/:name", verMas);
 router.get("/detalle/:id", detail);
 router.get("/administrador", administradorMw, administrador);

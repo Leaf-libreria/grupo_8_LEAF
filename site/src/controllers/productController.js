@@ -5,44 +5,22 @@ const path = require("path");
 const fs = require('fs');
 
 module.exports = {
-  libros: (req, res) => {
+  formatViews: (req, res) => {
     let productos = db.Book.findAll({
       include: [
-        { association: "formato" },
+        { association: "formato" ,
+      where:{
+        name: req.params.name
+      }},
         { association: "genero" },
         { association: "autor" },
-      ],
-      where: {
-        formatId: 1,
-      },
+      ]
     });
     generos
     Promise.all([productos, generos])
       .then(([productos, generos]) =>
-        res.render("./products/libros", {
-          title: "LEAF | Libros",
-          productos,
-          generos,
-        })
-      )
-      .catch((error) => console.log(error));
-  },
-  ebooks: (req, res) => {
-    let productos = db.Book.findAll({
-      include: [
-        { association: "formato" },
-        { association: "genero" },
-        { association: "autor" },
-      ],
-      where: {
-        formatId: 2,
-      },
-    });
-    generos
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/ebooks", {
-          title: "LEAF | E-books",
+        res.render("./products/commonViews/commonViews", {
+          title: `LEAF | ${req.params.name.toUpperCase()}S`,
           productos,
           generos,
         })
