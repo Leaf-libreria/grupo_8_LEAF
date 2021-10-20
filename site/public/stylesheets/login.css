@@ -200,6 +200,7 @@
         font-size: 25px;
         font-weight: 600;
         text-align: center;
+        margin-left: 30%;
     }
     .body-login .main-login .submit:hover{
         background-color: var(--color-amarillo);
@@ -220,6 +221,10 @@
     /* SECCION DERECHA */
     .body-login .conclase{
         width: 70%;
+    }
+    .body-login .main-login .submit {
+      
+        margin-left: 40%;
     }
     /* REDES */
 }
