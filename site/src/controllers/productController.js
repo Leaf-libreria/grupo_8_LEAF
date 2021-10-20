@@ -18,13 +18,13 @@ module.exports = {
     });
     generos
     Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/commonViews/commonViews", {
+      .then(([productos, generos]) =>{
+      return  res.render("./products/commonViews/commonViews", {
           title: `LEAF | ${req.params.name.toUpperCase()}S`,
           productos,
           generos,
         })
-      )
+      })
       .catch((error) => console.log(error));
   },
 
@@ -102,6 +102,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
+
   administrador: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -128,7 +129,7 @@ module.exports = {
     generos
     Promise.all([productos, generos])
       .then(([productos, generos]) => {
-        res.render("./products/admin", {
+        return res.render("./products/admin", {
           title: "LEAF | Administrador",
           productos,
           generos,
@@ -456,7 +457,8 @@ module.exports = {
       db.Author.create({
         nameLastname: req.body.nameLastname.trim(),
       })
-        .then(() => res.redirect("/products/listadoAutores"))
+        .then(() =>{ return res.redirect("/products/listadoAutores")
+      })
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -532,7 +534,7 @@ deleteAuthor: (req, res) => {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("/products/listadoAutores"))
+      .then(() =>{return res.redirect("/products/listadoAutores")})
       .catch((error) => console.log(error));
   },
 
@@ -628,7 +630,7 @@ deleteGenre: (req, res) => {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("/products/listadoGeneros"))
+      .then(() => {return res.redirect("/products/listadoGeneros")})
       .catch((error) => console.log(error));
   },
 
@@ -726,7 +728,7 @@ deleteEditorial: (req, res) => {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("/products/listadoEditorial"))
+      .then(() =>{return res.redirect("/products/listadoEditorial")})
       .catch((error) => console.log(error));
   },
 
@@ -759,7 +761,7 @@ deleteEditorial: (req, res) => {
       db.carouselImage.create({
         name : req.file.filename,
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() => {return res.redirect("/products/administrador")})
         .catch((error) => console.log(error));
     } else {
       //metodo para borrar imagenes si hay error
@@ -856,7 +858,7 @@ deleteImageCarousel: (req, res) => {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("/products/administrador"))
+      .then(() => {return res.redirect("/products/administrador")})
       .catch((error) => console.log(error));
   },
   /* sección de publicidad */
@@ -888,7 +890,7 @@ deleteImageCarousel: (req, res) => {
       db.Promo.create({
         promoImage: req.file.filename,
       })
-        .then(() => res.redirect("/products/administrador"))
+        .then(() =>{ return res.redirect("/products/administrador")})
         .catch((error) => console.log(error));
     } else {
          //metodo para borrar imagenes si hay error
@@ -974,7 +976,7 @@ deleteImageCarousel: (req, res) => {
         id: req.params.id,
       },
     })
-    .then(() => res.redirect("/products/listadoPublicidad"))
+    .then(() => { return res.redirect("/products/listadoPublicidad")})
     .catch((error) => console.log(error))
   },
 
@@ -1079,13 +1081,13 @@ deleteImageCarousel: (req, res) => {
 
     generos;
     Promise.all([productos, generos])
-      .then(([productos, generos]) =>
-        res.render("./products/commonViews/commonViews", {
+      .then(([productos, generos]) => {
+        return res.render("./products/commonViews/commonViews", {
           title: `LEAF | ${req.params.name.toUpperCase()}`,
           productos,
           generos,
         })
-      )
+      })
       .catch((error) => console.log(error));
   },
   
@@ -1121,7 +1123,7 @@ paymentMethodList:(req,res)=>{
       db.Paymentmethod.create({
         name: req.body.name.trim(),
       })
-        .then(() => res.redirect("/products/listadoMetodosPago"))
+        .then(() =>{ return res.redirect("/products/listadoMetodosPago")})
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
@@ -1184,7 +1186,7 @@ deletePayment: (req, res) => {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("/products/listadoMetodosPago"))
+      .then(() => {return res.redirect("/products/listadoMetodosPago")})
       .catch((error) => console.log(error));
   },
 

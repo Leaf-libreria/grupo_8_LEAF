@@ -88,7 +88,7 @@ const {
 
 // /products
 //vista de libro y e-book
-router.get("/:name", formatViews);
+router.get("/formato/:name", formatViews);
 //vistas de ver más...
 router.get("/categoria/:name", verMas);
 router.get("/detalle/:id", detail);
