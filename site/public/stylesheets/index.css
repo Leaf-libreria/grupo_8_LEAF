@@ -11,7 +11,68 @@
   font-weight: 800;
   margin: 30px 10px 5px 10px;
 }
+.index .mainIndex article {
+  position: relative;
+}
 
+.btn-cart-none {
+  /* display: none; */
+}
+.btn-cart {
+position: static;
+  border: 2px solid rgb(6, 248, 107);
+  color: rgb(6, 248, 107);
+  font-size: 22px;
+  width: 8em;
+  margin: auto;
+  background-color: rgb(6, 248, 107);
+  color:white;
+}
+.btn-cart:hover{
+  box-shadow: 0px 0px 10px rgb(6, 95, 6);
+}
+.btn-cart i{
+  transition: transform 3000ms;
+}
+.btn-cart i:hover{
+  transform: rotateY(150deg);
+}
+.cont-btn{
+  position: absolute;
+  left: 20px;
+  bottom: 140px;
+  animation: aparicion 4s ;
+ 
+}
+.cont-btn-novedades{
+  position: absolute;
+  left: 68px;
+  bottom: 40px;
+  animation: aparicion 4s ;
+ 
+}
+.cont-btn-recomendados{
+  position: absolute;
+  left: 80px;
+  bottom: -130px;
+  animation: aparicion 4s ;
+ 
+}
+@keyframes aparicion{
+  0%{opacity:0%}
+25%{transform: translateY(-80px); opacity:100%;}
+  100%{opacity:100%}
+
+}
+
+
+/* transition: transform 4000ms;
+}
+
+main section article i:hover {
+  transform: rotateY(150deg);
+} */
+/*----
 .index .mainIndex .cabecera h2 {
   margin-bottom: 0;
 }
@@ -41,9 +102,9 @@
   margin-top: 10px;
 }
 
-.index .mainIndex article .detalle a:hover{
-text-decoration: underline;
-color: #212529;
+.index .mainIndex article .detalle a:hover {
+  text-decoration: underline;
+  color: #212529;
 }
 
 .index .mainIndex article .detalle h4 {
@@ -290,4 +351,54 @@ color: #212529;
   .index .mainIndex .iconos .articulo-iconos i {
     font-size: 50px;
   }
+  /* .btn-cart-none {
+    display: none; 
+  }
+  .btn-cart {
+  position: static;
+    border: 2px solid rgb(6, 248, 107);
+    color: rgb(6, 248, 107);
+    font-size: 22px;
+    width: 8em;
+    margin: auto;
+    background-color: rgb(6, 248, 107);
+    color:white;
+  }
+  .btn-cart:hover{
+    box-shadow: 0px 0px 10px rgb(6, 95, 6);
+  }
+  .btn-cart i{
+    transition: transform 3000ms;
+  }
+  .btn-cart i:hover{
+    transform: rotateY(150deg);
+  }
+  .cont-btn{
+    position: absolute;
+    left: 20px;
+    bottom: 140px;
+    animation: aparicion 4s ;
+   
+  }
+  .cont-btn-novedades{
+    position: absolute;
+    left: 68px;
+    bottom: 40px;
+    animation: aparicion 4s ;
+   
+  }
+  .cont-btn-recomendados{
+    position: absolute;
+    left: 80px;
+    bottom: -130px;
+    animation: aparicion 4s ;
+   
+  }
+  @keyframes aparicion{
+    0%{opacity:0%}
+  25%{transform: translateY(-80px); opacity:100%;}
+    100%{opacity:100%}
+  
+  } */
+  
 }
