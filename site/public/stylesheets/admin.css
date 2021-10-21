@@ -49,13 +49,22 @@
   font-family: var(--letra-cuerpo);
   text-align: center;
   font-weight: 600;
-  border-radius: 7px;
-  margin: 10px 40px;
+  margin-top: 0.65rem;
+}
+
+.admin-btn-agregar-bloque
+{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .admin-btn-agregar:hover {
   font-size: 20px;
   font-weight: 800;
+}
+
+.admin .dropdown-toggle {
+    white-space: initial;
 }
 /* Botones ir arriba/abajo */
 .admin-dcha{
