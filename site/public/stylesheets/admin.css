@@ -103,6 +103,17 @@
   color:black;
   background-color: red;
 }
+
+/*Botón volver*/
+.volver-admin{
+  margin: 0.5rem
+}
+
+.volver-admin:hover{
+  text-decoration: underline;
+  color: initial;
+}
+
 /*-----FORMULARIOS AGREGAR Y EDITAR PRODUCTOS (ADMIN)-----*/
 .admin .administrador .formulario {
   background-color: rgba(245, 245, 245, 0.575);

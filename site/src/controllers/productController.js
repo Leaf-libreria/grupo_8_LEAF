@@ -542,17 +542,18 @@ deleteAuthor: (req, res) => {
   generos
     .then((generos)=>{
     return res.render('./products/genreList',{
+      generos,
       title: "LEAF | Administrador",
-      generos
     })
   })
   .catch(error => console.log(error));
 },
   addGenreGet: (req, res) => {
     let errors = validationResult(req);
-    db.Genre.findAll()
-      .then(() => {
+    generos
+      .then((generos) => {
         return res.render("./products/addGenre", {
+          generos,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -566,13 +567,14 @@ deleteAuthor: (req, res) => {
       db.Genre.create({
         name: req.body.name.trim(),
       })
-        .then(() => res.redirect("/products/listadoGeneros"))
+        .then(() => {return res.redirect("/products/listadoGeneros")})
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      db.Genre.findAll()
-        .then(() => {
+      generos
+        .then((generos) => {
           return res.render("./products/addGenre", {
+            generos,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -612,8 +614,10 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  db.Genre.findByPk(req.params.id)
-.then((genre)=>{
+  generos
+  let genre =db.Genre.findByPk(req.params.id)
+  Promise.all([generos,genre])
+.then(([generos,genre])=>{
   return res.render('./products/editGenre',{
     genre,
     generos,
@@ -649,9 +653,13 @@ editorialList:(req,res)=>{
 },
   addEditorialGet: (req, res) => {
     let errors = validationResult(req);
-    db.Editorial.findAll()
-      .then(() => {
+    generos
+    let editorial=db.Editorial.findAll()
+    Promise.all([generos,editorial])
+      .then(([generos,editorial]) => {
         return res.render("./products/addEditorial", {
+          generos,
+          editorial,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -669,9 +677,13 @@ editorialList:(req,res)=>{
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      db.Editorial.findAll()
-        .then(() => {
+      generos
+      let editorial=db.Editorial.findAll()
+      Promise.all([generos,editorial])
+        .then(([generos,editorial]) => {
           return res.render("./products/addEditorial", {
+            generos,
+            editorial,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -710,8 +722,10 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  db.Editorial.findByPk(req.params.id)
-.then((editorial)=>{
+  generos
+  let editorial =db.Editorial.findByPk(req.params.id)
+  Promise.all([generos,editorial])
+.then(([generos,editorial])=>{
   return res.render('./products/editEditorial',{
     editorial,
     generos,
@@ -1107,9 +1121,13 @@ paymentMethodList:(req,res)=>{
 },
   addPaymentGet: (req, res) => {
     let errors = validationResult(req);
-    db.Paymentmethod.findAll()
-      .then(() => {
+    generos
+    let pagoMetodo=db.Paymentmethod.findAll()
+    Promise.all([generos, pagoMetodo])
+      .then(([generos,pagoMetodo]) => {
         return res.render("./products/addPaymentMethod", {
+          generos,
+          pagoMetodo,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -1127,9 +1145,13 @@ paymentMethodList:(req,res)=>{
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      db.Paymentmethod.findAll()
-        .then(() => {
+      generos
+      let pagoMetodo = db.Paymentmethod.findAll()
+      Promise.all([generos, pagoMetodo])
+        .then(([generos, pagoMetodo]) => {
           return res.render("./products/addPaymentMethod", {
+            generos,
+            pagoMetodo,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -1168,8 +1190,10 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  db.Paymentmethod.findByPk(req.params.id)
-.then((pagoMetodo)=>{
+  generos
+  let pagoMetodo=db.Paymentmethod.findByPk(req.params.id)
+  Promise.all([generos, pagoMetodo])
+.then(([generos,pagoMetodo])=>{
   return res.render('./products/editPaymentMethod',{
     pagoMetodo,
     generos,
