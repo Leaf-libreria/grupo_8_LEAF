@@ -84,6 +84,7 @@ const {
   pagoCard,
   genresViews,
   formatViews,
+  download,
 } = require("../controllers/productController");
 
 // /products
@@ -157,5 +158,8 @@ router.delete('/eliminarMetodosPago/:id',administradorMw,deletePayment);
 router.get('/autor/:nameLastname',authorViews)
 //Ruta libros por editorial
 router.get('/editorial/:name',viewEditorials)
+
+//Ruta para descarga de libros gratis
+router.get('/descarga/libro',logueados,download)
 
 module.exports = router;

@@ -1067,13 +1067,12 @@ deleteImageCarousel: (req, res) => {
 
   pagoCard: (req, res) => {
     let errors = validationResult(req);
-
+//Guardar la tarjeta en orden de compra
     if(errors.isEmpty()){
-      Paymentmethod.create({
+      Purchaseorder.create({
         titularCard: req.body.titularCard.trim(),
         cardNumber: req.body.cardNumber.trim(),
         dueDate: req.body.dueDate.trim(),
-        securityCode: bcrypt.hashSync(req.body.securityCode, 10),
       })
     }
   },
@@ -1256,4 +1255,15 @@ deletePayment: (req, res) => {
     })
   }).catch(error => console.log(error));
   },
+
+  //vista para descargar libros
+  download: (req,res)=>{
+    generos
+    .then((generos)=>{
+    return res.render ('./products/freeBooks',{
+      title: 'LEAF | Libros gratis',
+      generos
+    })
+  }).catch(error => console.log(error));
+}
 };

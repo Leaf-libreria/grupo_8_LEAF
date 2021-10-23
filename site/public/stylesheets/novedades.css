@@ -41,9 +41,9 @@
 
 .novedades .contenedorNovedades .detalle{
     text-align: center;
-  line-height: 10px;
-  margin-top: 10px;
-  color: var(--color-bordo);
+    line-height: 10px;
+    margin-top: 10px;
+    color: var(--color-bordo);
 }
 
 .novedades .contenedorNovedades .detalle a{
@@ -53,6 +53,22 @@
 .novedades .contenedorNovedades .detalle a:hover{
     text-decoration: underline;
 }
+
+.novedades .contenedorNovedades .btn-descarga{
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    padding: 6px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin: 0 30px;
+    font-weight: 600;
+}
+
+.novedades .contenedorNovedades .btn-descarga:hover{
+    background-color: var(--color-amarillo);
+    color: var(--color-bordo);
+}
+
 
 @media (min-width: 361px) {
 
