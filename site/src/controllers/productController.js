@@ -1261,7 +1261,7 @@ deletePayment: (req, res) => {
     generos
     .then((generos)=>{
     return res.render ('./products/freeBooks',{
-      title: 'LEAF | Libros gratis',
+      title: 'LEAF | LIBROS GRATIS',
       generos
     })
   }).catch(error => console.log(error));
