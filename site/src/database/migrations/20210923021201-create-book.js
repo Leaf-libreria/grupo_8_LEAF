@@ -41,6 +41,14 @@ module.exports = {
         allowNull: false,
         defaultValue:'default-image-book.png'
       },
+      pdf: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      qrCode: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       authorId: {
         type: Sequelize.INTEGER,
         allowNull: false,
