@@ -85,12 +85,17 @@ header .header2 .contenedorLogo {
 }
 .header2 .buscador i,
 .header2 .carrito {
-
   padding: 2px 4px;
+}
+
+.header2 .carrito a{
+  margin-left: 22px;
+  
 }
 /* buscador */
 header .me-2 {
   padding: 3px 10px;
+  margin-left: 14px;
   margin-right: 0px !important;
 }
 header .buscador .btn{

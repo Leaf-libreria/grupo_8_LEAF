@@ -54,7 +54,7 @@
           </div>
           <div class="articles-masVendidos">
             <% masVendidos.forEach(producto=> { %>
-              <article class="libros-<%=producto.genero.name%>">
+              <article class="libros-<%=producto.genero.name%> btn-cart-art">
                 <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>"
                     alt="portada de<%=producto.title%>" /></a>
                 <div class="detalle">
@@ -68,6 +68,7 @@
                   </a>
                   <p>$<%=producto.price%>
                   </p>
+              <div class="cont-btn"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
                 </div>
               </article>
               <% }) %>
@@ -81,8 +82,10 @@
           </div>
           <div class="articles-novedades">
             <% novedades.forEach(producto=> { %>
-              <article>
+              <article class="btn-cart-art">
                 <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%= producto.cover %>" alt="" /></a>
+                <div class="cont-btn-novedades"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
+
               </article>
               <% }) %>
           </div>
@@ -96,7 +99,7 @@
           </div>
           <div class="articles-recomendados">
             <% recomendados.forEach(producto=> { %>
-              <article class="librosRecomendados">
+              <article class="librosRecomendados btn-cart-art">
                 <h3>
                   <%= producto.title %>
                 </h3>
@@ -113,6 +116,8 @@
                   <i class="far fa-star"></i>
                   <i class="far fa-star"></i>
                 </div>
+                <div class="cont-btn-recomendados"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
+
                 <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%= producto.cover %>" alt="" /></a>
               </article>
               <% }) %>
@@ -160,6 +165,7 @@
   </body>
   <!-- ----scripts ----->
   <%-include('./partials/scripts') %>
+  <script src="/javascripts/btn-cart.js"></script>
     <!-- ----scripts---- -->
 
 </html>

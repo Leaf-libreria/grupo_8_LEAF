@@ -1,11 +1,22 @@
 .perfil .btn-outline-warning,
 .editarPerfil {
-  color: var(--color-bordo);
   padding: 5px;
   display: block;
   margin: 20px auto;
+  font-size: 16px;
+text-align: center;
+border: 2px solid var(--color-amarillo);
+color: var(--color-bordo);
+border-radius: 5px;
+font-weight: 600;
 }
 
+.perfil .btn-outline-warning,
+.editarPerfil:hover{
+  background-color: var(--color-amarillo);
+  font-size: 18px;
+
+   }
 
 /* contenedor de form */
 .perfil .perfil-div {
@@ -112,8 +123,12 @@ text-align: center;
 border: 2px solid var(--color-amarillo);
 width: 20%;
 margin: 0 auto;
-border-radius: 5%;
+color: var(--color-bordo);
+padding: 6px;
+border-radius: 5px;
+font-weight: 600;
 }
+
 .perfil-main .nav-item a:hover{
    background-color: var(--color-amarillo);
    width: 22%;
