@@ -246,6 +246,8 @@ module.exports = {
           editorialId: req.body.editorialId,
           starId: req.body.starId,
           cover: req.file ? req.file.filename : productEdit.cover,
+          pdf: req.file ? req.file.filename : productEdit.pdf,
+          qrCode: req.file ? req.file.filename : productEdit.qrCode,
         },
         {
           where: {
@@ -375,6 +377,8 @@ module.exports = {
         editorialId: req.body.editorialId.trim(),
         starId: req.body.starId.trim(),
         cover: req.file ? req.file.filename : "default-image-book.png",
+        pdf: req.file.filename,
+        qrCode: req.file.filename,
       })
       .then(() => {
           return res.redirect("/products/administrador");
@@ -440,10 +444,13 @@ module.exports = {
   //Agregar autor, editorial,genero, carrusel y publicidad
   addAuthorGet: (req, res) => {  /* muestra la vista */
     let errors = validationResult(req);
-    db.Author.findAll()
-      .then((autor) => {
+    let autor= db.Author.findAll()
+    generos
+    Promise.all([autor,generos])
+      .then(([autor,generos]) => {
         return res.render("./products/addAuthor", {
           autor,
+          generos,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -462,9 +469,13 @@ module.exports = {
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      db.Author.findAll()
-        .then(() => {
+      let autor=db.Author.findAll()
+      generos
+      Promise.all([autor,generos])
+        .then(([autor,generos]) => {
           return res.render("./products/addAuthor", {
+            autor,
+            generos,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
