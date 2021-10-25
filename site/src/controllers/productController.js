@@ -97,7 +97,7 @@ module.exports = {
           title: "LEAF | Detalle",
           producto,
           generos,
-          relacionados,          
+          relacionados,
         });
       })
       .catch((error) => console.log(error));
@@ -1258,11 +1258,22 @@ deletePayment: (req, res) => {
 
   //vista para descargar libros
   download: (req,res)=>{
+    let productos= db.Book.findAll({
+      include:[
+        { association: "autor" },
+        { association: "genero" },
+      ],
+      where:{
+        price: 0
+      }
+    })
     generos
-    .then((generos)=>{
+    Promise.all([productos,generos])
+    .then(([productos, generos])=>{
     return res.render ('./products/freeBooks',{
       title: 'LEAF | LIBROS GRATIS',
-      generos
+      productos,
+      generos,
     })
   }).catch(error => console.log(error));
 }

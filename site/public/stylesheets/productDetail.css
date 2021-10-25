@@ -131,6 +131,43 @@ text-decoration: underline;
 .detail .verTambien p {
   font-weight: 600;
 }
+
+/*****sección descarga libros gratis****/
+.detail .contenedor-card-freebook-detail{
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.detail .img-freebook-detail{
+height: 430px;
+}
+
+/*Botones descarga*/
+
+.detail .btn-descarga{
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    padding: 6px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin: 0 30px;
+    font-weight: 600;
+}
+
+.detail .btn-descarga:hover{
+    background-color: var(--color-amarillo);
+    color: var(--color-bordo);
+}
+
+/*Modal*/
+.detail .modal-titulo-freeBook-detail{
+  color:var(--color-bordo);
+}
+
+.detail .qr-freeBook-detail{
+  width: 75%;
+  margin: 10%;
+}
+
 /* Version tablet */
 
 @media (min-width: 361px) {
