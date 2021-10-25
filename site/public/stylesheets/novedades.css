@@ -1,85 +1,77 @@
 /* Novedades Mobile */
 
-.novedades main h2{
-    text-align: center;
-    margin-top: 20px ;
-    color: var(--color-amarillo);
-    font-weight: 600;
-    background-color: var(--color-bordo);
-    padding: 10px;
-    border-radius: 7px;
-    margin: 20px 40px;
+.novedades main h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--color-amarillo);
+  font-weight: 600;
+  background-color: var(--color-bordo);
+  padding: 10px;
+  border-radius: 7px;
+  margin: 20px 40px;
 }
 
-.novedades .contenedorNovedades{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
-
+.novedades .contenedorNovedades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.novedades .contenedorNovedades .libro{
-    display: block;
-    margin: 30px auto;
-    box-shadow: 3px 3px 4px 5px rgba(128, 128, 128, 0.589);
-    width:70%;
+.novedades .contenedorNovedades .libro {
+  display: block;
+  margin: 30px auto;
+  box-shadow: 3px 3px 4px 5px rgba(128, 128, 128, 0.589);
+  width: 70%;
 }
 
-.novedades .contenedorNovedades .libro:hover{
-    box-shadow: 3px 3px 4px 5px #63120fa8;
+.novedades .contenedorNovedades .libro:hover {
+  box-shadow: 3px 3px 4px 5px #63120fa8;
 }
 
-.novedades .contenedorNovedades .libro img{
-    display: block;
-    width:auto;
-    height: 240px;
-    padding: 10px;
-    margin: 15px auto 5px;
-
-    
+.novedades .contenedorNovedades .libro img {
+  display: block;
+  width: auto;
+  height: 240px;
+  padding: 10px;
+  margin: 15px auto 5px;
 }
 
-.novedades .contenedorNovedades .detalle{
-    text-align: center;
+.novedades .contenedorNovedades .detalle {
+  text-align: center;
   line-height: 10px;
   margin-top: 10px;
+  margin-bottom: 15px;
   color: var(--color-bordo);
 }
 
-.novedades .contenedorNovedades .detalle a{
-    color: var(--color-bordo);
+.novedades .contenedorNovedades .detalle a {
+  color: var(--color-bordo);
 }
 
-.novedades .contenedorNovedades .detalle a:hover{
-    text-decoration: underline;
+.novedades .contenedorNovedades .detalle a:hover {
+  text-decoration: underline;
 }
 
 @media (min-width: 361px) {
+  .novedades .contenedorNovedades .libro {
+    width: 30%;
+    margin: 30px auto;
+  }
 
-    .novedades .contenedorNovedades .libro{
-        width:30%;
-        margin: 30px auto;
-    }
-
-    .novedades .contenedorNovedades .libro img{
-        width: 180px;
-        height: 230px;
-        margin: 15px auto 0;
-    }
+  .novedades .contenedorNovedades .libro img {
+    width: 180px;
+    height: 230px;
+    margin: 15px auto 0;
+  }
 }
 
-    @media (min-width: 769px) {
+@media (min-width: 769px) {
+  .novedades .contenedorNovedades .libro {
+    width: 28%;
+  }
 
-        .novedades .contenedorNovedades .libro{
-            width:28%;
-        }
-    
-        .novedades .contenedorNovedades .libro img{
-            width: 200px;
-            height: 260px;
-        }
-
-
-
-
+  .novedades .contenedorNovedades .libro img {
+    width: 200px;
+    height: 260px;
+  }
 }

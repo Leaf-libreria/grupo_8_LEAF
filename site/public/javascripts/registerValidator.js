@@ -168,7 +168,32 @@ window.addEventListener("load", function () {
             error = true;
         }
         if (!error) {
-            formRegister.submit()
-        }
+            function ActivarTiempo() {
+                //se activa el método alert luego de 2 segundos
+                setTimeout(
+                  function () {
+                    formRegister.submit()
+                  },
+                  8000,
+                  Swal.fire({
+                    icon: "success",
+                    title: 'Te registraste correctamente.¡Bienvenid@ a Leaf!',
+                    width: 600,
+                    padding: '3em',
+                    showConfirmButton: false,
+                    background: '#ffff url(https://www.animationsoftware7.com/img/agifs/leaf_fall_1.gif)',
+                    backdrop: `
+                    #f0db728e
+                      url("https://media1.giphy.com/media/0bRb2Z7jRyphw0RSSr/200w.webp?cid=ecf05e47e0djl40skdi4kerndk8i282upiiat4venkk59tsx&rid=200w.webp&ct=s")
+                      left top
+                      no-repeat
+                    `
+                  })
+                );
+              }
+              ActivarTiempo();
+            }
+           
+        
     })
 })

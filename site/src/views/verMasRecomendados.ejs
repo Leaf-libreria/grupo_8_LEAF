@@ -27,13 +27,19 @@
                 <h3>
                   <%= product.title %>
                 </h3>
-                <a href="/products/autor/<%= producto.autor.nameLastname %> ">
+                <a href="/products/autor/<%= product.autor.nameLastname %> ">
                 <h4>
                   <%= product.autor.nameLastname %>
                 </h4>
                 </a>
                 <p>$<%= product.price %>
                 </p>
+                   <!-- estrellas dinamicas -->
+                   <div class="estrella">
+                    <% for( let i = 1; i <= product.estrella.quantity; i++ ) { %>
+                      <i class="fas fa-star"></i>
+                    <% } %>
+                  </div>
               </div>
             </article>
             <% }) %>

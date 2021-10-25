@@ -102,6 +102,7 @@ module.exports = {
         { association: "autor" },
         { association: "categoria" },
         { association: "genero" },
+        { association: "estrella" },
       ],
       where: {
         categoryId: 3,

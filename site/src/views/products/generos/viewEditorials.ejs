@@ -23,19 +23,29 @@
                                     <h3>
                                         <%=producto.title%>
                                     </h3>
-                <a href="/products/autor/<%= producto.autor.nameLastname %> ">
-                                    <h4>
-                                        <%=producto.autor.nameLastname%>
-                                    </h4>
-</a>
+                                    <a href="/products/autor/<%= producto.autor.nameLastname %> ">
+                                        <h4>
+                                            <%=producto.autor.nameLastname%>
+                                        </h4>
+                                    </a>
                                     <p>$<%=producto.price%>
                                     </p>
-                                    <div class="cont-btn"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
-
-                                </div>
-                            </article>
-                            <% }) %>
+                                    <!-- Muestro el boton de carrito solo si esta logueado -->
+                                    <% if (locals.userLogin) { %>
+                                        <% if (locals.userLogin.rol === 1 ) { %>
+                                            <div class="cont-btn"> <button type="button" class="btn-cart btn-cart-none"
+                                                    class="btn "><i class="fas fa-shopping-cart"></i></button></div>
+                          
+                                <% } else { %>
+                                    <div></div>
+                                    <%}%>
+                                        <% } else { %>
+                                            <div></div>
+                                            <%}%>
                     </div>
+                    </article>
+                    <% }) %>
+                        </div>
                 </section>
                 <section class="iconos">
                     <h3>en leaf te ofrecemos</h3>

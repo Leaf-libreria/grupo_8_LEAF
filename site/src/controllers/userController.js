@@ -29,7 +29,6 @@ module.exports = {
           };
           recordar &&
             res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
-
           return res.redirect("/");
         })
         .catch((error) => console.log(error));
