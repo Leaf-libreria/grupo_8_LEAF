@@ -52,6 +52,50 @@
   text-decoration: underline;
 }
 
+/*****Vista freeBooks*****/
+.novedades .contenedorNovedades .contenedor-card-freeBook{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.novedades .contenedorNovedades .img-freeBook{
+    height: 430px; 
+}
+
+.novedades .contenedorNovedades .modal-titulo-freeBook{
+    color: var(--color-bordo);
+}
+
+.novedades .contenedorNovedades .qr-freeBook{
+    width: 75%;
+    margin: 10%;
+}
+
+.novedades .contenedorNovedades .a-freeBook:hover{
+color: initial;
+text-decoration: underline;
+}
+
+.novedades .contenedorNovedades .info-freeBook{
+    color: gray;
+}
+/*Botones de descarga freeBooks*/
+.novedades .contenedorNovedades .btn-descarga{
+    background-color: var(--color-bordo);
+    color: var(--color-amarillo);
+    padding: 6px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin: 0 30px;
+    font-weight: 600;
+}
+
+.novedades .contenedorNovedades .btn-descarga:hover{
+    background-color: var(--color-amarillo);
+    color: var(--color-bordo);
+}
+
+
 @media (min-width: 361px) {
   .novedades .contenedorNovedades .libro {
     width: 30%;
@@ -70,8 +114,20 @@
     width: 28%;
   }
 
+<<<<<<< HEAD
   .novedades .contenedorNovedades .libro img {
     width: 200px;
     height: 260px;
   }
 }
+=======
+        .novedades .contenedorNovedades .libro{
+            width:28%;
+        }
+    
+        .novedades .contenedorNovedades .libro img{
+            width: 200px;
+            height: 260px;
+        }
+}
+>>>>>>> 7035f44a2675c3ff2f96a34820ab4686592035a9

@@ -4,7 +4,7 @@
     <!-- redes sociales -->
     <ul class="redes">
       <li>
-        <p noResponsive>Seguinos</p>
+        <p class="noResponsive">Seguinos</p>
       </li>
       <li>
         <a href=""><i class="fab fa-facebook-square"></i></a>
@@ -48,6 +48,7 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li> <a class="dropdown-item" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil </a></li>
+                <li><a class="dropdown-item" href="/products/descarga/libro">Libros gratis</a></li>
                 <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
 
               </ul>
@@ -124,6 +125,7 @@
 
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li> <a class="dropdown-item" href="/users/perfil/<%=locals.userLogin.id%>">Mi perfil </a></li>
+                        <li><a class="dropdown-item" href="/products/descarga/libro">Libros gratis</a></li>
                         <li> <a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
 
                       </ul>
@@ -151,20 +153,20 @@
           </li>
 
           <li class="nav-item">
-            <a class="noResponsive nav-link " aria-current="page" href="/products/libros">Libros</a>
+            <a class=" nav-link " aria-current="page" href="/products/formato/libro">Libros</a>
           </li>
           <li class="nav-item">
-            <a class="noResponsive nav-link" href="/products/ebooks">Ebooks</a>
+            <a class=" nav-link" href="/products/formato/E-book">E-books</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Generos
+              Géneros
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
               <% generos.forEach(genero=> { %>
-                <li><a class="dropdown-item" href="/products/<%=genero.name.toLowerCase()%>">
+                <li><a class="dropdown-item" href="/products/genero/<%=genero.name.toLowerCase()%>">
                     <%=genero.name%>
                   </a></li>
                 <% }) %>
@@ -183,8 +185,9 @@
           </li>
 
           <li class="nav-item">
-            <button class="carrito noMovil">
+            <button class="carrito noMovil noResponsive">
               <a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a>
+              <p class="noResponsive">0</p>
             </button>
           </li>
 

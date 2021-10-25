@@ -11,43 +11,52 @@
     <%-include('../partials/header') %>
       <!-- ----header---- -->
       <main>
-        <div class="d-grid gap-3">
-        <div class="list-group">
-          <a type="button" class="btn btn-outline-secondary dropdown-toggle admin-btn-agregar" data-bs-toggle="dropdown" aria-expanded="false">
-            VER
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/products/listadoAutores">Listado de autores/as</a></li>
-            <li><a class="dropdown-item" href="/products/listadoEditorial">Listado de editoriales</a></li>
-            <li><a class="dropdown-item" href="/products/listadoGeneros">Listado de géneros</a></li>
-            <li><a class="dropdown-item" href="/products/listadoMetodosPago">Listado de métodos de pago</a></li>
-            <li><a class="dropdown-item" href="/products/agregarCarrusel">Imagen para carrusel</a></li>
-            <li><a class="dropdown-item" href="/products/listadoPublicidad">Imagen para publicidad</a></li>
-          </ul>
+        <div class="d-flex justify-content-center mx-3">
+          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <a href="/products/agregar" id="arriba" class="btn btn-outline-success admin-btn-agregar btn-group-admin" type="button">AGREGAR
+              PRODUCTOS</a>
+          <div class="btn-group" role="group">
+            <a type="button" class="btn btn-outline-secondary dropdown-toggle admin-btn-agregar btn-group-admin" data-bs-toggle="dropdown" aria-expanded="false">
+            VER MÁS LISTADOS
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/products/listadoAutores">Listado de autores/as</a></li>
+              <li><a class="dropdown-item" href="/products/listadoEditorial">Listado de editoriales</a></li>
+              <li><a class="dropdown-item" href="/products/listadoGeneros">Listado de géneros</a></li>
+              <li><a class="dropdown-item" href="/products/listadoMetodosPago">Listado de métodos de pago</a></li>
+              <li><a class="dropdown-item" href="/users/listadoUsuarios">Listado de Usuarios y roles</a></li>
+              <li><a class="dropdown-item" href="/products/agregarCarrusel">Imagen para carrusel</a></li>
+              <li><a class="dropdown-item" href="/products/listadoPublicidad">Imagen para publicidad</a></li>
+            </ul>
+          </div>
+          </div>
         </div>
-      
+
+        <h2>Listado de productos</h2>
         
-        <h2>Lista de productos</h2>
-        
-          <a href="/products/agregar" id="arriba" class="btn btn-outline-success admin-btn-agregar" type="button">AGREGAR
-            PRODUCTOS</a>
-        </div>
         <div class="admin-dcha">
           <a href="#abajo" class="admin-btn-flotante admin-btn-agregar"><i class="fas fa-chevron-down"></i> </a>
         </div>
         <div class='contenedorNovedades'>
           <% productos.forEach(producto=>{ %>
-            <article class="libro libros-<%=producto.genero.name%>">
+            <article class="libro libros-<%=producto.genero.name%> admin-card">
               <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%= producto.cover %>  "
                   alt="LEAF | Portada del libro" /></a>
               <div class="detalle">
-                <h3>
+                <h4>
                   <%= producto.title %>
-                </h3>
+                </h4>
                 <h4>
                   <%= producto.author %>
                 </h4>
-                <p>$ <%= producto.price %>
+                <% if (producto.price == 0) { %>
+                  <p>LIBRO GRATIS ($ <%= producto.price %>) </p>
+                <% } else { %>
+                
+                  <p>$ <%= producto.price %>
+                <% } %>
+                </p>
+                <p>Stock:  <%= producto.stock %>
                 </p>
               </div>
               <!-- Botones para administrador -->

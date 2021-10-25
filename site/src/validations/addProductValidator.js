@@ -31,7 +31,6 @@ module.exports = [
     .withMessage("Ingrese solo números"),
   body('starId').notEmpty().withMessage("Campo obligatorio"),
   body("pages")
-  
     .notEmpty()
     .withMessage("Campo obligatorio")
     .isInt()
@@ -51,6 +50,32 @@ module.exports = [
       if (!allowedExtensions.includes(fileExtension)) {
         throw new Error(
           `Las extensiones de archivo permitidas son ${allowedExtensions.join(", ")}`
+        );
+      }
+    }
+    return true;
+  }),
+  body("qrCode").custom((value, { req }) => {
+    let qrCode = req.file;
+    let allowedExtensions = [".jpg", ".jpeg", ".png"];
+    if (qrCode) {
+      let fileExtension = path.extname(qrCode.originalname);
+      if (!allowedExtensions.includes(fileExtension)) {
+        throw new Error(
+          `Las extensiones de archivo permitidas son ${allowedExtensions.join(", ")}`
+        );
+      }
+    }
+    return true;
+  }),
+  body("pdf").custom((value, { req }) => {
+    let pdf = req.file;
+    let allowedExtensions = [".pdf"];
+    if (pdf) {
+      let fileExtension = path.extname(pdf.originalname);
+      if (!allowedExtensions.includes(fileExtension)) {
+        throw new Error(
+          `Sólo se permite extensión ${allowedExtensions.join(", ")}`
         );
       }
     }

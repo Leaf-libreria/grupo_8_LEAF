@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- ----head ----->
+<%-include('../partials/head') %>
+    <!-- ----head---- -->
+
+    <body class="novedades">
+        <!-- ----header ----->
+        <%-include('../partials/header') %>
+            <!-- ----header---- -->
+            <main>
+            <h1 class="titulo-generos">
+                <%=title%>
+            </h1>
+            <section class="contenedorNovedades">
+              <% productos.forEach(producto => { %>
+              
+              <!-- Tarjeta -->
+              <!-- 1 -->
+              <div class="card contenedor-card-freeBook" style="width: 18rem;">
+                  <img src="/images/<%= producto.cover %> " class="card-img-top img-freeBook" alt="El mundo perdido">
+                
+                <div class="card-body">
+                  <h4 class="card-title"><%= producto.title %></h4>
+                  <a class="a-freeBook" href="/products/autor/<%= producto.autor.nameLastname %> ">
+                  <h5><%= producto.autor.nameLastname%></h5>
+                  </a>
+                    <div class="row row-cols-2 info-freeBook">
+                      <h6>  <%= producto.genero.name %>  </h6>
+                      <h6>Páginas:  <%= producto.pages %>  </h6>
+                    </div>
+                  <p class="card-text card-freeBook"><%= producto.synopsis %> ​</p>
+                  <div class="d-grid gap-2 col-10 mx-auto">
+                  <a href="/librosDescarga/<%= producto.pdf %>" type="button" class="btn-descarga" download="El mundo perdido">DESCARGAR PDF</a>
+              
+                  <!-- Vertically centered modal -->
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal<%= producto.id %> ">
+                    QR DE DESCARGA
+                  </button>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade modal-freeeBook" id="exampleModal<%=producto.id%>" tabindex="-1" aria-labelledby="exampleModalLabel " aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title modal-titulo-freeBook" id="exampleModalLabel">Escanear para descargar: <%= producto.title %> </h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <img class="qr-freeBook" src="/librosDescarga/qr/<%= producto.qrCode %> " alt="<%= producto.title %> ">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!-- Fin de tarjeta -->
+                </div>
+              </div>
+              <% }) %>
+            </section>
+          </main>
+                <!-- ----footer ----->
+                <%-include('../partials/footer') %>
+                    <!-- ----footer---- -->
+                    </body>
+                    <!-- ----scripts ----->
+                    <%-include('../partials/scripts') %>
+                        <!-- ----scripts---- -->
+                        </html>

@@ -57,6 +57,8 @@ module.exports = (sequelize, DataTypes) => {
     pages: DataTypes.INTEGER,
     synopsis: DataTypes.TEXT,
     cover: DataTypes.STRING,
+    pdf: DataTypes.STRING,
+    qrCode: DataTypes.STRING,
     authorId: DataTypes.INTEGER,
     genreId: DataTypes.INTEGER,
     formatId: DataTypes.INTEGER,

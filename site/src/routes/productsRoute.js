@@ -35,30 +35,16 @@ const upload = multer({
 
 //Controlador
 const {
-  verMasVendidos,
+  verMas,
   detail,
   administrador,
   carrito,
   pago,
   agregarProducto,
   editarProducto,
-  libros,
-  ebooks,
-  policial,
-  romance,
-  terror,
-  misterio,
-  historica,
-  cienciaFiccion,
-  juvenil,
   actualizarProducto,
   addProducto,
   borrar,
-  verMasNovedades,
-  verMasRecomendados,
-  thriller,
-  fantasia,
-  addImages,
   authorList,
   addAuthorPost,
   addAuthorGet,
@@ -93,24 +79,27 @@ const {
   editCarouselGet,
   editCarouselUpdate,
   deleteImageCarousel,
-  commonViews,
+  authorViews,
   viewEditorials,
-  pagoCard
+  pagoCard,
+  genresViews,
+  formatViews,
+  download,
 } = require("../controllers/productController");
 
 // /products
-router.get("/ebooks", ebooks);
-router.get("/libros", libros);
-router.get("/masVendidos", verMasVendidos);
-router.get("/masNovedades", verMasNovedades);
-router.get("/masRecomendados", verMasRecomendados);
+//vista de libro y e-book
+router.get("/formato/:name", formatViews);
+//vistas de ver más...
+router.get("/categoria/:name", verMas);
 router.get("/detalle/:id", detail);
 router.get("/administrador", administradorMw, administrador);
 // Carga de productos CRUD
 router.get("/agregar", administradorMw, addProducto);
-router.post("/agregar",administradorMw,upload.single("cover"),addValidator,agregarProducto);
+// upload.any( para subir archivos de diferente extensión)
+router.post("/agregar", administradorMw, upload.any(),addValidator,agregarProducto);
 router.get("/editar/:id", administradorMw, editarProducto);
-router.put("/editar/:id",administradorMw,upload.single("cover"),editValidator, actualizarProducto);
+router.put("/editar/:id",administradorMw,upload.any(),editValidator, actualizarProducto);
 router.delete("/delete/:id", administradorMw,borrar);
 
 
@@ -155,16 +144,8 @@ router.delete('/eliminarPublicidad/:id',administradorMw,deletePromo);
 router.get("/carrito", logueados, carrito);
 router.get("/pago", logueados, pago);
 router.post("/pago", logueados, payFormValidator, pagoCard);
-// rutas de generos
-router.get("/misterio", misterio);
-router.get("/terror", terror);
-router.get("/romance", romance);
-router.get("/historica", historica);
-router.get("/ciencia-ficcion", cienciaFiccion);
-router.get("/policial", policial);
-router.get("/thriller", thriller);
-router.get("/fantasia", fantasia);
-router.get("/juvenil", juvenil);
+// ruta de generos
+router.get("/genero/:name", genresViews);
 
 //CRUD métodos de pago
 router.get('/agregarMetodoPago',administradorMw,addPaymentGet);
@@ -175,8 +156,11 @@ router.put('/editarMetodosPago/:id',administradorMw,genreEditorialValidator,edit
 router.delete('/eliminarMetodosPago/:id',administradorMw,deletePayment);
 
 //Ruta vista libros por autor
-router.get('/autor/:nameLastname',commonViews)
+router.get('/autor/:nameLastname',authorViews)
 //Ruta libros por editorial
 router.get('/editorial/:name',viewEditorials)
+
+//Ruta para descarga de libros gratis
+router.get('/descarga/libro',logueados,download)
 
 module.exports = router;

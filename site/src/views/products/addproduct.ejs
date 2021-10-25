@@ -11,6 +11,8 @@
     <%-include('../partials/header') %>
       <!-- ----header---- -->
       <main>
+        <a class="volver-admin" href="/products/administrador"><i class="fas fa-angle-double-left"></i>VOLVER</a>
+
         <h2>Carga de productos</h2>
         <!--FORMULARIO-->
         <div class="administrador">
@@ -30,7 +32,7 @@
               <div class="isbn">
                 <label for="isbn">ISBN:</label>
                 <div class="isbn-btn">
-                  <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos"
+                  <input type="number" name="isbn" id="isbn" class="grid" placeholder="13 Dígitos"
                     value="<%= locals.old && locals.old.isbn ? old.isbn: null%>">
                 </div>
                 <div class="error">
@@ -228,6 +230,38 @@
             <br>
             <!-- previsualiza imagen -->
             <div id="image-render"><img  id="image"></div>
+            <!-- previsualiza imagen -->
+
+            <!-- Sección qrCode -->
+            <div class="portada">
+              <label for="qrCode">Imagen de QR de descarga:</label>
+              <input class="file" type="file" name="qrCode" id="qrCode">
+              <div class="error error-qrCodeGral">
+                <span id="qrCodeError">
+                  <%= locals.errores && locals.errores.qrCode ? errores.qrCode.msg : null %>
+                </span>
+              </div>
+            </div>
+            <br>
+            <!-- previsualiza imagen -->
+
+            <!-- previsualiza imagen -->
+
+            <!-- Sección PDF -->
+            <div class="portada">
+              <label for="pdf">PDF del libro:</label>
+              <input class="file" type="file" name="pdf" id="pdf">
+              <div class="error error-pdfGral">
+                <span id="pdfError">
+                  <%= locals.errores && locals.errores.pdf ? errores.pdf.msg : null %>
+                </span>
+              </div>
+            </div>
+            <br>
+            <!-- previsualiza imagen -->
+
+            <!-- previsualiza imagen -->
+
             <!-- seccion de sinopsis -->
             <div class="sinopsis">
               <label for="synopsis">Sinopsis:</label>

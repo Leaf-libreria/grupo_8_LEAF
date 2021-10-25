@@ -34,7 +34,7 @@
             <div class="productoAbajo">
               <p>$ <%= producto.price %>
               </p>
-              
+               <!-- Muestro el boton de carrito solo si esta logueado -->
               <% if (locals.userLogin) { %>
                 <% if (locals.userLogin.rol===1 ) { %>
                   <div class="cont-btn-detail"> <button type="button" class="btn-cart-detail btn " ><i
@@ -101,8 +101,6 @@
                 </a>
                 <p> $ <%= producto.price %>
                 </p>
-                <!-- Muestro el boton de carrito solo si esta logueado -->
-              
               </div>
               <% relacionados.forEach(book=> { %>
                 <% if(book.genero.name===producto.genero.name && book.id !==producto.id){%>
@@ -120,7 +118,6 @@
                     </p>
                   </div>
                   <% } %>
-
                     <% }) %>
 
             </div>

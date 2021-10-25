@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- ----head ----->
+<%-include('./partials/head') %>
+  <!-- ----head---- -->
+
+  <body class="novedades">
+
+
+    <!-- ----header ----->
+    <%-include('./partials/header') %>
+      <!-- ----header---- -->
+
+      <main>
+
+        <h2>
+          <%= title %>
+        </h2>
+
+        <div class=contenedorNovedades>
+          <% productos.forEach(producto=> { %>
+            <article class="libro libros-<%=producto.genero.name%>">
+              <a href="/products/detalle/<%= producto.id %> "><img src="/images/<%= producto.cover %> "
+                  alt="<%= producto.title %> " /></a>
+              <div class="detalle">
+                <h3>
+                  <%= producto.title %>
+                </h3>
+                <a href="/products/autor/<%= producto.autor.nameLastname %> ">
+                <h4>
+                  <%= producto.autor.nameLastname%>
+                </h4>
+                </a>
+                <p>$<%= producto.price %>
+                </p>
+                  <!-- estrellas dinamicas -->
+                  <div class="estrella">
+                    <% for( let i = 1; i <= product.estrella.quantity; i++ ) { %>
+                      <i class="fas fa-star"></i>
+                    <% } %>
+                  </div>
+              </div>
+            </article>
+            <% }) %>
+        </div>
+      </main>
+
+      <!-- ----footer ----->
+      <%-include('./partials/footer') %>
+        <!-- ----footer---- -->
+
+  </body>
+  <!-- ----scripts ----->
+  <%-include('./partials/scripts') %>
+    <!-- ----scripts---- -->
+
+</html>

@@ -33,6 +33,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      cardNumber: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+      },
       rolId: {
         type: Sequelize.INTEGER,
         allowNull: false,
