@@ -31,6 +31,22 @@ text-decoration: underline;
   margin: 0 30px;
   font-weight: 600;
 }
+.cont-btn-detail{
+  margin: 0 30px;
+}
+.btn-cart-detail{
+  position: static;
+  border: 2px solid rgb(6, 248, 107);
+  color: rgb(6, 248, 107);
+  font-size: 22px;
+  width: 4.5em;
+  margin: auto;
+  background-color: rgb(6, 248, 107);
+  color:white;
+}
+
+/* boton de añadir a carrito */
+
 
 .detail .seleccion h4 {
   text-align: center;

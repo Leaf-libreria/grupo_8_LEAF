@@ -21,20 +21,31 @@
           <section class="producto">
             <div class="productoArriba">
               <a href="/products/autor/<%= producto.autor.nameLastname %> ">
-              <h4>Autor: <%= producto.autor.nameLastname %>
-              </h4>
+                <h4>Autor: <%= producto.autor.nameLastname %>
+                </h4>
               </a>
-<a href="/products/editorial/<%= producto.editorial.name %> ">
-              <h5>Editorial: <%= producto.editorial.name %>
-              </h5>
-</a>
+              <a href="/products/editorial/<%= producto.editorial.name %> ">
+                <h5>Editorial: <%= producto.editorial.name %>
+                </h5>
+              </a>
               <h5>Stock: <%= producto.stock %>
               </h5>
             </div>
             <div class="productoAbajo">
               <p>$ <%= producto.price %>
               </p>
-              <a class="comprar" href="">COMPRAR</a>
+              
+              <% if (locals.userLogin) { %>
+                <% if (locals.userLogin.rol===1 ) { %>
+                  <div class="cont-btn-detail"> <button type="button" class="btn-cart-detail btn " ><i
+                        class="fas fa-shopping-cart"></i></button></div>
+
+                  <% } else { %>
+                    <div></div>
+                    <%}%>
+                      <% } else { %>
+                        <div></div>
+                        <%}%>
             </div>
             <p class="sinopsis"> Sinopsis: <%= producto.synopsis %>
             </p>
@@ -73,47 +84,58 @@
         <h4 class="ademas">También te recomendamos del genero <%=producto.genero.name%>
         </h4>
         <section class="otros">
-<!-- CARROUSEL -->
+          <!-- CARROUSEL -->
 
-<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/images/<%= producto.cover %> "  alt="..." />
-      <h3>
-        <%= producto.title %>
-      </h3>
-      <a href="/products/autor/<%= producto.autor.nameLastname%>">
-        <h5>
-          <%= producto.autor.nameLastname %>
-        </h5>
-      </a>
-      <p> $ <%= producto.price %>
-      </p>
-    </div>
-    <% relacionados.forEach(book=> { %>
-      <% if(book.genero.name===producto.genero.name && book.id !== producto.id){%>
-        <div class="carousel-item">
-<a href="/products/detalle/<%= book.id %> "><img src="/images/<%= book.cover %> "  alt="..."/></a>
-<h3><%= book.title %> </h3>
-<a href="/products/autor/<%= book.autor.nameLastname %> "><h5><%= book.autor.nameLastname %> </h5></a>
-<p> $ <%= book.price %> </p>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/images/<%= producto.cover %> " alt="..." />
+                <h3>
+                  <%= producto.title %>
+                </h3>
+                <a href="/products/autor/<%= producto.autor.nameLastname%>">
+                  <h5>
+                    <%= producto.autor.nameLastname %>
+                  </h5>
+                </a>
+                <p> $ <%= producto.price %>
+                </p>
+                <!-- Muestro el boton de carrito solo si esta logueado -->
+              
+              </div>
+              <% relacionados.forEach(book=> { %>
+                <% if(book.genero.name===producto.genero.name && book.id !==producto.id){%>
+                  <div class="carousel-item">
+                    <a href="/products/detalle/<%= book.id %> "><img src="/images/<%= book.cover %> " alt="..." /></a>
+                    <h3>
+                      <%= book.title %>
+                    </h3>
+                    <a href="/products/autor/<%= book.autor.nameLastname %> ">
+                      <h5>
+                        <%= book.autor.nameLastname %>
+                      </h5>
+                    </a>
+                    <p> $ <%= book.price %>
+                    </p>
+                  </div>
+                  <% } %>
+
+                    <% }) %>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
           </div>
-        <% } %>
-
-          <% }) %>
-
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-
-</div>
         </section>
       </main>
       <!-- pie de pagina -->

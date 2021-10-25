@@ -72,11 +72,12 @@ window.addEventListener("load", () => {
           },
           3000,
           Swal.fire({
-            position: "center",
             icon: "success",
-            title: "Iniciaste sesion correctamente",
+            title: 'Inicio de sesion exitoso',
+            width: 600,
+            padding: '3em',
             showConfirmButton: false,
-            timer: 4000,
+            background: '#ffff url(https://www.animationsoftware7.com/img/agifs/leaf_fall_1.gif)',
           })
         );
       }
