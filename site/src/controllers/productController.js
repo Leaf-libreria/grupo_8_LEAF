@@ -1088,7 +1088,7 @@ deleteImageCarousel: (req, res) => {
     }
   },
 
-  // controlador para generos
+  // controlador para vistas de libros por generos
   genresViews: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -1223,7 +1223,7 @@ deletePayment: (req, res) => {
       .then(() => {return res.redirect("/products/listadoMetodosPago")})
       .catch((error) => console.log(error));
   },
-
+//Vista de libros por autor
   authorViews: (req,res)=>{
     generos
     let productos = db.Book.findAll({
@@ -1244,6 +1244,7 @@ deletePayment: (req, res) => {
     })
   }).catch(error => console.log(error));
   },
+  //Vista de libros por editorial
   viewEditorials: (req,res)=>{
     generos
     let productos = db.Book.findAll({

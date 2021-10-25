@@ -2,7 +2,9 @@ const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
-const { User } = require("../database/models");
+const { User,Genre,Rol } = require("../database/models");
+const generos = Genre.findAll();
+
 
 module.exports = {
   login: (req, res) => {
@@ -177,5 +179,87 @@ module.exports = {
         user,
       });
     });
+  },
+  //Vista de listado de usuarios para administrador
+  usuarioList: (req, res) => {
+    generos
+    let usuarios = User.findAll({
+      include:[
+        { association: "userRol"}
+      ]
+    })
+    let roles = Rol.findAll()
+    Promise.all([generos, usuarios,roles])
+      .then(([generos, usuarios,roles]) => {
+        return res.render('./users/usersList', {
+          title: "LEAF | Administrador",
+          usuarios,
+          generos,
+          roles,
+        })
+      })
+      .catch(error => console.log(error));
+  },
+  //Editar rol del usuario
+  editRolUsuarioGet: (req, res) => {
+    generos
+    let usuario = User.findByPk(req.params.id,{
+      include: [
+        { association: "userRol" }
+      ]
+    })
+    Promise.all([generos, usuario])
+      .then(([generos, usuario]) => {
+        return res.render('./products/editRolUsuario', {
+          title: "LEAF | Administrador",
+          generos,
+          usuario,
+          old: req.body
+        })
+      })
+      .catch(error => console.log(error));
+  },
+  editRolUsuarioPut: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      User.update({
+        rolId: req.body.name.trim()
+      },
+        {
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(() => {
+          return res.redirect("/products/listadoUsuarios");
+
+        }).catch(error => console.log(error));
+    } else {
+      generos
+      let usuario = User.findByPk(req.params.id,{
+        include: [
+          { association: "userRol" }
+        ]
+      })
+      Promise.all([generos, usuario])
+        .then(([generos, usuario]) => {
+          return res.render('./products/editusuario', {
+            usuario,
+            generos,
+            errores: errors.mapped(),
+            old: req.body,
+            title: 'LEAF | Administrador'
+          })
+        })
+    }
+  },
+  deleteUsuario: (req, res) => {
+    User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => { return res.redirect("/products/listadoUsuarios") })
+      .catch((error) => console.log(error));
   },
 };
