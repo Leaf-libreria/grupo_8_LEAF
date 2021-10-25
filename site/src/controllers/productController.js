@@ -1350,11 +1350,6 @@ deleteEditorial: (req, res) => {
       )
       .catch((error) => console.log(error));
   },
-  // metodos para carrusel de imagenes
-  addImages: (req, res) => {
-   
-  },
-  agregarImgCarrusel: (req, res) => {},
 
 //Crud métodos de pago
 paymentMethodList:(req,res)=>{

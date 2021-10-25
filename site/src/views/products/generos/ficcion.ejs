@@ -27,7 +27,7 @@
           </div>
           <div class="articles-masVendidos">
             <% ficcion.forEach(producto=> { %>
-              <article class="libros-<%=producto.genero.name%>">
+              <article class="libros-<%=producto.genero.name%> btn-cart-art">
                 <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.portada%>"
                     alt="portada de<%=producto.titulo%>" /></a>
                 <div class="detalle">
@@ -40,6 +40,8 @@
                   <p>
                     <%=producto.precio%>
                   </p>
+                  <div class="cont-btn"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
+
                 </div>
               </article>
               <% }) %>

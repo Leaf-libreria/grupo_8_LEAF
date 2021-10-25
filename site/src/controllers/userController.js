@@ -161,21 +161,5 @@ module.exports = {
 
     }
   },
-  actualizarImagen: (req, res) => {
-    User.update(
-      {
-        image: req.file ? req.file.filename : user.image,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    ).then((user) => {
-      return res.render("./users/perfil", {
-        title: "LEAF | Mi perfil",
-        user,
-      });
-    });
-  },
+ 
 };

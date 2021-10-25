@@ -1,0 +1,30 @@
+#error-ejs{
+   background-image: url("/images/error-404.png");
+   background-position: top;
+   background-repeat: no-repeat;
+  background-size: cover;
+   min-height: 100vh;
+
+ 
+}
+
+#error-ejs #logo img{
+    width: 100px;
+   
+}
+
+#error-ejs #gif img{
+    width: 350px;
+    position: absolute;
+    right: 38%;
+    top: 25%;
+}
+
+#recomendados-link{
+    position: absolute;
+    right: 22%;
+    top: 33%;
+    text-decoration: underline;
+}
+
+
