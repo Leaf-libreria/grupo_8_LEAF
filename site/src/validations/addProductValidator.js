@@ -18,7 +18,9 @@ module.exports = [
     .notEmpty()
     .withMessage("Campo obligatorio")
     .isInt()
-    .withMessage("Ingrese solo números"),
+    .withMessage("Ingrese solo números")
+    .isInt({ min: 0 })
+    .withMessage("Valor mínimo 0 (cero)."),
   body("formatId").notEmpty().withMessage("Campo obligatorio"),
   body("categoryId").notEmpty().withMessage("Campo obligatorio"),
   body("authorId").notEmpty().withMessage("Campo obligatorio"),
@@ -28,13 +30,17 @@ module.exports = [
     .notEmpty()
     .withMessage("Campo obligatorio")
     .isInt()
-    .withMessage("Ingrese solo números"),
+    .withMessage("Ingrese solo números.")
+    .isInt({min:0})
+    .withMessage ("Valor mínimo 0 (cero)."),
   body('starId').notEmpty().withMessage("Campo obligatorio"),
   body("pages")
     .notEmpty()
     .withMessage("Campo obligatorio")
     .isInt()
-    .withMessage("Ingrese solo números"),
+    .withMessage("Ingrese solo números.")
+    .isInt({min:0})
+    .withMessage("Valor mínimo 0 (cero)."),
   body("slogan").notEmpty().withMessage("Campo obligatorio")
   .isLength({
       min: 5,

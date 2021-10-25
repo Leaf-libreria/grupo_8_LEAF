@@ -33,7 +33,7 @@
               <div class="isbn">
                 <label for="isbn">ISBN:</label>
                 <div class="isbn-btn">
-                  <input type="number" name="isbn" id="isbn" class="grid" placeholder="13 Dígitos"
+                  <input type="number" min="0" name="isbn" id="isbn" class="grid" placeholder="13 Dígitos"
                     value="<%= locals.old && locals.old.isbn ? old.isbn: null%>">
                 </div>
                 <div class="error">
@@ -45,7 +45,7 @@
               </div>
               <div class="stock">
                 <label for="stock">Stock:</label>
-                <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números"
+                <input type="number" min="0" name="stock" id="stock" class="grid" placeholder="Ingrese números"
                   value="<%= locals.old && locals.old.stock ? old.stock: null%>">
 
                 <div class="error">
@@ -183,7 +183,7 @@
             <div class="container-grid-uno">
               <div class="precio">
                 <label for="price">Precio $:</label>
-                <input type="number" name="price" id="price" class="grid" placeholder="Sólo números"
+                <input type="number" min="0" name="price" id="price" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.price ? old.price: null%>">
                 <div class="error">
                   <!-- Posibles errores -->
@@ -195,7 +195,7 @@
               <!-- seccion de paginas -->
               <div class="paginas">
                 <label for="pages">Páginas:</label>
-                <input type="number" name="pages" id="pages" class="grid" placeholder="Sólo números"
+                <input type="number" min="0" name="pages" id="pages" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.pages? old.pages: null%>">
                 <div class="error">
                   <!-- Posibles errores -->
