@@ -237,31 +237,6 @@
                 </span>
               </div>
             </div>
-
-            <!-- Sección qrCode -->
-            <div class="portada">
-              <label for="qrCode">Imagen de QR de descarga:</label>
-              <input class="file" type="file" name="qrCode" id="qrCode">
-              <div class="error error-qrCodeGral">
-                <span id="qrCodeError">
-                  <%= locals.errores && locals.errores.qrCode ? errores.qrCode.msg : null %>
-                </span>
-              </div>
-            </div>
-            <br>
-
-            <!-- Sección PDF -->
-            <div class="portada">
-              <label for="pdf">PDF del libro:</label>
-              <input class="file" type="file" name="pdf" id="pdf">
-              <div class="error error-pdfGral">
-                <span id="pdfError">
-                  <%= locals.errores && locals.errores.pdf ? errores.pdf.msg : null %>
-                </span>
-              </div>
-            </div>
-            <br>
-
             <!-- seccion de sinopsis -->
             <div class="sinopsis">
               <label for="synopsis">Sinopsis:</label>

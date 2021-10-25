@@ -377,8 +377,6 @@ module.exports = {
         editorialId: req.body.editorialId.trim(),
         starId: req.body.starId.trim(),
         cover: req.file ? req.file.filename : "default-image-book.png",
-        pdf: req.file.filename,
-        qrCode: req.file.filename,
       })
       .then(() => {
           return res.redirect("/products/administrador");
