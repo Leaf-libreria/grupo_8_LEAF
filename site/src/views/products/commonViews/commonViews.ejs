@@ -18,8 +18,7 @@
             <% productos.forEach(producto=> { %>
               <% if (producto.price > 0) { %>
                 <article class="libros-<%=producto.genero.name%>">
-                <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>"
-                    alt="portada de<%=producto.title%>" /></a>
+                <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt= "portada de<%=producto.title%>"/></a>
                 <div class="detalle">
                   <h3>
                     <%=producto.title%>

@@ -18,7 +18,8 @@
               <!-- Tarjeta -->
               <!-- 1 -->
               <div class="card contenedor-card-freeBook" style="width: 18rem;">
-                <img src="/images/<%= producto.cover %> " class="card-img-top img-freeBook" alt="El mundo perdido">
+                  <img src="/images/<%= producto.cover %> " class="card-img-top img-freeBook" alt="El mundo perdido">
+                
                 <div class="card-body">
                   <h4 class="card-title"><%= producto.title %></h4>
                   <a class="a-freeBook" href="/products/autor/<%= producto.autor.nameLastname %> ">
@@ -34,12 +35,12 @@
               
                   <!-- Vertically centered modal -->
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal<%= producto.id %> ">
                     QR DE DESCARGA
                   </button>
                   </div>
                   <!-- Modal -->
-                  <div class="modal fade modal-freeeBook" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel " aria-hidden="true">
+                  <div class="modal fade modal-freeeBook" id="exampleModal<%=producto.id%>" tabindex="-1" aria-labelledby="exampleModalLabel " aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                         <div class="modal-header">

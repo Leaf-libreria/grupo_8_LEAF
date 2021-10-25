@@ -9,8 +9,7 @@
     <!-- ----header ----->
     <%-include('../partials/header') %>
       <main>
-        <% if (producto.price > 0) { %>
-        
+
         <div class="seleccionProducto">
           <article class="seleccion libros-<%=producto.genero.name%>">
             <h4>
@@ -22,13 +21,13 @@
           <section class="producto">
             <div class="productoArriba">
               <a href="/products/autor/<%= producto.autor.nameLastname %> ">
-              <h4>Autor: <%= producto.autor.nameLastname %>
-              </h4>
+                <h4>Autor: <%= producto.autor.nameLastname %>
+                </h4>
               </a>
-<a href="/products/editorial/<%= producto.editorial.name %> ">
-              <h5>Editorial: <%= producto.editorial.name %>
-              </h5>
-</a>
+              <a href="/products/editorial/<%= producto.editorial.name %> ">
+                <h5>Editorial: <%= producto.editorial.name %>
+                </h5>
+              </a>
               <h5>Stock: <%= producto.stock %>
               </h5>
             </div>
@@ -61,7 +60,7 @@
           <div>
             <i class="fas fa-globe-americas"></i>
             <p>Idioma</p>
-            <p><%= producto.language %></p>
+            <p>Español</p>
           </div>
           <div>
             <i class="fas fa-boxes"></i>
@@ -71,145 +70,64 @@
             </p>
           </div>
         </section>
-        <h4 class="ademas">También te recomendamos del género <%=producto.genero.name%>
+        <h4 class="ademas">También te recomendamos del genero <%=producto.genero.name%>
         </h4>
         <section class="otros">
-<!-- CARROUSEL -->
+          <!-- CARROUSEL -->
 
-<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/images/<%= producto.cover %> "  alt="..." />
-      <h3>
-        <%= producto.title %>
-      </h3>
-      <a href="/products/autor/<%= producto.autor.nameLastname%>">
-        <h5>
-          <%= producto.autor.nameLastname %>
-        </h5>
-      </a>
-      <p> $ <%= producto.price %>
-      </p>
-    </div>
-    <% relacionados.forEach(book=> { %>
-      <% if(book.genero.name===producto.genero.name && book.id !== producto.id){%>
-        <div class="carousel-item">
-<a href="/products/detalle/<%= book.id %> "><img src="/images/<%= book.cover %> "  alt="..."/></a>
-<h3><%= book.title %> </h3>
-<a href="/products/autor/<%= book.autor.nameLastname %> "><h5><%= book.autor.nameLastname %> </h5></a>
-<p> $ <%= book.price %> </p>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/images/<%= producto.cover %> " alt="..." />
+                <h3>
+                  <%= producto.title %>
+                </h3>
+                <a href="/products/autor/<%= producto.autor.nameLastname%>">
+                  <h5>
+                    <%= producto.autor.nameLastname %>
+                  </h5>
+                </a>
+                <p> $ <%= producto.price %>
+                </p>
+              </div>
+              <% relacionados.forEach(book=> { %>
+                <% if(book.genero.name===producto.genero.name && book.id !==producto.id){%>
+                  <div class="carousel-item">
+                    <a href="/products/detalle/<%= book.id %> "><img src="/images/<%= book.cover %> " alt="..." /></a>
+                    <h3>
+                      <%= book.title %>
+                    </h3>
+                    <a href="/products/autor/<%= book.autor.nameLastname %> ">
+                      <h5>
+                        <%= book.autor.nameLastname %>
+                      </h5>
+                    </a>
+                    <p> $ <%= book.price %>
+                    </p>
+                  </div>
+                  <% } %>
+                    <% }) %>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
           </div>
-        <% } %>
-
-          <% }) %>
-
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
         </section>
-<% } else { %> 
-  <% if (locals.userLogin) { %>
-  <div class="seleccionProducto">
-    <article class="seleccion libros-<%=producto.genero.name%>">
-    <h4>
-      <%= producto.title %>
-    </h4>
-    <img class="<%= producto.genre %>" src="/images/<%= producto.cover %> " alt="<%= producto.title %> " />
-  </article>
-
-  <section class="producto">
-    <div class="productoArriba">
-      <a href="/products/autor/<%= producto.autor.nameLastname %> ">
-        <h4>Autor: <%= producto.autor.nameLastname %>
-        </h4>
-      </a>
-      <a href="/products/editorial/<%= producto.editorial.name %> ">
-        <h5>Editorial: <%= producto.editorial.name %>
-        </h5>
-      </a>
-      <p class="sinopsis"> Sinopsis: <%= producto.synopsis %>
-      </p>
-    </div>
-    <div class="productoAbajo">
-      <!-- Botones descarga -->
-<div class="d-grid gap-2 col-10 mx-auto">
-  <a href="/librosDescarga/<%= producto.pdf %> " type="button" class="btn-descarga"
-    download="<%= producto.title %> ">DESCARGAR PDF</a>
-  <!-- Vertically centered modal -->
-  <!-- Button trigger modal -->
-  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    QR DE DESCARGA
-  </button>
-</div>
-<!-- Modal -->
-<div class="modal fade modal-freeeBook-detail" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title modal-titulo-freeBook-detail" id="exampleModalLabel">Escanear para descargar <%= producto.title %>  </h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img class="qr-freeBook-detail" src="/librosDescarga/qr/<%= producto.qrCode %> " alt="<%= producto.title %> _QR">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-      <!--Fin botones descarga  -->
-    </div>
-    
-  </section>
-</div>
-
-<h4 class="infoad">Información adicional</h4>
-<section class="iconoInfo">
-  <div>
-    <i class="fas fa-barcode"></i>
-    <p>ISBN</p>
-    <p>
-      <%= producto.isbn %>
-    </p>
-  </div>
-  <div>
-    <i class="fas fa-book-open"></i>
-    <p>Páginas</p>
-    <p>
-      <%= producto.pages %>
-    </p>
-  </div>
-  <div>
-    <i class="fas fa-globe-americas"></i>
-    <p>Idioma</p>
-    <p>
-      <%= producto.language %>
-    </p>
-  </div>
-  <div>
-    <i class="fas fa-boxes"></i>
-    <p>Género</p>
-    <p>
-      <%= producto.genero.name %>
-    </p>
-  </div>
-</section>
-          <% }%>
-<% } %>
-
-
       </main>
       <!-- pie de pagina -->
       <!-- ----footer ----->
       <%-include('../partials/footer') %>
-      <!-- ----footer---- -->
+        <!-- ----footer---- -->
         <!-- ----scripts ----->
         <%-include('../partials/scripts') %>
           <!-- ----scripts---- -->
