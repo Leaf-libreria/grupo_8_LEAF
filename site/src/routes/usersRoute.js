@@ -16,6 +16,9 @@ const {
   cerrarSesion,
   cambiarPerfil,
   usuarioList,
+  editRolUsuarioPut,
+  editRolUsuarioGet,
+  deleteCuentaUsuario,
 } = require("../controllers/userController");
 //validaciones
 const loginValidator = require("../validations/loginValidator");
@@ -54,5 +57,10 @@ router.get("/logout", cerrarSesion);
 
 //Vista de listado de usuarios para administrador
 router.get("/listadoUsuarios",administradorMw,usuarioList)
+//Edición de rol de usuario
+router.get("/editarRolUsuario/:id",administradorMw, editRolUsuarioGet)
+router.put("/editarRolUsuario/:id", administradorMw, editRolUsuarioPut)
+//Eliminar cuenta del usuario
+router.delete("/eliminarUsuario/:id", administradorMw, deleteCuentaUsuario)
 
 module.exports = router;
