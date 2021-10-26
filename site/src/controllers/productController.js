@@ -1011,7 +1011,7 @@ deleteImageCarousel: (req, res) => {
           association: "categoria",
         },
         {
-          association: "cart",
+          association: "usuarios",
         },
         {
           association: "editorial",
