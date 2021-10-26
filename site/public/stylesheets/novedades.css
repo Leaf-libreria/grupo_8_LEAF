@@ -114,20 +114,8 @@ text-decoration: underline;
     width: 28%;
   }
 
-<<<<<<< HEAD
   .novedades .contenedorNovedades .libro img {
     width: 200px;
     height: 260px;
   }
 }
-=======
-        .novedades .contenedorNovedades .libro{
-            width:28%;
-        }
-    
-        .novedades .contenedorNovedades .libro img{
-            width: 200px;
-            height: 260px;
-        }
-}
->>>>>>> 7035f44a2675c3ff2f96a34820ab4686592035a9
