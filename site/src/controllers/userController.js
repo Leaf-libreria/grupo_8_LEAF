@@ -115,10 +115,10 @@ module.exports = {
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
-     
+    
       User.update(
         {
-         
+        
           name: req.body.name.trim(),
           lastname: req.body.lastname.trim(),
           nickname: req.body.nickname ? req.body.nickname.trim() : null,
@@ -140,7 +140,7 @@ module.exports = {
           }
           
           res.redirect("/")
-           
+          
         })
         .catch((error) => console.log(error));
     } else {
