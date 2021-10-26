@@ -13,36 +13,42 @@
                 <%=title%>
             </h1>
             <section class="contenedorNovedades">
+              <% productos.forEach(producto => { %>
+              
               <!-- Tarjeta -->
               <!-- 1 -->
               <div class="card contenedor-card-freeBook" style="width: 18rem;">
-                <img src="/images/el_mundo_perdido.jpg" class="card-img-top img-freeBook" alt="El mundo perdido">
+                  <img src="/images/<%= producto.cover %> " class="card-img-top img-freeBook" alt="El mundo perdido">
+                
                 <div class="card-body">
-                  <h4 class="card-title">El mundo pérdido</h4>
-                  <a class="a-freeBook" href="/products/autor/ ">
-                  <h5>Arthur Conan Doyle</h5>
+                  <h4 class="card-title"><%= producto.title %></h4>
+                  <a class="a-freeBook" href="/products/autor/<%= producto.autor.nameLastname %> ">
+                  <h5><%= producto.autor.nameLastname%></h5>
                   </a>
-                  <p class="card-text card-freeBook">La novela fundacional del género de los dinosaurios creada en 1912 por el padre de Sherlock Holmes. Primera novela del profesor Challenger, sobre una expedición a una meseta sudamericana en donde
-                  aún sobreviven animales prehistóricos. ​</p>
+                    <div class="row row-cols-2 info-freeBook">
+                      <h6>  <%= producto.genero.name %>  </h6>
+                      <h6>Páginas:  <%= producto.pages %>  </h6>
+                    </div>
+                  <p class="card-text card-freeBook"><%= producto.synopsis %> ​</p>
                   <div class="d-grid gap-2 col-10 mx-auto">
-                  <a href="/librosDescarga/el_mundo_perdido.pdf" type="button" class="btn-descarga" download="El mundo perdido">DESCARGAR PDF</a>
+                  <a href="/librosDescarga/<%= producto.pdf %>" type="button" class="btn-descarga" download="El mundo perdido">DESCARGAR PDF</a>
               
                   <!-- Vertically centered modal -->
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal<%= producto.id %> ">
                     QR DE DESCARGA
                   </button>
                   </div>
                   <!-- Modal -->
-                  <div class="modal fade modal-freeeBook" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade modal-freeeBook" id="exampleModal<%=producto.id%>" tabindex="-1" aria-labelledby="exampleModalLabel " aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h4 class="modal-title modal-titulo-freeBook" id="exampleModalLabel">Escanear para descargar</h4>
+                          <h4 class="modal-title modal-titulo-freeBook" id="exampleModalLabel">Escanear para descargar: <%= producto.title %> </h4>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <img class="qr-freeBook" src="/librosDescarga/qr-el-mundo-perdido.png" alt="El mundo perdido_QR">
+                          <img class="qr-freeBook" src="/librosDescarga/qr/<%= producto.qrCode %> " alt="<%= producto.title %> ">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -52,190 +58,10 @@
                   </div>
                 </div>
               </div>
-
-              <!-- 2 -->
-              <div class="card contenedor-card-freeBook" style="width: 18rem;">
-                <img src="/images/dracula.jpg" class="card-img-top img-freeBook" alt="El mundo perdido">
-                <div class="card-body">
-                  <h4 class="card-title">Drácula</h4>
-                  <h5>Bram Stoker</h5>
-                  <p class="card-text card-freeBook">Antes de ser elevada por el cine y por innumerables series de novelas a uno de los puestos privilegiados del imaginario
-                  actual, la leyenda del vampiro alcanzó un gran reconocimiento en este clásico de la literatura de terror.</p>
-                  <div class="d-grid gap-2 col-10 mx-auto">
-                  <a href="/librosDescarga/dracula.pdf" type="button" class="btn-descarga" download="Drácula">DESCARGAR PDF</a>
-              
-                  <!-- Vertically centered modal -->
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    QR DE DESCARGA
-                  </button>
-              </div>
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Escanear para descargar</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <img src="/librosDescarga/qr_el_mundo_perdido.png" alt="El mundo perdido_QR">
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<!-- Fin de tarjeta -->
                 </div>
               </div>
-
-              <!-- 3 -->
-              <div class="card contenedor-card-freeBook" style="width: 18rem;">
-                <img src="/images/la_dama_de_las_camelias.jpg" class="card-img-top img-freeBook" alt="El mundo perdido">
-                <div class="card-body">
-                  <h4 class="card-title">La dama de las camelias</h4>
-                  <h5>Alexandre Dumas</h5>
-                  <p class="card-text card-freeBook">Armand Duval, respetable joven de familia burguesa, se enamora de la cortesana Marguerite Gautier, bella y trágica. No
-                  obstante, los convencionalismos sociales y la sombra de la tuberculosis acabarán por conducirles a la senda de las
-                  ilusiones perdidas.</p>
-                  <a href="/librosDescarga/la_dama_de_las_camelias.pdf" type="button" class="btn-descarga" download="La dama de las camelias">DESCARGAR PDF</a>
-              
-                  <!-- Vertically centered modal -->
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    QR DE DESCARGA
-                  </button>
-              
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Escanear para descargar</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <img src="/librosDescarga/qr_el_mundo_perdido.png" alt="El mundo perdido_QR">
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 4 -->
-              <div class="card contenedor-card-freeBook" style="width: 18rem;">
-                <img src="/images/estudio_en_escarlata.jpg" class="card-img-top img-freeBook" alt="El mundo perdido">
-                <div class="card-body">
-                  <h4 class="card-title">Estudio en escarlata</h4>
-                  <h5>Arthur Conan Doyle</h5>
-                  <p class="card-text card-freeBook">Primera novela de Sherlock
-                    Holmes. Un cadáver hallado en extrañas circunstancias en una casa deshabitada provoca que los agentes de policía de Scotland
-                    Yard se pierdan en divagaciones equivocadas.</p>
-                  <a href="/librosDescarga/estudio_en_escarlata.pdf" type="button" class="btn-descarga" download="El mundo perdido">DESCARGAR PDF</a>
-              
-                  <!-- Vertically centered modal -->
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    QR DE DESCARGA
-                  </button>
-              
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Escanear para descargar</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <img src="/librosDescarga/qr_el_mundo_perdido.png" alt="El mundo perdido_QR">
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 5 -->
-              <div class="card contenedor-card-freeBook" style="width: 18rem;">
-                <img src="/images/guerra_y_paz.jpg" class="card-img-top img-freeBook" alt="El mundo perdido">
-                <div class="card-body">
-                  <h4 class="card-title">Guerra y paz</h4>
-                  <h5>León Tolstói</h5>
-                  <p class="card-text card-freeBook">Considerada
-                  obra cumbre de Tolstói. Guerra y paz alterna en su magnífica trama historias familiares con las vicisitudes del ejército napoleónico, la vida en
-                  la corte de Alejandro y las batallas de Austerlitz y Borodinó.</p>
-                  <a href="/librosDescarga/guerra_y_paz.pdf" type="button" class="btn-descarga" download="Guerra y paz">DESCARGAR PDF</a>
-              
-                  <!-- Vertically centered modal -->
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    QR DE DESCARGA
-                  </button>
-              
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Escanear para descargar</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <img src="/librosDescarga/qr_el_mundo_perdido.png" alt="El mundo perdido_QR">
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 6 -->
-              <div class="card contenedor-card-freeBook" style="width: 18rem;">
-                <img src="/images/la_isla_misteriosa.jpg" class="card-img-top img-freeBook" alt="El mundo perdido">
-                <div class="card-body">
-                  <h4 class="card-title">La isla misteriosa</h4>
-                  <h5>Julio Verne</h5>
-                  <p class="card-text card-freeBook">Cinco compañeros que no tienen nada salvo su ingenio para sobrevivir en una isla que
-                  muy pronto se mostrará llena de secretos, misterios y enigmas que jamás hubieran podido imaginar...</p>
-                  <a href="/librosDescarga/la_isla_misteriosa.pdf" type="button" class="btn-descarga" download="La isla misteriosa">DESCARGAR PDF</a>
-              
-                  <!-- Vertically centered modal -->
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn-descarga" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    QR DE DESCARGA
-                  </button>
-              
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Escanear para descargar</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <img class="img-freeBook" src="/librosDescarga/qr_el_mundo_perdido.png" alt="El mundo perdido_QR">
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <% }) %>
             </section>
           </main>
                 <!-- ----footer ----->

@@ -97,7 +97,7 @@ module.exports = {
           title: "LEAF | Detalle",
           producto,
           generos,
-          relacionados,          
+          relacionados,
         });
       })
       .catch((error) => console.log(error));
@@ -246,6 +246,8 @@ module.exports = {
           editorialId: req.body.editorialId,
           starId: req.body.starId,
           cover: req.file ? req.file.filename : productEdit.cover,
+          pdf: req.file ? req.file.filename : productEdit.pdf,
+          qrCode: req.file ? req.file.filename : productEdit.qrCode,
         },
         {
           where: {
@@ -375,6 +377,8 @@ module.exports = {
         editorialId: req.body.editorialId.trim(),
         starId: req.body.starId.trim(),
         cover: req.file ? req.file.filename : "default-image-book.png",
+        pdf: req.file.filename,
+        qrCode: req.file.filename,
       })
       .then(() => {
           return res.redirect("/products/administrador");
@@ -440,10 +444,13 @@ module.exports = {
   //Agregar autor, editorial,genero, carrusel y publicidad
   addAuthorGet: (req, res) => {  /* muestra la vista */
     let errors = validationResult(req);
-    db.Author.findAll()
-      .then((autor) => {
+    let autor= db.Author.findAll()
+    generos
+    Promise.all([autor,generos])
+      .then(([autor,generos]) => {
         return res.render("./products/addAuthor", {
           autor,
+          generos,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -462,9 +469,13 @@ module.exports = {
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      db.Author.findAll()
-        .then(() => {
+      let autor=db.Author.findAll()
+      generos
+      Promise.all([autor,generos])
+        .then(([autor,generos]) => {
           return res.render("./products/addAuthor", {
+            autor,
+            generos,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -1077,7 +1088,7 @@ deleteImageCarousel: (req, res) => {
     }
   },
 
-  // controlador para generos
+  // controlador para vistas de libros por generos
   genresViews: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -1212,7 +1223,7 @@ deletePayment: (req, res) => {
       .then(() => {return res.redirect("/products/listadoMetodosPago")})
       .catch((error) => console.log(error));
   },
-
+//Vista de libros por autor
   authorViews: (req,res)=>{
     generos
     let productos = db.Book.findAll({
@@ -1233,6 +1244,7 @@ deletePayment: (req, res) => {
     })
   }).catch(error => console.log(error));
   },
+  //Vista de libros por editorial
   viewEditorials: (req,res)=>{
     generos
     let productos = db.Book.findAll({
@@ -1258,11 +1270,22 @@ deletePayment: (req, res) => {
 
   //vista para descargar libros
   download: (req,res)=>{
+    let productos= db.Book.findAll({
+      include:[
+        { association: "autor" },
+        { association: "genero" },
+      ],
+      where:{
+        price: 0
+      }
+    })
     generos
-    .then((generos)=>{
+    Promise.all([productos,generos])
+    .then(([productos, generos])=>{
     return res.render ('./products/freeBooks',{
       title: 'LEAF | LIBROS GRATIS',
-      generos
+      productos,
+      generos,
     })
   }).catch(error => console.log(error));
 }

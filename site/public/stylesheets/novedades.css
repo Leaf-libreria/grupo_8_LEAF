@@ -35,8 +35,6 @@
     height: 240px;
     padding: 10px;
     margin: 15px auto 5px;
-
-    
 }
 
 .novedades .contenedorNovedades .detalle{
@@ -54,6 +52,34 @@
     text-decoration: underline;
 }
 
+/*****Vista freeBooks*****/
+.novedades .contenedorNovedades .contenedor-card-freeBook{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.novedades .contenedorNovedades .img-freeBook{
+    height: 430px; 
+}
+
+.novedades .contenedorNovedades .modal-titulo-freeBook{
+    color: var(--color-bordo);
+}
+
+.novedades .contenedorNovedades .qr-freeBook{
+    width: 75%;
+    margin: 10%;
+}
+
+.novedades .contenedorNovedades .a-freeBook:hover{
+color: initial;
+text-decoration: underline;
+}
+
+.novedades .contenedorNovedades .info-freeBook{
+    color: gray;
+}
+/*Botones de descarga freeBooks*/
 .novedades .contenedorNovedades .btn-descarga{
     background-color: var(--color-bordo);
     color: var(--color-amarillo);
@@ -94,8 +120,4 @@
             width: 200px;
             height: 260px;
         }
-
-
-
-
 }

@@ -27,6 +27,15 @@ module.exports = {
         },
       ],
     });
+
+    let primerImageIndex = db.carouselImage.findOne({ 
+      where: {
+        id: 1,
+      },
+    });
+    let imagesCarouselIndex = db.carouselImage.findAll();
+
+    
     let masVendidos = db.Book.findAll({
       where: {
         categoryId: 1,

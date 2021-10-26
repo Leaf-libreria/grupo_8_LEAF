@@ -52,6 +52,10 @@
   margin-top: 0.65rem;
 }
 
+.admin .btn-group-admin{
+  padding: 4px;
+}
+
 .admin-btn-agregar-bloque
 {
   margin-left: 0.5rem;
@@ -88,6 +92,12 @@
   color: gray;
   border: solid 1px gray;
 }
+
+/*Tarjeta de productos*/
+.admin .admin-card{
+  padding-bottom: 2%;
+}
+
 /* Botones de editar y eliminar */
 .admin-btn-editar, .admin-btn-eliminar{
   font-weight: 600;
@@ -106,7 +116,7 @@
 
 /*Botón volver*/
 .volver-admin{
-  margin: 0.5rem
+  margin: 2%
 }
 
 .volver-admin:hover{
