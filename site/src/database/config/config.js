@@ -7,7 +7,7 @@ module.exports = {
     database: "leaf_db",
     host: "127.0.0.1",
     dialect: "mysql",
-    port: 3310
+    port: process.env.DB_PORT,
   },
   test: {
     username: "root",
@@ -15,7 +15,7 @@ module.exports = {
     database: "leaf_db",
     host: "127.0.0.1",
     dialect: "mysql",
-    port: 3310
+    port: process.env.DB_PORT,
   },
   production: {
     username: "root",
