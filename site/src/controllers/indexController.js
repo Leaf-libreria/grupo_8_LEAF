@@ -27,6 +27,34 @@ module.exports = {
         },
       ],
     });
+
+    let primerImageIndex = db.carouselImage.findOne({ 
+      where: {
+        id: 1,
+      },
+    });
+    let imagesCarouselIndex = db.carouselImage.findAll();
+
+let promo1 = db.Promo.findOne({
+  where: {
+    id: 1,
+  }
+});
+let promo2 = db.Promo.findOne({
+  where: {
+    id: 2,
+  }
+});
+let promo3 = db.Promo.findOne({
+  where: {
+    id: 3,
+  }
+});
+let promo4 = db.Promo.findOne({
+  where: {
+    id: 4,
+  }
+});
     let masVendidos = db.Book.findAll({
       where: {
         categoryId: 1,
@@ -54,13 +82,18 @@ module.exports = {
                 { association: "estrella" }],
       limit: 3,
     });
-   
-    generos;
-    Promise.all([productos, masVendidos, novedades, recomendados, generos])
-      .then(([productos, masVendidos, novedades, recomendados, generos]) => {
+generos
+    Promise.all([productos, primerImageIndex, imagesCarouselIndex, promo1, promo2, promo3, promo4, masVendidos, novedades, recomendados, generos])
+      .then(([productos, primerImageIndex, imagesCarouselIndex, promo1, promo2, promo3, promo4, masVendidos, novedades, recomendados, generos]) => {
         return res.render("index", {
           title: "LEAF",
           productos,
+          primerImageIndex, 
+          imagesCarouselIndex,
+          promo1, 
+          promo2, 
+          promo3, 
+          promo4,
           masVendidos,
           novedades,
           recomendados,

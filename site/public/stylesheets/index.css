@@ -11,6 +11,20 @@
   font-weight: 800;
   margin: 30px 10px 5px 10px;
 }
+.index .mainIndex .cabecera a {
+  background-color: var(--color-amarillo);
+  padding: 0 5px;
+  color: var(--color-bordo);
+  border: solid 1px gray;
+  font-size: 14px;
+  border-radius: 5px;
+}
+/* hover de ver mas */
+.index .mainIndex .cabecera a:hover {
+  background-color: var(--color-bordo);
+  color: var(--color-amarillo);
+}
+
 .index .mainIndex article {
   position: relative;
 }
