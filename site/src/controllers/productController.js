@@ -38,6 +38,7 @@ module.exports = {
       }
       },
         { association: "genero" },
+        { association: "estrella" },
       ],
     });
     generos;
@@ -1114,7 +1115,6 @@ deleteImageCarousel: (req, res) => {
       })
       .catch((error) => console.log(error));
   },
-  
 //Crud métodos de pago
 paymentMethodList:(req,res)=>{
   generos

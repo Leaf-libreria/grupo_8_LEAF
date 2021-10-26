@@ -34,7 +34,7 @@ position: static;
   border: 2px solid rgb(6, 248, 107);
   color: rgb(6, 248, 107);
   font-size: 22px;
-  width: 8em;
+  width: 10em;
   margin: auto;
   background-color: rgb(6, 248, 107);
   color:white;
@@ -50,21 +50,21 @@ position: static;
 }
 .cont-btn{
   position: absolute;
-  left: 20px;
+  left: 50px;
   bottom: 140px;
   animation: aparicion 4s ;
  
 }
 .cont-btn-novedades{
   position: absolute;
-  left: 68px;
+  left: 50px;
   bottom: 40px;
   animation: aparicion 4s ;
  
 }
 .cont-btn-recomendados{
   position: absolute;
-  left: 80px;
+  left: 30px;
   bottom: -130px;
   animation: aparicion 4s ;
  
@@ -77,25 +77,6 @@ position: static;
 }
 
 
-/* transition: transform 4000ms;
-}
-
-main section article i:hover {
-  transform: rotateY(150deg);
-} */
-/*----
-.index .mainIndex .cabecera h2 {
-  margin-bottom: 0;
-}
-
-.index .mainIndex .cabecera a {
-  background-color: var(--color-amarillo);
-  padding: 0 5px;
-  color: var(--color-bordo);
-  border: solid 1px gray;
-  font-size: 14px;
-  border-radius: 5px;
-}
 /* hover de ver mas */
 .index .mainIndex .cabecera a:hover {
   background-color: var(--color-bordo);
@@ -295,6 +276,21 @@ main section article i:hover {
     width: 30%;
     height: 250px;
   }
+  /* boton de añadir a carrito */
+  .btn-cart {
+      width: 8em;
+    }
+   
+    .cont-btn{
+      left: 22px;
+    }
+    .cont-btn-novedades{
+      left: 34px;
+    }
+    .cont-btn-novedades .btn-cart{
+      width: 11em;
+    }
+   
 }
 
 @media (min-width: 769px) {
@@ -333,7 +329,7 @@ main section article i:hover {
   }
   /* articulos recomendados */
   .index .mainIndex .recomendados .librosRecomendados {
-    width: 25%;
+    width: 30%;
     margin-bottom: 30px;
   }
   /* seccion de publicidades */
@@ -362,54 +358,8 @@ main section article i:hover {
   .index .mainIndex .iconos .articulo-iconos i {
     font-size: 50px;
   }
-  /* .btn-cart-none {
-    display: none; 
-  }
-  .btn-cart {
-  position: static;
-    border: 2px solid rgb(6, 248, 107);
-    color: rgb(6, 248, 107);
-    font-size: 22px;
-    width: 8em;
-    margin: auto;
-    background-color: rgb(6, 248, 107);
-    color:white;
-  }
-  .btn-cart:hover{
-    box-shadow: 0px 0px 10px rgb(6, 95, 6);
-  }
-  .btn-cart i{
-    transition: transform 3000ms;
-  }
-  .btn-cart i:hover{
-    transform: rotateY(150deg);
-  }
-  .cont-btn{
-    position: absolute;
-    left: 20px;
-    bottom: 140px;
-    animation: aparicion 4s ;
-   
-  }
-  .cont-btn-novedades{
-    position: absolute;
-    left: 68px;
-    bottom: 40px;
-    animation: aparicion 4s ;
-   
-  }
-  .cont-btn-recomendados{
-    position: absolute;
-    left: 80px;
-    bottom: -130px;
-    animation: aparicion 4s ;
-   
-  }
-  @keyframes aparicion{
-    0%{opacity:0%}
-  25%{transform: translateY(-80px); opacity:100%;}
-    100%{opacity:100%}
+ 
   
-  } */
+
   
 }

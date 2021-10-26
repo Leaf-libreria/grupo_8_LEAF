@@ -34,7 +34,18 @@
             <div class="productoAbajo">
               <p>$ <%= producto.price %>
               </p>
-              <a class="comprar" href="">COMPRAR</a>
+               <!-- Muestro el boton de carrito solo si esta logueado -->
+              <% if (locals.userLogin) { %>
+                <% if (locals.userLogin.rol===1 ) { %>
+                  <div class="cont-btn-detail"> <button type="button" class="btn-cart-detail btn " ><i
+                        class="fas fa-shopping-cart"></i></button></div>
+
+                  <% } else { %>
+                    <div></div>
+                    <%}%>
+                      <% } else { %>
+                        <div></div>
+                        <%}%>
             </div>
             <p class="sinopsis"> Sinopsis: <%= producto.synopsis %>
             </p>

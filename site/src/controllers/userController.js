@@ -31,7 +31,6 @@ module.exports = {
           };
           recordar &&
             res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
-
           return res.redirect("/");
         })
         .catch((error) => console.log(error));
@@ -162,23 +161,6 @@ module.exports = {
       .catch((error) => console.log(error))
 
     }
-  },
-  actualizarImagen: (req, res) => {
-    User.update(
-      {
-        image: req.file ? req.file.filename : user.image,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    ).then((user) => {
-      return res.render("./users/perfil", {
-        title: "LEAF | Mi perfil",
-        user,
-      });
-    });
   },
   //Vista de listado de usuarios para administrador
   usuarioList: (req, res) => {

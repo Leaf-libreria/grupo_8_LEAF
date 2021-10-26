@@ -23,6 +23,7 @@ footer .cabecera-footer .redes {
   display: flex;
   justify-content: space-evenly;
   margin: 20px 40px 10px 0px;
+
 }
 footer .cabecera-footer .footer-arriba p {
   margin: 0;

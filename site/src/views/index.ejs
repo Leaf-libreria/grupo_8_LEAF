@@ -71,9 +71,20 @@
                   </a>
                   <p>$<%=producto.price%>
                   </p>
+                  <% if (locals.userLogin) { %>
+                    <% if (locals.userLogin.rol === 1 ) { %>
               <div class="cont-btn"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
                 </div>
+                <% } else { %>
+                  <div></div>
+                  <%}%>
+                  <% } else { %>
+                    <div></div>
+                    <%}%>
+                  
+
               </article>
+ 
               <% }) %>
           </div>
         </section>
@@ -87,8 +98,18 @@
             <% novedades.forEach(producto=> { %>
               <article class="btn-cart-art">
                 <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%= producto.cover %>" alt="" /></a>
-                <div class="cont-btn-novedades"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
 
+                <!-- Muestro el boton de carrito solo si esta logueado -->
+                <% if (locals.userLogin) { %>
+                  <% if (locals.userLogin.rol === 1 ) { %>
+                    <div class="cont-btn-novedades"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
+                 
+              <% } else { %>
+                <div></div>
+                <%}%>
+                <% } else { %>
+                  <div></div>
+                  <%}%>
               </article>
               <% }) %>
           </div>
@@ -108,22 +129,21 @@
                 </h3>
                 <p>
                   <%= producto.slogan %>
+          
                 </p>
                 <div>
                   $ <%= producto.price %>
                 </div>
+                <!-- estrellas dinamicas -->
                 <div class="estrella">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
+                  <% for( let i = 1; i <= producto.estrella.quantity; i++ ) { %>
+                    <i class="fas fa-star"></i>
+                  <% } %>
                 </div>
-                <div class="cont-btn-recomendados"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
-
                 <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%= producto.cover %>" alt="" /></a>
               </article>
               <% }) %>
+            
           </div>
         </section>
 
@@ -169,6 +189,7 @@
   <!-- ----scripts ----->
   <%-include('./partials/scripts') %>
   <script src="/javascripts/btn-cart.js"></script>
+  <script src="/javascripts/logout.js"></script>
     <!-- ----scripts---- -->
 
 </html>

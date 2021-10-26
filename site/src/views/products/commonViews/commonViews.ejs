@@ -17,8 +17,8 @@
           <div class="articles-masVendidos">
             <% productos.forEach(producto=> { %>
               <% if (producto.price > 0) { %>
-                <article class="libros-<%=producto.genero.name%>">
-                <a href="/products/detalle/<%=producto.id%>"><img src="/images/<%=producto.cover%>" alt= "portada de<%=producto.title%>"/></a>
+                <article class="libros-<%=producto.genero.name%> btn-cart-art">
+                <a href="/products/detalle/<%=producto.id%>" ><img src="/images/<%=producto.cover%>" alt= "portada de<%=producto.title%>"/></a>
                 <div class="detalle">
                   <h3>
                     <%=producto.title%>
@@ -30,6 +30,17 @@
                   </h4>
                   <p>$<%=producto.price%>
                   </p>
+                              <!-- Muestro el boton de carrito solo si esta logueado -->
+            <% if (locals.userLogin) { %>
+              <% if (locals.userLogin.rol ===1 ) { %>
+                <div class="cont-btn"> <button type="button" class="btn-cart btn-cart-none"  class="btn "><i class="fas fa-shopping-cart"></i></button></div>   
+             
+            <% } else { %>
+            <div></div>
+            <%}%>
+                      <% } else { %>
+            <div></div>
+            <%}%>
                 </div>
               </article>
               <% } %>
