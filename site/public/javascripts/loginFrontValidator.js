@@ -70,7 +70,7 @@ window.addEventListener("load", () => {
           function () {
             form.submit();
           },
-          3000,
+          4000,
           Swal.fire({
             icon: "success",
             title: 'Inicio de sesion exitoso',

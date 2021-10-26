@@ -29,6 +29,20 @@
   position: relative;
 }
 
+.index .mainIndex .cabecera a {
+  background-color: var(--color-amarillo);
+  padding: 0 5px;
+  color: var(--color-bordo);
+  border: solid 1px gray;
+  font-size: 14px;
+  border-radius: 5px;
+}
+/* hover de ver mas */
+.index .mainIndex .cabecera a:hover {
+  background-color: var(--color-bordo);
+  color: var(--color-amarillo);
+}
+
 .btn-cart {
 position: static;
   border: 2px solid rgb(6, 248, 107);
