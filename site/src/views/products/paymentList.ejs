@@ -2,57 +2,58 @@
 <html lang="es">
 <!-- ----head ----->
 <%-include('../partials/head') %>
-    <!-- ----head---- -->
+  <!-- ----head---- -->
 
-    <body class="novedades admin">
-        <!-- encabezado -->
-        <!-- ----header ----->
-        <%-include('../partials/header') %>
-            <!-- ----header---- -->
-            <main>
-                <div class="d-grid gap-3">
-                    <a class="volver-admin" href="/products/administrador"><i class="fas fa-angle-double-left"></i>VOLVER</a>
-                    <a class="btn btn-outline-success admin-btn-agregar admin-btn-agregar-bloque" href="/products/agregarMetodoPago"">AGREGAR
+  <body class="novedades admin">
+    <!-- encabezado -->
+    <!-- ----header ----->
+    <%-include('../partials/header') %>
+      <!-- ----header---- -->
+      <main>
+        <div class="d-grid gap-3">
+          <a class="volver-admin" href="/products/administrador"><i class="fas fa-angle-double-left"></i>VOLVER</a>
+          <a class="btn btn-outline-success admin-btn-agregar admin-btn-agregar-bloque"
+            href="/products/agregarMetodoPago"">AGREGAR
                         MÉTODO DE PAGO</a>
                 </div>
                 <div class=" card mt-5 ">
                     <div class=" card-header">
-                        <h3>Listado de métodos de pago:</h3>
+            <h3>Listado de métodos de pago:</h3>
 
-                </div>
-                <div class="card-body administrador">
+        </div>
+        <div class="card-body administrador">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <% pagoMetodos.forEach(metodo=> { %>
-                                    <td>
-                                        <%= metodo.name %>
-                                    </td>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% pagoMetodos.forEach(metodo=> { %>
+                  <td>
+                    <%= metodo.name %>
+                  </td>
 
-                                    <td><a href="/products/editarMetodosPago/<%= metodo.id %> " type="button"
-                                            class=" btn btn-outline-warning"><i class="fas fa-edit"></i></a></td>
-                                    <td>
-                                        <form action="/products/eliminarMetodosPago/<%= metodo.id %>?_method=DELETE"
-                                            method="POST">
-                                            <button class="btn btn-outline-danger "><i
-                                                    class="fas fa-trash-alt"></i></button>
+                  <td><a href="/products/editarMetodosPago/<%= metodo.id %> " type="button"
+                      class=" btn btn-outline-warning"><i class="fas fa-edit"></i></a></td>
+                  <td>
+                    <form action="/products/eliminarMetodosPago/<%= metodo.id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-outline-danger "><i class="fas fa-trash-alt"></i></button>
 
-                                        </form>
-                                    </td>
-                            </tr>
-                            <% }) %>
-                        </tbody>
-                    </table>
-                </div>
-            </main>
-    </body>
-
+                    </form>
+                  </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </main>
+  </body>
+<!-- ----scripts ----->
+<%-include('../partials/scripts') %>
+  <!-- ----scripts---- -->
 </html>

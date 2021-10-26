@@ -170,14 +170,13 @@ module.exports = {
         { association: "userRol"}
       ]
     })
-    let roles = Rol.findAll()
-    Promise.all([generos, usuarios,roles])
-      .then(([generos, usuarios,roles]) => {
+    
+    Promise.all([generos, usuarios])
+      .then(([generos, usuarios]) => {
         return res.render('./users/usersList', {
           title: "LEAF | Administrador",
           usuarios,
           generos,
-          roles,
         })
       })
       .catch(error => console.log(error));
@@ -185,18 +184,19 @@ module.exports = {
   //Editar rol del usuario
   editRolUsuarioGet: (req, res) => {
     generos
-    let usuario = User.findByPk(req.params.id,{
+    let userEdit = User.findByPk(req.params.id,{
       include: [
         { association: "userRol" }
       ]
-    })
-    Promise.all([generos, usuario])
-      .then(([generos, usuario]) => {
-        return res.render('./products/editRolUsuario', {
+    });
+    let roles= Rol.findAll();
+    Promise.all([generos, userEdit, roles])
+      .then(([generos, userEdit, roles]) => {
+        return res.render('./users/editRolUsuario', {
           title: "LEAF | Administrador",
           generos,
-          usuario,
-          old: req.body
+          userEdit,
+          roles,
         })
       })
       .catch(error => console.log(error));
@@ -205,7 +205,7 @@ module.exports = {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       User.update({
-        rolId: req.body.name.trim()
+        rolId: req.body.rolId
       },
         {
           where: {
@@ -213,21 +213,24 @@ module.exports = {
           }
         })
         .then(() => {
-          return res.redirect("/products/listadoUsuarios");
+          return res.redirect("/users/listadoUsuarios");
 
         }).catch(error => console.log(error));
     } else {
       generos
-      let usuario = User.findByPk(req.params.id,{
+      let userEdit = User.findByPk(req.params.id,{
         include: [
           { association: "userRol" }
         ]
       })
-      Promise.all([generos, usuario])
-        .then(([generos, usuario]) => {
-          return res.render('./products/editusuario', {
-            usuario,
+      let roles = Rol.findAll();
+
+      Promise.all([generos, userEdit, roles])
+        .then(([generos, userEdit, roles]) => {
+          return res.render('./users/editRolUsuario', {
+            userEdit,
             generos,
+            roles,
             errores: errors.mapped(),
             old: req.body,
             title: 'LEAF | Administrador'
@@ -235,13 +238,13 @@ module.exports = {
         })
     }
   },
-  deleteUsuario: (req, res) => {
+  deleteCuentaUsuario: (req, res) => {
     User.destroy({
       where: {
         id: req.params.id,
       },
     })
-      .then(() => { return res.redirect("/products/listadoUsuarios") })
+      .then(() => { return res.redirect("/users/listadoUsuarios") })
       .catch((error) => console.log(error));
   },
 };
