@@ -24,7 +24,7 @@
               <li><a class="dropdown-item" href="/products/listadoEditorial">Listado de editoriales</a></li>
               <li><a class="dropdown-item" href="/products/listadoGeneros">Listado de géneros</a></li>
               <li><a class="dropdown-item" href="/products/listadoMetodosPago">Listado de métodos de pago</a></li>
-              <li><a class="dropdown-item" href="/users/listadoUsuarios">Listado de Usuarios y roles</a></li>
+              <li><a class="dropdown-item" href="/users/listadoUsuarios">Listado de Usuarios</a></li>
               <li><a class="dropdown-item" href="/products/agregarCarrusel">Imagen para carrusel</a></li>
               <li><a class="dropdown-item" href="/products/listadoPublicidad">Imagen para publicidad</a></li>
             </ul>
@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <h2>Listado de productos</h2>
+        <h2>LISTADO DE PRODUCTOS</h2>
         
         <div class="admin-dcha">
           <a href="#abajo" class="admin-btn-flotante admin-btn-agregar"><i class="fas fa-chevron-down"></i> </a>
@@ -51,13 +51,12 @@
                 </h4>
                 <% if (producto.price == 0) { %>
                   <p>LIBRO GRATIS ($ <%= producto.price %>) </p>
+                  <p>Stock: Disponible</p>
                 <% } else { %>
                 
-                  <p>$ <%= producto.price %>
+                  <p>$ <%= producto.price %></p>
+                    <p>Stock:  <%= producto.stock %></p>
                 <% } %>
-                </p>
-                <p>Stock:  <%= producto.stock %>
-                </p>
               </div>
               <!-- Botones para administrador -->
               <div class="container">

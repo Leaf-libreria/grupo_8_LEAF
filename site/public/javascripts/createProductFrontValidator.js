@@ -15,8 +15,8 @@ window.addEventListener('load', () => {
     let sloganAddBook = document.getElementById('slogan');
     let coverAddBook = document.getElementById('cover');
     let synopsisAddBook = document.getElementById('synopsis');
-    let titleError=document.getElementById('titleError')
-    let coverError=document.getElementById('coverError')
+    let titleError=document.getElementById('titleError');
+    let coverError=document.getElementById('coverError');
 
     titleAddBook.addEventListener('keyup', () => {
         if (titleAddBook.value == '') {

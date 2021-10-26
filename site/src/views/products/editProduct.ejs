@@ -33,7 +33,7 @@
               <div class="isbn">
                 <label for="isbn">ISBN:</label>
                 <div class="isbn-btn">
-                  <input type="number" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos"
+                  <input type="number" min="0" name="isbn" id="isbn" class="grid" placeholder="10 ó 13 Dígitos"
                     value="<%= locals.old && locals.old.isbn? old.isbn: productEdit.isbn %>">
                 </div>
                 <div class="error">
@@ -46,7 +46,7 @@
 
               <div class="stock">
                 <label for="stock">Stock:</label>
-                <input type="number" name="stock" id="stock" class="grid" placeholder="Ingrese números"
+                <input type="number" min="0" name="stock" id="stock" class="grid" placeholder="Ingrese números"
                   value="<%= locals.old && locals.old.stock? old.stock : productEdit.stock %>">
                 <div class="error">
                   <!-- Posibles errores -->
@@ -63,7 +63,7 @@
                 <select name="formatId" id="format" class="grid">
                   <option value="" hidden selected>Seleccione el formato</option>
                   <% formatos.forEach(formato=> { %>
-                    <option value="<%= formato.id %>" <%=productEdit.formatId ? 'selected' : null %> ><%= formato.name
+                    <option value="<%= formato.id %>" <%= formato.id == productEdit.formatId ? 'selected' : null %> ><%= formato.name
                         %>
                     </option>
                     <% }) %>
@@ -82,7 +82,7 @@
                 <select name="categoryId" id="category" class="grid">
                   <option value="" hidden selected>Seleccione la categoria</option>
                   <% categorias.forEach(categoria=> { %>
-                    <option value="<%= categoria.id %> " <%=productEdit.categoryId ? 'selected' : null %> ><%=
+                    <option value="<%= categoria.id %> " <%= categoria.id == productEdit.categoryId ? 'selected' : null %> ><%=
                         categoria.name%>
                     </option>
                     <% }) %>
@@ -104,7 +104,7 @@
                   <select name="authorId" id="author" class="grid">
                     <option value="" hidden selected>Seleccione el autor</option>
                     <% autores.forEach(autor=> { %>
-                      <option value="<%= autor.id %>" <%=productEdit.authorId ? 'selected' : null %> > <%=
+                      <option value="<%= autor.id %>" <%= autor.id == productEdit.authorId ? 'selected' : null %> > <%=
                           autor.nameLastname %>
                       </option>
                       <% }) %>
@@ -125,7 +125,7 @@
                   <select name="editorialId" id="editorial" class="grid">
                     <option value="" hidden selected>Seleccione la editorial</option>
                     <% editoriales.forEach(editorial=> { %>
-                      <option value="<%= editorial.id %>" <%=productEdit.editorialId ? 'selected' : null %> ><%=
+                      <option value="<%= editorial.id %>" <%= editorial.id == productEdit.editorialId ? 'selected' : null %> ><%=
                           editorial.name %>
                       </option>
                       <% }) %>
@@ -149,7 +149,7 @@
                 <select name="starId" id="stars" class="grid">
                   <option value="" hidden selected>Seleccione la cantidad de estrellas</option>
                   <% estrellas.forEach(estrella=> { %>
-                    <option value="<%= estrella.id %>" <%=productEdit.starId ? 'selected' : null %> > <%=
+                    <option value="<%= estrella.id %>" <%= estrella.id == productEdit.starId ? 'selected' : null %> > <%=
                         estrella.quantity %>
                     </option>
                     <% }) %>
@@ -168,7 +168,7 @@
                   <select name="genreId" id="genre" class="grid">
                     <option value="" hidden selected>Seleccione el género</option>
                     <% generos.forEach(genero=> { %>
-                      <option value="<%= genero.id %>" <%=productEdit.genreId ? 'selected' : null %> ><%= genero.name %>
+                      <option value="<%= genero.id %>" <%= genero.id == productEdit.genreId ? 'selected' : null %> ><%= genero.name %>
                       </option>
                       <% }) %>
                   </select>
@@ -187,7 +187,7 @@
             <div class="container-grid-uno">
               <div class="precio">
                 <label for="price">Precio $:</label>
-                <input type="number" name="price" id="price" class="grid" placeholder="Sólo números"
+                <input type="number" min="0" name="price" id="price" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.price? old.price: productEdit.price %>">
                 <div class="error">
                   <!-- Posibles errores -->
@@ -200,7 +200,7 @@
               <!-- seccion de paginas -->
               <div class="paginas">
                 <label for="pages">Páginas:</label>
-                <input type="number" name="pages" id="pages" class="grid" placeholder="Sólo números"
+                <input type="number" min="0" name="pages" id="pages" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.pages? old.pages: productEdit.pages %>">
                 <div class="error">
                   <!-- Posibles errores -->
@@ -237,31 +237,6 @@
                 </span>
               </div>
             </div>
-
-            <!-- Sección qrCode -->
-            <div class="portada">
-              <label for="qrCode">Imagen de QR de descarga:</label>
-              <input class="file" type="file" name="qrCode" id="qrCode">
-              <div class="error error-qrCodeGral">
-                <span id="qrCodeError">
-                  <%= locals.errores && locals.errores.qrCode ? errores.qrCode.msg : null %>
-                </span>
-              </div>
-            </div>
-            <br>
-
-            <!-- Sección PDF -->
-            <div class="portada">
-              <label for="pdf">PDF del libro:</label>
-              <input class="file" type="file" name="pdf" id="pdf">
-              <div class="error error-pdfGral">
-                <span id="pdfError">
-                  <%= locals.errores && locals.errores.pdf ? errores.pdf.msg : null %>
-                </span>
-              </div>
-            </div>
-            <br>
-
             <!-- seccion de sinopsis -->
             <div class="sinopsis">
               <label for="synopsis">Sinopsis:</label>

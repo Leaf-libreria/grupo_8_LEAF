@@ -10,6 +10,7 @@
     <%-include('../partials/header') %>
       <!-- ----header---- -->
       <main>
+        
         <a class="volver-admin" href="/products/administrador"><i class="fas fa-angle-double-left"></i>VOLVER</a>
         
                 <div class=" card mt-5 ">
@@ -45,12 +46,10 @@
                   <td>
                     <%= usuario.userRol.name %>
                   </td>
-
-
-                  <td><a href="/products/editarRolUsuario/<%= usuario.id %> " type="button"
+                  <td><a href="/users/editarRolUsuario/<%= usuario.id %> " type="button"
                       class=" btn btn-outline-warning"><i class="fas fa-edit"></i></a></td>
                   <td>
-                    <form action="/products/eliminarUsuario/<%= usuario.id %>?_method=DELETE" method="POST">
+                    <form action="/users/eliminarUsuario/<%= usuario.id %>?_method=DELETE" method="POST">
                       <button class="btn btn-outline-danger "><i class="fas fa-trash-alt"></i></button>
 
                     </form>
@@ -60,45 +59,10 @@
             </tbody>
           </table>
         </div>
-        <div class="d-grid gap-3">
-          <a class="btn btn-outline-success admin-btn-agregar admin-btn-agregar-bloque" href="/products/agregarRolUsuario"">AGREGAR ROLES PARA USUARIOS</a>
-          </div>
-          <div class=" card mt-5 ">
-            <div class=" card-header">
-              <h3>Listado de roles de usuarios:</h3>
-          
-            </div>
-          <div class="card-body administrador">
-          
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Rol</th>
-                  <th scope="col">Editar nombre de rol</th>
-                  <th scope="col">Eliminar rol</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <% roles.forEach(rol=> { %>
-                    <td>
-                      <%= rol.name %>
-                    </td>
-                            
-                    <td><a href="/products/editarNombreRol/<%= rol.id %> " type="button" class=" btn btn-outline-warning"><i
-                          class="fas fa-edit"></i></a></td>
-                    <td>
-                      <form action="/products/eliminarRol/<%= rol.id %>?_method=DELETE" method="POST">
-                        <button class="btn btn-outline-danger "><i class="fas fa-trash-alt"></i></button>
-          
-                      </form>
-                    </td>
-                </tr>
-                <% }) %>
-              </tbody>
-            </table>
           </div>
       </main>
   </body>
-
+<!-- ----scripts ----->
+<%-include('../partials/scripts') %>
+  <!-- ----scripts---- -->
 </html>
