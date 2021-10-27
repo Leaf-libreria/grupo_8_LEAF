@@ -50,22 +50,25 @@ window.addEventListener("load", () => {
     }
   });
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    // let error = false;
+    // let spanError = document.querySelectorAll('span')
+    // spanError.value  ? error = true : error = false;
 
-    let elementosForm = form.elements;
-    let error = false;
+    let elementosForm = document.querySelectorAll('span') ;
+    console.log(elementosForm);
+    var error = false;
 
     for (let i = 0; i < elementosForm.length - 1; i++) {
-      if (!elementosForm[i].value) {
-        elementosForm[i].classList.add("text-danger");
-        document.getElementById("errorEmpty").innerText =
-          "Los campos señalados son obligatorios";
-        error = true;
+      if (elementosForm[i].value) {
+       return  error = true;
+      }else{
+        error = false;
       }
     }
     if (!error) {
       function ActivarTiempo() {
-        //se activa el método alert luego de 2 segundos
+        //se activa el método alert luego de 3 segundos
         setTimeout(
           function () {
             form.submit();
@@ -83,5 +86,6 @@ window.addEventListener("load", () => {
       }
       ActivarTiempo();
     }
+  
   });
 });
