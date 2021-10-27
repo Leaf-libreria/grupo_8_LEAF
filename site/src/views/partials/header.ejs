@@ -181,7 +181,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
               <% autores.forEach(autor=> { %>
-                <li><a class="dropdown-item" href="/products/autor/<%=autor.nameLastname.toLowerCase()%>">
+                <li><a class="dropdown-item" href="/products/autor/<%=autor.nameLastname%>">
                     <%=autor.nameLastname%>
                   </a></li>
                 <% }) %>
@@ -196,7 +196,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           
               <% editoriales.forEach(editorial=> { %>
-                <li><a class="dropdown-item" href="/products/editoriale/<%=editorial.name.toLowerCase()%>">
+                <li><a class="dropdown-item" href="/products/editorial/<%=editorial.name%>">
                     <%=editorial.name%>
                   </a></li>
                 <% }) %>

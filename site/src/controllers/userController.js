@@ -2,9 +2,10 @@ const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
-const { User,Genre,Rol } = require("../database/models");
+const { User,Genre,Rol, Author, Editorial } = require("../database/models");
 const generos = Genre.findAll();
-
+const autores = Author.findAll();
+const editoriales = Editorial.findAll();
 
 module.exports = {
   login: (req, res) => {
@@ -164,37 +165,45 @@ module.exports = {
   },
   //Vista de listado de usuarios para administrador
   usuarioList: (req, res) => {
-    generos
+    generos;
+    autores;
+    editoriales;
     let usuarios = User.findAll({
       include:[
         { association: "userRol"}
       ]
     })
     
-    Promise.all([generos, usuarios])
-      .then(([generos, usuarios]) => {
+    Promise.all([generos,autores,editoriales, usuarios])
+      .then(([generos, autores, editoriales, usuarios]) => {
         return res.render('./users/usersList', {
           title: "LEAF | Administrador",
           usuarios,
           generos,
-        })
+          autores,
+          editoriales,
+        });
       })
       .catch(error => console.log(error));
   },
   //Editar rol del usuario
   editRolUsuarioGet: (req, res) => {
-    generos
+    generos;
+    autores; 
+    editoriales;
     let userEdit = User.findByPk(req.params.id,{
       include: [
         { association: "userRol" }
       ]
     });
     let roles= Rol.findAll();
-    Promise.all([generos, userEdit, roles])
-      .then(([generos, userEdit, roles]) => {
+    Promise.all([generos, autores, editoriales, userEdit, roles])
+      .then(([generos, autores, editoriales, userEdit, roles]) => {
         return res.render('./users/editRolUsuario', {
           title: "LEAF | Administrador",
           generos,
+          autores, 
+          editoriales,
           userEdit,
           roles,
         })
@@ -217,7 +226,9 @@ module.exports = {
 
         }).catch(error => console.log(error));
     } else {
-      generos
+      generos;
+      autores; 
+      editoriales;
       let userEdit = User.findByPk(req.params.id,{
         include: [
           { association: "userRol" }
@@ -225,11 +236,13 @@ module.exports = {
       })
       let roles = Rol.findAll();
 
-      Promise.all([generos, userEdit, roles])
-        .then(([generos, userEdit, roles]) => {
+      Promise.all([generos, autores, editoriales, userEdit, roles])
+        .then(([generos, autores, editoriales, userEdit, roles]) => {
           return res.render('./users/editRolUsuario', {
             userEdit,
             generos,
+            autores, 
+            editoriales,
             roles,
             errores: errors.mapped(),
             old: req.body,

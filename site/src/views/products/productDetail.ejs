@@ -34,7 +34,7 @@
             <div class="productoAbajo">
               <p>$ <%= producto.price %>
               </p>
-               <!-- Muestro el boton de carrito solo si esta logueado -->
+              <!-- Muestro el boton de carrito solo si esta logueado -->
               <% if (locals.userLogin) { %>
                 <% if (locals.userLogin.rol===1 ) { %>
                   <div class="cont-btn-detail"> <button type="button" class="btn-cart-detail btn " ><i
@@ -71,7 +71,7 @@
           <div>
             <i class="fas fa-globe-americas"></i>
             <p>Idioma</p>
-            <p>Español</p>
+            <p><%= producto.language %> </p>
           </div>
           <div>
             <i class="fas fa-boxes"></i>

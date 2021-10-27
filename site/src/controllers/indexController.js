@@ -109,42 +109,59 @@ editoriales;
       .catch((error) => console.log(error));
   },
   preguntas: (req, res) => {
-    generos.then((generos) => {
+    generos;
+    autores;
+    editoriales;
+    Promise.all([generos,autores,editoriales])
+    .then(([generos,autores,editoriales]) => {
       return res.render("preguntasFrecuentes", {
         title: "LEAF | Preguntas frecuentes",
         generos,
+        autores,
+        editoriales,
       });
-    });
+    }).catch(error => console.log(error));
   },
   quienesSomos: (req, res) => {
-    generos.then((generos) => {
+    generos;
+    autores;
+    editoriales;
+    Promise.all([generos, autores, editoriales])
+      .then(([generos, autores, editoriales])=> {
       return res.render("quienesSomos", {
         title: "LEAF | Quiénes somos",
         generos,
+        autores,
+        editoriales,
       });
-    });
+    }).catch(error => console.log(error));
   },
   search: (req, res) => {
     if (req.query.search.trim() != "") {
       let result = db.Book.findAll({
         include: [
-          { association: "autor" },
+          { association: "autor"},
           { association: "genero" },
           { association: "formato" },
-          { association: "editorial" },
+          { association: "editorial"},
         ],
-        where: {
+        where: { //Para que busque por titulo del libro
           title: { [Op.substring]: req.query.search },
+          price: {[Op.gt]:0} //Buscar precios mayores a cero
         },
       });
       generos;
-      Promise.all([result, generos])
-        .then(([result, generos]) => {
+      autores;
+      editoriales;
+      Promise.all([result, generos,autores,editoriales])
+        .then(([result, generos,autores,editoriales]) => {
           return res.render("results", {
             title: "LEAF | Resultados",
             result,
             search: req.query.search.trim(),
             generos,
+            autores,
+            editoriales,
           });
         })
         .catch((error) => console.log(error));

@@ -16,7 +16,7 @@
         <section class="masVendidos libros-vista">
           <div class="articles-masVendidos">
             <% productos.forEach(producto=> { %>
-              <% if (producto.price > 0) { %>
+              
                 <article class="libros-<%=producto.genero.name%> btn-cart-art">
                 <a href="/products/detalle/<%=producto.id%>" ><img src="/images/<%=producto.cover%>" alt= "portada de<%=producto.title%>"/></a>
                 <div class="detalle">
@@ -43,7 +43,6 @@
             <%}%>
                 </div>
               </article>
-              <% } %>
               <% }) %>
           </div>
         </section>

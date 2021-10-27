@@ -1,6 +1,9 @@
 const db = require("../database/models");
+const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
 const generos = db.Genre.findAll();
+const autores = db.Author.findAll();
+const editoriales = db.Editorial.findAll();
 const path = require("path");
 const fs = require('fs');
 
@@ -10,19 +13,27 @@ module.exports = {
       include: [
         { association: "formato" ,
       where:{
-        name: req.params.name
-      }},
+        name: req.params.name,
+      }
+    },
         { association: "genero" },
         { association: "autor" },
-      ]
+      ],
+      where:{
+        price: { [Op.gt]: 0 } //No muestra libros de precio cero
+      }
     });
-    generos
-    Promise.all([productos, generos])
-      .then(([productos, generos]) =>{
+    generos;
+    autores;
+    editoriales;
+    Promise.all([productos, generos, autores,editoriales])
+      .then(([productos, generos, autores,editoriales]) =>{
       return  res.render("./products/commonViews/commonViews", {
           title: `LEAF | ${req.params.name.toUpperCase()}S`,
           productos,
           generos,
+        autores, 
+        editoriales,
         })
       })
       .catch((error) => console.log(error));
@@ -42,12 +53,16 @@ module.exports = {
       ],
     });
     generos;
-    Promise.all([productos, generos])
-      .then(([productos, generos]) => {
+    autores; 
+    editoriales;
+    Promise.all([productos, generos, autores, editoriales])
+      .then(([productos, generos, autores, editoriales]) => {
         return res.render("verMas", {
           title: `LEAF | ${req.params.name.toUpperCase()}`,
           productos,
           generos,
+          autores, 
+          editoriales,
         });
       })
       .catch((error) => console.log(error));
@@ -57,6 +72,7 @@ module.exports = {
     let producto = db.Book.findOne({
       where: {
         id: req.params.id,
+        price: { [Op.gt]: 0 } //Muestra libros con precios mayores a cero
       },
 
       include: [
@@ -81,7 +97,9 @@ module.exports = {
       ],
     });
 
-    generos
+    generos;
+    autores; 
+    editoriales;
     let relacionados = db.Book.findAll({
       include: [
         {
@@ -91,13 +109,18 @@ module.exports = {
           association: "genero",
         },
       ],
+      where:{
+        price: {[Op.gt]:0} //No recomienda en el carrusel libros con precio cero
+      }
     });
-    Promise.all([producto, generos, relacionados])
-      .then(([producto, generos, relacionados]) => {
+    Promise.all([producto, generos, autores, editoriales, relacionados])
+      .then(([producto, generos, autores, editoriales,relacionados]) => {
         return res.render("./products/productDetail", {
           title: "LEAF | Detalle",
           producto,
           generos,
+          autores, 
+          editoriales,
           relacionados,
         });
       })
@@ -127,21 +150,24 @@ module.exports = {
         },
       ],
     });
-    generos
-    Promise.all([productos, generos])
-      .then(([productos, generos]) => {
+    generos;
+    autores;
+    editoriales;
+    Promise.all([productos, generos, autores, editoriales,])
+      .then(([productos, generos,autores, editoriales,]) => {
         return res.render("./products/admin", {
           title: "LEAF | Administrador",
           productos,
           generos,
+          autores, 
+          editoriales,
         }); //Lista todos los productos
       })
       .catch((error) => console.log(error));
   },
   editarProducto: (req, res) => {
     let errors = validationResult(req);
-    generos
-
+    generos;
     let productEdit = db.Book.findByPk(req.params.id, {
       include: [
         {
@@ -165,8 +191,8 @@ module.exports = {
       ],
     });
 
-    let autores = db.Author.findAll();
-    let editoriales = db.Editorial.findAll();
+    autores;
+    editoriales;
     let estrellas = db.Star.findAll();
     let categorias = db.Category.findAll();
     let formatos = db.Format.findAll();
@@ -286,8 +312,8 @@ module.exports = {
       });
 
       generos;
-      let autores = db.Author.findAll();
-      let editoriales = db.Editorial.findAll();
+      autores;
+      editoriales;
       let estrellas = db.Star.findAll();
       let categorias = db.Category.findAll();
       let formatos = db.Format.findAll();
@@ -329,9 +355,9 @@ module.exports = {
   },
   addProducto: (req, res) => {
     let errors = validationResult(req);
-    let autores = db.Author.findAll();
+    autores;
     generos;
-    let editoriales = db.Editorial.findAll();
+    editoriales;
     let estrellas = db.Star.findAll();
     let categorias = db.Category.findAll();
     let formatos = db.Format.findAll();
@@ -390,9 +416,9 @@ module.exports = {
             .unlinkSync(path.join(__dirname, file))
             .deleteFile(`../public/images/${req.file.filename}`)
       : null;
-      let autores = db.Author.findAll();
+      autores;
       generos;
-      let editoriales = db.Editorial.findAll();
+      editoriales;
       let estrellas = db.Star.findAll();
       let categorias = db.Category.findAll();
       let formatos = db.Format.findAll();
@@ -443,12 +469,13 @@ module.exports = {
   //Agregar autor, editorial,genero, carrusel y publicidad
   addAuthorGet: (req, res) => {  /* muestra la vista */
     let errors = validationResult(req);
-    let autor= db.Author.findAll()
-    generos
-    Promise.all([autor,generos])
-      .then(([autor,generos]) => {
+    autores;
+    generos;
+    editoriales;
+    Promise.all([autores,generos, editoriales])
+      .then(([autores,generos,editoriales]) => {
         return res.render("./products/addAuthor", {
-          autor,
+          autores,
           generos,
           errores: errors.mapped(),
           old: req.body,
@@ -468,12 +495,13 @@ module.exports = {
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      let autor=db.Author.findAll()
-      generos
-      Promise.all([autor,generos])
-        .then(([autor,generos]) => {
+      autores;
+      generos;
+      editoriales;
+      Promise.all([autores,generos])
+        .then(([autores,generos]) => {
           return res.render("./products/addAuthor", {
-            autor,
+            autores,
             generos,
             errores: errors.mapped(),
             old: req.body,
@@ -485,25 +513,31 @@ module.exports = {
   },
 authorList:(req,res)=>{
   generos
-  let autores=db.Author.findAll()
-  Promise.all([generos,autores])
-    .then(([generos,autores])=>{
+  autores;
+  editoriales;
+  Promise.all([generos,autores,editoriales])
+    .then(([generos,autores,editoriales])=>{
     return res.render('./products/authorList',{
       title: "LEAF | Administrador",
       autores,
-      generos
+      generos,
+      editoriales,
     })
   })
   .catch(error => console.log(error));
 },
 editAuthorGet:(req,res)=>{
-  generos
-let autor=db.Author.findByPk(req.params.id)
-  Promise.all([generos,autor])
-  .then(([generos,autor])=>{
+  generos;
+  autores; //Todos los autores (para el header)
+  editoriales;
+let autor=db.Author.findByPk(req.params.id) //El autor a editar
+  Promise.all([generos, autores,editoriales,autor])
+    .then(([generos,autores,editoriales,autor])=>{
     return res.render('./products/editAuthor',{
       title: "LEAF | Administrador",
       generos,
+      autores,
+      editoriales,
       autor,
       old:req.body
     })
@@ -531,6 +565,8 @@ if(errors.isEmpty()){
   return res.render('./products/editAuthor',{
     autor,
     generos,
+    autores,
+    editoriales,
     errores:errors.mapped(),
     old:req.body,
     title:'LEAF | Administrador'
@@ -549,10 +585,15 @@ deleteAuthor: (req, res) => {
   },
 
   genreList:(req,res)=>{
-  generos
-    .then((generos)=>{
+    autores;
+    editoriales;
+    generos;
+  Promise.all([generos,autores,editoriales])
+    .then(([generos,autores,editoriales])=>{
     return res.render('./products/genreList',{
       generos,
+      autores,
+      editoriales,
       title: "LEAF | Administrador",
     })
   })
@@ -560,10 +601,15 @@ deleteAuthor: (req, res) => {
 },
   addGenreGet: (req, res) => {
     let errors = validationResult(req);
-    generos
-      .then((generos) => {
+    autores;
+    editoriales;
+    generos;
+    Promise.all([generos, autores, editoriales])
+      .then(([generos, autores, editoriales]) => {
         return res.render("./products/addGenre", {
           generos,
+          autores,
+          editoriales,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -581,10 +627,15 @@ deleteAuthor: (req, res) => {
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      generos
-        .then((generos) => {
+      autores;
+      editoriales;
+      generos;
+      Promise.all([generos, autores, editoriales])
+        .then(([generos, autores, editoriales]) => {
           return res.render("./products/addGenre", {
             generos,
+            autores,
+            editoriales,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -595,12 +646,16 @@ deleteAuthor: (req, res) => {
   },
 
 editGenreGet:(req,res)=>{
-  generos
-let genre=db.Genre.findByPk(req.params.id)
-  Promise.all([generos,genre])
+  autores;
+  editoriales;
+  generos;//todos los generos para el header
+let genre=db.Genre.findByPk(req.params.id)//el genero a editar
+  Promise.all([autores,editoriales,generos,genre])
   .then(([generos,genre])=>{
     return res.render('./products/editGenre',{
       title: "LEAF | Administrador",
+      autores,
+      editoriales,
       generos,
       genre,
       old:req.body
@@ -624,11 +679,15 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
+  autores,
+  editoriales,
   generos
   let genre =db.Genre.findByPk(req.params.id)
-  Promise.all([generos,genre])
-.then(([generos,genre])=>{
+  Promise.all([autores,editoriales,generos,genre])
+.then(([autores,editoriales,generos,genre])=>{
   return res.render('./products/editGenre',{
+    autores,
+    editoriales,
     genre,
     generos,
     errores:errors.mapped(),
@@ -649,27 +708,31 @@ deleteGenre: (req, res) => {
   },
 
 editorialList:(req,res)=>{
-  generos
-  let editoriales=db.Editorial.findAll()
-  Promise.all([generos,editoriales])
-    .then(([generos,editoriales])=>{
+  generos;
+  editoriales;
+  autores;
+  Promise.all([generos,editoriales,autores])
+    .then(([generos,editoriales,autores])=>{
     return res.render('./products/editorialList',{
       title: "LEAF | Administrador",
       editoriales,
-      generos
+      generos,
+      autores,
     })
   })
   .catch(error => console.log(error));
 },
   addEditorialGet: (req, res) => {
     let errors = validationResult(req);
-    generos
-    let editorial=db.Editorial.findAll()
-    Promise.all([generos,editorial])
-      .then(([generos,editorial]) => {
+    generos;
+    editoriales;
+    autores;
+    Promise.all([generos,editoriales, autores])
+      .then(([generos,editoriales, autores]) => {
         return res.render("./products/addEditorial", {
           generos,
-          editorial,
+          editoriales,
+          autores,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -687,13 +750,15 @@ editorialList:(req,res)=>{
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      generos
-      let editorial=db.Editorial.findAll()
-      Promise.all([generos,editorial])
-        .then(([generos,editorial]) => {
+      generos;
+      autores;
+      editoriales;
+      Promise.all([generos,autores,editoriales])
+        .then(([generos,autores,editoriales]) => {
           return res.render("./products/addEditorial", {
             generos,
-            editorial,
+            editoriales,
+            autores,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -703,12 +768,16 @@ editorialList:(req,res)=>{
     }
   },
 editEditorialGet:(req,res)=>{
-  generos
-let editorial=db.Editorial.findByPk(req.params.id)
-  Promise.all([generos,editorial])
-  .then(([generos,editorial])=>{
+  autores;
+  editoriales;//Todas las editoriales para el header
+  generos;
+let editorial=db.Editorial.findByPk(req.params.id) //la editorial a editar
+  Promise.all([autores,editoriales,generos,editorial])
+  .then(([autores,editoriales,generos,editorial])=>{
     return res.render('./products/editEditorial',{
       title: "LEAF | Administrador",
+      autores,
+      editoriales,
       generos,
       editorial,
       old:req.body
@@ -732,11 +801,15 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  generos
+  generos;
+  editoriales;
+  autores;
   let editorial =db.Editorial.findByPk(req.params.id)
-  Promise.all([generos,editorial])
+  Promise.all([generos,editoriales,autores,editorial])
 .then(([generos,editorial])=>{
   return res.render('./products/editEditorial',{
+    editoriales,
+    autores,
     editorial,
     generos,
     errores:errors.mapped(),
@@ -766,14 +839,19 @@ deleteEditorial: (req, res) => {
     });
     let imagesCarousel = db.carouselImage.findAll();
     generos;
-    Promise.all([primerImage, imagesCarousel, generos]).then(
-      ([primerImage, imagesCarousel, generos]) => {
+    editoriales;
+    autores;
+    Promise.all([primerImage, imagesCarousel, generos, editoriales,autores])
+    .then(
+      ([primerImage, imagesCarousel, generos,editoriales,autores]) => {
         return res.render("./products/carrusel", {
           title: "Carrusel de imagenes",
           primerImage,
           imagesCarousel,
           generos,
-          errors
+          errors,
+          editoriales,
+          autores,
         });
       }
     );
@@ -802,13 +880,17 @@ deleteEditorial: (req, res) => {
       });
       let imagesCarousel = db.carouselImage.findAll();
       generos;
-      Promise.all([primerImage, imagesCarousel, generos]).then(
-        ([primerImage, imagesCarousel, generos]) => {
+      editoriales;
+      autores;
+      Promise.all([primerImage, imagesCarousel, generos,editoriales,autores]).then(
+        ([primerImage, imagesCarousel, generos,editoriales,autores]) => {
           return res.render("./products/carrusel", {
             title: "Carrusel de imagenes",
             primerImage,
             imagesCarousel,
             generos,
+            editoriales,
+            autores,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -848,13 +930,17 @@ deleteEditorial: (req, res) => {
     });
     let imagesCarousel = db.carouselImage.findAll();
     generos;
-    Promise.all([primerImage, imagesCarousel, generos]).then(
-      ([primerImage, imagesCarousel, generos]) => {
+    editoriales;
+    autores;
+    Promise.all([primerImage, imagesCarousel, generos,editoriales,autores]).then(
+      ([primerImage, imagesCarousel, generos,editoriales,autores]) => {
         return res.render("./products/carrusel", {
           title: "Carrusel de imagenes",
           primerImage,
           imagesCarousel,
           generos,
+          editoriales,
+          autores,
         });
       }
     );
@@ -895,14 +981,18 @@ deleteImageCarousel: (req, res) => {
       });
       let imagesPromos = db.Promo.findAll();
       generos;
-      Promise.all([primerPromo,imagesPromos,generos]).then(
-        ([primerPromo,imagesPromos,generos]) => {
+      autores;
+      editoriales;
+      Promise.all([primerPromo,imagesPromos,generos,autores,editoriales]).then(
+        ([primerPromo,imagesPromos,generos,autores,editoriales]) => {
           return res.render("./products/promoList", {
             title: "Listado de publicidades",
             primerPromo,
             imagesPromos,
             generos,
-            errors
+            autores,
+            editoriales,
+            errors,
           });
         }
       )
@@ -930,13 +1020,17 @@ deleteImageCarousel: (req, res) => {
       });
       let imagesPromos = db.Promo.findAll();
       generos;
-      Promise.all([primerPromo,imagesPromos,generos]).then(
-        ([primerPromo,imagesPromos,generos]) => {
+      autores;
+      editoriales;
+      Promise.all([primerPromo,imagesPromos,generos,autores,editoriales]).then(
+        ([primerPromo,imagesPromos,generos,autores,editoriales]) => {
           return res.render("./products/promoList", {
             title: "Listado de publicidades",
             primerPromo,
             imagesPromos,
             generos,
+            autores,
+            editoriales,
             errores: errors.mapped(),
             old: req.body,
             title: "LEAF | Administrador",
@@ -1031,11 +1125,15 @@ deleteImageCarousel: (req, res) => {
       ],
     });
     generos;
-    Promise.all([productos, generos]).then(([productos, generos]) => {
+    autores;
+    editoriales;
+    Promise.all([productos, generos, autores,editoriales]).then(([productos, generos,autores,editoriales]) => {
       return res.render("./products/productCart", {
         title: "LEAF | Carrito",
         productos,
         generos,
+        autores,
+        editoriales,
       });
     });
   },
@@ -1062,12 +1160,16 @@ deleteImageCarousel: (req, res) => {
     let costoEnvio = db.Provincia.findAll();
 
     generos;
-    Promise.all([productos, usuarios, costoEnvio, generos]).then(
-      ([productos, usuarios, costoEnvio, generos]) => {
+    autores;
+    editoriales;
+    Promise.all([productos, usuarios, costoEnvio, generos,autores,editoriales]).then(
+      ([productos, usuarios, costoEnvio, generos,autores,editoriales]) => {
         return res.render("./products/payForm", {
           title: "LEAF | Finaliza tu compra",
           productos,
           generos,
+          autores,
+          editoriales,
           usuarios,
           costoEnvio,
         });
@@ -1101,40 +1203,53 @@ deleteImageCarousel: (req, res) => {
         },
       ],
     });
-
     generos;
-    Promise.all([productos, generos])
-      .then(([productos, generos]) => {
+    autores;
+    editoriales;
+    Promise.all([productos, generos,autores,editoriales])
+      .then(([productos, generos,autores,editoriales]) => {
         return res.render("./products/commonViews/commonViews", {
           title: `LEAF | ${req.params.name.toUpperCase()}`,
           productos,
           generos,
+          autores,
+          editoriales,
         })
       })
       .catch((error) => console.log(error));
   },
 //Crud métodos de pago
 paymentMethodList:(req,res)=>{
-  generos
+  generos;
+  autores,
+  editoriales;
   let pagoMetodos=db.Paymentmethod.findAll()
-  Promise.all([generos,pagoMetodos])
-    .then(([generos,pagoMetodos])=>{
+  Promise.all([generos,autores,
+    editoriales,pagoMetodos])
+    .then(([generos,autores,
+          editoriales,pagoMetodos])=>{
     return res.render('./products/paymentList',{
       title: "LEAF | Administrador",
       pagoMetodos,
-      generos
+      generos,
+      autores,
+      editoriales,
     })
   })
   .catch(error => console.log(error));
 },
   addPaymentGet: (req, res) => {
     let errors = validationResult(req);
-    generos
+    generos;
+    autores;
+    editoriales;
     let pagoMetodo=db.Paymentmethod.findAll()
-    Promise.all([generos, pagoMetodo])
-      .then(([generos,pagoMetodo]) => {
+    Promise.all([generos, autores,editoriales, pagoMetodo])
+      .then(([generos,autores,editoriales,pagoMetodo]) => {
         return res.render("./products/addPaymentMethod", {
           generos,
+          autores,
+          editoriales,
           pagoMetodo,
           errores: errors.mapped(),
           old: req.body,
@@ -1153,12 +1268,16 @@ paymentMethodList:(req,res)=>{
         .catch((error) => console.log(error));
     } else {
       let errors = validationResult(req);
-      generos
+      generos;
+      editoriales;
+      autores;
       let pagoMetodo = db.Paymentmethod.findAll()
-      Promise.all([generos, pagoMetodo])
-        .then(([generos, pagoMetodo]) => {
+      Promise.all([generos,editoriales,autores, pagoMetodo])
+        .then(([generos, editoriales, autores, pagoMetodo]) => {
           return res.render("./products/addPaymentMethod", {
             generos,
+            editoriales,
+            autores,
             pagoMetodo,
             errores: errors.mapped(),
             old: req.body,
@@ -1169,13 +1288,17 @@ paymentMethodList:(req,res)=>{
     }
   },
 editPaymentGet:(req,res)=>{
-  generos
+  generos;
+  editoriales; 
+  autores;
 let pagoMetodo=db.Paymentmethod.findByPk(req.params.id)
-  Promise.all([generos,pagoMetodo])
-  .then(([generos,pagoMetodo])=>{
+  Promise.all([generos, editoriales, autores,pagoMetodo])
+    .then(([generos, editoriales, autores,pagoMetodo])=>{
     return res.render('./products/editPaymentMethod',{
       title: "LEAF | Administrador",
       generos,
+      editoriales, 
+      autores,
       pagoMetodo,
       old:req.body
     })
@@ -1198,13 +1321,17 @@ if(errors.isEmpty()){
 
   }).catch(error => console.log(error));
 }else{
-  generos
+  generos;
+  editoriales;
+  autores;
   let pagoMetodo=db.Paymentmethod.findByPk(req.params.id)
-  Promise.all([generos, pagoMetodo])
+  Promise.all([generos, editoriales, autores, pagoMetodo])
 .then(([generos,pagoMetodo])=>{
   return res.render('./products/editPaymentMethod',{
     pagoMetodo,
     generos,
+    editoriales, 
+    autores,
     errores:errors.mapped(),
     old:req.body,
     title:'LEAF | Administrador'
@@ -1223,7 +1350,9 @@ deletePayment: (req, res) => {
   },
 //Vista de libros por autor
   authorViews: (req,res)=>{
-    generos
+    generos;
+    editoriales; 
+    autores;
     let productos = db.Book.findAll({
       include: [
         { association: "genero" },
@@ -1232,19 +1361,26 @@ deletePayment: (req, res) => {
           where: {nameLastname: req.params.nameLastname}
         },
       ],
+      where: {
+        price: { [Op.gt]: 0 }//Muestra si el precio es mayor a cero
+      }
     });
-    Promise.all([generos,productos])
-      .then(([generos, productos]) => {
+    Promise.all([generos,editoriales, autores,productos])
+      .then(([generos, editoriales, autores, productos]) => {
         return res.render('./products/commonViews/commonViews',{
     title: `LEAF | ${req.params.nameLastname.toUpperCase()}`, 
     generos,
+    editoriales, 
+    autores,
     productos,
     })
   }).catch(error => console.log(error));
   },
   //Vista de libros por editorial
   viewEditorials: (req,res)=>{
-    generos
+    generos;
+    editoriales;
+    autores;
     let productos = db.Book.findAll({
       include: [
         { association: "genero" },
@@ -1255,12 +1391,17 @@ deletePayment: (req, res) => {
           where: {name: req.params.name}
       }
       ],
+      where:{
+        price:{[Op.gt]:0}//Muestra si el precio es mayor a cero
+      }
     });
-    Promise.all([generos,productos])
-      .then(([generos, productos]) => {
+    Promise.all([generos, editoriales, autores,productos])
+      .then(([generos, editoriales, autores, productos]) => {
         return res.render('./products/commonViews/commonViews',{
     title: `LEAF | EDITORIAL ${req.params.name.toUpperCase()}`, 
     generos,
+    editoriales, 
+    autores,
     productos,
     })
   }).catch(error => console.log(error));
@@ -1277,13 +1418,17 @@ deletePayment: (req, res) => {
         price: 0
       }
     })
-    generos
-    Promise.all([productos,generos])
-    .then(([productos, generos])=>{
+    generos;
+    editoriales;
+    autores;
+    Promise.all([productos, generos, editoriales, autores,])
+    .then(([productos, generos,editoriales, autores,])=>{
     return res.render ('./products/freeBooks',{
       title: 'LEAF | LIBROS GRATIS',
       productos,
       generos,
+      editoriales, 
+      autores,
     })
   }).catch(error => console.log(error));
 }
