@@ -477,6 +477,7 @@ module.exports = {
         return res.render("./products/addAuthor", {
           autores,
           generos,
+          editoriales,
           errores: errors.mapped(),
           old: req.body,
           title: "LEAF | Administrador",
@@ -651,7 +652,7 @@ editGenreGet:(req,res)=>{
   generos;//todos los generos para el header
 let genre=db.Genre.findByPk(req.params.id)//el genero a editar
   Promise.all([autores,editoriales,generos,genre])
-  .then(([generos,genre])=>{
+  .then(([autores,editoriales,generos,genre])=>{
     return res.render('./products/editGenre',{
       title: "LEAF | Administrador",
       autores,
@@ -901,11 +902,18 @@ deleteEditorial: (req, res) => {
   },
   // metodo para editar imagenes del carrusel get
   editCarouselGet:(req,res) => {
-    db.carouselImage.findByPk(req.params.id)
-    .then(image => {
+    generos;
+    editoriales;
+    autores;
+    let image= db.carouselImage.findByPk(req.params.id)
+    Promise.all([generos,editoriales,autores, image])
+      .then(([generos, editoriales, autores, image]) => {
       return res.render('./products/editarCarousel',{
         title: 'Editando carrusel',
-        image
+        image,
+        generos,
+        editoriales,
+        autores,
       })
     })
     .catch((error) => console.log(error));
@@ -1041,11 +1049,18 @@ deleteImageCarousel: (req, res) => {
     }
   },
   editPromoGet:(req,res) =>{
+    generos;
+    editoriales;
+    autores;
     let image = db.Promo.findByPk(req.params.id)
-    .then(image => {
+    Promise.all([generos,editoriales,autores, image])
+      .then(([generos, editoriales, autores, image])=> {
       return res.render('./products/promoListEdit',{
         title: "Editando publicidad",
         image,
+        generos,
+        editoriales,
+        autores,
       })
     })
     .catch(error => console.log(error))
