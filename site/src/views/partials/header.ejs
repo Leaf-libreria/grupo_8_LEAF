@@ -156,7 +156,7 @@
             <a class=" nav-link " aria-current="page" href="/products/formato/libro">Libros</a>
           </li>
           <li class="nav-item">
-            <a class=" nav-link" href="/products/formato/E-book">E-books</a>
+            <a class=" nav-link" href="/products/formato/E-book">Ebooks</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -168,6 +168,36 @@
               <% generos.forEach(genero=> { %>
                 <li><a class="dropdown-item" href="/products/genero/<%=genero.name.toLowerCase()%>">
                     <%=genero.name%>
+                  </a></li>
+                <% }) %>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Autores
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              <% autores.forEach(autor=> { %>
+                <li><a class="dropdown-item" href="/products/autor/<%=autor.nameLastname.toLowerCase()%>">
+                    <%=autor.nameLastname%>
+                  </a></li>
+                <% }) %>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Editoriales
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+              <% editoriales.forEach(editorial=> { %>
+                <li><a class="dropdown-item" href="/products/editoriale/<%=editorial.name.toLowerCase()%>">
+                    <%=editorial.name%>
                   </a></li>
                 <% }) %>
             </ul>

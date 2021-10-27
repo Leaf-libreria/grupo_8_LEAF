@@ -2,6 +2,8 @@ const db = require("../database/models");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
 const generos = db.Genre.findAll();
+const autores = db.Author.findAll();
+const editoriales = db.Editorial.findAll();
 
 module.exports = {
   index: (req, res) => {
@@ -82,9 +84,11 @@ let promo4 = db.Promo.findOne({
                 { association: "estrella" }],
       limit: 3,
     });
-generos
-    Promise.all([productos, primerImageIndex, imagesCarouselIndex, promo1, promo2, promo3, promo4, masVendidos, novedades, recomendados, generos])
-      .then(([productos, primerImageIndex, imagesCarouselIndex, promo1, promo2, promo3, promo4, masVendidos, novedades, recomendados, generos]) => {
+generos;
+autores;
+editoriales;
+    Promise.all([productos, primerImageIndex, imagesCarouselIndex, promo1, promo2, promo3, promo4, masVendidos, novedades, recomendados, generos,autores,editoriales])
+      .then(([productos, primerImageIndex, imagesCarouselIndex, promo1, promo2, promo3, promo4, masVendidos, novedades, recomendados, generos, autores,editoriales]) => {
         return res.render("index", {
           title: "LEAF",
           productos,
@@ -98,6 +102,8 @@ generos
           novedades,
           recomendados,
           generos,
+          autores,
+          editoriales
         });
       })
       .catch((error) => console.log(error));
