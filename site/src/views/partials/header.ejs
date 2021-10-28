@@ -18,6 +18,21 @@
     </ul>
     <!-- mi cuenta -->
     <% if (locals.userLogin) { %>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+        if('<%=locals.userLogin%>'){
+          Swal.fire({
+            icon: "success",
+            title: '¡Bienvenid@ a LEAF!',
+            width: 600,
+            padding: '3em',
+            showConfirmButton: false,
+            background: '#ffff url(https://www.animationsoftware7.com/img/agifs/leaf_fall_1.gif)',
+            timer: 3000
+          })
+          console.log('usuario logueado');
+        }
+      </script>
       <% if (locals.userLogin.rol===2 ) { %>
         <div class="login">
           <div class="dropdown">
@@ -92,6 +107,7 @@
           <li class="nav-item active">
             <% if (locals.userLogin) { %>
               <% if (locals.userLogin.Id===2 ) { %>
+                
                 <div class="login">
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -197,4 +213,6 @@
     </div>
   </nav>
   <script src="/javascripts/searchValidator.js"></script>
+  
+ 
 </header>

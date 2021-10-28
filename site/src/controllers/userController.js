@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
+const { Script } = require("vm");
 const { User,Genre,Rol } = require("../database/models");
 const generos = Genre.findAll();
 
@@ -72,7 +73,6 @@ module.exports = {
             rol: user.rolId,
             image: user.image,
           };
-
           res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
 
           return res.redirect("/");
