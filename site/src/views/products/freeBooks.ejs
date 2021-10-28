@@ -25,6 +25,10 @@
                   <a class="a-freeBook" href="/products/autor/<%= producto.autor.nameLastname %> ">
                   <h5><%= producto.autor.nameLastname%></h5>
                   </a>
+                  <a class="a-freeBook" href="/products/editorial/<%= producto.editorial.name %> ">
+                    <h6>Editorial: <%= producto.editorial.name %>
+                    </h6>
+                  </a>
                     <div class="row row-cols-2 info-freeBook">
                       <h6>  <%= producto.genero.name %>  </h6>
                       <h6>Páginas:  <%= producto.pages %>  </h6>
