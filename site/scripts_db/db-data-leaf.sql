@@ -123,11 +123,10 @@ UNLOCK TABLES;
 
 
 LOCK TABLES `paymentmethods` WRITE;
-
 /*!40000 ALTER TABLE `paymentmethods` DISABLE KEYS */;
-UNLOCK TABLES;
-INSERT INTO `paymentmethods` VALUES (1,'Efectivo',NULL,NULL),(2,'Visa',NULL,NULL),(3,'Mastercard',NULL,NULL),(3,'PayPal',NULL,NULL)
+INSERT INTO `paymentmethods` VALUES (1,'Efectivo',NULL,NULL),(2,'Visa',NULL,NULL),(3,'Mastercard',NULL,NULL),(4,'PayPal',NULL,NULL);
 /*!40000 ALTER TABLE `paymentmethods` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 --
