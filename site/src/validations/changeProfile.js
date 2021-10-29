@@ -26,4 +26,20 @@ module.exports = [
       }
       return true;
     }),
+  //Campo apellido
+  body("lastname")
+    .notEmpty()
+    .withMessage("El apellido es obligatorio")
+    .isLength({
+      min: 2,
+      max: 50,
+    })
+    .withMessage("El apellido debe que tener como mínimo 2 caracteres"),
+
+  //Campo nickname
+  body("nickname")
+    .isLength({
+      min: 2
+    })
+    .withMessage("El nickname debe tener al menos 2 caracteres"),
 ];

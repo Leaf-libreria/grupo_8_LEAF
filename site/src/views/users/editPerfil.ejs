@@ -37,11 +37,13 @@
                 </section>
 
                 <main class="main-register perfil-main">
+                    <!-- Formulario -->
                     <form action="/users/editarPerfil/<%=user.id%>?_method=PUT" method="POST" id="edit-perfil-form" novalidate
                         enctype="multipart/form-data">
-                        <a href="/users/perfil/<%=user.id%>"><i class="fas fa-angle-double-left"></i> Atras</a>
-                        <h2 class="bienvenido-perfil">Editando perfil </h2>
+                        <a href="/users/perfil/<%=user.id%>"><i class="fas fa-angle-double-left"></i> Atrás</a>
+                        <h2 class="bienvenido-perfil">Editando perfil de <%= user.name %>  </h2>
                         <div class="nombre">
+                            <span id="errorEmpty"></span>
                             <label for="imagenPerfil" class="form-label">Cambiar imagen</label>
                             <input type="file" class="form-control" id="imagenPerfil" name="image">
                         </div>
@@ -49,23 +51,27 @@
                         <span class="text-danger small ">
                             <%= locals.errores && locals.errores.image ? errores.image.msg :null %>
                         </span>
+                        <span id="error-imagenPerfil"></span>
+
                             <!-- previsualiza imagen -->
             <div id="image-render"><img  id="image"></div>
                         <!-- NICK -->
                         <div class="nombre"><label for="nickname">NickName</label><input type="text" name="nickname"
                                 id="nickname"
                                 value="<%= locals.old && locals.old.nickname ? old.nickname : user.nickname %> ">
-                            <span class="text-danger small">
+                            </div>
+                                <span class="text-danger small">
                                 <%= locals.errores && locals.errores.nickname ? errores.nickname.msg :null %>
                             </span>
-
-                        </div>
+                        <span id="error-nickname"></span>
                         <div class="nombre"><label for="nombre">Nombre(s)</label><input type="text" name="name"
                                 id="nombre" value="<%= locals.old && locals.old.name ? old.name : user.name %> ">
                         </div>
                         <span class="text-danger small">
                             <%= locals.errores && locals.errores.name ? errores.name.msg :null %>
                         </span>
+                        
+                        <span id="error-nombre"></span>
 
                         <div class="apellido"> <label for="apellido">Apellido(s)</label> <input type="text"
                                 name="lastname" id="apellido"
@@ -74,6 +80,7 @@
                         <span class="text-danger small">
                             <%= locals.errores && locals.errores.lastname ? errores.lastname.msg :null %>
                         </span>
+                        <span id="error-apellido"></span>
                         
                             <button type="submit" class="editarPerfil">GUARDAR</button>
                         </div>

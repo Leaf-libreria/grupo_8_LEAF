@@ -108,7 +108,7 @@ module.exports = {
     User.findByPk(req.params.id).then((user) => {
       return res.render("./users/editPerfil", {
         user,
-        title: "Editando perfil de " + user.name,
+        title: `LEAF | Editando perfil`
       });
     });
   },
@@ -156,7 +156,7 @@ module.exports = {
         return res.render("./users/editPerfil", {
           errores: errors.mapped(),
           old: req.body,
-          title: "LEAF | Registro",
+          title: "LEAF | Actualizar perfil",
           user,
         });
       })
