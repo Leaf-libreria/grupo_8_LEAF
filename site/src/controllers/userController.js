@@ -30,7 +30,8 @@ module.exports = {
             nickname: user.nickname ? user.nickname : null,
             rol: user.rolId,
             image: user.image,
-          };
+          }
+          req.session.cart =[]
           recordar &&
             res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
           return res.redirect("/");
@@ -73,7 +74,6 @@ module.exports = {
             rol: user.rolId,
             image: user.image,
           };
-
           res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
 
           return res.redirect("/");

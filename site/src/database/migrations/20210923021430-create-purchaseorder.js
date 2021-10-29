@@ -28,6 +28,20 @@ module.exports = {
           key : 'id'
         }
       },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references :{
+          model : {
+            tableName : 'users'
+          },
+          key : 'id'
+        }
+      },
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       finalprice: {
         type: Sequelize.DECIMAL,
         allowNull: false

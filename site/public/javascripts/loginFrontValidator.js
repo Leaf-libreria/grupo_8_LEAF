@@ -49,39 +49,23 @@ window.addEventListener("load", () => {
       pass.classList.remove("text-danger");
     }
   });
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  // form.addEventListener("submit", (e) => {
+    //  e.preventDefault();
+    // let error = false;
+    // let spanError = document.querySelectorAll('span')
+    // spanError.value  ? error = true : error = false;
 
-    let elementosForm = form.elements;
-    let error = false;
+  //   let elementosForm = document.querySelectorAll('span') ;
+  //   console.log(elementosForm);
+  //   var error = false;
 
-    for (let i = 0; i < elementosForm.length - 1; i++) {
-      if (!elementosForm[i].value) {
-        elementosForm[i].classList.add("text-danger");
-        document.getElementById("errorEmpty").innerText =
-          "Los campos señalados son obligatorios";
-        error = true;
-      }
-    }
-    if (!error) {
-      function ActivarTiempo() {
-        //se activa el método alert luego de 2 segundos
-        setTimeout(
-          function () {
-            form.submit();
-          },
-          4000,
-          Swal.fire({
-            icon: "success",
-            title: 'Inicio de sesion exitoso',
-            width: 600,
-            padding: '3em',
-            showConfirmButton: false,
-            background: '#ffff url(https://www.animationsoftware7.com/img/agifs/leaf_fall_1.gif)',
-          })
-        );
-      }
-      ActivarTiempo();
-    }
-  });
+  //   for (let i = 0; i < elementosForm.length; i++) {
+  //     console.log(elementosForm[i].innerText);
+  //     if (elementosForm[i].innerText != '') {
+  //      error = true;
+  //     }
+  //   }
+  //   console.log(error)
+  
+  // });
 });

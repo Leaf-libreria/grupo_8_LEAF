@@ -10,20 +10,28 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+     
       Purchaseorder.hasMany(models.Cart,{
         as:'carts',
         foreignKey:'cartId',
+        onDelete : 'cascade'
       })
       Purchaseorder.belongsTo(models.Paymentmethod,{
         as:'metodoDePago',
         foreignKey:'paymentMethodId'
+      })
+      Purchaseorder.belongsTo(models.User,{
+        as:'usuario',
+        foreignKey:'userId'
       })
     }
   };
   Purchaseorder.init({
     cartId: DataTypes.INTEGER,
     paymentmethodId: DataTypes.INTEGER,
-    finalprice: DataTypes.DECIMAL
+    finalprice: DataTypes.DECIMAL,
+    userId: DataTypes.INTEGER,
+    status:DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Purchaseorder',
