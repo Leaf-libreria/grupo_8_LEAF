@@ -19,5 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Promo',
   });
+  let config = {
+    timestamps: false,
+    deletedAt: false,
+    tableName: 'promo'
+}
   return Promo;
 };
