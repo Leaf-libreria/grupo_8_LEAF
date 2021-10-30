@@ -1,6 +1,5 @@
 const $ = id => document.getElementById(id);
 
-
 window.addEventListener("load",()=>{
 
     //campo nickname
