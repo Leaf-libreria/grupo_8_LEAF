@@ -1449,7 +1449,7 @@ deletePayment: (req, res) => {
   }).catch(error => console.log(error));
   },
 
-  //vista para descargar libros
+  //vista para descargar libros (sólo libros precio=0)
   download: (req,res)=>{
     let productos= db.Book.findAll({
       include:[
