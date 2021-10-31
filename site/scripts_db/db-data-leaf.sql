@@ -33,7 +33,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `authors` WRITE;
 /*!40000 ALTER TABLE `authors` DISABLE KEYS */;
-INSERT INTO `authors` VALUES (1,'John Grisham',NULL,NULL),(2,'John Katzenbach',NULL,NULL),(3,'Markus Zusak',NULL,NULL),(4,'H. G. Wells',NULL,NULL),(5,'Florencia Bonelli',NULL,NULL),(6,'Adam Silvera',NULL,NULL),(7,'Jojo Moyes',NULL,NULL),(8,'Carlos Ruiz Zafón',NULL,NULL),(9,'Kerri Maniscalco',NULL,NULL),(10,'Godoy Ariana',NULL,NULL),(11,'Elena Castillo Castro',NULL,NULL),(12,'Ana Coello',NULL,NULL),(13,'Stephen King',NULL,NULL),(14,'Carolina Andujar',NULL,NULL),(15,'Clifford D. Simak',NULL,NULL),(16,'Paulo Coelho',NULL,NULL),(17,'Oscar Wilde',NULL,NULL),(18,'Angel David Revilla',NULL,NULL),(19,'Leigh Bardugo',NULL,NULL),(20,'Emily Jane Brontë',NULL,NULL),(21,'Arthur Conan Doyle',NULL,NULL), (22,'Bram Stoker',NULL,NULL), (23,'Alexandre Dumas',NULL,NULL), (24,'León Tostói',NULL,NULL), (25,'Julio Verne',NULL,NULL),(26,'Franz Kafka',NULL,NULL),(27,'Rachel Hartman',NULL,NULL);
+INSERT INTO `authors` VALUES (1,'John Grisham',NULL,NULL),(2,'John Katzenbach',NULL,NULL),(3,'Markus Zusak',NULL,NULL),(4,'H. G. Wells',NULL,NULL),(5,'Florencia Bonelli',NULL,NULL),(6,'Adam Silvera',NULL,NULL),(7,'Jojo Moyes',NULL,NULL),(8,'Carlos Ruiz Zafón',NULL,NULL),(9,'Kerri Maniscalco',NULL,NULL),(10,'Ariana Godoy',NULL,NULL),(11,'Elena Castillo Castro',NULL,NULL),(12,'Ana Coello',NULL,NULL),(13,'Stephen King',NULL,NULL),(14,'Carolina Andujar',NULL,NULL),(15,'Clifford D. Simak',NULL,NULL),(16,'Paulo Coelho',NULL,NULL),(17,'Oscar Wilde',NULL,NULL),(18,'Angel David Revilla',NULL,NULL),(19,'Leigh Bardugo',NULL,NULL),(20,'Emily Jane Brontë',NULL,NULL),(21,'Arthur Conan Doyle',NULL,NULL), (22,'Bram Stoker',NULL,NULL), (23,'Alexandre Dumas',NULL,NULL), (24,'León Tostói',NULL,NULL), (25,'Julio Verne',NULL,NULL),(26,'Franz Kafka',NULL,NULL),(27,'Rachel Hartman',NULL,NULL);
 /*!40000 ALTER TABLE `authors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `formats` WRITE;
 /*!40000 ALTER TABLE `formats` DISABLE KEYS */;
-INSERT INTO `formats` VALUES (1,'Libro',NULL,NULL),(2,'E-book',NULL,NULL);
+INSERT INTO `formats` VALUES (1,'Libro',NULL,NULL),(2,'Ebook',NULL,NULL);
 /*!40000 ALTER TABLE `formats` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -33,7 +33,7 @@ INSERT INTO `addresses` (street, number, cp, provinciaId, createdAt, updatedAt) 
 
 
 /*!40000 ALTER TABLE `authors` DISABLE KEYS */;
-INSERT INTO `authors` (nameLastname, createdAt, updatedAt) VALUES ('John Grisham',NULL,NULL),('John Katzenbach',NULL,NULL),('Markus Zusak',NULL,NULL),('H. G. Wells',NULL,NULL),('Florencia Bonelli',NULL,NULL),('Adam Silvera',NULL,NULL),('Jojo Moyes',NULL,NULL),('Carlos Ruiz Zafón',NULL,NULL),('Kerri Maniscalco',NULL,NULL),('Godoy Ariana',NULL,NULL),('Elena Castillo Castro',NULL,NULL),('Ana Coello',NULL,NULL),('Stephen King',NULL,NULL),('Carolina Andujar',NULL,NULL),('Clifford D. Simak',NULL,NULL),('Paulo Coelho',NULL,NULL),('Oscar Wilde',NULL,NULL),('Angel David Revilla',NULL,NULL),('Leigh Bardugo',NULL,NULL),('Emily Jane Brontë',NULL,NULL),('Arthur Conan Doyle',NULL,NULL), ('Bram Stoker',NULL,NULL), ('Alexandre Dumas',NULL,NULL), ('León Tostói',NULL,NULL), ('Julio Verne',NULL,NULL),('Franz Kafka',NULL,NULL),('Rachel Hartman',NULL,NULL);
+INSERT INTO `authors` (nameLastname, createdAt, updatedAt) VALUES ('John Grisham',NULL,NULL),('John Katzenbach',NULL,NULL),('Markus Zusak',NULL,NULL),('H. G. Wells',NULL,NULL),('Florencia Bonelli',NULL,NULL),('Adam Silvera',NULL,NULL),('Jojo Moyes',NULL,NULL),('Carlos Ruiz Zafón',NULL,NULL),('Kerri Maniscalco',NULL,NULL),('Ariana Godoy',NULL,NULL),('Elena Castillo Castro',NULL,NULL),('Ana Coello',NULL,NULL),('Stephen King',NULL,NULL),('Carolina Andujar',NULL,NULL),('Clifford D. Simak',NULL,NULL),('Paulo Coelho',NULL,NULL),('Oscar Wilde',NULL,NULL),('Angel David Revilla',NULL,NULL),('Leigh Bardugo',NULL,NULL),('Emily Jane Brontë',NULL,NULL),('Arthur Conan Doyle',NULL,NULL), ('Bram Stoker',NULL,NULL), ('Alexandre Dumas',NULL,NULL), ('León Tostói',NULL,NULL), ('Julio Verne',NULL,NULL),('Franz Kafka',NULL,NULL),('Rachel Hartman',NULL,NULL);
 /*!40000 ALTER TABLE `authors` ENABLE KEYS */;
 
 
@@ -108,7 +108,7 @@ INSERT INTO `editorials` (name,createdAt, updatedAt) VALUES ('Plaza & Janés',NU
 
 
 /*!40000 ALTER TABLE `formats` DISABLE KEYS */;
-INSERT INTO `formats` (name,createdAt, updatedAt) VALUES ('Libro',NULL,NULL),('E-book',NULL,NULL);
+INSERT INTO `formats` (name,createdAt, updatedAt) VALUES ('Libro',NULL,NULL),('Ebook',NULL,NULL);
 /*!40000 ALTER TABLE `formats` ENABLE KEYS */;
 
 
