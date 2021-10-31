@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   let config = {
     timestamps: false,
-    deletedAt: false
+    deletedAt: false,
+    tableName: 'star'
 }
   return Star;
 };

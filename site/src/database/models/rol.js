@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Rol',
   });
   let config = {
-   
     timestamps: false,
-    deletedAt: false
+    deletedAt: false,
+    tableName: 'rol'
 }
   return Rol;
 };
