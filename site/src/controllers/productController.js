@@ -221,7 +221,7 @@ y agregar, editar y eliminar productos*/
           formatos,
         ]) => {
           return res.render("./products/editProduct", {
-            title: "Editando " + productEdit.title,
+            title: "Editando",
             autores,
             generos,
             editoriales,
