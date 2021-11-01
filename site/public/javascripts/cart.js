@@ -30,7 +30,7 @@
         carrito.forEach(item => {
             cantidad += item.cantidad
             precio+=item.price
-            total += item.total
+            total += item.total 
         })
         cantidadTotalProductos.innerText = cantidad
         PrecioFinal.innerText = total 
@@ -62,7 +62,7 @@
               </div>
               <div class="cantidad">
                 <a class="text-danger h5" onClick="quitarItem(event,${item.id})"><i class="fas fa-minus-square"></i></a>
-                <span id="cantidad${item.id}" class="h5"><span>
+                <span id="cantidad${item.id}" class="h5">${item.cantidad}<span>
                 <a class="text-success h5" onClick="agregarItem(event,${item.id})"><i class="fas fa-plus-square"></i></a>
                 </div>
                 <section class="subtotal">

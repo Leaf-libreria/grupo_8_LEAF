@@ -103,8 +103,8 @@ position: static;
   transition: transform 200ms
 }
 .index .mainIndex article img:hover{
-  transform: rotatez(5deg);
-  animation: aparicion 4s;
+  box-shadow: 10px 5px 5px gray;
+
 }
 
 .index .mainIndex article .detalle {

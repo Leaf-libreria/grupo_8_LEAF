@@ -211,10 +211,7 @@
     width: 40%;
     text-align: end;
   }
-  .productCart .productos .contenido .eliminar  {
-    
-   
-  }
+
   /*seleccionar cantidad*/
   .productCart .productos .contenido .cantidad {
     padding: 30px;
@@ -269,6 +266,7 @@
   }
   .productCart .envios .nuestra-sucursal a {
     font-size: 18px;
+    color: var(--color-amarillo);
   }
   .productCart .envios .nuestra-sucursal p {
     width: 70%;
