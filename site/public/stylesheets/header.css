@@ -54,15 +54,6 @@ border-bottom: 1px solid var(--color-bordo);
   margin-top: -5px ; 
   margin-right: 5px;
 }
-/* header .header2 .categorias {
-  display: none;
-} */
-
-/* header .header2 .buscador select,
-header .header2 .buscador input,
-header .header2 .carrito p {
-  display: none;
-} */
 
 /* buscador */
 .btn-outline-light {
@@ -92,6 +83,11 @@ header .header2 .contenedorLogo {
   margin-left: 22px;
   
 }
+.header2 .dropdown-item.active, .dropdown-item:active{
+  background-color: transparent;
+  color: var(--color-bordo);
+}
+
 /* buscador */
 header .me-2 {
   padding: 3px 10px;

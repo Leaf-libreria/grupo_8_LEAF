@@ -32,9 +32,14 @@ module.exports = (sequelize, DataTypes) => {
   });
   let config = {
     timestamps: false,
+<<<<<<< HEAD
 
     deletedAt: false,
     tableName:'carts'
+=======
+    deletedAt: false,
+    tableName: 'cart'
+>>>>>>> 8d40e11215fd16059c3c5f6a280739cb1d60eddc
 }
   return Cart;
 };

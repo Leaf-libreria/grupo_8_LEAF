@@ -1,9 +1,10 @@
 const db = require("../database/models");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
-const generos = db.Genre.findAll();
-const autores = db.Author.findAll();
-const editoriales = db.Editorial.findAll();
+//Géneros, autores, editoriales ordenadas alfabéticamente para el header
+const generos = db.Genre.findAll({ order: [['name', 'ASC']] });
+const autores = db.Author.findAll({ order: [['nameLastname', 'ASC']] });
+const editoriales = db.Editorial.findAll({ order: [['name', 'ASC']] });
 const path = require("path");
 const fs = require('fs');
 
@@ -1429,6 +1430,7 @@ deletePayment: (req, res) => {
     let productos= db.Book.findAll({
       include:[
         { association: "autor" },
+        { association: "editorial" },
         { association: "genero" },
       ],
       where:{

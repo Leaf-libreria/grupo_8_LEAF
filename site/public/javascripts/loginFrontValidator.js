@@ -27,11 +27,11 @@ window.addEventListener("load", () => {
       email.classList.add("text-danger");
     } else if (!regExEmail.test(email.value)) {
       document.getElementById("errorEmail").innerText =
-        "Debes ingresar un email vàlido";
+        "Debes ingresar un email válido";
       email.classList.add("text-danger");
     } else if (!email.value) {
       document.getElementById("errorEmail").innerText =
-        "Èste email no està registrado";
+        "Éste email no está registrado";
       email.classList.add("text-danger");
     } else {
       document.getElementById("errorEmail").innerText = null;

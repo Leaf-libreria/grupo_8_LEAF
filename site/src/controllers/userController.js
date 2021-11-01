@@ -3,9 +3,10 @@ const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 const { User,Genre,Rol, Author, Editorial,Purchaseorder } = require("../database/models");
-const generos = Genre.findAll();
-const autores = Author.findAll();
-const editoriales = Editorial.findAll();
+//Géneros, autores, editoriales ordenadas alfabéticamente para el header
+const generos = Genre.findAll({ order: [['name', 'ASC']] });
+const autores = Author.findAll({ order: [['nameLastname', 'ASC']] });
+const editoriales = Editorial.findAll({ order: [['name', 'ASC']] });
 
 module.exports = {
   login: (req, res) => {
@@ -140,7 +141,7 @@ module.exports = {
     User.findByPk(req.params.id).then((user) => {
       return res.render("./users/editPerfil", {
         user,
-        title: "Editando perfil de " + user.name,
+        title: `LEAF | Editando perfil`
       });
     });
   },
@@ -188,7 +189,7 @@ module.exports = {
         return res.render("./users/editPerfil", {
           errores: errors.mapped(),
           old: req.body,
-          title: "LEAF | Registro",
+          title: "LEAF | Actualizar perfil",
           user,
         });
       })
@@ -204,7 +205,9 @@ module.exports = {
     let usuarios = User.findAll({
       include:[
         { association: "userRol"}
-      ]
+      ],
+      //Muestra primero los administradores (rolId=2)
+      order:[['rolId','DESC']]
     })
     
     Promise.all([generos,autores,editoriales, usuarios])

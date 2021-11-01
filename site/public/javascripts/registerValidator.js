@@ -28,7 +28,7 @@ window.addEventListener("load", function () {
     $('email').addEventListener('keyup', async() => {
         if (!regexEmail.test($('email').value)) {
             $('email').classList.add('is-invalid');
-            $('error-email').innerHTML = "Debes ingresar un email valido";
+            $('error-email').innerHTML = "Debes ingresar un email válido";
         } else {
 
             let emails = await verificarEmail();
