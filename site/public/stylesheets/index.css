@@ -100,6 +100,11 @@ position: static;
   width: 90%;
   margin: 0 5%;
   padding: 30px;
+  transition: transform 200ms
+}
+.index .mainIndex article img:hover{
+  transform: rotatez(5deg);
+  animation: aparicion 4s;
 }
 
 .index .mainIndex article .detalle {

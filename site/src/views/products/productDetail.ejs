@@ -37,7 +37,7 @@
               <!-- Muestro el boton de carrito solo si esta logueado -->
               <% if (locals.userLogin) { %>
                 <% if (locals.userLogin.rol===1 ) { %>
-                  <div class="cont-btn-detail"> <button type="button" class="btn-cart-detail btn " ><i
+                  <div class="cont-btn-detail"> <button type="button" class="btn-cart-detail btn " onclick="agregarItem(event,'<%=producto.id%>')"><i
                         class="fas fa-shopping-cart"></i></button></div>
 
                   <% } else { %>

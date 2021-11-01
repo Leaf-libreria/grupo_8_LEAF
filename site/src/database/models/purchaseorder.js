@@ -13,12 +13,12 @@ module.exports = (sequelize, DataTypes) => {
      
       Purchaseorder.hasMany(models.Cart,{
         as:'carts',
-        foreignKey:'cartId',
+        foreignKey:'purchaseorderId',
         onDelete : 'cascade'
       })
       Purchaseorder.belongsTo(models.Paymentmethod,{
         as:'metodoDePago',
-        foreignKey:'paymentMethodId'
+        foreignKey:'paymentmethodId'
       })
       Purchaseorder.belongsTo(models.User,{
         as:'usuario',
@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Purchaseorder.init({
-    cartId: DataTypes.INTEGER,
     paymentmethodId: DataTypes.INTEGER,
     finalprice: DataTypes.DECIMAL,
     userId: DataTypes.INTEGER,

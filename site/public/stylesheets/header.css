@@ -273,6 +273,7 @@ header .buscador .btn{
   header .header2 .buscador input,
   header .header2 .carrito p {
     display: initial;
+    color: black;
   }
   header .header2 {
     flex-direction: row;

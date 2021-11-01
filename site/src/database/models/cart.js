@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
     /**
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Cart.belongsTo(models.Purchaseorder,{
         as:'ordenDePago',
-        foreignKey:'cartId',
+        foreignKey:'purchaseorderId',
       })
       Cart.belongsTo(models.Book,{
         as: 'libro',
@@ -23,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
   Cart.init({
     bookId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER
+    quantity: DataTypes.INTEGER,
+    purchaseorderId:DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Cart',
@@ -31,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
   let config = {
     timestamps: false,
 
-    deletedAt: false
+    deletedAt: false,
+    tableName:'carts'
 }
   return Cart;
 };

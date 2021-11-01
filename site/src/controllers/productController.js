@@ -1142,13 +1142,15 @@ deleteImageCarousel: (req, res) => {
     generos;
     autores;
     editoriales;
-    Promise.all([productos, generos, autores,editoriales]).then(([productos, generos,autores,editoriales]) => {
+    let provincias = db.Provincia.findAll();
+    Promise.all([productos, generos, autores,editoriales,provincias]).then(([productos, generos,autores,editoriales,provincias]) => {
       return res.render("./products/productCart", {
         title: "LEAF | Carrito",
         productos,
         generos,
         autores,
         editoriales,
+        provincias
       });
     });
   },

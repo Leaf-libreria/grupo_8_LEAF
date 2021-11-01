@@ -50,7 +50,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/products", productsRouter);
 //api users
-app.use('/api/users', require('./routes/api/usersRouter'))
+app.use('/api/users', require('./routes/api/usersRouter'));
+//api carts
+app.use('/api/carts', require('./routes/api/cartRouter'));
+//api provincias
+app.use('/api/provincias', require('./routes/api/provinciaRouter'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

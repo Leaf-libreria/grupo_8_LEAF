@@ -142,21 +142,24 @@
           <form id="my-form" action="https://formspree.io/f/mdoybbdw" method="POST" class="form-signin">
             <h3 class="modal-title contacto-title" id="title-form" id="exampleModalLabel">Contactanos</h3>
             <!-- BODY MODAL  -->
-            <div id="modal-body">
-              <h4 class="h4 mb-3 font-weight-normal"> Completa tus datos para enviar tu consulta</h4>
-              <label id="nombre" for="nombre">Nombre:</label><br>
-              <input type="text" class="form-control" id="nombre" name="name" value="" placeholder="Nombre"><br>
-              
+            <div id="modal-body" class="modal-nonear">
+              <h4 class="h4 mb-3 font-weight-normal" id="subtitulo"> Completa tus datos para enviar tu consulta</h4>
+              <label id="nomb" for="nombre">Nombre:</label><br>
+              <input type="text" class="form-control <%= locals.errores && locals.errores.name ? 'is-invalid' : null %>" id="nombre" name="name" value="" placeholder="Nombre"><br>
+              <span id="error-name" class="text-danger small"><%= locals.errores && locals.errores.name ? errores.name.msg : null %> </span>
 
               <label for="apell">Apellido:</label><br>
               <input type="text" class="form-control <%= locals.errores && locals.errores.lastname ? 'is-invalid' : null %>" id="apellido" name="lastname" value="" placeholder="Apellido"><br>
-              
+              <span id="error-lastname" class="text-danger small"><%= locals.errores && locals.errores.lastname ? errores.lastname.msg : null %> </span>
+
               <label>Email:</label><br>
-              <input type="email" name="email" class="form-control <%= locals.errores && locals.errores.email ? 'is-invalid' : null %>" value="" placeholder="Email address" name="email"><br>
+              <input type="email" name="email" class="form-control <%= locals.errores && locals.errores.email ? 'is-invalid' : null %>" value="" placeholder="Email address" id="email"><br>
               <span id="error-email" class="text-danger small"><%= locals.errores && locals.errores.email ? errores.email.msg : null %> </span>
 
               <label id="mensaje" for="mensaje">Mensaje:</label><br>
               <textarea name="message" class="form-control <%= locals.errores && locals.errores.mens ? 'is-invalid' : null %>" name="mens" id="mens" cols="50" rows="5"></textarea>
+              <span id="error-mens" class="text-danger small"><%= locals.errores && locals.errores.mens ? errores.mens.msg : null %> </span>
+
             </div>
               <button  id="my-form-button" class="btn btn-lg  btn-block btn-modal centrar-form">Enviar</button>
               <p id="my-form-status"></p>
