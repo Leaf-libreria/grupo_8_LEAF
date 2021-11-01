@@ -60,7 +60,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `carouselimages` WRITE;
 /*!40000 ALTER TABLE `carouselimages` DISABLE KEYS */;
-INSERT INTO `carouselimages` VALUES (1,'banner1.png',NULL,NULL),(2,'banner-redes.png',NULL,NULL),(3,'banner-envio.png',NULL,NULL);
+INSERT INTO `carouselimages` VALUES (1,'banner1.png',NULL,NULL),(2,'banner-redes.png',NULL,NULL),(3,'banner-envio.png',NULL,NULL),(4,'banner-recomenda-por-redes.png',NULL,NULL),(5,'banner-registrate-libro-free.png',NULL,NULL);
 /*!40000 ALTER TABLE `carouselimages` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -60,7 +60,7 @@ INSERT INTO `books` (title, isbn, stock, price, slogan, pages, synopsis,cover, p
 
 
 /*!40000 ALTER TABLE `carouselimages` DISABLE KEYS */;
-INSERT INTO `carouselimages` (name,createdAt, updatedAt) VALUES ('banner1.png',NULL,NULL),('banner-redes.png',NULL,NULL),('banner-envio.png',NULL,NULL);
+INSERT INTO `carouselimages` (name,createdAt, updatedAt) VALUES ('banner1.png',NULL,NULL),('banner-redes.png',NULL,NULL),('banner-envio.png',NULL,NULL),('banner-recomenda-por-redes.png',NULL,NULL),('banner-registrate-libro-free.png',NULL,NULL);
 /*!40000 ALTER TABLE `carouselimages` ENABLE KEYS */;
 
 
