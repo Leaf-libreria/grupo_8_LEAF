@@ -164,6 +164,22 @@ module.exports = {
 
     }
   },
+  //El usuario logueado pueda eliminar su cuenta
+  eliminarCuenta:(req, res) => {
+    User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => { 
+        if (req.cookies.leaf) {
+        res.cookie('Leaf', '', { maxAge: -1 });
+      }      req.session.destroy()
+    res.clearCookie("Leaf");
+return res.redirect("/") })
+      .catch((error) => console.log(error));
+  },
+  
   //Vista de listado de usuarios para administrador
   usuarioList: (req, res) => {
     generos;
@@ -254,6 +270,7 @@ module.exports = {
         })
     }
   },
+  //El administrador puede eliminar cuenta de usuario
   deleteCuentaUsuario: (req, res) => {
     User.destroy({
       where: {
