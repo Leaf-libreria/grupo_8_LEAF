@@ -56,66 +56,66 @@ function ajax(method, url, data, success, error) {
 
 
 
-const $ = id => document.getElementById(id);
-/* validaciones */
+// const $ = id => document.getElementById(id);
+// /* validaciones */
 
-$('nombre').addEventListener('keyup', () => {
-  if(!$('nombre').value.trim()){
-      $('nombre').classList.add('is-invalid')
-      $('error-name').innerHTML = "El nombre es obligatorio"
-  }
-  else if ($('nombre').value.trim().length < 2) {
-    $('nombre').classList.add('is-invalid')
-    $('error-name').innerHTML = "El nombre debe tener al menos 2 caracteres"
-}else{
-      $('nombre').classList.remove('is-invalid')
-      $('nombre').classList.add('is-valid')
-      $('error-name').innerHTML = null
-  }
-})
+// $('nombre').addEventListener('keyup', () => {
+//   if(!$('nombre').value.trim()){
+//       $('nombre').classList.add('is-invalid')
+//       $('error-name').innerHTML = "El nombre es obligatorio"
+//   }
+//   else if ($('nombre').value.trim().length < 2) {
+//     $('nombre').classList.add('is-invalid')
+//     $('error-name').innerHTML = "El nombre debe tener al menos 2 caracteres"
+// }else{
+//       $('nombre').classList.remove('is-invalid')
+//       $('nombre').classList.add('is-valid')
+//       $('error-name').innerHTML = null
+//   }
+// })
 
-$('apellido').addEventListener('keyup', () => {
-  if(!$('apellido').value.trim()){
-      $('apellido').classList.add('is-invalid')
-      $('error-lastname').innerHTML = "El apellido es obligatorio"
-  }
-  else if ($('apellido').value.trim().length < 2) {
-    $('apellido').classList.add('is-invalid')
-    $('error-lastname').innerHTML = "El apellido debe tener al menos 2 caracteres"
-}else{
-      $('apellido').classList.remove('is-invalid')
-      $('apellido').classList.add('is-valid')
-      $('error-lastname').innerHTML = null
-  }
-})
+// $('apellido').addEventListener('keyup', () => {
+//   if(!$('apellido').value.trim()){
+//       $('apellido').classList.add('is-invalid')
+//       $('error-lastname').innerHTML = "El apellido es obligatorio"
+//   }
+//   else if ($('apellido').value.trim().length < 2) {
+//     $('apellido').classList.add('is-invalid')
+//     $('error-lastname').innerHTML = "El apellido debe tener al menos 2 caracteres"
+// }else{
+//       $('apellido').classList.remove('is-invalid')
+//       $('apellido').classList.add('is-valid')
+//       $('error-lastname').innerHTML = null
+//   }
+// })
 
-$('email').addEventListener('keyup', () => {
+// $('email').addEventListener('keyup', () => {
  
-    if(!$('email').value.trim()){
-      $('email').classList.add('is-invalid')
-      $('error-email').innerHTML = "El email es obligatorio"
-  }else if (!regexEmail.test($('email').value)) {
-        $('email').classList.add('is-invalid');
-        $('error-email').innerHTML = "Debes ingresar un email valido";
+//     if(!$('email').value.trim()){
+//       $('email').classList.add('is-invalid')
+//       $('error-email').innerHTML = "El email es obligatorio"
+//   }else if (!regexEmail.test($('email').value)) {
+//         $('email').classList.add('is-invalid');
+//         $('error-email').innerHTML = "Debes ingresar un email valido";
     
-}else{
-      $('email').classList.remove('is-invalid')
-      $('email').classList.add('is-valid')
-      $('error-email').innerHTML = null
-  }
-})
+// }else{
+//       $('email').classList.remove('is-invalid')
+//       $('email').classList.add('is-valid')
+//       $('error-email').innerHTML = null
+//   }
+// })
 
-$('mens').addEventListener('keyup', () => {
-  if(!$('mens').value.trim()){
-      $('mens').classList.add('is-invalid')
-      $('error-mens').innerHTML = "Debes escribir un mensaje"
-  }
-  else if ($('mens').value.trim().length < 2) {
-    $('mens').classList.add('is-invalid')
-    $('error-mens').innerHTML = "El mensajedebe tener al menos 20 caracteres"
-}else{
-      $('mens').classList.remove('is-invalid')
-      $('mens').classList.add('is-valid')
-      $('error-mens').innerHTML = null
-  }
-})
+// $('mens').addEventListener('keyup', () => {
+//   if(!$('mens').value.trim()){
+//       $('mens').classList.add('is-invalid')
+//       $('error-mens').innerHTML = "Debes escribir un mensaje"
+//   }
+//   else if ($('mens').value.trim().length < 2) {
+//     $('mens').classList.add('is-invalid')
+//     $('error-mens').innerHTML = "El mensajedebe tener al menos 20 caracteres"
+// }else{
+//       $('mens').classList.remove('is-invalid')
+//       $('mens').classList.add('is-valid')
+//       $('error-mens').innerHTML = null
+//   }
+// })
