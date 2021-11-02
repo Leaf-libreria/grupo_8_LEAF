@@ -65,12 +65,12 @@ INSERT INTO `carouselimages` (name,createdAt, updatedAt) VALUES ('banner1.png',N
 
 
 --
--- Dumping data for table `cart`
+-- Dumping data for table `carts`
 --
 
 
-/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+/*!40000 ALTER TABLE `carts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 
 
 --

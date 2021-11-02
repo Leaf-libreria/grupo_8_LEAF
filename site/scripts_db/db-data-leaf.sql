@@ -65,12 +65,12 @@ INSERT INTO `carouselimages` VALUES (1,'banner1.png',NULL,NULL),(2,'banner-redes
 UNLOCK TABLES;
 
 --
--- Dumping data for table `cart`
+-- Dumping data for table `carts`
 --
 
-LOCK TABLES `cart` WRITE;
-/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+LOCK TABLES `carts` WRITE;
+/*!40000 ALTER TABLE `carts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
