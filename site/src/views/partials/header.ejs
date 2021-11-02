@@ -92,16 +92,16 @@
           <!-- login -->
           <li class="nav-item active">
             <% if (locals.userLogin) { %>
-              <% if (locals.userLogin.Id===2 ) { %>
+              <% if (locals.userLogin.rol===2 ) { %>
                 
                 <div class="login">
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                       data-bs-toggle="dropdown" aria-expanded="false">
-                      <div class="img-perfil"> <img src="/images/<%=userLogin.User.image%>" alt="foto de perfil"
+                      <div class="img-perfil"> <img src="/images/<%=userLogin.image%>" alt="foto de perfil"
                           style="width: 30px;"></div>
                       <p>
-                        <%= locals.userLogin.User.name %>
+                        <%= locals.userLogin.name %>
                       </p>
                     </button>
 
