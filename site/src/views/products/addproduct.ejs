@@ -22,12 +22,14 @@
               <label for="title">Título del libro:</label>
               <input type="text" name="title" id="title" class="control" placeholder="Ej: El señor de los anillos"
                 value="<%= locals.old && locals.old.title? old.title: null%>">
-              <div class="error">
+              
                 <!-- Posibles errores -->
-                <span id="titleError">
-                  <%= locals.errores && locals.errores.title ? errores.title.msg : null %>
-                </span>
-              </div>
+             <div>
+                  <span id="titleError" class="error">
+                    <%= locals.errores && locals.errores.title ? errores.title.msg : null %>
+                  </span>
+             </div>
+            
             </div>
             <div class="container-grid-uno">
               <div class="isbn">
@@ -36,24 +38,28 @@
                   <input type="number" min="0" name="isbn" id="isbn" class="grid" placeholder="13 Dígitos"
                     value="<%= locals.old && locals.old.isbn ? old.isbn: null%>">
                 </div>
-                <div class="error">
+               
                   <!-- Posibles errores -->
-                  <span id="isbnError">
-                    <%= locals.errores && locals.errores.isbn ? errores.isbn.msg : null %>
-                  </span>
+                <div>
+                    <span id="isbnError" class="error">
+                      <%= locals.errores && locals.errores.isbn ? errores.isbn.msg : null %>
+                    </span>
                 </div>
+              
               </div>
               <div class="stock">
                 <label for="stock">Stock:</label>
                 <input type="number" min="0" name="stock" id="stock" class="grid" placeholder="Ingrese números"
                   value="<%= locals.old && locals.old.stock ? old.stock: null%>">
 
-                <div class="error">
+                
                   <!-- Posibles errores -->
-                  <span id="stockError">
-                    <%= locals.errores && locals.errores.stock ? errores.stock.msg : null %>
-                  </span>
-                </div>
+           <div>
+                    <span id="stockError" class="error">
+                      <%= locals.errores && locals.errores.stock ? errores.stock.msg : null %>
+                    </span>
+           </div>
+                
               </div>
             </div>
             <div class="container-grid-uno">
@@ -68,12 +74,14 @@
                     </option>
                     <% }) %>
                 </select>
-                <div class="error">
+                
                   <!-- Posibles errores -->
-                  <span id="formatError">
-                    <%= locals.errores && locals.errores.formatId ? errores.formatId.msg : null %>
-                  </span>
-                </div>
+                 <div>
+                    <span id="formatError" class="error">
+                      <%= locals.errores && locals.errores.formatId ? errores.formatId.msg : null %>
+                    </span>
+                 </div>
+              
               </section>
               <!-- seccion de categorias -->
               <section class="categoria">
@@ -86,12 +94,14 @@
                     </option>
                     <% }) %>
                 </select>
-                <div class="error">
+               
                   <!-- Posibles errores -->
-                  <span id="categoryError">
-                    <%= locals.errores && locals.errores.categoryId ? errores.categoryId.msg : null %>
-                  </span>
-                </div>
+                 <div>
+                    <span id="categoryError" class="error">
+                      <%= locals.errores && locals.errores.categoryId ? errores.categoryId.msg : null %>
+                    </span>
+                   
+                 </div>
               </section>
             </div>
             <div class="container-grid-uno">
@@ -108,12 +118,14 @@
                       <% }) %>
                   </select>
                 </div>
-                <div class="error">
+               
                   <!-- Posibles errores -->
-                  <span id="authorError">
-                    <%= locals.errores && locals.errores.authorId ? errores.authorId.msg : null %>
-                  </span>
+                <div>
+                    <span id="authorError" class="error">
+                      <%= locals.errores && locals.errores.authorId ? errores.authorId.msg : null %>
+                    </span>
                 </div>
+              
               </section>
 
               <!-- seccion de editorial -->
@@ -129,12 +141,13 @@
                       <% }) %>
                   </select>
 
-                  <div class="error">
                     <!-- Posibles errores -->
-                    <span id="editorialError">
-                      <%= locals.errores && locals.errores.editorialId ? errores.editorialId.msg : null %>
-                    </span>
+                  <div>
+                      <span id="editorialError" class="error">
+                        <%= locals.errores && locals.errores.editorialId ? errores.editorialId.msg : null %>
+                      </span>
                   </div>
+      
                 </div>
               </section>
             </div>
@@ -150,12 +163,14 @@
                     </option>
                     <% }) %>
                 </select>
-                <div class="error">
+         
                   <!-- Posibles errores -->
-                  <span id="starError">
-                    <%= locals.errores && locals.errores.starId ? errores.starId.msg : null %>
-                  </span>
-                </div>
+                 <div>
+                    <span id="starError" class="error">
+                      <%= locals.errores && locals.errores.starId ? errores.starId.msg : null %>
+                    </span>
+                   
+                 </div>
               </div>
               <!-- seccion de genero -->
               <section class="genero">
@@ -170,12 +185,14 @@
                       <% }) %>
                   </select>
                 </div>
-                <div class="error">
+               
                   <!-- Posibles errores -->
-                  <span id="genreError">
-                    <%= locals.errores && locals.errores.genreId ? errores.genreId.msg : null %>
-                  </span>
-                </div>
+                 <div>
+                    <span id="genreError" class="error">
+                      <%= locals.errores && locals.errores.genreId ? errores.genreId.msg : null %>
+                    </span>
+                 </div>
+              
               </section>
             </div>
 
@@ -185,24 +202,28 @@
                 <label for="price">Precio $:</label>
                 <input type="number" min="0" name="price" id="price" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.price ? old.price: null%>">
-                <div class="error">
+              
                   <!-- Posibles errores -->
-                  <span id="priceError">
-                    <%= locals.errores && locals.errores.price ? errores.price.msg : null %>
-                  </span>
-                </div>
+                 <div>
+                    <span id="priceError" class="error">
+                      <%= locals.errores && locals.errores.price ? errores.price.msg : null %>
+                    </span>
+                 </div>
+            
               </div>
               <!-- seccion de paginas -->
               <div class="paginas">
                 <label for="pages">Páginas:</label>
                 <input type="number" min="0" name="pages" id="pages" class="grid" placeholder="Sólo números"
                   value="<%= locals.old && locals.old.pages? old.pages: null%>">
-                <div class="error">
+         
                   <!-- Posibles errores -->
-                  <span id="pagesError">
-                    <%= locals.errores && locals.errores.pages ? errores.pages.msg : null %>
-                  </span>
-                </div>
+                 <div>
+                    <span id="pagesError" class="error">
+                      <%= locals.errores && locals.errores.pages ? errores.pages.msg : null %>
+                    </span>
+                 </div>
+         
               </div>
             </div>
 
@@ -211,19 +232,21 @@
               <label for="slogan">Crítica:</label>
               <textarea type="text" name="slogan" id="slogan"
                 placeholder="Breve critica"><%= locals.old && locals.old.slogan ? old.slogan: null%></textarea>
-              <div class="error">
+          
                 <!-- Posibles errores -->
-                <span id="sloganError">
-                  <%= locals.errores && locals.errores.slogan ? errores.slogan.msg : null %>
-                </span>
+              <div>
+                  <span id="sloganError" class="error">
+                    <%= locals.errores && locals.errores.slogan ? errores.slogan.msg : null %>
+                  </span>
               </div>
+     
             </div>
             <!-- seccion de portada -->
             <div class="portada">
               <label for="cover">Imagen de portada:</label>
               <input class="file" type="file" name="cover" id="cover">
               <div class="error error-coverGral">
-                <span id="coverError">
+                <span id="coverError" class="error">
                   <%= locals.errores && locals.errores.cover ? errores.cover.msg : null %>
                 </span>
               </div>
@@ -239,12 +262,14 @@
               <label for="synopsis">Sinopsis:</label>
               <textarea type="text" name="synopsis" id="synopsis" placeholder="Breve sinopsis"
                 rows="10"><%= locals.old && locals.old.synopsis ? old.synopsis: null%></textarea>
-              <div class="error">
+            
                 <!-- Posibles errores -->
-                <span id="synopsisError">
-                  <%= locals.errores && locals.errores.synopsis ? errores.synopsis.msg : null %>
-                </span>
-              </div>
+             <div>
+                  <span id="synopsisError" class="error">
+                    <%= locals.errores && locals.errores.synopsis ? errores.synopsis.msg : null %>
+                  </span>
+             </div>
+         
             </div>
             <span id="addErrores"></span>
             <!--BOTONES-->

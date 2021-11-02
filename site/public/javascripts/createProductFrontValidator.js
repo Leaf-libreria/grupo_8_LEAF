@@ -23,11 +23,13 @@ window.addEventListener('load', () => {
             titleError.innerText = "Campo obligatorio"
         } else {
             titleError.innerText = null
+titleAddBook.classList.remove("text-danger");
         }
         if (titleAddBook.value.trim().length < 2) {
             titleError.innerText = "Debes ingresar minimo 2 caracteres"
         }else {
             titleError.innerText = null
+            titleAddBook.classList.remove("text-danger");
         }
     })
     isbnAddBook.addEventListener('keyup', () => {
@@ -35,6 +37,7 @@ window.addEventListener('load', () => {
             document.getElementById('isbnError').innerText = "Campo obligatorio"
         } else {
             document.getElementById('isbnError').innerText = null
+            isbnAddBook.classList.remove("text-danger");
         }
     })
     stockAddBook.addEventListener('keyup', () => {
@@ -42,6 +45,7 @@ window.addEventListener('load', () => {
             document.getElementById('stockError').innerText = "Campo obligatorio, sólo números"
         } else {
             document.getElementById('stockError').innerText = null
+            stockAddBook.classList.remove("text-danger");
         }
     })
     formatAddBook.addEventListener('focus', () => {
@@ -52,6 +56,7 @@ window.addEventListener('load', () => {
     formatAddBook.addEventListener('change',()=>{
             if (formatAddBook.value !== ''){
                 document.getElementById('formatError').innerText = null
+               formatAddBook.classList.remove("text-danger");
             }
         })
     categoryAddBook.addEventListener('focus', () => {
@@ -62,6 +67,7 @@ window.addEventListener('load', () => {
     categoryAddBook.addEventListener('change',()=>{
             if (categoryAddBook.value !== ''){
                 document.getElementById('categoryError').innerText = null
+                categoryAddBook.classList.remove("text-danger");
             }
         })
     authorAddBook.addEventListener('focus', () => {
@@ -72,6 +78,7 @@ window.addEventListener('load', () => {
     authorAddBook.addEventListener('change',()=>{
             if (authorAddBook.value !== ''){
                 document.getElementById('authorError').innerText = null
+                authorAddBook.classList.remove("text-danger");
             }
         })
     editorialAddBook.addEventListener('focus', () => {
@@ -82,6 +89,7 @@ window.addEventListener('load', () => {
     editorialAddBook.addEventListener('change',()=>{
             if (editorialAddBook.value !== ''){
                 document.getElementById('editorialError').innerText = null
+                editorialAddBook.classList.remove("text-danger");
             }
         })
     starsAddBook.addEventListener('focus', () => {
@@ -89,6 +97,7 @@ window.addEventListener('load', () => {
             document.getElementById('starError').innerText = "Campo obligatorio, sólo números"
         } else{
             document.getElementById('starError').innerText = null
+            starsAddBook.classList.remove("text-danger");
         }
     })
     starsAddBook.addEventListener('change',()=>{
@@ -105,6 +114,7 @@ window.addEventListener('load', () => {
     genreAddBook.addEventListener('change',()=>{
             if (genreAddBook.value !== ''){
                 document.getElementById('genreError').innerText = null
+                genreAddBook.classList.remove("text-danger");
             }
         })
     priceAddBook.addEventListener('keyup', () => {
@@ -112,6 +122,7 @@ window.addEventListener('load', () => {
             document.getElementById('priceError').innerText = "Campo obligatorio, sólo números"
         } else {
             document.getElementById('priceError').innerText = null
+            priceAddBook.classList.remove("text-danger");
         }
     })
     pagesAddBook.addEventListener('keyup', () => {
@@ -119,6 +130,7 @@ window.addEventListener('load', () => {
             document.getElementById('pagesError').innerText = "Campo obligatorio, sólo números"
         } else {
             document.getElementById('pagesError').innerText = null
+            pagesAddBook.classList.remove("text-danger");
         }
     })
     sloganAddBook.addEventListener('keyup', () => {
@@ -126,6 +138,7 @@ window.addEventListener('load', () => {
             document.getElementById('sloganError').innerText = "Campo obligatorio"
         } else {
             document.getElementById('sloganError').innerText = null
+            sloganAddBook.classList.remove("text-danger");
         }
         if (sloganAddBook.value.trim().length < 5) {
             document.getElementById('sloganError').innerText = "Debes ingresar minimo 5 caracteres"
@@ -161,6 +174,7 @@ synopsisAddBook.addEventListener('keyup', () => {
             document.getElementById('synopsisError').innerText = "Campo obligatorio"
         } else {
             document.getElementById('synopsisError').innerText = null
+           synopsisAddBook.classList.remove("text-danger");
         }
         if (synopsisAddBook.value.trim().length < 20) {
             document.getElementById('synopsisError').innerText = "Debes ingresar minimo 20 caracteres"
@@ -169,5 +183,104 @@ synopsisAddBook.addEventListener('keyup', () => {
         }
     })
 
-        
+    formAddBook.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        var error = false;
+    
+      
+        // input title
+        if (titleAddBook.value.trim() == "") {
+          titleAddBook.classList.add("text-danger");
+          titleError.innerHTML = "El titulo es obligatorio";
+          error = true;
+        }
+         // input isbn
+         if (isbnAddBook.value.trim() == "") {
+            isbnAddBook.classList.add("text-danger");
+            document.getElementById('isbnError').innerHTML = "El titulo es obligatorio";
+            error = true;
+          }
+        // input stock
+        if ( stockAddBook.value.trim() == "") {
+           stockAddBook.classList.add("text-danger");
+           document.getElementById('stockError').innerHTML = "Debes ingresar un stock";
+          error = true;
+        }
+    
+        // input format
+        if (formatAddBook.value.trim() == "") {
+          formatAddBook.classList.add("text-danger");
+          document.getElementById('formatError').innerHTML = "Debes ingresar un formato";
+          error = true;
+        }
+        // input category
+        if (categoryAddBook.value.trim() == "") {
+          categoryAddBook.classList.add("text-danger");
+          document.getElementById('categoryError').innerHTML = "Debes ingresar una categoria";
+    
+          error = true;
+        }
+    
+      // input autor
+      if ( authorAddBook.value.trim() == "") {
+         authorAddBook.classList.add("text-danger");
+        document.getElementById('authorError').innerHTML = "Debes ingresar un autor";
+  
+        error = true;
+      }
+        // input editorial
+        if (editorialAddBook.value.trim() == "") {
+             editorialAddBook.classList.add("text-danger");
+             document.getElementById('editorialError').innerHTML = "Debes ingresar una editorial";
+     
+           error = true;
+         }
+            // input editorial
+        if (starsAddBook.value.trim() == "") {
+            starsAddBook.classList.add("text-danger");
+            document.getElementById('starError').innerHTML = "Debes ingresar las estrellas";
+            error = true;
+        }
+             // input genre
+             if (genreAddBook.value.trim() == "") {
+                genreAddBook.classList.add("text-danger");
+                document.getElementById('genreError').innerHTML = "Debes ingresar un genero";
+                error = true;
+            }
+             // input genre
+             if (priceAddBook.value.trim() == "") {
+                priceAddBook.classList.add("text-danger");
+                document.getElementById('priceError').innerHTML = "Debes ingresar un precio";
+                error = true;
+            }
+             // input genre
+             if (pagesAddBook.value.trim() == "") {
+                pagesAddBook.classList.add("text-danger");
+                document.getElementById('pagesError').innerHTML = "Debes ingresar cantidad de paginas";
+                error = true;
+            }
+             // input slogan
+             if (sloganAddBook.value.trim() == "") {
+                sloganAddBook.classList.add("text-danger");
+                document.getElementById('sloganError').innerHTML = "Debes ingresar un slogan";
+                error = true;
+            }
+             // input cover
+             if (coverAddBook.value.trim() == "") {
+                coverAddBook.classList.add("text-danger");
+                document.getElementById('coverError').innerHTML = "Debes ingresar una portada";
+                error = true;
+            }
+             // input synopsis
+             if (synopsisAddBook.value.trim() == "") {
+                synopsisAddBook.classList.add("text-danger");
+                document.getElementById('synopsisError').innerHTML = "Debes ingresar una sinopsis";
+                error = true;
+            }
+        if (!error) {
+          formAddBook.submit();
+        }
+      });
+    
 })

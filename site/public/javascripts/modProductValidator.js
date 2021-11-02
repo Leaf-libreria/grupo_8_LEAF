@@ -155,7 +155,100 @@ synopsisAddBook.addEventListener('keyup', () => {
     })
    
 
-   
+    formAddBook.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        var error = false;
+    
+      
+        // input title
+        if (titleAddBook.value.trim() == "") {
+          titleAddBook.classList.add("text-danger");
+          titleError.innerHTML = "El titulo es obligatorio";
+          error = true;
+        }
+         // input isbn
+         if (isbnAddBook.value.trim() == "") {
+            isbnAddBook.classList.add("text-danger");
+            document.getElementById('isbnError').innerHTML = "El titulo es obligatorio";
+            error = true;
+          }
+        // input stock
+        if ( stockAddBook.value.trim() == "") {
+           stockAddBook.classList.add("text-danger");
+           document.getElementById('stockError').innerHTML = "Debes ingresar un stock";
+          error = true;
+        }
+    
+        // input format
+        if (formatAddBook.value.trim() == "") {
+          formatAddBook.classList.add("text-danger");
+          document.getElementById('formatError').innerHTML = "Debes ingresar un formato";
+          error = true;
+        }
+        // input category
+        if (categoryAddBook.value.trim() == "") {
+          categoryAddBook.classList.add("text-danger");
+          document.getElementById('categoryError').innerHTML = "Debes ingresar una categoria";
+    
+          error = true;
+        }
+    
+      // input autor
+      if ( authorAddBook.value.trim() == "") {
+         authorAddBook.classList.add("text-danger");
+        document.getElementById('authorError').innerHTML = "Debes ingresar un autor";
+  
+        error = true;
+      }
+        // input editorial
+        if (editorialAddBook.value.trim() == "") {
+             editorialAddBook.classList.add("text-danger");
+             document.getElementById('editorialError').innerHTML = "Debes ingresar una editorial";
+     
+           error = true;
+         }
+            // input editorial
+        if (starsAddBook.value.trim() == "") {
+            starsAddBook.classList.add("text-danger");
+            document.getElementById('starError').innerHTML = "Debes ingresar las estrellas";
+            error = true;
+        }
+             // input genre
+             if (genreAddBook.value.trim() == "") {
+                genreAddBook.classList.add("text-danger");
+                document.getElementById('genreError').innerHTML = "Debes ingresar un genero";
+                error = true;
+            }
+             // input genre
+             if (priceAddBook.value.trim() == "") {
+                priceAddBook.classList.add("text-danger");
+                document.getElementById('priceError').innerHTML = "Debes ingresar un precio";
+                error = true;
+            }
+             // input genre
+             if (pagesAddBook.value.trim() == "") {
+                pagesAddBook.classList.add("text-danger");
+                document.getElementById('pagesError').innerHTML = "Debes ingresar cantidad de paginas";
+                error = true;
+            }
+             // input slogan
+             if (sloganAddBook.value.trim() == "") {
+                sloganAddBook.classList.add("text-danger");
+                document.getElementById('sloganError').innerHTML = "Debes ingresar un slogan";
+                error = true;
+            }
+            
+             // input synopsis
+             if (synopsisAddBook.value.trim() == "") {
+                synopsisAddBook.classList.add("text-danger");
+                document.getElementById('synopsisError').innerHTML = "Debes ingresar una sinopsis";
+                error = true;
+            }
+        if (!error) {
+          formAddBook.submit();
+        }
+      });
 
 
       

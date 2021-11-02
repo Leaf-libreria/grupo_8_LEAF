@@ -49,23 +49,5 @@ window.addEventListener("load", () => {
       pass.classList.remove("text-danger");
     }
   });
-  // form.addEventListener("submit", (e) => {
-    //  e.preventDefault();
-    // let error = false;
-    // let spanError = document.querySelectorAll('span')
-    // spanError.value  ? error = true : error = false;
 
-  //   let elementosForm = document.querySelectorAll('span') ;
-  //   console.log(elementosForm);
-  //   var error = false;
-
-  //   for (let i = 0; i < elementosForm.length; i++) {
-  //     console.log(elementosForm[i].innerText);
-  //     if (elementosForm[i].innerText != '') {
-  //      error = true;
-  //     }
-  //   }
-  //   console.log(error)
-  
-  // });
 });

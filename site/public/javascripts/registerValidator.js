@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
 
   $("email").addEventListener("keyup", async () => {
     if (!regexEmail.test($("email").value)) {
-      $("email").classList.add("is-invalid");
+      $("email").classList.add("text-danger");
       $("error-email").innerHTML = "Debes ingresar un email válido";
     } else {
       let emails = await verificarEmail();
@@ -37,11 +37,11 @@ window.addEventListener("load", function () {
       });
 
       if (results) {
-        $("email").classList.add("is-invalid");
+        $("email").classList.add("text-danger");
         $("error-email").innerHTML = "El email ingresado ya esta registrado";
       } else {
-        $("email").classList.remove("is-invalid");
-        $("email").classList.add("is-valid");
+        $("email").classList.remove("text-danger");
+       
         $("error-email").innerHTML = null;
       }
     }
@@ -50,14 +50,14 @@ window.addEventListener("load", function () {
   //campo nombre
   $("name").addEventListener("keyup", () => {
     if (!$("name").value.trim()) {
-      $("name").classList.add("is-invalid");
+      $("name").classList.add("text-danger");
       $("error-name").innerHTML = "El nombre es obligatorio";
     } else if ($("name").value.trim().length < 2) {
-      $("name").classList.add("is-invalid");
+      $("name").classList.add("text-danger");
       $("error-name").innerHTML = "El nombre debe tener al menos 2 caracteres";
     } else {
-      $("name").classList.remove("is-invalid");
-      $("name").classList.add("is-valid");
+      $("name").classList.remove("text-danger");
+     
       $("error-name").innerHTML = null;
     }
   });
@@ -65,15 +65,15 @@ window.addEventListener("load", function () {
   //campo apellido
   $("lastname").addEventListener("keyup", () => {
     if (!$("lastname").value.trim()) {
-      $("lastname").classList.add("is-invalid");
+      $("lastname").classList.add("text-danger");
       $("error-lastname").innerHTML = "El apellido es obligatorio";
     } else if ($("lastname").value.trim().length < 2) {
-      $("lastname").classList.add("is-invalid");
+      $("lastname").classList.add("text-danger");
       $("error-lastname").innerHTML =
         "El apellido debe tener al menos 2 caracteres";
     } else {
-      $("lastname").classList.remove("is-invalid");
-      $("lastname").classList.add("is-valid");
+      $("lastname").classList.remove("text-danger");
+   
       $("error-lastname").innerHTML = null;
     }
   });
@@ -86,18 +86,18 @@ window.addEventListener("load", function () {
 
     if ($("formFile").value) {
       if (!allowedExtensions.exec(fileRoute)) {
-        $("formFile").classList.add("is-invalid");
+        $("formFile").classList.add("text-danger");
         $("error-image").innerHTML =
           "Las extensiones de archivo permitidas son .jpg/.jpeg/.png/.gif";
         return true;
       }
 
-      $("formFile").classList.remove("is-invalid");
-      $("formFile").classList.add("is-valid");
+      $("formFile").classList.remove("text-danger");
+  
       $("error-image").innerHTML = null;
     }
-    $("formFile").classList.remove("is-invalid");
-    $("formFile").classList.add("is-valid");
+    $("formFile").classList.remove("text-danger");
+
     $("error-image").innerHTML = null;
   });
 
@@ -108,12 +108,12 @@ window.addEventListener("load", function () {
         "La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un carácter especial (#?!@$%^&*-)";
     } else if (!regexPassword.test($("password").value)) {
       $("requisitos-password").innerHTML = null;
-      $("password").classList.add("is-invalid");
+      $("password").classList.add("text-danger");
       $("error-password").innerHTML =
         "La contraseña ingresada no cumple con los requisitos";
     } else {
-      $("password").classList.remove("is-invalid");
-      $("password").classList.add("is-valid");
+      $("password").classList.remove("text-danger");
+   
       $("error-password").innerHTML = null;
     }
   });
@@ -121,20 +121,18 @@ window.addEventListener("load", function () {
   //campo confirmar contraseña
   $("confirmarContrasenia").addEventListener("keyup", () => {
     if ($("password").value.trim() !== $("confirmarContrasenia").value.trim()) {
-      $("confirmarContrasenia").classList.add("is-invalid");
+      $("confirmarContrasenia").classList.add("text-danger");
       $("error-confirmarContrasenia").innerHTML =
         "Las contraseñas no coinciden";
     } else {
-      $("confirmarContrasenia").classList.remove("is-invalid");
-      $("confirmarContrasenia").classList.add("is-valid");
+      $("confirmarContrasenia").classList.remove("text-danger");
       $("error-confirmarContrasenia").innerHTML = null;
     }
   });
 
   //campo de politicas
   $("politicas").addEventListener("click", () => {
-    $("politicas").classList.toggle("is-valid");
-    $("politicas").classList.remove("is-invalid");
+    $("politicas").classList.remove("text-danger");
     $("error-politicas").innerHTML = null;
   });
 
