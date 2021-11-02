@@ -41,7 +41,7 @@
                       class=" btn btn-outline-warning"><i class="fas fa-edit"></i></a></td>
                   <td>
                     <form action="/products/eliminarGenero/<%= genero.id %>?_method=DELETE" method="POST">
-                      <button class="btn btn-outline-danger "><i class="fas fa-trash-alt"></i></button>
+                      <button class="btn btn-outline-danger " onclick="return confirm('¿Estás seguro? Esta acción no se puede deshacer')"><i class="fas fa-trash-alt"></i></button>
 
                     </form>
                   </td>

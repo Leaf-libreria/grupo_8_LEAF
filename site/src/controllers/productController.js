@@ -9,6 +9,7 @@ const path = require("path");
 const fs = require('fs');
 
 module.exports = {
+  // Vista por formato (libro o ebook)
   formatViews: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -39,7 +40,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
-
+//Vista por categorias (Más vendidos, recomendados,novedades)
   verMas: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -68,7 +69,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
-
+//Vista detalle de libro
   detail: (req, res) => {
     let producto = db.Book.findOne({
       where: {
@@ -127,7 +128,8 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
-
+/*Vista panel de administración, Lista todos los productos, lleva a otros listados
+y agregar, editar y eliminar productos*/
   administrador: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -166,6 +168,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
+  //Vista formulario de edicion de producto
   editarProducto: (req, res) => {
     let errors = validationResult(req);
     generos;
@@ -218,7 +221,7 @@ module.exports = {
           formatos,
         ]) => {
           return res.render("./products/editProduct", {
-            title: "Editando " + productEdit.title,
+            title: "Editando",
             autores,
             generos,
             editoriales,
@@ -232,6 +235,7 @@ module.exports = {
       )
       .catch((error) => console.log(error));
   },
+  //Método de edición de producto
   actualizarProducto: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -289,6 +293,7 @@ module.exports = {
         })
         .catch((error) => console.log(error));
     } else {
+      //si hay errores al enviar el formulario de edición de producto
       let productEdit = db.Book.findByPk(req.params.id, {
         include: [
           {
@@ -354,6 +359,7 @@ module.exports = {
         .catch((error) => console.log(error));
     }
   },
+  //Vista formulario agregar producto
   addProducto: (req, res) => {
     let errors = validationResult(req);
     autores;
@@ -387,6 +393,7 @@ module.exports = {
       )
       .catch((error) => console.log(error));
   },
+  //Método agregar producto
   agregarProducto: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -411,6 +418,7 @@ module.exports = {
         })
         .catch((error) => console.log(error));
     } else {
+      //Si hay errores al agregar producto
       req.file
       ? (file) =>
           fs
@@ -468,7 +476,8 @@ module.exports = {
   },
 
   //Agregar autor, editorial,genero, carrusel y publicidad
-  addAuthorGet: (req, res) => {  /* muestra la vista */
+  //Vista agregar autor
+  addAuthorGet: (req, res) => { 
     let errors = validationResult(req);
     autores;
     generos;
@@ -486,6 +495,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
+  //método agregar autor
   addAuthorPost: (req, res) => { 
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -513,6 +523,7 @@ module.exports = {
         .catch((error) => console.log(error));
     }
   },
+  //Listado de autores
 authorList:(req,res)=>{
   generos
   autores;
@@ -528,6 +539,7 @@ authorList:(req,res)=>{
   })
   .catch(error => console.log(error));
 },
+//vista formulario editar autores
 editAuthorGet:(req,res)=>{
   generos;
   autores; //Todos los autores (para el header)
@@ -546,6 +558,7 @@ let autor=db.Author.findByPk(req.params.id) //El autor a editar
   })
   .catch(error => console.log(error));  
 },
+//Método editar autores
 editAuthorPut:(req,res)=>{
     let errors = validationResult(req);
 if(errors.isEmpty()){
@@ -585,7 +598,7 @@ deleteAuthor: (req, res) => {
       .then(() =>{return res.redirect("/products/listadoAutores")})
       .catch((error) => console.log(error));
   },
-
+//listado de géneros
   genreList:(req,res)=>{
     autores;
     editoriales;
@@ -601,6 +614,7 @@ deleteAuthor: (req, res) => {
   })
   .catch(error => console.log(error));
 },
+//Vista formulario agregar género
   addGenreGet: (req, res) => {
     let errors = validationResult(req);
     autores;
@@ -619,6 +633,7 @@ deleteAuthor: (req, res) => {
       })
       .catch((error) => console.log(error));
   },
+  //método agregar género
   addGenrePost: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -646,7 +661,7 @@ deleteAuthor: (req, res) => {
         .catch((error) => console.log(error));
     }
   },
-
+//vista formulario editar genero
 editGenreGet:(req,res)=>{
   autores;
   editoriales;
@@ -665,6 +680,7 @@ let genre=db.Genre.findByPk(req.params.id)//el genero a editar
   })
   .catch(error => console.log(error));  
 },
+//método editar género
 editGenrePut:(req,res)=>{
     let errors = validationResult(req);
 if(errors.isEmpty()){
@@ -708,7 +724,7 @@ deleteGenre: (req, res) => {
       .then(() => {return res.redirect("/products/listadoGeneros")})
       .catch((error) => console.log(error));
   },
-
+//Listado de editoriales
 editorialList:(req,res)=>{
   generos;
   editoriales;
@@ -724,6 +740,7 @@ editorialList:(req,res)=>{
   })
   .catch(error => console.log(error));
 },
+//Vista form. agregar editoriales
   addEditorialGet: (req, res) => {
     let errors = validationResult(req);
     generos;
@@ -742,6 +759,7 @@ editorialList:(req,res)=>{
       })
       .catch((error) => console.log(error));
   },
+  //método agregar editoriales
   addEditorialPost: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -769,6 +787,7 @@ editorialList:(req,res)=>{
         .catch((error) => console.log(error));
     }
   },
+  //Vista formularios editar editoriales
 editEditorialGet:(req,res)=>{
   autores;
   editoriales;//Todas las editoriales para el header
@@ -787,6 +806,7 @@ let editorial=db.Editorial.findByPk(req.params.id) //la editorial a editar
   })
   .catch(error => console.log(error));  
 },
+//método editar editoriales
 editEditorialPut:(req,res)=>{
     let errors = validationResult(req);
 if(errors.isEmpty()){
@@ -1006,7 +1026,7 @@ deleteImageCarousel: (req, res) => {
         }
       )
   },
-
+//método agregar promo
   addPromoPost: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -1049,6 +1069,7 @@ deleteImageCarousel: (req, res) => {
         .catch((error) => console.log(error));
     }
   },
+  //vista formulario edición promo
   editPromoGet:(req,res) =>{
     generos;
     editoriales;
@@ -1066,6 +1087,7 @@ deleteImageCarousel: (req, res) => {
     })
     .catch(error => console.log(error))
   },
+  //método edición promo
   editPromoPut:(req,res) =>{
     let errors = validationResult(req);
 
@@ -1155,6 +1177,7 @@ deleteImageCarousel: (req, res) => {
       });
     });
   },
+  //vista formulario pago de compra
   pago: (req, res) => {
     let productos = db.Book.findOne({
       where: {
@@ -1207,7 +1230,7 @@ deleteImageCarousel: (req, res) => {
     }
   },
 
-  // controlador para vistas de libros por generos
+  // controlador para vistas de libros por generos (sólo precio>0)
   genresViews: (req, res) => {
     let productos = db.Book.findAll({
       include: [
@@ -1220,6 +1243,9 @@ deleteImageCarousel: (req, res) => {
           association: "autor",
         },
       ],
+      where: {
+        price: { [Op.gt]: 0 } //No muestra libros de precio cero
+      }
     });
     generos;
     autores;
@@ -1425,7 +1451,7 @@ deletePayment: (req, res) => {
   }).catch(error => console.log(error));
   },
 
-  //vista para descargar libros
+  //vista para descargar libros (sólo libros precio=0)
   download: (req,res)=>{
     let productos= db.Book.findAll({
       include:[

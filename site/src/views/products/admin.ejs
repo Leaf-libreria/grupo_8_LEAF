@@ -67,11 +67,11 @@
               <!-- Botones para administrador -->
               <div class="container">
                 <div class="container">
-                  <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                  <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST" id="form-eliminar-admin">
                     <div class="d-grid gap-2 col-6 mx-auto">
                       <a href="/products/editar/<%= producto.id %> " type="button"
                         class="admin-btn-editar btn btn-outline-warning">EDITAR</a>
-                      <button class="btn btn-outline-danger admin-btn-eliminar">ELIMINAR</button>
+                      <button class="btn btn-outline-danger admin-btn-eliminar" id="bntEliminarAdmin" type="submit" onclick="return confirm('¿Estás seguro? Esta acción no se puede deshacer')">ELIMINAR</button>
                   </form>
                 
               </div>

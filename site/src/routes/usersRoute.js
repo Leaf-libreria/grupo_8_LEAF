@@ -4,7 +4,8 @@ const multer = require("multer");
 const path = require("path");
 //middleware acceso administrador
 const administradorMw = require("../middlewares/adminUserCheck");
-
+//middleware para que el usuario logueado borre su cuenta
+const estoyLogueado=require("../middlewares/esUsuarioLogueado")
 
 const {
   login,
@@ -19,6 +20,7 @@ const {
   editRolUsuarioPut,
   editRolUsuarioGet,
   deleteCuentaUsuario,
+  eliminarCuenta,
 } = require("../controllers/userController");
 //validaciones
 const loginValidator = require("../validations/loginValidator");
@@ -54,6 +56,9 @@ router.get("/perfil/:id", logueados, perfil);
 router.get("/editarPerfil/:id", logueados, editarPerfil);
 router.put("/editarPerfil/:id",upload.single("image"),changeProfile,cambiarPerfil);
 router.get("/logout", cerrarSesion);
+//Eliminar cuenta
+router.delete("/usuario/eliminarCuenta/:id", eliminarCuenta)
+
 
 //Vista de listado de usuarios para administrador
 router.get("/listadoUsuarios",administradorMw,usuarioList)

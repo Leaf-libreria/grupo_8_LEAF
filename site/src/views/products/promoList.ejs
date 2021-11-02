@@ -58,7 +58,7 @@
                         <div class="d-grid gap-2 col-6 mx-auto">
                           <a href="/products/editarPublicidad/<%= image.id %>" type="button"
                             class="admin-btn-editar btn btn-warning">EDITAR</a>
-                          <button class="btn btn-danger admin-btn-eliminar">ELIMINAR</button>
+                          <button class="btn btn-danger admin-btn-eliminar" onclick="return confirm('¿Estás seguro? Esta acción no se puede deshacer')">ELIMINAR</button>
                     </div>
                   </form>
                       </div>
