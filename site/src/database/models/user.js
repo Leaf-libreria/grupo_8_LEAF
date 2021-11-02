@@ -45,11 +45,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    tableName: 'users'
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'user'
+    deletedAt: false
 }
   return User;
 };

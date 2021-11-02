@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Author',
+    tableName: 'authors'
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'author'
+    deletedAt: false
 }
   return Author;
 };

@@ -26,8 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'provincias'
+    deletedAt: false
 }
   return Provincia;
 };

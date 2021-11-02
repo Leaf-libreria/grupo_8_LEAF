@@ -19,11 +19,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Favourite',
+    tableName: 'favourites'
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'favourite'
+    deletedAt: false
 }
   return Favourite;
 };

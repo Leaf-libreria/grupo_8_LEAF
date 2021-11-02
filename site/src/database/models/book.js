@@ -70,11 +70,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Book',
+    tableName: 'books'
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'book'
+    deletedAt: false
 }
   return Book;
 };

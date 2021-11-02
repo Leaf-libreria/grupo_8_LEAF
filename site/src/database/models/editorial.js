@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Editorial',
+    tableName: 'editorials'
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'category'
+    deletedAt: false
 }
   return Editorial;
 };

@@ -29,12 +29,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Cart',
+    tableName:'carts'
   });
   let config = {
     timestamps: false,
-
-    deletedAt: false,
-    tableName:'carts'
+    deletedAt: false
 }
   return Cart;
 };

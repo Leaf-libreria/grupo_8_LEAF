@@ -28,11 +28,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Address',
+    tableName: 'addresses'
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'address'
+    deletedAt: false
 }
   return Address;
 };

@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'carouselImage',
+    tableName: 'carouselImages'
   });
   let config = {
     timestamps: false,
-    deletedAt: false,
-    tableName: 'carouselImage'
+    deletedAt: false
 }
   return carouselImage;
 };
