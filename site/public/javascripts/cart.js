@@ -48,7 +48,7 @@
             total += item.total 
         })
         cantidadTotalProductos.innerText = cantidad
-        PrecioFinal.innerText = total 
+        PrecioFinal.innerHTML = total 
       
     
         if(cantidad == 0){
