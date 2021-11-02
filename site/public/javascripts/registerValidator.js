@@ -1,5 +1,4 @@
-const $ = id => document.getElementById(id);
-let regexEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
+
 let regexPassword = /^(?=.*\d)(?=.*?[#?!@$%^&*-])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
 
 
@@ -168,24 +167,10 @@ window.addEventListener("load", function () {
             error = true;
         }
         if (!error) {
-            // function ActivarTiempo() {
-                //se activa el método alert luego de 2 segundos
-                // setTimeout(
-                //   function () {
+           
                     formRegister.submit()
                 
-            //       3000,
-            //       Swal.fire({
-            //         icon: "success",
-            //         title: 'Te registraste correctamente.',
-            //         width: 600,
-            //         padding: '3em',
-            //         showConfirmButton: false,
-            //         background: '#ffff url(https://www.animationsoftware7.com/img/agifs/leaf_fall_1.gif)',
-            //       })
-            //     );
-            //   }
-            //   ActivarTiempo();
+      
             }
            
         

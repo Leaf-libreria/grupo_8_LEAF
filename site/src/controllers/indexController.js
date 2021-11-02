@@ -30,14 +30,14 @@ module.exports = {
         },
       ],
     });
-
+//imagenes para carrusel
     let primerImageIndex = db.carouselImage.findOne({ 
       where: {
         id: 1,
       },
     });
     let imagesCarouselIndex = db.carouselImage.findAll();
-
+//imagenes para promocion
 let promo1 = db.Promo.findOne({
   where: {
     id: 1,
@@ -58,6 +58,8 @@ let promo4 = db.Promo.findOne({
     id: 4,
   }
 });
+
+//categorias
     let masVendidos = db.Book.findAll({
       where: {
         categoryId: 1,
@@ -110,6 +112,7 @@ editoriales;
       .catch((error) => console.log(error));
   },
   preguntas: (req, res) => {
+    //variables para el header
     generos;
     autores;
     editoriales;
@@ -124,6 +127,7 @@ editoriales;
     }).catch(error => console.log(error));
   },
   quienesSomos: (req, res) => {
+    //variables para el header
     generos;
     autores;
     editoriales;
@@ -138,6 +142,7 @@ editoriales;
     }).catch(error => console.log(error));
   },
   search: (req, res) => {
+    //condiciona que el search no este vacio
     if (req.query.search.trim() != "") {
       let result = db.Book.findAll({
         include: [
@@ -151,6 +156,7 @@ editoriales;
           price: {[Op.gt]:0} //Buscar precios mayores a cero
         },
       });
+      //variables para el header
       generos;
       autores;
       editoriales;

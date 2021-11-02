@@ -9,10 +9,11 @@ const autores = Author.findAll({ order: [['nameLastname', 'ASC']] });
 const editoriales = Editorial.findAll({ order: [['name', 'ASC']] });
 
 module.exports = {
+  //muestra vista de login
   login: (req, res) => {
     return res.render("./users/login", { title: "LEAF | Login" });
   },
-
+//loguea usuario
   loginUsuario: (req, res) => {
     let errors = validationResult(req);
     const { email, recordar } = req.body;
@@ -31,11 +32,12 @@ module.exports = {
             rol: user.rolId,
             image: user.image,
           }
-         
+         // si el usuario presiona recordar guarda la sesion en la cookie leaf
+         //con un tiempo determinado y se crea la sesion de carrito
           recordar &&
-            res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
+            res.cookie("Leaf", req.session.userLogin, { maxAge: 500000 });
             req.session.cart = []
-
+//busca las ordenes pendientes
             Purchaseorder.findOne({
                     where : {
                         userId : req.session.userLogin.id,
@@ -51,6 +53,9 @@ module.exports = {
                         }
                     ]
                 })
+                //trae los carritos  relacionados a la orden pendiente
+                //de cada carrito toma el producto y guarda sus datos 
+                //en una varible que se sube a la sesion de cart
                 .then(order => {
                     if(order){
                         order.carts.forEach(item => {
@@ -79,14 +84,17 @@ module.exports = {
     }
   },
   cerrarSesion: (req, res) => {
+    //elimina sesion
     req.session.destroy();
+    //limpia cookies
     res.clearCookie("Leaf");
     return res.redirect("/");
   },
-
+//muestra vista de register
   registro: (req, res) => {
     return res.render("./users/register", { title: "LEAF | Registro" });
   },
+//crea registro de usuario
   crearRegistro: (req, res) => {
     let errors = validationResult(req);
 
@@ -115,10 +123,7 @@ module.exports = {
     } else {
       if (req.file) {
         //Para no guardar la imagen si hay errores
-        let deleteImage = path.join(
-          __dirname,
-          "../../public/images/" + req.file.filename
-        );
+        let deleteImage = path.join(__dirname, "../../public/images/" + req.file.filename);
         fs.unlinkSync(deleteImage);
       }
       return res.render("./users/register", {
@@ -153,7 +158,6 @@ module.exports = {
     
       User.update(
         {
-        
           name: req.body.name.trim(),
           lastname: req.body.lastname.trim(),
           nickname: req.body.nickname ? req.body.nickname.trim() : null,
@@ -165,6 +169,7 @@ module.exports = {
           },
         }
       )
+      //se actualizan los datos guardados en la sesion para que los cambios se reflejen inmediatamente
         .then(() => {
           req.session.userLogin = {
             id : req.session.userLogin.id,
@@ -199,6 +204,7 @@ module.exports = {
   },
   //El usuario logueado pueda eliminar su cuenta
   eliminarCuenta:(req, res) => {
+    //elimina la cuenta
     User.destroy({
       where: {
         id: req.params.id,
@@ -206,10 +212,13 @@ module.exports = {
     })
       .then(() => { 
         if (req.cookies.leaf) {
-        res.cookie('Leaf', '', { maxAge: -1 });
-      }      req.session.destroy()
-    res.clearCookie("Leaf");
-return res.redirect("/") })
+           res.cookie('Leaf', '', { maxAge: -1 });
+        }     
+        //elimina la sesion
+         req.session.destroy()
+         //borra las cookies
+         res.clearCookie("Leaf");
+        return res.redirect("/") })
       .catch((error) => console.log(error));
   },
   

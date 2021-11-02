@@ -1,4 +1,5 @@
 
+
     let contenidoArticulos = document.getElementById('contenedorDeProductos');
     let article = document.querySelector('article');
     let imagen = document.querySelector('#img-cart');
@@ -11,9 +12,23 @@
     let PrecioFinal = document.getElementById('precio-total');
     let finalizarCompra = document.getElementById('btn-next-buy');
     let cantidadTotalProductos = document.querySelector('.cantProductCart');
-    let botonAgregar = document.querySelector('.btn-cart');
+    let botonAgregar = document.querySelectorAll('.btn-cart');
+
    
-   
+       
+
+   botonAgregar.forEach(boton => {
+    boton.addEventListener('click', (item)=>{
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Libro agregado al carrito correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          })
+       })
+   });
+ 
     
    
    
@@ -33,7 +48,7 @@
             total += item.total 
         })
         cantidadTotalProductos.innerText = cantidad
-        PrecioFinal.innerText = total 
+        PrecioFinal.innerHTML = total 
       
     
         if(cantidad == 0){
