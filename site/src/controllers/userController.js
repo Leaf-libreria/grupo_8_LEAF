@@ -115,10 +115,7 @@ module.exports = {
     } else {
       if (req.file) {
         //Para no guardar la imagen si hay errores
-        let deleteImage = path.join(
-          __dirname,
-          "../../public/images/" + req.file.filename
-        );
+        let deleteImage = path.join(__dirname, "../../public/images/" + req.file.filename);
         fs.unlinkSync(deleteImage);
       }
       return res.render("./users/register", {

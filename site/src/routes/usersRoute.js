@@ -45,12 +45,7 @@ var upload = multer({ storage: storage });
 router.get("/login", login);
 router.post("/login", loginValidator, loginUsuario);
 router.get("/register", registro);
-router.post(
-  "/register",
-  upload.single("image"),
-  registerValidator,
-  crearRegistro
-);
+router.post("/register",upload.single("image"),registerValidator,crearRegistro);
 router.get("/perfil/:id", logueados, perfil);
 router.get("/editarPerfil/:id", logueados, editarPerfil);
 router.put("/editarPerfil/:id",upload.single("image"),changeProfile,cambiarPerfil);

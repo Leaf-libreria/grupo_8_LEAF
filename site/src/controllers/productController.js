@@ -419,12 +419,10 @@ y agregar, editar y eliminar productos*/
         .catch((error) => console.log(error));
     } else {
       //Si hay errores al agregar producto
-      req.file
-      ? (file) =>
-          fs
-            .unlinkSync(path.join(__dirname, file))
-            .deleteFile(`../public/images/${req.file.filename}`)
-      : null;
+      if (req.file) {
+        let borrarImage = path.join( __dirname, "../../public/images/" + req.file.filename);
+        fs.unlinkSync(borrarImage);
+      }
       autores;
       generos;
       editoriales;
