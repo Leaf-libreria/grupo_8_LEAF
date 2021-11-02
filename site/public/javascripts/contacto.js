@@ -5,17 +5,18 @@ window.addEventListener("DOMContentLoaded", function () {
   var form = document.getElementById("my-form");
   var button = document.getElementById("my-form-button");
   var status = document.getElementById("my-form-status");
-  var modalBody = document.getElementById("modal-body");
+  var modalBody = document.getElementById("modal-body-");
   var tituloForm =  document.getElementById("title-form")
 
 
+ 
   function success() {
-   
-    button.style = "display: none";
-    modalBody.style = "display: none" ;
-    tituloForm.style= "display: none ";
-    status.innerHTML = "Gracias por comunicarte con nosotros!";
     form.reset();
+    button.style = "display: none ";
+    modalBody.style.display ="none" ;
+    tituloForm.style.display ="none" ;
+    status.innerHTML = "Gracias por comunicarte con nosotros!";
+ 
   
   }
 
