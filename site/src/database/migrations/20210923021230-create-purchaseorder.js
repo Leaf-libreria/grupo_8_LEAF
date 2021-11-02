@@ -8,16 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      cartId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references :{
-          model : {
-            tableName : 'cart'
-          },
-          key : 'id'
-        }
-      },
+      
       paymentmethodId: {
         type: Sequelize.INTEGER,
         allowNull: false,

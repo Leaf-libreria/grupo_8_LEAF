@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
-const { User,Genre,Rol, Author, Editorial } = require("../database/models");
+const { User,Genre,Rol, Author, Editorial,Purchaseorder } = require("../database/models");
 //Géneros, autores, editoriales ordenadas alfabéticamente para el header
 const generos = Genre.findAll({ order: [['name', 'ASC']] });
 const autores = Author.findAll({ order: [['nameLastname', 'ASC']] });
@@ -31,12 +31,45 @@ module.exports = {
             rol: user.rolId,
             image: user.image,
           }
-          req.session.cart =[]
+         
           recordar &&
             res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
-          return res.redirect("/");
+            req.session.cart = []
+
+            Purchaseorder.findOne({
+                    where : {
+                        userId : req.session.userLogin.id,
+                        status : 'pending'
+                    },
+                    include : [
+                        {association : 'carts',
+                            include : [
+                                {association : 'libro',
+                              
+                                }
+                            ]
+                        }
+                    ]
+                })
+                .then(order => {
+                    if(order){
+                        order.carts.forEach(item => {
+                            let product = {
+                              id: item.bookId,
+                              nombre: item.libro.title,
+                              imagen: item.libro.cover,
+                              cantidad : item.quantity,
+                              precio : item.libro.price,
+                              total : item.libro.price * item.quantity,
+                            purchaseorderId: order.id
+                            }
+                            req.session.cart.push(product)
+                        });
+                    }
+                    return res.redirect('/')
+                }).catch(error => console.log(error))
+               
         })
-        .catch((error) => console.log(error));
     } else {
       return res.render("./users/login", {
         errores: errors.mapped(),

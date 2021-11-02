@@ -250,9 +250,8 @@ header .buscador .btn{
   }
   header .header2 .carrito i {
     padding: 3px;
-    background-color: var(--color-bordo);
-    color: var(--color-amarillo);
-    font-size: 20px;
+    color: var(--color-bordo);
+    font-size: 30px;
   }
   header .header2 .carrito {
     display: flex;
@@ -269,7 +268,23 @@ header .buscador .btn{
   header .header2 .buscador input,
   header .header2 .carrito p {
     display: initial;
+    color: black;
   }
+  header .header2 .carrito{
+    position: relative;
+  }
+  header .header2 .carrito p {
+    font-size: 15px;
+    font-weight: 600;
+    border: solid 1px var(--color-bordo);
+    border-radius: 50px;
+    position: absolute;
+    right: 2px;
+    background-color: var(--color-amarillo);
+    top: -3;
+    bottom: 2px;
+  }
+
   header .header2 {
     flex-direction: row;
     justify-content: space-between;

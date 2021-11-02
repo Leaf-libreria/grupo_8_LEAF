@@ -1,3 +1,4 @@
+let regexEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
 //   formulario
 window.addEventListener("DOMContentLoaded", function () {
@@ -9,12 +10,12 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
   function success() {
-    form.reset();
+   
     button.style = "display: none";
     modalBody.style = "display: none" ;
     tituloForm.style= "display: none ";
     status.innerHTML = "Gracias por comunicarte con nosotros!";
- 
+    form.reset();
   
   }
 
@@ -55,47 +56,64 @@ function ajax(method, url, data, success, error) {
 
 
 
-
+const $ = id => document.getElementById(id);
 /* validaciones */
 
-$('name').addEventListener('blur', () => {
-  if(!$('name').value.trim()){
-      $('name').classList.add('is-invalid')
+$('nombre').addEventListener('keyup', () => {
+  if(!$('nombre').value.trim()){
+      $('nombre').classList.add('is-invalid')
       $('error-name').innerHTML = "El nombre es obligatorio"
-  }else{
-      $('name').classList.remove('is-invalid')
-      $('name').classList.add('is-valid')
+  }
+  else if ($('nombre').value.trim().length < 2) {
+    $('nombre').classList.add('is-invalid')
+    $('error-name').innerHTML = "El nombre debe tener al menos 2 caracteres"
+}else{
+      $('nombre').classList.remove('is-invalid')
+      $('nombre').classList.add('is-valid')
       $('error-name').innerHTML = null
   }
 })
 
-$('lastname').addEventListener('blur', () => {
-  if(!$('lastname').value.trim()){
-      $('lastname').classList.add('is-invalid')
-      $('error-name').innerHTML = "El apellido es obligatorio"
-  }else{
-      $('lastname').classList.remove('is-invalid')
-      $('lastname').classList.add('is-valid')
+$('apellido').addEventListener('keyup', () => {
+  if(!$('apellido').value.trim()){
+      $('apellido').classList.add('is-invalid')
+      $('error-lastname').innerHTML = "El apellido es obligatorio"
+  }
+  else if ($('apellido').value.trim().length < 2) {
+    $('apellido').classList.add('is-invalid')
+    $('error-lastname').innerHTML = "El apellido debe tener al menos 2 caracteres"
+}else{
+      $('apellido').classList.remove('is-invalid')
+      $('apellido').classList.add('is-valid')
       $('error-lastname').innerHTML = null
   }
 })
 
-$('email').addEventListener('blur', () => {
-  if(!$('email').value.trim()){
+$('email').addEventListener('keyup', () => {
+ 
+    if(!$('email').value.trim()){
       $('email').classList.add('is-invalid')
       $('error-email').innerHTML = "El email es obligatorio"
-  }else{
+  }else if (!regexEmail.test($('email').value)) {
+        $('email').classList.add('is-invalid');
+        $('error-email').innerHTML = "Debes ingresar un email valido";
+    
+}else{
       $('email').classList.remove('is-invalid')
       $('email').classList.add('is-valid')
       $('error-email').innerHTML = null
   }
 })
 
-$('mens').addEventListener('blur', () => {
+$('mens').addEventListener('keyup', () => {
   if(!$('mens').value.trim()){
       $('mens').classList.add('is-invalid')
       $('error-mens').innerHTML = "Debes escribir un mensaje"
-  }else{
+  }
+  else if ($('mens').value.trim().length < 2) {
+    $('mens').classList.add('is-invalid')
+    $('error-mens').innerHTML = "El mensajedebe tener al menos 20 caracteres"
+}else{
       $('mens').classList.remove('is-invalid')
       $('mens').classList.add('is-valid')
       $('error-mens').innerHTML = null
