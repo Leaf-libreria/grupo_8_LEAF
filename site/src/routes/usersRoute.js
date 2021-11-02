@@ -19,6 +19,7 @@ const {
   editRolUsuarioPut,
   editRolUsuarioGet,
   deleteCuentaUsuario,
+  eliminarCuenta,
 } = require("../controllers/userController");
 //validaciones
 const loginValidator = require("../validations/loginValidator");
@@ -54,6 +55,9 @@ router.get("/perfil/:id", logueados, perfil);
 router.get("/editarPerfil/:id", logueados, editarPerfil);
 router.put("/editarPerfil/:id",upload.single("image"),changeProfile,cambiarPerfil);
 router.get("/logout", cerrarSesion);
+//Eliminar cuenta
+router.delete("/usuario/eliminarCuenta/:id", logueados,eliminarCuenta)
+
 
 //Vista de listado de usuarios para administrador
 router.get("/listadoUsuarios",administradorMw,usuarioList)
