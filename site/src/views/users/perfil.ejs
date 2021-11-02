@@ -10,46 +10,33 @@
     <section class="contenido-gral-register">
       <div class="imgcostado-register" style="width: 18rem;">
         <img src="/images/<%=user.image%>" class="card-img-top" alt="imagen de usuario">
-
-
-
         <div class="card-body">
-          <div class="dropdown favoritos-user">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Mis favoritos
-            </a>
 
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-        </div>
-
-
-
+          <p>
+              <%=user.name%>
+          </p>
+      </div>
         <!-- REDES SOCIALES -->
         <ul class="redes-register">
           <li>
             <h5>Seguinos en redes sociales</h5>
           </li>
-          <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
-          <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
-          <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+          <li><a href="https://www.facebook.com/Librer%C3%ADa-LEAF-102157472264108"><i class="fab fa-facebook-square"></i></a></li>
+          <li><a href="https://www.instagram.com/libreria_leaf/"><i class="fab fa-instagram-square"></i></a></li>
+          <li><a href="https://twitter.com/libreria_leaf"><i class="fab fa-twitter-square"></i></a></li>
         </ul>
       </div>
 
       <div class="conclase-register perfil-div">
-        <section class="header-register">
+        <section class="header-register g-col-4">
           <a href="/products/carrito" class="icono-carrito"><i class="fas fa-shopping-cart "></i></a>
           <!-- editar perfil -->
-          <div><a href="/users/editarPerfil/<%=user.id  %> " class="editar-perfil">
-              <p>Editar perfil</p><i class="fas fa-edit"></i>
-            </a></div>
+          <a href="/users/editarPerfil/<%=user.id  %> "   type="button" class="btn btn-outline-warning">
+              Editar perfil<i class="fas fa-edit"></i>
+            </a>
+          
               <form action="/users/usuario/eliminarCuenta/<%= user.id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-outline-danger " onclick="return confirm('¿Estás seguro? Te vamos a extrañar TT__TT')"> Eliminar cuenta<i class="fas fa-trash-alt"></i></button>
+                <button type="submit" class="btn btn-outline-danger btn-eliminar-cuenta" onclick="return confirm('¿Estás seguro? Te vamos a extrañar TT__TT')"> Eliminar cuenta<i class="fas fa-trash-alt"></i></button>
               </form>
         </section>
 

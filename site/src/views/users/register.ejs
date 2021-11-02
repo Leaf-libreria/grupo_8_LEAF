@@ -45,30 +45,33 @@
                                 value=" <%= locals.old && locals.old.email ? old.email : null %> " >
                         </div>
                         <!-- Posible error -->
-                        <span id="error-email" class="text-danger small">
+                        
+                        <span id="error-email" class="text-danger small error">
                             <%= locals.errores && locals.errores.email ? errores.email.msg :null %>
                         </span>
-
+                       
 
                         <div class="nombre"><label for="name">Nombre(s)</label><input type="text" name="name" id="name"
                                 placeholder="Nombre(s)"
                                 value=" <%= locals.old && locals.old.name ? old.name : null %> ">
                         </div>
                         <!-- Posible error -->
-                        <span id="error-name" class="text-danger small">
+                        
+                        <span id="error-name" class="text-danger small error">
                             <%= locals.errores && locals.errores.name ? errores.name.msg :null %>
                         </span>
-
+                       
 
                         <div class="apellido"> <label for="lastname">Apellido(s)</label> <input type="text"
                                 name="lastname" id="lastname" placeholder="Apellido(s)"
                                 value=" <%= locals.old && locals.old.lastname ? old.lastname : null %> ">
                         </div>
                         <!-- Posible error -->
-                        <span id="error-lastname" class="text-danger small">
+                        
+                        <span id="error-lastname" class="text-danger small error">
                             <%= locals.errores && locals.errores.lastname ? errores.lastname.msg :null %>
                         </span>
-
+                       
 
                         <!-- NICK -->
                         <div class="nombre"><label for="nickname">NickName</label><input type="text" name="nickname"
@@ -76,9 +79,11 @@
                                 value=" <%= locals.old && locals.old.nickname ? old.nickname : null %> ">
                         </div>
                         <!-- Posible error -->
-                        <span class="text-danger small">
+                      
+                        <span class="text-danger small ">
                             <%= locals.errores && locals.errores.nickname ? errores.nickname.msg :null %>
                         </span>
+                      
 
                         <div class="mb-3 nombre">
                             <label for="formFile" class="form-label"> Imagen de perfil </label>
@@ -88,36 +93,46 @@
                         <div id="image-render"> <img  id="image"></div>
                        
                           <!-- Posible error -->
+                       
                           <span id="error-image" class="text-danger small">
                             <%= locals.errores && locals.errores.image ? errores.image.msg :null %>
                         </span>
+                       
 
                         <div class="registro-password"> <label for="registro-password">Ingresar contraseña</label>
                             <input type="password" name="password" id="password" placeholder="Contraseña">
                         </div>
                         <p id="requisitos-password"></p>
                         <!-- Posible error -->
-                        <span id="error-password" class="text-danger small">
+                        
+                        <span id="error-password" class="text-danger small error">
                             <%= locals.errores && locals.errores.password ? errores.password.msg :null %>
                         </span>
+                   
 
                         <div class="confirm-password"> <label for="confirm-password">Confirmar contraseña</label> <input
                                 type="password" name="confirmarContrasenia" id="confirmarContrasenia"
                                 placeholder="Confirmar contraseña">
                         </div>
-                        <span  id="error-confirmarContrasenia" class="text-danger small">
+                        
+                        <span  id="error-confirmarContrasenia" class="text-danger small error">
                             <%= locals.errores && locals.errores.confirmarContrasenia ? errores.confirmarContrasenia.msg
                                 :null %>
                         </span>
+                       
+
 
                         <div class="politicas-register"><input type="checkbox" name="politicas" value="politicas"
                                 id="politicas"><label for="politicas">Acepto las políticas de privacidad y manejo de
                                 datos</label>
                         </div>
+                     
                         <span id="error-politicas" class="text-danger small">
                             <%= locals.errores && locals.errores.politicas ? errores.politicas.msg :null %>
                         </span>
+                       
 
+                        <span id="addErrores"></span>
                         <div class="ya-cuenta"><a href="/users/login">¿Ya tienes una cuenta?</a></div> <br>
 
                         <button class="submit-reg">Registrarme</button>

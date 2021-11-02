@@ -11,21 +11,18 @@ border-radius: 5px;
 font-weight: 600;
 }
 
-.perfil .btn-outline-warning,
-.editarPerfil:hover{
-  background-color: var(--color-amarillo);
-  font-size: 18px;
-
-   }
 
 /* contenedor de form */
 .perfil .perfil-div {
-  width: 70%;
+ 
   margin: 0 auto;
 }
 /* enlace para regresar */
-.boton-home {
-  margin-left: 36px;
+.perfil .boton-home{
+font-size: 18px;  
+}
+.perfil .boton-home:hover{
+text-decoration: underline solid var(--color-bordo);
 }
 .perfil h2.bienvenido-perfil {
   margin-top: 20px;
@@ -54,21 +51,14 @@ font-weight: 600;
 .perfil .registro-password,
 .perfil .confirm-password {
   border: none;
-  width: 60%;
+  width: 80%;
   margin: 40px auto;
   border: 1px solid rgba(128, 128, 128, 0.5);
 }
 
-/* boton de editar perfil */
 
-.perfil .editar-perfil {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-}
 .perfil .editar-perfil p {
   margin-top: 15%;
-  margin-right: 15px;
   color: var(--color-bordo);
   color: black;
 }
@@ -83,7 +73,10 @@ font-weight: 600;
 .perfil .imgcostado-register img {
   margin-bottom: 0%;
 }
-
+/* btn eliminar cuenta */
+.btn-eliminar-cuenta{
+  padding: 5px;
+}
 /* carrito */
 .perfil a i {
   font-size: 20px;
@@ -91,8 +84,8 @@ font-weight: 600;
 }
 
 .icono-carrito {
-  margin-left: 30px;
-  padding: 2px 5px;
+  margin-left: 15px;
+  padding: 4px;
   border: 1px solid var(--color-bordo);
   border-radius: 10%;
 }
@@ -121,7 +114,7 @@ font-weight: 600;
 font-size: 16px;
 text-align: center;
 border: 2px solid var(--color-amarillo);
-width: 20%;
+width: 40%;
 margin: 0 auto;
 color: var(--color-bordo);
 padding: 6px;
@@ -131,7 +124,7 @@ font-weight: 600;
 
 .perfil-main .nav-item a:hover{
    background-color: var(--color-amarillo);
-   width: 22%;
+   width: 42%;
    font-size: 18px;
 
     }
