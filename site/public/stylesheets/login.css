@@ -15,7 +15,11 @@
 .body-login .redes-login li{
     display: none;
 }
-
+.body-login #mostrar {
+    position: absolute;
+    left: 250px;
+    top: 334px;
+}
 /* SECCION DERECHA */
 .body-login .contenido-gral .header-login{
     display: flex;
@@ -136,7 +140,11 @@
         margin-left: 24%;
         margin-bottom: 10%;
     }
-
+ .body-login #mostrar {
+    position: absolute;
+    left: 642px;
+    top: 454px;
+}
     .body-login .imgcostado h4{
         font-weight: bold;
         text-transform: uppercase;
@@ -226,5 +234,10 @@
       
         margin-left: 40%;
     }
-    /* REDES */
+    /* mostrar contraseña */
+    .body-login #mostrar {
+        position: absolute;
+        left: 1042px;
+        top: 430px;
+    }
 }

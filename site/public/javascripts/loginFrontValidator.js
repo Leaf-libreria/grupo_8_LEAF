@@ -1,6 +1,17 @@
 let regExEmail =
   /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
+  let mostrar = document.getElementById('mostrar')
+  let contraseñai = document.getElementById('password')
+  mostrar.addEventListener('click', (e)=>{
+      e.preventDefault
+      if(contraseñai.type == "password"){
+          contraseñai.type = "text";
+      }else{
+          contraseñai.type = "password";
+      }
+  })
+
 window.addEventListener("load", () => {
   const emailVerify = async () => {
     try {
