@@ -35,8 +35,8 @@
               <div class="isbn">
                 <label for="isbn">ISBN:</label>
                 <div class="isbn-btn">
-                  <input type="number" min="0" name="isbn" id="isbn" class="grid" placeholder="13 Dígitos"
-                    value="<%= locals.old && locals.old.isbn ? old.isbn: null%>">
+                  <input type="number" min="0" name="isbn" id="isbn" class="grid" placeholder="Ej: 978XXXXXXXXXX"
+                    value="<%= locals.old && locals.old.isbn ? old.isbn: null%>" data-bs-toggle="tooltip" data-bs-placement="top" title="Debe contener 13 dígitos, comenzar con 978 y ser un isbn válido.">
                 </div>
                
                   <!-- Posibles errores -->

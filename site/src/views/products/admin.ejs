@@ -5,12 +5,12 @@
 <%-include('../partials/head') %>
   <!-- ----head---- -->
 
-  <body class="novedades admin">
+  <body>
     <!-- encabezado -->
     <!-- ----header ----->
     <%-include('../partials/header') %>
       <!-- ----header---- -->
-      <main>
+      <main class="novedades admin">
         <div class="d-flex justify-content-center mx-3">
           <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
             <a href="/products/agregar" id="arriba" class="btn btn-outline-success admin-btn-agregar btn-group-admin" type="button">AGREGAR
@@ -39,8 +39,7 @@
 
           <!-- buscador -->
           <form id="buscador" class="d-flex">
-            <input id="input-buscador-admin" class="form-control my-2 mx-5 border-dark" type="search" placeholder="Buscar en el listado..." aria-label="Search"  onkeyup="buscarLibro()">
-            <!-- <button  class="btn btn-outline-success">Search</button> -->
+            <input id="input-buscador-admin" class="form-control my-2 mx-5 border-dark" type="search" placeholder="Comience a escribir para buscar en el listado..." aria-label="Search"  onkeyup="buscarLibro()">
           </form>
 
         
