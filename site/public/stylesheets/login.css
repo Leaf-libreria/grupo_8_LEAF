@@ -2,6 +2,9 @@
 .body-login {
     width: 100%;
 }
+.body-login .password-mostrar{
+    display: flex;
+}
 .body-login .contenido-gral .header-login{
     display: flex;
     justify-content: space-between;
@@ -15,11 +18,14 @@
 .body-login .redes-login li{
     display: none;
 }
-.body-login #mostrar {
+.body-login .password {
+    position: relative;
+}
+/* .body-login #mostrar {
     position: absolute;
     left: 250px;
-    top: 334px;
-}
+    top: 26px;
+} */
 /* SECCION DERECHA */
 .body-login .contenido-gral .header-login{
     display: flex;
@@ -65,7 +71,7 @@
 /* INPUT */
 .body-login .main-login input.datos{
     border: none;
-    width: 100%;
+    width: 90%;
 }
 .body-login .main-login input:focus{
     box-shadow: 0px 0px 10px rgb(37, 37, 37);
@@ -140,11 +146,11 @@
         margin-left: 24%;
         margin-bottom: 10%;
     }
- .body-login #mostrar {
+ /* .body-login #mostrar {
     position: absolute;
     left: 642px;
     top: 454px;
-}
+} */
     .body-login .imgcostado h4{
         font-weight: bold;
         text-transform: uppercase;
@@ -218,7 +224,7 @@
 }
 
 /* VERSIÓN DESKTOP */
-@media (min-width: 761px){
+@media (min-width: 769px){
     .body-login .contenido-gral{
         width: 100%;
     }
@@ -235,9 +241,9 @@
         margin-left: 40%;
     }
     /* mostrar contraseña */
-    .body-login #mostrar {
+    /* .body-login #mostrar {
         position: absolute;
         left: 1042px;
         top: 430px;
-    }
+    } */
 }
