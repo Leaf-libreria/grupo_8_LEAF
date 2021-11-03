@@ -263,7 +263,7 @@ synopsisAddBook.addEventListener('keyup', () => {
              // input slogan
              if (sloganAddBook.value.trim() == "") {
                 sloganAddBook.classList.add("text-danger");
-                document.getElementById('sloganError').innerHTML = "Debes ingresar un slogan";
+                document.getElementById('sloganError').innerHTML = "Debes ingresar una critica";
                 error = true;
             }
              // input cover

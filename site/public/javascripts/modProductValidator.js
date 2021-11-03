@@ -170,7 +170,7 @@ synopsisAddBook.addEventListener('keyup', () => {
          // input isbn
          if (isbnAddBook.value.trim() == "") {
             isbnAddBook.classList.add("text-danger");
-            document.getElementById('isbnError').innerHTML = "El titulo es obligatorio";
+            document.getElementById('isbnError').innerHTML = "El ISBN es obligatorio";
             error = true;
           }
         // input stock
@@ -235,7 +235,7 @@ synopsisAddBook.addEventListener('keyup', () => {
              // input slogan
              if (sloganAddBook.value.trim() == "") {
                 sloganAddBook.classList.add("text-danger");
-                document.getElementById('sloganError').innerHTML = "Debes ingresar un slogan";
+                document.getElementById('sloganError').innerHTML = "Debes ingresar un critica";
                 error = true;
             }
             
