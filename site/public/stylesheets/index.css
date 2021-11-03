@@ -2,6 +2,10 @@
   width: 100%;
   text-transform: capitalize;
 }
+/* carrusel */
+.index .carousel img {
+  height: 300px;
+}
 /*Sección más vendidos*/
 .index .mainIndex .cabecera {
   display: flex;

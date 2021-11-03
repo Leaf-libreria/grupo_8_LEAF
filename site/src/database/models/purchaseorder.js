@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       })
       Purchaseorder.belongsTo(models.User,{
         as:'usuario',
-        foreignKey:'userId'
+        foreignKey:'userId',
+        onDelete : 'cascade'
       })
     }
   };

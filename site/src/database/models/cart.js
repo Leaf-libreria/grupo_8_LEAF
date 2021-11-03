@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const {Model} = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
@@ -14,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       Cart.belongsTo(models.Purchaseorder,{
         as:'ordenDePago',
         foreignKey:'purchaseorderId',
+        onDelete : 'cascade'
       })
       Cart.belongsTo(models.Book,{
         as: 'libro',

@@ -116,7 +116,7 @@ module.exports = {
             image: user.image,
           };
           res.cookie("Leaf", req.session.userLogin, { maxAge: 120000 });
-
+          req.session.cart = []
           return res.redirect("/");
         })
         .catch((error) => console.log(error));

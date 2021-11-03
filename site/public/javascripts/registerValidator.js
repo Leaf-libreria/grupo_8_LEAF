@@ -1,5 +1,4 @@
-let regexPassword =
-  /^(?=.*\d)(?=.*?[#?!@ $%^&*-])(?=.*[A-Z])(?=.*[a-z])\S{8,16} $/;
+let regexPassword =/^(?=.*\d)(?=.*?[#?!@ $%^&*-])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
 
 window.addEventListener("load", function () {
   //capturo el formulario
@@ -103,7 +102,7 @@ window.addEventListener("load", function () {
 
   //campo contraseña
    document.getElementById("password").addEventListener("keyup", () => {
-    if (! document.getElementById("password").value) {
+    if (!document.getElementById("password").value) {
        document.getElementById("requisitos-password").innerHTML =
         "La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un carácter especial (#?!@$%^&*-)";
     } else if (!regexPassword.test( document.getElementById("password").value)) {
