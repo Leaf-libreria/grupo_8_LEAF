@@ -278,8 +278,6 @@ y agregar, editar y eliminar productos*/
           editorialId: req.body.editorialId,
           starId: req.body.starId,
           cover: req.file ? req.file.filename : productEdit.cover,
-          pdf: req.file ? req.file.filename : productEdit.pdf,
-          qrCode: req.file ? req.file.filename : productEdit.qrCode,
         },
         {
           where: {

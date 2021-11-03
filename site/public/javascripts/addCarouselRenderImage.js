@@ -1,7 +1,10 @@
  //renderiza la imagen
  window.addEventListener("load", function () {
+  //  formulario
     let form = document.getElementById("add-carousel-image");
+    // contenedor donde queremos mostrar la imagen
     const $image = document.getElementById("image");
+    // input/archivo
     const $file = document.getElementById("carouselImage");
    let image
     function renderImage(formData) {
