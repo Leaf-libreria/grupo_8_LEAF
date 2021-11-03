@@ -33,16 +33,17 @@
         </div>
 
         <h2>LISTADO DE PRODUCTOS</h2>
-           <!-- buscador -->
-           <form id="buscador" class="d-flex">
-            <input id="input-buscador-admin" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  onkeyup="buscarLibro()">
-            <button  class="btn btn-outline-success">Search</button>
-          </form>
-
-        
         <div class="admin-dcha">
           <a href="#abajo" class="admin-btn-flotante admin-btn-agregar"><i class="fas fa-chevron-down"></i> </a>
         </div>
+
+          <!-- buscador -->
+          <form id="buscador" class="d-flex">
+            <input id="input-buscador-admin" class="form-control my-2 mx-5 border-dark" type="search" placeholder="Buscar en el listado..." aria-label="Search"  onkeyup="buscarLibro()">
+            <!-- <button  class="btn btn-outline-success">Search</button> -->
+          </form>
+
+        
         <div class='contenedorNovedades'>
           <% productos.forEach(producto=>{ %>
             <article class="libro libros-<%=producto.genero.name%> admin-card" >
