@@ -51,7 +51,7 @@ CREATE TABLE `authors` (
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,8 +71,8 @@ CREATE TABLE `books` (
   `pages` int NOT NULL,
   `synopsis` text NOT NULL,
   `cover` varchar(500) NOT NULL DEFAULT 'default-image-book.png',
-  `pdf` varchar(500) DEFAULT NULL,
-  `qrCode` varchar(500) DEFAULT NULL,
+  `pdf` varchar(255) DEFAULT NULL,
+  `qrCode` varchar(255) DEFAULT NULL,
   `authorId` int NOT NULL,
   `genreId` int NOT NULL,
   `formatId` int NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `books` (
   CONSTRAINT `books_ibfk_4` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`),
   CONSTRAINT `books_ibfk_5` FOREIGN KEY (`editorialId`) REFERENCES `editorials` (`id`),
   CONSTRAINT `books_ibfk_6` FOREIGN KEY (`starId`) REFERENCES `stars` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,28 +111,31 @@ CREATE TABLE `carouselimages` (
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `cart`
+-- Table structure for table `carts`
 --
 
-DROP TABLE IF EXISTS `cart`;
+DROP TABLE IF EXISTS `carts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cart` (
+CREATE TABLE `carts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `bookId` int NOT NULL,
   `userId` int NOT NULL,
   `quantity` int NOT NULL,
+  `purchaseorderId` int NOT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `bookId` (`bookId`),
   KEY `userId` (`userId`),
-  CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `books` (`id`),
-  CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+  KEY `purchaseorderId` (`purchaseorderId`),
+  CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `books` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `carts_ibfk_3` FOREIGN KEY (`purchaseorderId`) REFERENCES `purchaseorders` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -149,7 +152,7 @@ CREATE TABLE `categories` (
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +168,7 @@ CREATE TABLE `editorials` (
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +237,7 @@ CREATE TABLE `paymentmethods` (
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +253,7 @@ CREATE TABLE `promos` (
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -279,16 +282,17 @@ DROP TABLE IF EXISTS `purchaseorders`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `purchaseorders` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `cartId` int NOT NULL,
   `paymentmethodId` int NOT NULL,
+  `userId` int NOT NULL,
+  `status` varchar(255) NOT NULL,
   `finalprice` decimal(10,0) NOT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `cartId` (`cartId`),
   KEY `paymentmethodId` (`paymentmethodId`),
-  CONSTRAINT `purchaseorders_ibfk_1` FOREIGN KEY (`cartId`) REFERENCES `cart` (`id`),
-  CONSTRAINT `purchaseorders_ibfk_2` FOREIGN KEY (`paymentmethodId`) REFERENCES `paymentmethods` (`id`)
+  KEY `userId` (`userId`),
+  CONSTRAINT `purchaseorders_ibfk_1` FOREIGN KEY (`paymentmethodId`) REFERENCES `paymentmethods` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `purchaseorders_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -362,8 +366,8 @@ CREATE TABLE `users` (
   KEY `rolId` (`rolId`),
   KEY `addressId` (`addressId`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`rolId`) REFERENCES `rols` (`id`),
-  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`addressId`) REFERENCES `addresses` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`addressId`) REFERENCES `addresses` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -375,4 +379,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-15 18:27:29
+-- Dump completed on 2021-11-03 15:07:47

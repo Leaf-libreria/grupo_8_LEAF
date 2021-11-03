@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
         as:'libros',
         through:'carts',
         foreignKey:'userId',
-        otherKey:'bookId'
+        otherKey:'bookId',
+        onDelete:'cascade',
       })
     }
   };

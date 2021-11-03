@@ -100,7 +100,6 @@
         try {
             let response = await fetch(urlBase + '/api/carts/show')
             let result = await response.json();
-           
             mostrarCantidad(result.data);
             mostrarProductos(result.data);
         } catch (error) {

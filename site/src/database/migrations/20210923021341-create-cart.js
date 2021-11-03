@@ -16,7 +16,8 @@ module.exports = {
             tableName : 'books'
           },
           key : 'id'
-        }
+        },
+        onDelete : 'cascade'
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -26,7 +27,8 @@ module.exports = {
             tableName : 'users'
           },
           key : 'id'
-        }
+        },
+        onDelete : 'cascade'
       },
       quantity: {
         type: Sequelize.INTEGER,

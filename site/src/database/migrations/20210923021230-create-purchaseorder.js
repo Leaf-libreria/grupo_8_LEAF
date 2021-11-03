@@ -17,7 +17,8 @@ module.exports = {
             tableName : 'paymentmethods'
           },
           key : 'id'
-        }
+        },
+        onDelete : 'cascade'
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -27,7 +28,8 @@ module.exports = {
             tableName : 'users'
           },
           key : 'id'
-        }
+        },
+        onDelete : 'cascade'
       },
       status: {
         type: Sequelize.STRING,
