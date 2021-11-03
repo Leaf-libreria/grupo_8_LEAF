@@ -1,9 +1,9 @@
 let regexPassword =
-  /^(?=.*\d)(?=.*?[#?!@$%^&*-])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
+  /^(?=.*\d)(?=.*?[#?!@ $%^&*-])(?=.*[A-Z])(?=.*[a-z])\S{8,16} $/;
 
 window.addEventListener("load", function () {
   //capturo el formulario
-  const formRegister = $("register-form");
+  const formRegister = document.getElementById("register-form");
 
   //chequea si el email ya existe
   const verificarEmail = async () => {
@@ -20,16 +20,16 @@ window.addEventListener("load", function () {
 
   //campo email
 
-  $("email").addEventListener("keyup", async () => {
-    if (!regexEmail.test($("email").value)) {
-      $("email").classList.add("text-danger");
-      $("error-email").innerHTML = "Debes ingresar un email válido";
+   document.getElementById("email").addEventListener("keyup", async () => {
+    if (!regexEmail.test( document.getElementById("email").value)) {
+       document.getElementById("email").classList.add("text-danger");
+       document.getElementById("error-email").innerHTML = "Debes ingresar un email válido";
     } else {
       let emails = await verificarEmail();
       let results;
 
       emails.forEach((email) => {
-        if ($("email").value === email) {
+        if ( document.getElementById("email").value === email) {
           results = true;
         } else {
           results = false;
@@ -37,103 +37,103 @@ window.addEventListener("load", function () {
       });
 
       if (results) {
-        $("email").classList.add("text-danger");
-        $("error-email").innerHTML = "El email ingresado ya esta registrado";
+         document.getElementById("email").classList.add("text-danger");
+         document.getElementById("error-email").innerHTML = "El email ingresado ya esta registrado";
       } else {
-        $("email").classList.remove("text-danger");
+         document.getElementById("email").classList.remove("text-danger");
        
-        $("error-email").innerHTML = null;
+         document.getElementById("error-email").innerHTML = null;
       }
     }
   });
 
   //campo nombre
-  $("name").addEventListener("keyup", () => {
-    if (!$("name").value.trim()) {
-      $("name").classList.add("text-danger");
-      $("error-name").innerHTML = "El nombre es obligatorio";
-    } else if ($("name").value.trim().length < 2) {
-      $("name").classList.add("text-danger");
-      $("error-name").innerHTML = "El nombre debe tener al menos 2 caracteres";
+   document.getElementById("name").addEventListener("keyup", () => {
+    if (! document.getElementById("name").value.trim()) {
+       document.getElementById("name").classList.add("text-danger");
+       document.getElementById("error-name").innerHTML = "El nombre es obligatorio";
+    } else if ( document.getElementById("name").value.trim().length < 2) {
+       document.getElementById("name").classList.add("text-danger");
+       document.getElementById("error-name").innerHTML = "El nombre debe tener al menos 2 caracteres";
     } else {
-      $("name").classList.remove("text-danger");
+       document.getElementById("name").classList.remove("text-danger");
      
-      $("error-name").innerHTML = null;
+       document.getElementById("error-name").innerHTML = null;
     }
   });
 
   //campo apellido
-  $("lastname").addEventListener("keyup", () => {
-    if (!$("lastname").value.trim()) {
-      $("lastname").classList.add("text-danger");
-      $("error-lastname").innerHTML = "El apellido es obligatorio";
-    } else if ($("lastname").value.trim().length < 2) {
-      $("lastname").classList.add("text-danger");
-      $("error-lastname").innerHTML =
+   document.getElementById("lastname").addEventListener("keyup", () => {
+    if (! document.getElementById("lastname").value.trim()) {
+       document.getElementById("lastname").classList.add("text-danger");
+       document.getElementById("error-lastname").innerHTML = "El apellido es obligatorio";
+    } else if ( document.getElementById("lastname").value.trim().length < 2) {
+       document.getElementById("lastname").classList.add("text-danger");
+       document.getElementById("error-lastname").innerHTML =
         "El apellido debe tener al menos 2 caracteres";
     } else {
-      $("lastname").classList.remove("text-danger");
+       document.getElementById("lastname").classList.remove("text-danger");
    
-      $("error-lastname").innerHTML = null;
+       document.getElementById("error-lastname").innerHTML = null;
     }
   });
 
   //campo de imagen
-  $("formFile").addEventListener("change", () => {
-    let fileRoute = $("formFile").value;
+   document.getElementById("formFile").addEventListener("change", () => {
+    let fileRoute =  document.getElementById("formFile").value;
 
     var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
-    if ($("formFile").value) {
+    if ( document.getElementById("formFile").value) {
       if (!allowedExtensions.exec(fileRoute)) {
-        $("formFile").classList.add("text-danger");
-        $("error-image").innerHTML =
+         document.getElementById("formFile").classList.add("text-danger");
+         document.getElementById("error-image").innerHTML =
           "Las extensiones de archivo permitidas son .jpg/.jpeg/.png/.gif";
         return true;
       }
 
-      $("formFile").classList.remove("text-danger");
+       document.getElementById("formFile").classList.remove("text-danger");
   
-      $("error-image").innerHTML = null;
+       document.getElementById("error-image").innerHTML = null;
     }
-    $("formFile").classList.remove("text-danger");
+     document.getElementById("formFile").classList.remove("text-danger");
 
-    $("error-image").innerHTML = null;
+     document.getElementById("error-image").innerHTML = null;
   });
 
   //campo contraseña
-  $("password").addEventListener("keyup", () => {
-    if (!$("password").value) {
-      $("requisitos-password").innerHTML =
+   document.getElementById("password").addEventListener("keyup", () => {
+    if (! document.getElementById("password").value) {
+       document.getElementById("requisitos-password").innerHTML =
         "La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un carácter especial (#?!@$%^&*-)";
-    } else if (!regexPassword.test($("password").value)) {
-      $("requisitos-password").innerHTML = null;
-      $("password").classList.add("text-danger");
-      $("error-password").innerHTML =
+    } else if (!regexPassword.test( document.getElementById("password").value)) {
+       document.getElementById("requisitos-password").innerHTML = null;
+       document.getElementById("password").classList.add("text-danger");
+       document.getElementById("error-password").innerHTML =
         "La contraseña ingresada no cumple con los requisitos";
     } else {
-      $("password").classList.remove("text-danger");
+       document.getElementById("password").classList.remove("text-danger");
    
-      $("error-password").innerHTML = null;
+       document.getElementById("error-password").innerHTML = null;
     }
   });
 
   //campo confirmar contraseña
-  $("confirmarContrasenia").addEventListener("keyup", () => {
-    if ($("password").value.trim() !== $("confirmarContrasenia").value.trim()) {
-      $("confirmarContrasenia").classList.add("text-danger");
-      $("error-confirmarContrasenia").innerHTML =
+   document.getElementById("confirmarContrasenia").addEventListener("keyup", () => {
+    if ( document.getElementById("password").value.trim() !==  document.getElementById("confirmarContrasenia").value.trim()) {
+       document.getElementById("confirmarContrasenia").classList.add("text-danger");
+       document.getElementById("error-confirmarContrasenia").innerHTML =
         "Las contraseñas no coinciden";
     } else {
-      $("confirmarContrasenia").classList.remove("text-danger");
-      $("error-confirmarContrasenia").innerHTML = null;
+       document.getElementById("confirmarContrasenia").classList.remove("text-danger");
+       document.getElementById("error-confirmarContrasenia").innerHTML = null;
     }
   });
 
   //campo de politicas
-  $("politicas").addEventListener("click", () => {
-    $("politicas").classList.remove("text-danger");
-    $("error-politicas").innerHTML = null;
+   document.getElementById("politicas").addEventListener("click", () => {
+     document.getElementById("politicas").classList.remove("text-danger");
+     document.getElementById("error-politicas").innerHTML = null;
   });
 
   formRegister.addEventListener("submit", (e) => {
@@ -141,43 +141,43 @@ window.addEventListener("load", function () {
     var error = false;
 
     //campo de politicas
-    if (!$("politicas").checked) {
-      $("politicas").classList.add("text-danger");
-      $("error-politicas").innerHTML =
+    if (! document.getElementById("politicas").checked) {
+       document.getElementById("politicas").classList.add("text-danger");
+       document.getElementById("error-politicas").innerHTML =
         "Debes aceptar las politicas de privacidad";
       error = true;
     }
     // input name
-    if ($("name").value.trim() == "") {
-      $("name").classList.add("text-danger");
-      $("error-name").innerHTML = "El nombre es obligatorio";
+    if ( document.getElementById("name").value.trim() == "") {
+       document.getElementById("name").classList.add("text-danger");
+       document.getElementById("error-name").innerHTML = "El nombre es obligatorio";
       error = true;
     }
     // input lastname
-    if ($("lastname").value.trim() == "") {
-      $("lastname").classList.add("text-danger");
-      $("error-lastname").innerHTML = "Debes ingresar un apellido";
+    if ( document.getElementById("lastname").value.trim() == "") {
+       document.getElementById("lastname").classList.add("text-danger");
+       document.getElementById("error-lastname").innerHTML = "Debes ingresar un apellido";
       error = true;
     }
 
     // input email
-    if ($("email").value.trim() == "") {
-      $("email").classList.add("text-danger");
-      $("error-email").innerHTML = "Debes ingresar un email";
+    if ( document.getElementById("email").value.trim() == "") {
+       document.getElementById("email").classList.add("text-danger");
+       document.getElementById("error-email").innerHTML = "Debes ingresar un email";
       error = true;
     }
     // input password
-    if ($("password").value.trim() == "") {
-      $("password").classList.add("text-danger");
-      $("error-password").innerHTML = "Debes ingresar una contraseña";
+    if ( document.getElementById("password").value.trim() == "") {
+       document.getElementById("password").classList.add("text-danger");
+       document.getElementById("error-password").innerHTML = "Debes ingresar una contraseña";
 
       error = true;
     }
 
     // input confirm password
-    if (!$("confirmarContrasenia").value) {
-      $("confirmarContrasenia").classList.add("text-danger");
-      $("error-confirmarContrasenia").innerHTML =
+    if (! document.getElementById("confirmarContrasenia").value) {
+       document.getElementById("confirmarContrasenia").classList.add("text-danger");
+       document.getElementById("error-confirmarContrasenia").innerHTML =
         "Debes ingresar una contraseña";
 
       error = true;
