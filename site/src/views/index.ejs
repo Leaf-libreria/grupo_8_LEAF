@@ -73,12 +73,10 @@
                   <p>$<%=producto.price%>
                   </p>
                   <% if (locals.userLogin) { %>
-                    <% if (locals.userLogin.rol === 1 ) { %>
+                  
               <div class="cont-btn"> <button type="button" class="btn-cart btn-cart-none"  class="btn "onclick="agregarItem(event,'<%=producto.id%>')" ><i class="fas fa-shopping-cart"></i></button></div>   
                 </div>
-                <% } else { %>
-                  <div></div>
-                  <%}%>
+             
                   <% } else { %>
                     <div></div>
                     <%}%>
@@ -102,12 +100,7 @@
 
                 <!-- Muestro el boton de carrito solo si esta logueado -->
                 <% if (locals.userLogin) { %>
-                  <% if (locals.userLogin.rol === 1 ) { %>
                     <div class="cont-btn-novedades"> <button type="button" class="btn-cart btn-cart-none"  class="btn "onclick="agregarItem(event,'<%=producto.id%>')"><i class="fas fa-shopping-cart"></i></button></div>   
-                 
-              <% } else { %>
-                <div></div>
-                <%}%>
                 <% } else { %>
                   <div></div>
                   <%}%>
