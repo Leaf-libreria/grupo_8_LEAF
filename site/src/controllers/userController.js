@@ -174,6 +174,7 @@ module.exports = {
           req.session.userLogin = {
             id : req.session.userLogin.id,
             name : req.body.name,
+            nickname: req.body.nickname,
             image: req.file ? req.file.filename : req.session.userLogin.image,
             rol:req.session.userLogin.rol,
             email:req.session.userLogin.email,
