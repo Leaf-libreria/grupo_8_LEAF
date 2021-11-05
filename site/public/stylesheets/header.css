@@ -261,7 +261,7 @@ header .buscador .btn{
  
     color: var(--color-amarillo);
     font-size: 17.9px;
-    margin-top: 15.5px;
+    /* margin-top: 15.5px; */
     padding: 0 4px;
   }
   header .header2 .buscador select,

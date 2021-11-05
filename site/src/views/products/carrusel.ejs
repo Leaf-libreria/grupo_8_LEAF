@@ -43,7 +43,7 @@
            
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="/images/<%= primerImage.name %>" class="d-block w-100 " alt="..." />
+                  <img src="/images/<%= primerImage.name %>" class="d-block w-100 image" alt="..." />
                   <form action="/products/carruselBorrar/<%= primerImage.id %>?_method=DELETE" method="POST">
                   <div class="d-grid gap-2 col-6 mx-auto">
                     <a href=" /products/carruselEditar/<%= primerImage.id %> " type="button"
@@ -56,7 +56,7 @@
                 <% imagesCarousel.forEach(image=> { %>
                   <% if (image.id != 1) { %>
                     <div class="carousel-item">
-                      <img src="/images/<%= image.name %>" class="d-block w-100 " alt="..." />
+                      <img src="/images/<%= image.name %>" class="d-block w-100 image" alt="..." />
                       <form action="/products/carruselBorrar/<%= image.id %>?_method=DELETE" method="POST">
 
                       <div class="d-grid gap-2 col-6 mx-auto">

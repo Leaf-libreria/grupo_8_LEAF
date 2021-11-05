@@ -4,7 +4,7 @@
 
 }
 .carruselEjs h2{
-    color: black;
+  
     text-align: left;
     margin-top: 40px;
 }
@@ -13,8 +13,8 @@
     margin-left: 20px;
 }
 
-.carruselEjs img#image{
-    height: auto;
+.carruselEjs .image{
+    height: 400px;
 }
 .carruselEjs .imageEditarCarrusel{
 

@@ -43,12 +43,13 @@
         var precio = 0;
         var total = 0;
         carrito.forEach(item => {
-            cantidad += item.cantidad
-            precio+=item.price
-            total += item.total 
+            cantidad =  parseInt(cantidad) + parseInt(item.cantidad)
+            precio =parseInt(precio) + parseInt(item.price) 
+            total = parseInt(total) + parseInt(item.total)
         })
-        cantidadTotalProductos.innerText = cantidad
-        PrecioFinal.innerHTML = total 
+        cantidadTotalProductos.innerText = parseInt(cantidad)
+      
+        PrecioFinal.innerHTML = parseInt(total)
       
     
         if(cantidad == 0){
