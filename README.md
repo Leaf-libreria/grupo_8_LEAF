@@ -45,8 +45,7 @@ Realizar, en equipo con la metodología SCRUM, un e-commerce desde la maquetaci�
 
 ***
 ## Vista previa:
-
-<video src="./design/demo-LEAF.mp4" alt="Vista previa de LEAF librería" muted controls poster="./design/leaf-poster.jpeg" width="300"/></video>
+<img src="./design/leaf-poster.jpeg" alt="Vista previa LEAF librería" width="400"/>
 
 ***
 ## Instalación del proyecto
