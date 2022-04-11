@@ -6,6 +6,7 @@
 
 1. **[Objetivo](#objetivo)**
 1. **[Tecnologías utilizadas](#tecnologías-utilizadas)**
+1. **[Vista previa](#vista-previa)**
 1. **[Instalación del proyecto](#instalación-del-proyecto)**
 1. **[Instalación de la base de datos](#instalación-de-la-base-de-datos)**
 1. **[Rutas](#rutas)**
@@ -41,6 +42,11 @@ Realizar, en equipo con la metodología SCRUM, un e-commerce desde la maquetaci�
 <!-- BOOTSTRAP -->
 <a href="https://getbootstrap.com" target="_blank" data-bs-toggle="tooltip" title="Bootstrap"> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="bootstrap"/></a>
 </p>
+
+***
+## Vista previa:
+
+<video src="./design/demo-LEAF.mp4" alt="Vista previa de LEAF librería" muted controls poster="./design/leaf-poster.jpeg" width="300"/></video>
 
 ***
 ## Instalación del proyecto
